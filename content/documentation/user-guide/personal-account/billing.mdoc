@@ -1,0 +1,160 @@
+---
+title: Personal Billing
+description: >-
+  Manage your personal subscription, payment methods, and billing information.
+order: 7
+categories:
+  - user-guide
+tags:
+  - personal-account
+status: published
+collapsible: false
+collapsed: false
+---
+Manage your personal subscription, payment methods, and billing information.
+
+> **Note:** Personal billing is only available if enabled for your organization (`enablePersonalAccountBilling` flag). If you don't see billing options in the sidebar, contact your administrator.
+
+## Accessing Billing
+
+1. Click **Billing** in the sidebar under Settings
+2. View your subscription and payment details
+3. The URL is `/home/billing`
+
+## No Active Subscription
+
+If you don't have an active subscription or order, you'll see a checkout form:
+
+### Subscribing to a Plan
+
+1. Review the available plans displayed on the checkout form
+2. Select a plan that fits your needs
+3. Complete the checkout process through the billing portal
+4. Once completed, you'll be redirected back to the billing page
+
+## Current Subscription
+
+If you have an active subscription, you'll see subscription information:
+
+### Subscription Card
+
+The subscription card displays:
+
+| Field | Description |
+|-------|-------------|
+| **Plan Name** | Your current subscription tier |
+| **Plan Details** | Features included in your plan |
+| **Status** | Active, Canceled, or Past Due |
+| **Price** | Your billing amount and interval |
+
+## Lifetime Orders
+
+If you purchased a lifetime plan (one-time purchase), you'll see a lifetime order card instead:
+
+| Field | Description |
+|-------|-------------|
+| **Product Name** | The product you purchased |
+| **Order Details** | What's included |
+| **Status** | Order status |
+
+## Billing Portal
+
+### Accessing the Portal
+
+If you have an active customer ID, you can access the full billing portal:
+
+1. Find the **Billing Portal** card
+2. Click **Manage Billing**
+3. You'll be redirected to the payment provider's portal
+
+### Portal Features
+
+The external billing portal allows you to:
+
+- Update payment methods
+- Change your plan
+- View billing history
+- Download invoices
+- Update billing address
+- Cancel subscription
+
+## Checkout Flow
+
+### New Subscription
+
+1. If no billing data exists, the checkout form is displayed
+2. Select your desired plan
+3. You'll be redirected to the payment provider
+4. Complete payment
+5. Return to `/home/billing/return` which processes your subscription
+6. Redirected back to the main billing page with your active subscription
+
+## Subscription Status
+
+| Status | Description |
+|--------|-------------|
+| **Active** | Subscription is current and valid |
+| **Canceled** | Subscription will end at period end |
+| **Past Due** | Payment failed, action required |
+
+## Managing Your Subscription
+
+All subscription management is done through the billing portal:
+
+### Changing Plans
+
+1. Access the billing portal
+2. Navigate to subscription management
+3. Select a new plan
+4. Confirm the change
+
+### Canceling Subscription
+
+1. Access the billing portal
+2. Navigate to subscription management
+3. Select cancel subscription
+4. Confirm cancellation
+
+> **Note:** You'll retain access until the end of your current billing period.
+
+## Feature Availability
+
+Personal billing depends on the configuration:
+
+- **Feature Flag:** `enablePersonalAccountBilling`
+- **Default:** `false`
+
+If disabled:
+- The billing link won't appear in the navigation
+- The billing page won't be accessible
+
+## Troubleshooting
+
+### Billing Page Not Visible
+
+If you don't see the billing option in the sidebar:
+
+- Personal account billing may be disabled for your organization
+- Check with your administrator
+
+### Payment Failed
+
+If a payment fails:
+
+1. Access the billing portal
+2. Update your payment method
+3. Retry the payment
+
+### Subscription Issues
+
+For subscription issues:
+
+1. Access the billing portal
+2. Review your subscription status
+3. Contact support if needed
+
+## Related Topics
+
+- Team Billing - Team subscription management
+- Profile Settings - Account information
+- Billing Issues - Common problems

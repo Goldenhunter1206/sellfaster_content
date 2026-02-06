@@ -1,0 +1,195 @@
+---
+title: Security Settings
+description: >-
+  Manage your account security including password, multi-factor authentication, and linked accounts.
+order: 6
+categories:
+  - user-guide
+tags:
+  - personal-account
+status: published
+collapsible: false
+collapsed: false
+---
+Manage your account security including password, multi-factor authentication, and linked accounts.
+
+## Accessing Security Settings
+
+Security settings are part of your profile settings:
+
+1. Go to **Profile** in the sidebar
+2. Navigate to the security-related sections
+3. The URL is `/home/settings`
+
+## Password Management
+
+### Changing Your Password
+
+If password authentication is enabled:
+
+1. Find the **Password** section
+2. Enter your current password
+3. Enter your new password
+4. Confirm the new password
+5. Click **Update Password**
+
+> **Note:** Password change is only available if your organization has password authentication enabled.
+
+### Password Best Practices
+
+- **Use unique passwords** - Don't reuse passwords from other sites
+- **Use a password manager** - Tools like 1Password, LastPass, or Bitwarden
+- **Never share your password** - Support will never ask for it
+
+## Multi-Factor Authentication (MFA)
+
+MFA adds an extra layer of security by requiring a second verification step when signing in.
+
+### Viewing MFA Factors
+
+The Multi-Factor Authentication section displays:
+
+- A table of enrolled factors
+- Factor name (friendly name)
+- Factor type (e.g., TOTP)
+- Factor status (verified or unverified)
+
+### No Factors Enrolled
+
+If you have no MFA factors enrolled, you'll see an information card encouraging you to set up multi-factor authentication.
+
+### Setting Up MFA (TOTP Authenticator)
+
+1. Find the **Multi-Factor Authentication** section
+2. Click **Setup Authenticator App**
+3. A dialog will open with a QR code
+4. Scan the QR code with your authenticator app:
+   - Google Authenticator
+   - Authy
+   - Microsoft Authenticator
+   - 1Password
+5. Enter the 6-digit code from the app to verify
+6. The factor appears in your enrolled factors table
+
+### Unenrolling an MFA Factor
+
+To remove an MFA factor:
+
+1. Find the factor in your enrolled factors table
+2. Click the **X** button to remove it
+3. A confirmation dialog appears
+4. Confirm the unenrollment
+
+> **Warning:** Removing your MFA factor makes your account less secure.
+
+### Using MFA to Sign In
+
+Once MFA is enabled:
+
+1. Enter your email and password
+2. When prompted, open your authenticator app
+3. Enter the 6-digit code
+4. Click **Verify**
+
+See Setting Up MFA for detailed instructions.
+
+## Linked Accounts
+
+If identity linking is enabled, you can connect multiple sign-in methods to your account.
+
+### Viewing Linked Accounts
+
+The **Linked Accounts** section shows:
+
+- Your current authentication methods
+- Email/Password connection status
+- OAuth provider connections (Google, etc.)
+
+### Linking a New Account
+
+1. Click **Link** next to an available provider
+2. Complete the OAuth flow (sign in with the provider)
+3. The account is now linked
+
+### Unlinking an Account
+
+1. Find the account in your linked list
+2. Click **Unlink** to remove the connection
+3. Confirm the action
+
+> **Note:** You must have at least one sign-in method. You cannot unlink your only authentication method.
+
+### Benefits of Linked Accounts
+
+- **Sign-in flexibility** - Use any linked method to sign in
+- **Account recovery** - Multiple ways to access your account
+- **Convenience** - Use OAuth instead of password
+
+## Email Authentication
+
+### Update Email
+
+To change your email address:
+
+1. Find the **Update Email** section
+2. Enter your new email address
+3. Click **Update Email**
+4. A verification email is sent
+5. Click the link in the email to confirm
+
+### Link Email (if not primary method)
+
+If you signed up with OAuth and want to add email login:
+
+1. Find the **Linked Accounts** section
+2. Click **Link Email** (if available)
+3. Enter the email and password you want to use
+4. Verify through the confirmation email
+
+## Forgot Password
+
+If you've forgotten your password:
+
+1. Go to the sign-in page
+2. Click **Forgot Password**
+3. Enter your email address
+4. Check your email for the reset link
+5. Create a new password
+
+See Password Reset for details.
+
+## Security Recommendations
+
+### Checklist
+
+- Use a strong, unique password
+- Enable multi-factor authentication
+- Review linked accounts periodically
+- Be cautious of phishing attempts
+
+### What to Do If Compromised
+
+If you suspect your account is compromised:
+
+1. **Change your password immediately**
+2. **Review linked accounts** - Remove any you don't recognize
+3. **Enable MFA** if not already
+4. **Contact support** if needed
+
+## Feature Availability
+
+Security features depend on your organization's configuration:
+
+| Feature | Configuration |
+|---------|---------------|
+| Password change | Password auth enabled |
+| MFA enrollment | Always available |
+| Identity linking | Identity linking enabled |
+| Email linking | Email auth enabled |
+
+## Related Topics
+
+- Setting Up MFA - Detailed MFA guide
+- Password Reset - Recover access
+- Signing In - Authentication methods
+- Profile Settings - Account information

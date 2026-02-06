@@ -1,0 +1,265 @@
+---
+title: How to View Commission and Payslips
+description: >-
+  This guide shows you how to view commission data and manage payslips for tracking your earnings.
+order: 5
+categories:
+  - user-guide
+tags:
+  - how-to
+status: published
+collapsible: false
+collapsed: false
+---
+This guide shows you how to view commission data and manage payslips for tracking your earnings.
+
+## Accessing Commission
+
+### Commission Page
+
+Navigate to the commission section:
+
+1. Go to your team account
+2. Navigate to `/home/[team]/commission`
+3. View commission and payslips tabs
+
+## Commission Page Tabs
+
+The commission page has two main tabs:
+
+### Payslips Tab
+
+View and manage payslips (payment records):
+
+- List of all generated payslips
+- Search by description
+- Date range filtering
+- Preview and download options
+- Batch download capability
+
+### Commission Log Tab
+
+View detailed commission entries:
+
+- All commission records
+- Filter by type, status, and date
+- See individual commission amounts
+
+## Viewing Payslips
+
+### Payslips Table
+
+![Payslips Tab](./images/commission-payslips.png)
+*The Payslips tab showing payslip records with date, amount, and description*
+
+The payslips table shows:
+
+| Column | Description |
+|--------|-------------|
+| **Date** | Payslip date |
+| **Amount** | Total payslip amount |
+| **Description** | Content description |
+
+### Payslip Actions
+
+| Action | Description |
+|--------|-------------|
+| **Preview** | View payslip in modal with PDF iframe |
+| **Download** | Download individual payslip as PDF |
+| **Batch Download** | Download selected payslips as ZIP |
+
+### Payslip PDF Content
+
+Each payslip PDF includes:
+
+**Header:**
+- Title
+- Employee name
+- Payslip date
+
+**Commissions Section:**
+- Table with: Sale Date, Type (Earned/Reclaimed), Amount, Address
+- Note for promotion-affected sales
+- Commission subtotal
+
+**Bonus Targets Section:**
+- Table with: Bonus target name, description, bonus amount
+- Bonus subtotal
+
+**Total:**
+- Sum of commissions and bonuses
+
+## Viewing Commission Log
+
+### Commission Table
+
+![Commission Log Tab](./images/commission-log.png)
+*The Commission Log tab showing detailed commission entries with filters*
+
+The commission log displays:
+
+| Column | Description |
+|--------|-------------|
+| **Salesperson** | Team member who earned it |
+| **Product** | Product sold |
+| **Address** | Customer address |
+| **Amount** | Commission amount |
+| **Type** | Earned or Reclaimed |
+| **Status** | Paid or Pending |
+| **Date** | When commission was created |
+
+### Commission Types
+
+| Type | Description |
+|------|-------------|
+| **Earned** | Positive commission from sales |
+| **Reclaimed** | Negative commission (reversed) |
+
+### Commission Filters
+
+Filter the commission log by:
+
+| Filter | Options |
+|--------|---------|
+| **Commission Type** | earned, reclaimed, all |
+| **Payment Status** | paid, unpaid, all |
+| **Promotion Impact** | affected, not_affected, all |
+| **Date Range** | Custom from/to dates |
+
+### Promotion Indicator
+
+Products affected by promotions show a tag indicator in the table.
+
+## Creating Payslips
+
+### Prerequisites
+
+To create payslips:
+- You need `payslips:create` permission
+- Active or trialing subscription required
+
+### Create Payslip Process
+
+1. Click **Create Payslip** button (if you have permission)
+2. Select team members (multi-select or "all")
+3. Set payslip date (cannot be future)
+4. Submit
+
+### What Happens When Creating
+
+1. System fetches unpaid commissions for selected user(s)
+2. Fetches unpaid achieved bonus targets
+3. Calculates total: commissions + bonuses
+4. Creates payslip with content arrays
+5. Marks included commissions as paid
+6. Marks bonus targets as paid
+7. Sends notification to team member
+
+## Filtering Data
+
+### Date Range Filter
+
+Filter both payslips and commissions by date:
+
+1. Set start date (from)
+2. Set end date (to)
+3. Format: ISO date strings
+
+### Pagination
+
+Both tables support pagination:
+- Payslips: 10 items per page
+- Commissions: 20 items per page
+
+### Search
+
+Payslips support search by description (case-insensitive).
+
+## Commission Calculation
+
+### How Commission Is Generated
+
+Commissions are created automatically:
+
+1. **On sale state change**: When sale enters a state with `triggers_commission: true`
+2. **On commission reclaim**: When sale enters a state with `reclaims_commission: true`
+3. **On new sale**: If initial state triggers commission
+
+### Commission Amount
+
+The system uses:
+1. `sale.commission_amount` if set (includes promotion adjustments)
+2. Otherwise, falls back to `product.commission` (base amount)
+
+### Tracking
+
+- Each commission links to a sale, user, and optionally a bonus target
+- Unique constraint: one commission per sale per type
+- Paid commissions link to a payslip
+
+## Best Practices
+
+### Regular Review
+
+1. **Check commission log** - Verify sales are generating commissions
+2. **Review before payslip** - Confirm amounts are correct
+3. **Track paid vs unpaid** - Know what's been paid out
+
+### Record Keeping
+
+1. Download payslips for your records
+2. Use batch download for multiple payslips
+3. Keep records for tax purposes
+
+### Verification
+
+Before relying on data:
+
+1. Verify sale count matches expected
+2. Check commission rates on products
+3. Review any promotion adjustments
+4. Report discrepancies to your administrator
+
+## Troubleshooting
+
+### Commission Not Showing
+
+If commission is missing:
+
+1. Check sale state - must be a commission-triggering state
+2. Verify product has commission configured
+3. Check the date range filter
+4. Verify sale model configuration
+
+### Wrong Amount
+
+If amounts seem incorrect:
+
+1. Review sale details
+2. Check product commission rate
+3. Look for promotion adjustments (`affected_by_promotion` flag)
+4. Compare to sale model rules
+
+### Can't Create Payslip
+
+If you can't create payslips:
+
+1. Verify you have `payslips:create` permission
+2. Check subscription status (must be active or trialing)
+3. Contact your administrator
+
+### Payslip Won't Download
+
+If download fails:
+
+1. Try a smaller date range
+2. Clear browser cache
+3. Try a different browser
+4. Check for popup blockers
+
+## Related Topics
+
+- Commission - Commission overview
+- Sale Models - Commission rules
+- Recording Sales - Creating sales
+- Team Sales - Sales management

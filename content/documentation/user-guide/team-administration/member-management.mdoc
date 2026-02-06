@@ -1,0 +1,201 @@
+---
+title: Member Management
+description: >-
+  Manage your team members, send invitations, assign roles, and control access permissions.
+order: 1
+categories:
+  - user-guide
+tags:
+  - team-administration
+status: published
+collapsible: false
+collapsed: false
+---
+Manage your team members, send invitations, assign roles, and control access permissions.
+
+## Accessing Member Management
+
+1. Ensure you're in your team account
+2. Click **Members** in the sidebar
+3. The URL is `/home/[team]/members`
+
+## Team Members List
+
+### Viewing Members
+
+The members table displays:
+
+| Column | Description |
+|--------|-------------|
+| **Name** | Member's display name (shows "You" badge for your own entry) |
+| **Email** | Account email |
+| **Role** | Role badge (owner, member, or custom role) |
+| **Joined** | Date they joined the team |
+| **Actions** | Dropdown menu with available actions |
+
+### Role Badges
+
+Roles are displayed with color-coded badges:
+- **Owner** - No background color
+- **Member** - Blue background
+- **Custom Roles** - Outlined style
+
+## Inviting New Members
+
+### Sending Invitations
+
+1. Click **Invite Members** button
+2. Enter email address
+3. Select role for invitee
+4. Click **Send Invitation**
+
+You can invite up to 5 members at once:
+1. Click **Add another** to add more email fields
+2. Each invitee receives the role you select
+3. Click **Send Invitations**
+
+> **Note:** Inviting members requires the `invites.manage` permission.
+
+### Role Selection
+
+When inviting, you can only assign roles at or below your own hierarchy level. This prevents members from granting permissions they don't have themselves.
+
+### Invitation Email
+
+Invitees receive an email with:
+- Team name
+- Accept invitation link
+- The link to create an account or sign in
+
+## Pending Invitations
+
+### Viewing Invitations
+
+The invitations table shows outstanding invitations:
+
+| Column | Description |
+|--------|-------------|
+| **Email** | Invited email address |
+| **Role** | Role that will be granted |
+| **Invited At** | When the invitation was sent |
+| **Expires At** | When the invitation expires |
+| **Status** | Active (green) or Expired (warning) |
+| **Actions** | Available actions |
+
+### Managing Invitations
+
+Actions available for pending invitations:
+
+| Action | Description | Requirement |
+|--------|-------------|-------------|
+| **Update Invitation** | Change the assigned role | `roles.manage` permission |
+| **Renew Invitation** | Resend an expired invitation | `roles.manage` permission, invitation must be expired |
+| **Remove Invitation** | Cancel the invitation | `roles.manage` permission |
+
+## Member Roles
+
+### Role Hierarchy
+
+Roles have a hierarchy level that determines permissions. Higher hierarchy levels grant more access.
+
+### Changing Roles
+
+To change a member's role:
+
+1. Find the member in the list
+2. Click the actions menu (three dots)
+3. Select **Update Role**
+4. Choose the new role
+5. Confirm
+
+**Restrictions:**
+- You cannot change your own role
+- You cannot change the primary owner's role
+- You can only assign roles at or below your hierarchy level
+- Primary owners can change any role
+
+## Transferring Ownership
+
+Primary owners can transfer team ownership:
+
+1. Find the member to receive ownership
+2. Click the actions menu
+3. Select **Transfer Ownership**
+4. Read the warning disclaimer
+5. Complete OTP verification
+6. Confirm transfer
+
+> **Warning:** After transfer, you lose owner privileges and the new owner gains full control of the team.
+
+## Removing Members
+
+### Remove from Team
+
+To remove a member:
+
+1. Find the member
+2. Click the actions menu
+3. Select **Remove Member**
+4. Confirm removal
+
+**Restrictions:**
+- You cannot remove yourself (use Leave Team in Settings instead)
+- You cannot remove the primary owner
+- You can only remove members with lower or equal role hierarchy
+- Primary owners can remove any member
+
+### What Happens When Removed
+
+- Member loses access immediately
+- Their content (addresses, sales, etc.) remains with the team
+- Historical records are preserved
+- They can be invited back later
+
+## Permissions Required
+
+| Action | Permission Needed |
+|--------|-------------------|
+| View members | Team membership |
+| Invite members | `invites.manage` |
+| Change roles | `roles.manage` (or primary owner) |
+| Remove members | `roles.manage` (or primary owner) |
+| Transfer ownership | Primary owner only |
+
+## Troubleshooting
+
+### Invitation Not Received
+
+If invitee doesn't receive the email:
+1. Check their spam folder
+2. Verify the email address is correct
+3. Resend the invitation
+4. Try a different email address
+
+### Can't Change Role
+
+If you can't modify a role:
+1. Verify you have the `roles.manage` permission
+2. You cannot change your own role
+3. You cannot demote the primary owner
+4. Check if the target role is above your hierarchy level
+
+### Can't Remove Member
+
+If you can't remove a member:
+1. You cannot remove yourself
+2. You cannot remove the primary owner
+3. The member may have a higher role hierarchy than you
+
+### Member Can't Access Team
+
+If a member can't access the team:
+1. Check their invitation status (accepted vs pending)
+2. Verify they're using the correct email to sign in
+3. Check they haven't been removed
+4. Have them sign out and back in
+
+## Related Topics
+
+- Team Settings - Team configuration
+- Team Overview - Team basics
+- Inviting Members - Detailed how-to

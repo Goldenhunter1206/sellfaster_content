@@ -1,0 +1,169 @@
+---
+title: Project Sales
+description: >-
+  Track and manage sales made within a specific project. View sales, filter by various criteria, and manage sale statuses.
+order: 2
+categories:
+  - user-guide
+tags:
+  - team-account
+status: published
+collapsible: false
+collapsed: false
+---
+Track and manage sales made within a specific project. View sales, filter by various criteria, and manage sale statuses.
+
+## Accessing Project Sales
+
+1. Navigate to your project
+2. Click the **Sales** tab
+3. View all sales from this project
+
+## Sales Table
+
+### Table Columns
+
+The sales table shows project sales with:
+
+| Column | Description |
+|--------|-------------|
+| **Order #** | Order number (or "Standalone") |
+| **Sale Date** | When the sale was recorded |
+| **Address** | Location of the sale |
+| **Items** | Number of items in the order |
+| **Status** | Current sale state |
+| **Salesperson** | Who made the sale |
+
+### Row Navigation
+
+Click any row to view the full sale details.
+
+## Filtering Sales
+
+### Available Filters
+
+| Filter | Description |
+|--------|-------------|
+| **Search** | Search addresses or products |
+| **State** | Filter by sale state |
+| **Zone** | Filter by address zone |
+
+### Using Filters
+
+1. Enter search text to filter by address or product
+2. Select a state from the dropdown
+3. Select a zone to see only sales from that zone
+4. Click **Clear Filters** to reset
+
+## Sale Details
+
+Click a sale to view its detail page showing:
+
+- Sale number and product
+- Price information
+- Sale date and status
+- Salesperson
+- Commission amount and paid status
+- Address information
+- Applied promotions (if any)
+- Commission entries
+- Status history
+
+See Team Sales for more details on sale management.
+
+## Managing Sales
+
+### Transitioning Sale Status
+
+From the sales table, you can transition sale statuses:
+
+1. Click the actions menu on a sale row
+2. Select a transition option
+3. The status updates immediately
+
+### Bulk State Transitions
+
+To transition multiple sales at once:
+
+1. Apply filters to show the sales you want to transition
+2. Click **Bulk Transition**
+3. Select the target state
+4. All visible sales will transition
+
+> **Note:** Only sales with valid transitions will be updated.
+
+## Recording Sales
+
+Sales are typically recorded from:
+
+1. **Address detail page** - When interacting with a specific address
+2. **During interactions** - As part of recording an interaction
+
+See Recording Sales for complete instructions.
+
+## Commission Tracking
+
+Project sales contribute to commissions:
+
+- Commission calculated based on product commission amounts
+- Visible on sale detail page
+- Reflected in Commission reports
+
+## Related to Bonus Targets
+
+Project sales may contribute to:
+- Project-scoped bonus targets
+- Salesperson bonus targets
+- Account-wide bonus targets
+
+Progress updates automatically when sales reach qualifying states.
+
+## Permissions
+
+Sales management requires appropriate permissions:
+
+| Action | Permission Required |
+|--------|-------------------|
+| View sales | Basic team member access |
+| Update sale status | `sales:update` permission |
+| Bulk transition | `sales:update` permission |
+
+## Best Practices
+
+### Recording Sales
+
+1. **Record promptly** - Enter sales when they happen
+2. **Include notes** - Add context for future reference
+3. **Verify details** - Check product, price, and address
+
+### Tracking Progress
+
+1. **Use filters** - Focus on specific states or zones
+2. **Review regularly** - Check sales status
+3. **Monitor commission** - Track earnings from project sales
+
+## Troubleshooting
+
+### Sale Not Appearing
+
+If a sale isn't showing:
+1. Check the state filter
+2. Check the zone filter
+3. Clear all filters
+4. Verify the sale is linked to this project
+5. Refresh the page
+
+### Status Transition Not Available
+
+If you can't transition a sale:
+1. Check the sale model configuration
+2. Verify the transition is allowed from current state
+3. Ensure you have `sales:update` permission
+
+## Related Topics
+
+- Recording Sales - How to record sales
+- Team Sales - All team sales
+- Commission - Earnings tracking
+- Project Overview - Project management
+- Sale Models - Workflow configuration

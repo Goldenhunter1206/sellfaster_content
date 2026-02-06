@@ -1,0 +1,286 @@
+---
+title: How to Invite Team Members
+description: >-
+  This guide shows you how to invite new members to join your team.
+order: 6
+categories:
+  - user-guide
+tags:
+  - how-to
+status: published
+collapsible: false
+collapsed: false
+---
+This guide shows you how to invite new members to join your team.
+
+## Prerequisites
+
+Before inviting members:
+
+1. You must have the `invites.manage` permission
+2. Be in the team account
+3. Know the email addresses to invite
+
+## Inviting via Email
+
+### Step-by-Step
+
+1. **Navigate to Members**
+   - Go to your team account
+   - Click **Members** in the sidebar
+   - Or go to `/home/[team]/members`
+
+![Members Page](./images/members-page.png)
+*The Members page showing team members and the Invite Members button*
+
+2. **Click Invite**
+   - Find the **Invite Member** button
+   - Invitation dialog opens
+
+![Invite Members Dialog](./images/invite-members-dialog.png)
+*The invite dialog with email input, role selection, and option to add multiple invites*
+
+3. **Enter Email**
+   - Type the person's email address
+   - Double-check for typos
+
+4. **Select Role**
+   - Choose the appropriate role from the dropdown
+   - You can only assign roles at or below your own hierarchy level
+
+5. **Send Invitation**
+   - Click **Send** or **Invite**
+   - Invitation email sent immediately
+
+## Inviting Multiple Members
+
+### Bulk Invite
+
+Invite up to 5 people at once:
+
+1. Click **Invite Members**
+2. Add multiple email/role pairs:
+   - Click "Add another" to add more invitations
+   - Maximum of 5 invitations per submission
+3. Each invitation gets its own email and role selection
+4. No duplicate emails allowed in a single batch
+5. Send invitations
+
+## Understanding Roles
+
+### Role Hierarchy
+
+Roles have hierarchy levels. You can only invite members to roles at or below your own level.
+
+The system checks:
+- `has_permission` - Do you have `invites.manage` permission?
+- `has_more_elevated_role` - Is your role higher than the invited role?
+- `has_same_role_hierarchy_level` - Are you at the same level?
+
+### Available Roles
+
+Roles are fetched dynamically based on:
+- Your current role's hierarchy level
+- Roles configured for your account
+
+Common roles include:
+- **Admin** - Can manage team settings and invite members
+- **Member** - Standard access to team features
+
+## The Invitation Email
+
+### What They Receive
+
+Invitees get an email with:
+- Your team name
+- Invitation link with unique token
+- Instructions to accept
+
+### Invitation Expiration
+
+- Invitations expire after **7 days** by default
+- Expired invitations can be renewed by administrators
+
+## Managing Pending Invitations
+
+### Viewing Pending
+
+See outstanding invitations:
+
+1. Go to **Members** page
+2. Find the **Pending Invites** section
+3. View all sent invitations
+
+### Invitation Table Columns
+
+| Column | Description |
+|--------|-------------|
+| **Email** | Invited email address |
+| **Role** | Assigned role |
+| **Invited At** | When invitation was sent |
+| **Expires At** | Expiration date |
+| **Status** | Active or Expired |
+| **Actions** | Update, Delete, Renew |
+
+### Updating Invitations
+
+Change the invited user's role:
+
+1. Find the pending invitation
+2. Click **Update** or the edit action
+3. Select a new role
+4. Save changes
+
+### Renewing Invitations
+
+If an invitation expired:
+
+1. Find the expired invitation
+2. Click **Renew**
+3. Expiration extended by 7 days
+4. Invitee can now accept again
+
+### Deleting Invitations
+
+To revoke an invitation:
+
+1. Find the pending invitation
+2. Click **Delete** or the delete action
+3. Confirm deletion
+4. Invitation token becomes invalid
+
+## Accepting Invitations
+
+### What Happens for Invitees
+
+When someone receives your invitation:
+
+1. **Click link** in email
+2. **Sign in or Sign up**
+   - Existing users sign in
+   - New users create account
+3. **Accept invitation**
+   - Added to your team
+   - Assigned the selected role
+
+### New Users
+
+If the invitee doesn't have an account:
+
+1. They click the invitation link
+2. Redirected to sign-up
+3. Create their account
+4. Automatically joined to your team
+
+### Existing Users
+
+If they already have an account:
+
+1. They click the invitation link
+2. Sign in if needed
+3. Accept the invitation
+4. Added to your team
+
+## Database Constraints
+
+### Business Rules
+
+- Unique constraint on (email, account_id) - prevents duplicate invitations
+- Only team accounts can have invitations (not personal accounts)
+- Token-based acceptance with validation
+
+## Security Features
+
+### Permission Checks
+
+All invitation operations validate:
+- `invites.manage` permission required
+- Role hierarchy validation
+- Account membership verification
+
+### Token Security
+
+- Each invitation has a unique token (UUID)
+- Token validated on acceptance
+- Token deleted after successful acceptance
+
+## Best Practices
+
+### Before Inviting
+
+1. **Verify email** - Ensure correct address
+2. **Choose role carefully** - Appropriate access level
+3. **Consider hierarchy** - Can you assign that role?
+
+### After Inviting
+
+1. **Notify them** - Tell them to expect the email
+2. **Check spam** - Remind to check spam folder
+3. **Follow up** - If not accepted after a few days
+4. **Renew if needed** - Before expiration
+
+### Security
+
+1. **Audit regularly** - Review team membership
+2. **Remove departed** - When people leave
+3. **Role review** - Ensure roles are appropriate
+
+## Troubleshooting
+
+### Invitation Not Received
+
+If they didn't get the email:
+
+1. Check the email address is correct
+2. Ask them to check spam/junk
+3. Delete and resend the invitation
+4. Try a different email address
+
+### Can't Accept Invitation
+
+If they can't accept:
+
+1. Ensure link hasn't expired
+2. Check they're using correct email
+3. Try a different browser
+4. Delete and send new invitation
+
+### Wrong Role Assigned
+
+If you selected wrong role:
+
+1. For pending invitations: Update the invitation
+2. After they join: Change their role in Members settings
+
+### Can't Send Invitations
+
+If you can't invite:
+
+1. Verify you have `invites.manage` permission
+2. Check you're not trying to assign a higher role than yours
+3. Verify account subscription status
+
+## After They Join
+
+### Verifying Membership
+
+Confirm they joined:
+
+1. Go to Members page
+2. Find their name in the active members list
+3. Verify their role is correct
+
+### Changing Roles
+
+To change a member's role after joining:
+
+1. Go to Members page
+2. Find the member
+3. Use the role selector to change their role
+4. Save changes
+
+## Related Topics
+
+- Member Management - Full member management
+- Team Overview - Team basics
+- Team Settings - Team configuration

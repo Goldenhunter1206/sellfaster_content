@@ -1,0 +1,183 @@
+---
+title: Team Settings
+description: >-
+  Configure your team's basic information and manage team lifecycle.
+order: 0
+categories:
+  - user-guide
+tags:
+  - team-administration
+status: published
+collapsible: false
+collapsed: false
+---
+Configure your team's basic information and manage team lifecycle.
+
+## Accessing Team Settings
+
+1. Ensure you're in your team account
+2. Click **Settings** in the sidebar
+3. The URL is `/home/[team]/settings`
+
+> **Note:** Access to team settings requires the `settings.manage` permission, typically granted to team owners and administrators.
+
+## Team Information
+
+### Team Logo
+
+Upload or change your team's logo:
+
+1. Click the current logo/placeholder
+2. Click **Upload**
+3. Select an image file
+4. Save
+
+The logo is stored in Supabase storage and appears in the account switcher and team pages.
+
+### Team Name
+
+Update your team's name:
+
+1. Find the **Team Name** field
+2. Enter the new name
+3. Click **Save**
+
+The team name appears:
+- In the account switcher
+- On team pages
+- In notifications
+
+### Team Slug
+
+The team slug is used in URLs:
+
+```
+/home/your-team-slug/
+```
+
+The slug field only appears if your team name contains non-Latin characters. To change the slug:
+
+1. Find the **Team URL** field (appears only when needed)
+2. Enter new slug (lowercase letters, numbers, and hyphens only)
+3. Save
+
+> **Note:** Changing the slug will automatically redirect you to the new URL. Existing bookmarks and shared links using the old slug will no longer work.
+
+## Team Email Settings
+
+Configure team email for outbound communications:
+
+### Basic Email Settings
+
+| Field | Description |
+|-------|-------------|
+| **From Email** | Email address used as sender (required) |
+| **From Name** | Display name for outgoing emails (optional) |
+| **Email Signature** | Signature appended to emails (optional) |
+
+### SMTP Configuration
+
+Configure your outgoing email server:
+
+| Field | Default | Description |
+|-------|---------|-------------|
+| **Host** | - | SMTP server hostname (required) |
+| **Port** | 587 | SMTP port (required) |
+| **Use TLS** | Off | Enable TLS encryption |
+| **Username** | - | SMTP authentication username |
+| **Password** | - | SMTP authentication password |
+
+### IMAP Configuration
+
+Configure your incoming email server:
+
+| Field | Default | Description |
+|-------|---------|-------------|
+| **Host** | - | IMAP server hostname (required) |
+| **Port** | 993 | IMAP port (required) |
+| **Use TLS** | On | Enable TLS encryption |
+| **Username** | - | IMAP authentication username |
+| **Password** | - | IMAP authentication password |
+
+> **Note:** When updating email settings, you can leave password fields blank to keep the existing password. A placeholder will indicate if a password is already set.
+
+## Danger Zone
+
+### Leaving the Team
+
+Non-owner members can leave the team:
+
+1. Navigate to the Danger Zone section
+2. Click **Leave Team**
+3. Type "LEAVE" in the confirmation field
+4. Click **Confirm**
+
+After leaving:
+- You lose access to the team immediately
+- Your content remains with the team
+- You can be invited back later
+
+> **Note:** Primary owners cannot leave a team. Transfer ownership first if you need to leave.
+
+### Deleting the Team
+
+Primary owners can delete the entire team:
+
+1. Navigate to Danger Zone
+2. Click **Delete Team**
+3. Read the warning
+4. Complete OTP verification (a 6-digit code will be sent to your email)
+5. Enter the code and confirm deletion
+
+> **Warning:** Deleting a team permanently removes all data including:
+> - All team members
+> - All projects
+> - All addresses and interactions
+> - All sales and commission data
+> - All configuration
+
+This action cannot be undone.
+
+> **Note:** The delete team option is only available if the feature is enabled for your organization.
+
+## Saving Changes
+
+Changes to team settings are saved when you click the **Save** button. You'll see a confirmation notification when changes are saved successfully.
+
+## Troubleshooting
+
+### Can't Access Settings
+
+If you can't access settings:
+1. Verify you have the `settings.manage` permission
+2. Check your role in the Members page
+3. Contact your team owner
+
+### Changes Not Saving
+
+If changes don't save:
+1. Check for validation error messages
+2. Verify all required fields are filled
+3. Check your internet connection
+4. Try refreshing the page
+
+### Logo Won't Upload
+
+If logo upload fails:
+1. Check file size (must be under the limit)
+2. Verify file format (JPG, PNG supported)
+3. Try a different image
+4. Clear browser cache
+
+### Can't Delete Team
+
+If you can't delete the team:
+1. Verify you are the primary owner
+2. Check if the feature is enabled for your organization
+3. Complete the OTP verification correctly
+
+## Related Topics
+
+- Member Management - Managing team members
+- Billing - Team subscription
+- Team Overview - Team basics

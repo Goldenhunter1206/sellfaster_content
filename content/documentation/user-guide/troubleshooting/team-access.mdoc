@@ -1,0 +1,286 @@
+---
+title: Troubleshooting Team Access
+description: >-
+  Solutions for problems accessing team accounts, permissions, and team-related features.
+order: 1
+categories:
+  - user-guide
+tags:
+  - troubleshooting
+status: published
+collapsible: false
+collapsed: false
+---
+Solutions for problems accessing team accounts, permissions, and team-related features.
+
+## Can't Access Team
+
+### Team Not Appearing
+
+**Symptom:** Team doesn't show in account switcher
+
+**Solutions:**
+
+1. **Check invitation** - Did you accept the invitation?
+2. **Verify email** - Used same email as invitation?
+3. **Refresh page** - May need to reload
+4. **Sign out and back in** - Reset your session
+5. **Contact team admin** - Verify your membership
+
+### Invitation Not Received
+
+**Symptom:** Never got team invitation email
+
+**Solutions:**
+
+1. **Check spam folder** - Often filtered there
+2. **Verify email address** - Confirm with inviter
+3. **Request resend** - Ask admin to resend
+4. **Check company email** - May go to work email
+
+### Can't Accept Invitation
+
+**Symptom:** Invitation link doesn't work
+
+**Solutions:**
+
+1. **Check expiration** - Invitations expire
+2. **Already accepted** - May already be a member
+3. **Correct account** - Use the email that was invited
+4. **Request new invite** - If link expired
+
+### Removed from Team
+
+**Symptom:** Had access, now don't
+
+**Possible causes:**
+
+1. **Removed by admin** - Check with team owner
+2. **Account issue** - Your account may have problems
+3. **Team deleted** - Team may no longer exist
+
+**Solution:** Contact team owner or admin
+
+## Permission Problems
+
+### "Access Denied" Error
+
+**Symptom:** Can't access a feature you could before
+
+**Solutions:**
+
+1. **Check your role** - Role may have changed
+2. **Feature restricted** - May require higher role
+3. **Contact admin** - Request appropriate access
+
+### Can't Perform Action
+
+**Symptom:** Button disabled or action blocked
+
+**Solutions:**
+
+1. **Verify permissions** - Check your role
+2. **Check ownership** - Some actions need owner
+3. **Review requirements** - Action may have prerequisites
+
+### Role Changed Unexpectedly
+
+**Symptom:** Role different than expected
+
+**Solutions:**
+
+1. **Check with admin** - Understand the change
+2. **Request role change** - If you need different access
+
+## Common Permission Issues
+
+### Can't Invite Members
+
+**Symptom:** Can't send team invitations
+
+**Cause:** Only users with the `invites.manage` permission can send invitations. Additionally, you can only invite users to roles at your level or below.
+
+**Solution:**
+- Check your role (Owner, Manager, and Member all have `invites.manage` by default)
+- If inviting to a higher role, ask someone with that role to send the invitation
+- Contact your team owner if you need elevated permissions
+
+### Can't Access Settings
+
+**Symptom:** Can't view or change team settings
+
+**Cause:** Settings require the `settings.manage` permission
+
+**Solution:**
+- Contact team owner or manager
+- Request appropriate role if needed
+
+### Can't See Billing
+
+**Symptom:** Billing option not visible or accessible
+
+**Cause:** Billing requires the `billing.manage` permission, which is only granted to the Owner role by default. Managers do not have billing access.
+
+**Solution:** Contact the team owner for billing matters
+
+### Can't See Audit Logs
+
+**Symptom:** Audit option not visible
+
+**Cause:** Audit logs are restricted to users with the Owner role only
+
+**Solution:** Only owners can view audit logs - contact the team owner
+
+## Project Access Issues
+
+### Can't Access Project
+
+**Symptom:** Project not visible or accessible
+
+**Solutions:**
+
+1. **Check your role** - Project access is based on your team role, not per-project assignment
+2. **Verify team membership** - Ensure you're a member of the team that owns the project
+3. **Contact team owner or manager** - Request appropriate role access
+
+### Can't Edit in Project
+
+**Symptom:** Can view but not edit
+
+**Solutions:**
+
+1. **Check your team role** - Members have limited editing permissions
+2. **Request role upgrade** - Contact team owner or manager for Manager role if you need edit access
+
+## Data Visibility Issues
+
+### Can't See All Addresses
+
+**Symptom:** Fewer addresses than expected
+
+**Possible causes:**
+
+1. **Filters applied** - Check and clear filters
+2. **Assignment** - May only see assigned addresses
+3. **Project scope** - Viewing wrong project
+
+**Solutions:**
+
+1. Clear all filters
+2. Check assignment filter
+3. Switch projects
+
+### Can't See Team Members' Data
+
+**Symptom:** Can't view others' work
+
+**Cause:** May be role-based restriction
+
+**Solution:** Contact admin to understand access policy
+
+## Joining Issues
+
+### Can't Join Team
+
+**Symptom:** Unable to complete joining process
+
+**Solutions:**
+
+1. **Verify invitation** - Valid and not expired
+2. **Correct email** - Using invited email
+3. **Account issues** - Your account may have restrictions
+4. **Contact admin** - For manual resolution
+
+### Already a Member Error
+
+**Symptom:** Says you're already a member but can't access
+
+**Solutions:**
+
+1. **Refresh browser** - May be cached state
+2. **Check account switcher** - Team may be there
+3. **Sign out and in** - Reset session
+4. **Contact admin** - To investigate
+
+## Leaving Team Issues
+
+### Can't Leave Team
+
+**Symptom:** No option to leave
+
+**Possible causes:**
+
+1. **Primary owner can't leave** - The primary owner (account creator) must transfer ownership first or delete the team
+2. **Look in settings** - Option may be in team settings
+
+### Accidentally Left Team
+
+**Symptom:** Left team by mistake
+
+**Solution:**
+1. Contact team owner or manager
+2. Request new invitation
+3. Accept and rejoin
+
+## Role and Permission Reference
+
+### Understanding Roles
+
+The system uses three roles with a hierarchy (higher = more access):
+
+| Role | Hierarchy | General Access |
+|------|-----------|----------------|
+| **Owner** | 1 (highest) | Full access to everything including billing and audit logs |
+| **Manager** | 2 | Manage team, members, settings, and content - but NO billing access |
+| **Member** | 3 (lowest) | Limited permissions - can manage settings and invitations |
+
+### Permission Matrix
+
+| Permission | Owner | Manager | Member |
+|------------|-------|---------|--------|
+| `roles.manage` | ✓ | ✓ | ✗ |
+| `billing.manage` | ✓ | ✗ | ✗ |
+| `settings.manage` | ✓ | ✓ | ✓ |
+| `members.manage` | ✓ | ✓ | ✗ |
+| `invites.manage` | ✓ | ✓ | ✓ |
+| `customfields.manage` | ✓ | ✓ | ✗ |
+| Entity permissions (projects, sales, addresses, etc.) | ✓ | ✓ | ✗ |
+
+### Action Matrix
+
+| Action | Owner | Manager | Member |
+|--------|-------|---------|--------|
+| View content | ✓ | ✓ | ✓ |
+| Create/edit content | ✓ | ✓ | Limited |
+| Invite members | ✓ | ✓ | ✓ |
+| Team settings | ✓ | ✓ | ✓ |
+| Billing | ✓ | ✗ | ✗ |
+| Audit logs | ✓ | ✗ | ✗ |
+| Delete team | Primary Owner only | ✗ | ✗ |
+
+**Note:** Only the **primary owner** (the user who created the account) can delete the team. This requires OTP verification.
+
+## Getting Help
+
+### Before Contacting Admin
+
+Document:
+1. What you're trying to access
+2. Error message (if any)
+3. Your role in the team
+4. What changed recently
+
+### Contacting Support
+
+If team admin can't help:
+1. Gather account details
+2. Document the issue
+3. Contact support
+4. Include team name and your email
+
+## Related Topics
+
+- Team Overview - Team basics
+- Member Management - Role management
+- Team Settings - Configuration
+- Account Access - Login issues

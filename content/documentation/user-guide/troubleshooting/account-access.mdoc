@@ -1,0 +1,256 @@
+---
+title: Troubleshooting Account Access
+description: >-
+  Solutions for common problems signing in and accessing your account.
+order: 0
+categories:
+  - user-guide
+tags:
+  - troubleshooting
+status: published
+collapsible: false
+collapsed: false
+---
+Solutions for common problems signing in and accessing your account.
+
+## Can't Sign In
+
+### Wrong Password
+
+**Symptom:** "Invalid credentials" or "Incorrect password" error
+
+**Solutions:**
+
+1. **Check Caps Lock** - Passwords are case-sensitive
+2. **Try Again Carefully** - Re-enter password slowly
+3. **Reset Password** - Use password reset
+
+### Account Not Found
+
+**Symptom:** "Account not found" or "User doesn't exist" error
+
+**Solutions:**
+
+1. **Check email address** - Ensure no typos
+2. **Try different email** - You may have used another
+3. **Check sign-up method** - Did you use Google OAuth instead?
+4. **Create new account** - If you never signed up
+
+### Account Banned
+
+**Symptom:** Unable to sign in after previously having access
+
+**Note:** Account bans are applied by super administrators. If your account has been banned:
+
+1. **Contact support** - To understand why and request review
+2. **Wait for resolution** - Bans can only be lifted by administrators
+
+### OAuth/Google Sign-In Failed
+
+**Symptom:** Google sign-in doesn't work
+
+**Solutions:**
+
+1. **Allow popups** - Browser may be blocking the OAuth window
+2. **Clear cookies** - For the Google domain
+3. **Try incognito** - Test in private window
+4. **Check Google account** - Ensure it's working
+5. **Try different browser** - Browser-specific issues
+6. **Verify OAuth is configured** - Google OAuth requires setup by the application administrator
+
+## Password Issues
+
+### Forgot Password
+
+**Symptom:** Can't remember password
+
+**Solution:**
+
+1. Go to sign-in page
+2. Click **Forgot Password**
+3. Enter your email
+4. Check email for reset link
+5. Create new password
+
+See Password Reset for full guide.
+
+### Reset Email Not Received
+
+**Symptom:** No password reset email arrives
+
+**Solutions:**
+
+1. **Check spam folder** - Often filtered there
+2. **Wait a few minutes** - Email delivery can delay
+3. **Verify email address** - Ensure it's correct
+4. **Request again** - Try another reset request
+5. **Check with admin** - Email may be blocked
+
+### Password Reset Link Expired
+
+**Symptom:** "Link expired" or "otp_expired" when clicking reset
+
+**Solution:**
+
+1. Return to sign-in page
+2. Request a new reset link
+3. Use promptly (link expiration is managed by the authentication system)
+
+### New Password Rejected
+
+**Symptom:** Password doesn't meet requirements
+
+**Solution:**
+
+Password requirements depend on your application's configuration. The standard requirements are:
+- At least 8 characters (maximum 99 characters)
+
+Additional requirements may be enabled:
+- Uppercase letter (A-Z) - if configured
+- Number (0-9) - if configured
+- Special character (!@#$%^&*(),.?":{}|<>) - if configured
+
+Contact your administrator if unsure about password requirements.
+
+## MFA Issues
+
+This application uses TOTP (Time-based One-Time Password) for multi-factor authentication, compatible with authenticator apps like Google Authenticator, Authy, or 1Password.
+
+### Lost Authenticator Access
+
+**Symptom:** Can't access authenticator app
+
+**Solutions:**
+
+1. **Try backup device** - If your authenticator app syncs across devices
+2. **Contact support** - You will need identity verification to remove MFA from your account
+
+**Important:** This application does not support recovery codes. If you lose access to your authenticator app without a backup, you will need to contact support for account recovery, which requires identity verification. Always ensure your authenticator app syncs to multiple devices or maintain a backup of your TOTP setup.
+
+### MFA Code Not Working
+
+**Symptom:** 6-digit code rejected repeatedly
+
+**Solutions:**
+
+1. **Wait for new code** - Codes rotate every 30 seconds
+2. **Check phone time** - Your device clock must be accurate for TOTP to work
+3. **Verify correct account** - Ensure you're using the right entry in your authenticator app
+4. **Re-sync app** - Some authenticator apps have a time sync option
+
+## Session Issues
+
+### Signed Out Unexpectedly
+
+**Symptom:** Suddenly logged out
+
+**Possible causes:**
+
+1. **Session expired** - Sessions expire after a period of inactivity (managed by the authentication system)
+2. **Browser cleared data** - Cookies removed
+3. **Different device** - Sessions are per-device
+4. **Security event** - Password changed or account banned
+
+**Solution:** Simply sign in again.
+
+### Can't Stay Signed In
+
+**Symptom:** Have to sign in frequently
+
+**Solutions:**
+
+1. **Check browser settings** - Ensure cookies are allowed for this site
+2. **Disable cookie clearing** - Don't clear cookies on browser close
+3. **Check security software** - Privacy extensions or antivirus may block cookies
+
+### Signed In But Can't Access
+
+**Symptom:** Signed in but see "access denied"
+
+**Solutions:**
+
+1. **Check account** - Are you viewing the right personal/team account?
+2. **Verify permissions** - Your role may not have access to this feature
+3. **Contact admin** - If you should have access, ask your team owner or manager
+4. **Try refreshing** - May be temporary issue
+
+## Browser Issues
+
+### Browser Not Supported
+
+**Symptom:** Application doesn't work properly
+
+**Solutions:**
+
+1. **Update browser** - Use latest version
+2. **Switch browser** - Try Chrome, Firefox, Edge, Safari
+3. **Disable extensions** - May interfere
+
+### Cookies Disabled
+
+**Symptom:** Can't sign in or stay signed in
+
+**Solutions:**
+
+1. **Enable cookies** - In browser settings
+2. **Allow for this site** - Specifically enable
+3. **Check extensions** - Cookie blockers?
+
+### Cache Issues
+
+**Symptom:** Old data, pages not loading
+
+**Solutions:**
+
+1. **Hard refresh** - Ctrl+Shift+R / Cmd+Shift+R
+2. **Clear cache** - In browser settings
+3. **Try incognito** - Fresh session
+
+## Account Status Issues
+
+### Account Deleted
+
+**Symptom:** Can't sign in, account not found
+
+**Note:** If your account was deleted:
+- Data cannot be recovered
+- Create a new account
+- Contact support if unexpected
+
+## Getting Help
+
+### Before Contacting Support
+
+Gather this information:
+
+1. Email address used
+2. Error message (exact text)
+3. When the problem started
+4. What you've already tried
+5. Browser and device info
+
+### Contact Support
+
+If you can't resolve the issue:
+
+1. Document the problem
+2. Include screenshots if possible
+3. Contact support through appropriate channels
+4. Be patient - verification may take time
+
+## Prevention
+
+### Avoiding Access Problems
+
+1. **Use strong, memorable password** - Or use a password manager
+2. **Enable MFA** - Extra security layer using an authenticator app
+3. **Backup authenticator app** - Ensure you can access your TOTP codes from multiple devices or have a backup
+4. **Keep email updated** - For account recovery
+5. **Use trusted devices** - Secure computers
+
+## Related Topics
+
+- Signing In - Authentication methods
+- Password Reset - Recovery process
+- Security Settings - Account security
+- Setting Up MFA - MFA configuration

@@ -1,0 +1,348 @@
+---
+title: User Management
+description: >-
+  Manage all users registered in the system, including their accounts, status, and access.
+order: 1
+categories:
+  - user-guide
+tags:
+  - admin-guide
+status: published
+collapsible: false
+collapsed: false
+---
+Manage all users registered in the system, including their accounts, status, and access.
+
+## Accessing User Management
+
+1. Navigate to the Admin Panel
+2. Click **Users** in the admin navigation
+3. View the user list
+
+## Understanding Users
+
+### What is a User?
+
+A user represents:
+
+- An authenticated person
+- Their authentication credentials
+- Their personal account
+- Their team memberships
+
+### User vs Account
+
+| Concept | Description |
+|---------|-------------|
+| **User** | Person with login credentials |
+| **Personal Account** | User's individual workspace |
+| **Team Membership** | User's role in team accounts |
+
+## Viewing Users
+
+### User List
+
+See all registered users:
+
+| Column | Description |
+|--------|-------------|
+| **Name** | Display name |
+| **Email** | Login email |
+| **Status** | Active, Suspended, etc. |
+| **Created** | Registration date |
+| **Last Active** | Recent activity |
+| **Teams** | Number of team memberships |
+
+### Filtering Users
+
+Filter the list by:
+
+| Filter | Options |
+|--------|---------|
+| **Status** | Active, Suspended, Pending |
+| **Created** | Date range |
+| **Last Active** | Activity period |
+| **Search** | Name, email |
+
+### Searching Users
+
+Find specific users:
+
+1. Use the search bar
+2. Search by:
+   - Email address
+   - Display name
+   - User ID
+
+## User Details
+
+### Viewing User Profile
+
+Click a user to see:
+
+- User information
+- Account associations
+- Activity summary
+- Authentication details
+
+### User Information
+
+| Field | Description |
+|-------|-------------|
+| **User ID** | Unique identifier |
+| **Email** | Login email |
+| **Name** | Display name |
+| **Created** | Registration date |
+| **Status** | Current status |
+| **Auth Method** | Password, OAuth, etc. |
+
+### User Accounts
+
+View user's accounts:
+
+- Personal account
+- Team memberships
+- Role in each team
+
+### Activity Summary
+
+See user activity:
+
+- Last login
+- Recent actions
+- Usage patterns
+
+## Managing Users
+
+### Editing User Details
+
+To modify user information:
+
+1. Open user detail
+2. Click **Edit**
+3. Update fields
+4. Save changes
+
+> **Note:** Some fields may be controlled by the authentication provider.
+
+### User Status
+
+#### Status Types
+
+| Status | Description |
+|--------|-------------|
+| **Active** | Normal access |
+| **Suspended** | Access blocked |
+| **Pending** | Awaiting verification |
+| **Deactivated** | Self-deactivated |
+
+### Suspending a User
+
+To suspend a user:
+
+1. Open user detail
+2. Click **Suspend User**
+3. Enter reason
+4. Confirm
+
+Effects:
+- User cannot sign in
+- Data preserved
+- Can be reactivated
+
+### Reactivating a User
+
+To reactivate:
+
+1. Open suspended user
+2. Click **Reactivate**
+3. Confirm
+
+## Authentication
+
+### Viewing Auth Details
+
+See user's authentication:
+
+- Auth provider (password, Google, etc.)
+- MFA status
+- Linked identities
+
+### Password Reset
+
+Force password reset:
+
+1. Open user detail
+2. Click **Reset Password**
+3. User receives reset email
+
+### MFA Management
+
+View or manage MFA:
+
+- See if MFA is enabled
+- View MFA method
+- Option to reset MFA
+
+> **Note:** Use caution - resetting MFA requires identity verification.
+
+## User Accounts
+
+### Personal Account
+
+Every user has a personal account:
+
+- Automatically created
+- Cannot be separated from user
+- Managed through user settings
+
+### Team Memberships
+
+View all team associations:
+
+- Teams the user belongs to
+- Role in each team
+- Join date
+
+### Removing from Team
+
+Remove user from a team:
+
+1. Find team membership
+2. Click **Remove**
+3. Confirm
+
+## User Data
+
+### Data Overview
+
+View user's data:
+
+- Personal account data
+- Contribution to teams
+- Activity history
+
+### Data Export
+
+Export user data:
+
+1. Open user detail
+2. Click **Export Data**
+3. Generate export
+4. Download
+
+### Data Deletion
+
+For GDPR/privacy requests:
+
+1. Open user detail
+2. Click **Delete User Data**
+3. Review scope
+4. Confirm deletion
+
+> **Note:** Some data may be retained for legal requirements.
+
+## Account Deletion
+
+### Deleting a User
+
+> **Warning:** Permanently removes user and their data.
+
+To delete a user:
+
+1. Open user detail
+2. Click **Delete User**
+3. Review impact
+4. Type confirmation
+5. Confirm
+
+### Deletion Impact
+
+- User authentication removed
+- Personal account deleted
+- Team memberships removed
+- Team contributions may remain (anonymized)
+
+### Cannot Delete
+
+Cannot delete if:
+
+- User owns teams (must transfer first)
+- Active subscriptions
+- System restrictions
+
+## Impersonation
+
+### User Impersonation
+
+For support/debugging:
+
+1. Open user detail
+2. Click **Impersonate**
+3. Confirm
+
+> **Caution:** All actions during impersonation are logged.
+
+### Ending Impersonation
+
+Click **End Impersonation** in the admin bar to return to your account.
+
+## Audit Trail
+
+### User Activity
+
+View detailed activity:
+
+- Login history
+- Actions taken
+- Changes made
+
+### Admin Actions
+
+Admin actions on users are logged:
+
+- What was done
+- Who did it
+- When it happened
+
+## Troubleshooting
+
+### User Can't Sign In
+
+1. Check user status (not suspended)
+2. Verify email is correct
+3. Check auth provider
+4. Review login attempts
+
+### Missing User
+
+1. Search by email
+2. Check if deleted
+3. Verify registration completed
+
+### Wrong Team Access
+
+1. Check team memberships
+2. Verify role
+3. Check for invitation issues
+
+## Best Practices
+
+### User Management
+
+1. **Verify identity** - Before making changes
+2. **Document reasons** - Note why changes were made
+3. **Privacy awareness** - Handle data carefully
+4. **Follow procedures** - Use established processes
+
+### Security
+
+1. **Audit regularly** - Review user access
+2. **Prompt deactivation** - When users leave
+3. **Password policies** - Enforce strong passwords
+
+## Related Topics
+
+- Account Management - Managing accounts
+- Admin Overview - Admin basics
+- Security Settings - User security

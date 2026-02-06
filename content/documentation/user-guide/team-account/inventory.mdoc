@@ -1,0 +1,224 @@
+---
+title: Inventory
+description: >-
+  Manage your team's product catalog, including products available for sale, pricing, and commission settings.
+order: 2
+categories:
+  - user-guide
+tags:
+  - team-account
+status: published
+collapsible: false
+collapsed: false
+---
+Manage your team's product catalog, including products available for sale, pricing, and commission settings.
+
+## Accessing Inventory
+
+1. Ensure you're in your team account
+2. Click **Inventory** in the sidebar
+3. The URL is `/home/[team]/inventory`
+
+## What is Inventory?
+
+The inventory system tracks:
+
+- **Products** - Items available for sale
+- **Pricing** - Product prices
+- **Commission** - Commission amount per product
+- **Project Assignments** - Which projects a product is available in
+- **Quantity Tracking** - For products with limited quantities
+
+## Product List
+
+### Viewing Products
+
+The inventory page displays all products:
+
+| Column         | Description                 |
+| -------------- | --------------------------- |
+| **Name**       | Product name                |
+| **Price**      | Sale price                  |
+| **Commission** | Commission per sale         |
+| **Projects**   | Assigned projects           |
+| **Quantity**   | Stock quantity (if tracked) |
+| **Status**     | Active or Archived          |
+
+### Filtering Products
+
+Filter the product list by:
+
+- Search by name
+- Active or archived products
+
+## Adding Products
+
+### Create New Product
+
+1. Click **Add Product**
+2. Fill in product details:
+
+| Field              | Required | Description                        |
+| ------------------ | -------- | ---------------------------------- |
+| **Name**           | Yes      | Product name                       |
+| **Description**    | No       | Product details                    |
+| **Price**          | No       | Sale price                         |
+| **Commission**     | No       | Commission amount per sale         |
+| **Allow Multiple** | No       | Can sell multiple per unit address |
+| **Track Quantity** | No       | Track stock quantity               |
+| **Quantity**       | No       | Initial stock (if tracking)        |
+
+1. Click **Create**
+
+### Product Settings
+
+#### Allow Multiple Per Unit
+
+When enabled, the same product can be sold multiple times to the same address/unit.
+
+#### Quantity Tracking
+
+Products can be:
+
+- **Infinite**: Unlimited availability (default)
+- **Tracked**: Limited quantity that decreases with sales
+
+## Viewing Product Details
+
+Click a product to see its detail page with:
+
+- Product information
+- Commission settings
+- Project assignments
+- Inventory movements (shipments)
+
+## Managing Products
+
+### Editing Products
+
+1. Click a product
+2. Click **Edit**
+3. Modify the fields
+4. Save changes
+
+### Archiving Products
+
+Instead of deleting, archive products you no longer sell:
+
+1. Click the product menu
+2. Select **Archive**
+3. Product is hidden but preserved
+
+Archived products:
+
+- Don't appear in sales forms
+- Preserve historical sales data
+- Can be restored if needed
+
+## Project Assignment
+
+### Assigning to Projects
+
+Products can be assigned to specific projects to control availability:
+
+1. Click a product
+2. Click **Assign to Project**
+3. Select the project(s)
+4. Save
+
+### Assignment Effects
+
+When a product is assigned to projects:
+
+- Only available for sales in those projects
+
+## Shipments
+
+### Recording Shipments
+
+Track inventory additions with shipments:
+
+1. Click a product
+2. Click **Record Shipment**
+3. Enter quantity received
+4. Add notes
+5. Save
+
+Shipments increase the product's available quantity.
+
+### Shipment History
+
+View all shipments in the product detail page:
+
+- Date received
+- Quantity
+- Notes
+- Recorded by
+
+## Commission Settings
+
+### Per-Product Commission
+
+Each product can have a commission amount:
+
+- Set when creating/editing the product
+- Applied when the product is sold
+- Appears in commission reports
+
+### Commission Calculation
+
+When a sale is recorded:
+
+- Commission is calculated based on the product's commission amount
+- Multiple items multiply the commission
+- Appears in the salesperson's commission log
+
+## Best Practices
+
+### Product Management
+
+1. **Use clear names** - Easy to identify during sales
+2. **Add descriptions** - Help sales team understand the product
+3. **Set pricing** - Keep prices current
+4. **Configure commission** - Set before first sale
+
+### Inventory Control
+
+1. **Track quantity** - For limited products
+2. **Record shipments** - Keep quantity accurate
+3. **Archive unused** - Keep the list clean
+4. **Assign to projects** - Control availability
+
+## Troubleshooting
+
+### Product Not Appearing in Sales
+
+If you can't select a product when recording a sale:
+
+1. Check if the product is archived
+2. Verify project assignment (if in a specific project)
+3. Check quantity (if tracking and at zero)
+4. Refresh the page
+
+### Wrong Commission
+
+If commission seems incorrect:
+
+1. Check the product's commission amount
+2. Verify the quantity sold
+3. Review sale model rules
+
+### Quantity Issues
+
+If quantity tracking is incorrect:
+
+1. Review shipment history
+2. Check recent sales
+3. Verify initial quantity was set correctly
+
+## Related Topics
+
+- Recording Sales - Using products in sales
+- Commission - Earnings tracking
+- Sale Models - Commission workflows
+- Sales - Team sales records

@@ -1,0 +1,115 @@
+---
+title: Goals (Bonus Targets)
+description: >-
+  Track your personal sales targets and bonus objectives with the Goals feature. Monitor your progress toward bonus targets assigned to you by your team.
+order: 3
+categories:
+  - user-guide
+tags:
+  - personal-account
+status: published
+collapsible: false
+collapsed: false
+---
+Track your personal sales targets and bonus objectives with the Goals feature. Monitor your progress toward bonus targets assigned to you by your team.
+
+## Accessing Goals
+
+1. Click **Goals** in the sidebar navigation
+2. View your current bonus targets and progress
+3. The URL is `/home/goals`
+
+## Understanding Bonus Targets
+
+The Goals page displays bonus targets that have been assigned to you through the `bonus_targets_accounts` relationship. Each target shows your progress based on sales you've recorded.
+
+## Bonus Target Information
+
+Each bonus target card displays:
+
+| Field | Description |
+|-------|-------------|
+| **Target Name** | Name of the bonus target |
+| **Description** | Optional description of the target |
+| **Zone Bonus** | Badge indicating if this is a zone-specific bonus |
+| **Date Range** | Start and end date of the target period |
+| **Bonus Amount** | Amount you'll earn if the target is met (in EUR) |
+| **Target Amount** | Number of sales needed to achieve the bonus |
+
+## Progress Tracking
+
+Progress is displayed as a dual-layer progress bar:
+
+### Confirmed Sales (Primary color)
+Sales that have been confirmed and trigger commission. These count toward your final target.
+
+### Proposed Sales (Blue)
+Sales in initial/proposed state. These are pending confirmation but show potential progress.
+
+### Progress Display
+
+The progress section shows:
+- **Percentage** - How close you are to the target
+- **Confirmed count** - Number of confirmed sales
+- **Proposed count** - Number of proposed sales
+- **Remaining** - How many more sales needed to reach the target
+
+A sparkle emoji appears when you reach 100% of the target.
+
+## Zone Bonuses
+
+Some bonus targets are zone-specific, indicated by a "Zone Bonus" badge with a map pin icon. These targets only count sales made within specific geographic zones assigned to you.
+
+## Date Periods
+
+Bonus targets have defined time periods:
+- **Start Date** - When the target period begins
+- **End Date** - Deadline for achieving the target
+
+Only active targets (where end date is today or in the future) are displayed.
+
+## Empty State
+
+If you have no active bonus targets assigned, you'll see a message:
+"No active bonus targets"
+
+This means either:
+- You haven't been assigned to any bonus targets
+- All your assigned targets have expired (past their end date)
+
+Contact your team administrator to be assigned to bonus targets.
+
+## How Sales Count Toward Targets
+
+Sales contribute to bonus targets based on their sale state:
+
+1. **Confirmed Sales** - Sales where the sale state has `triggers_commission = true`
+2. **Proposed Sales** - Sales where the sale state has `is_initial = true`
+
+The specific sale states are configured by your team administrator.
+
+## Target Configuration
+
+Bonus targets are created and configured by team administrators. As a user, you can:
+
+- View your assigned targets
+- Track your progress
+- See your sales count toward each target
+
+You cannot create, edit, or delete bonus targets from the personal Goals page.
+
+See Bonus Targets for team-level configuration.
+
+## Tips for Achieving Goals
+
+1. **Check progress regularly** - Monitor your progress on the Goals page
+2. **Understand the timeline** - Know when targets start and end
+3. **Focus on confirmation** - Ensure sales get confirmed to count fully
+4. **Know your zones** - For zone bonuses, focus on the correct areas
+
+## Related Topics
+
+- Bonus Targets - Team bonus target management
+- Commission - Earnings and payslips
+- Recording Sales - Contributing to goals
+- Dashboard - Quick overview

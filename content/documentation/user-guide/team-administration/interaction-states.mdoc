@@ -1,0 +1,268 @@
+---
+title: Interaction States
+description: >-
+  Define and manage the states that addresses can be in. States help your team track the progress of interactions with each address.
+order: 2
+categories:
+  - user-guide
+tags:
+  - team-administration
+status: published
+collapsible: false
+collapsed: false
+---
+Define and manage the states that addresses can be in. States help your team track the progress of interactions with each address.
+
+## Accessing Interaction States
+
+1. Ensure you're in your team account
+2. Click **States** in the sidebar
+3. The URL is `/home/[team]/states`
+
+## What are States?
+
+States represent the current status of an address in your sales process. They help your team:
+
+- Track progress of each address
+- Filter addresses by status
+- Color-code map markers
+- Coordinate follow-up activities
+
+### Default States
+
+When a new team is created, three default states are automatically added:
+
+| State                     | Keep Open | Follow Up | Color |
+| ------------------------- | --------- | --------- | ----- |
+| **No Interest**           | No        | No        | Gray  |
+| **No Answer**             | Yes       | No        | Amber |
+| **Appointment Requested** | Yes       | Yes       | Green |
+
+## Viewing States
+
+### States Table
+
+The states table displays:
+
+| Column          | Description                                                                                 |
+| --------------- | ------------------------------------------------------------------------------------------- |
+| **Name**        | State name with colored indicator. Shows "Default" badge if default, "Archived" if archived |
+| **Description** | State description (optional)                                                                |
+| **Keep Open**   | Badge showing Yes/No                                                                        |
+| **Follow Up**   | Badge showing Yes/No                                                                        |
+| **Projects**    | Projects using this state (shows first 2 with count of additional)                          |
+
+### Filtering States
+
+By default, archived states are hidden. Toggle **Show archived** to view them.
+
+## Creating States
+
+### Add New State
+
+1. Click **Create State**
+2. Fill in the form:
+  - **Name** (required) - Short, clear name
+  - **Description** (optional) - What this state means
+  - **Keep Open** - Address remains open for future interactions
+  - **Follow Up** - Requires scheduling a follow-up date (only available if Keep Open is enabled)
+  - **Color** - Select from preset colors or enter a custom hex code
+  - **Default** - Automatically assign this state to new projects
+3. Click **Save**
+
+> **Note:** Creating states requires the `interactionsstate:create` permission.
+
+### State Fields
+
+| Field           | Required | Description                                                           |
+| --------------- | -------- | --------------------------------------------------------------------- |
+| **Name**        | Yes      | State identifier (max 255 characters)                                 |
+| **Description** | No       | Explanation of the state                                              |
+| **Color**       | No       | Hex color code (e.g., #3B82F6). Auto-determined if not set            |
+| **Keep Open**   | No       | Default: Yes. If enabled, address stays active                        |
+| **Follow Up**   | No       | Default: No. If enabled, requires follow-up date (requires Keep Open) |
+| **Default**     | No       | If enabled, automatically assigned to new projects                    |
+
+### State Behavior
+
+**Keep Open:**
+
+- When enabled: Address remains in the active pipeline
+- When disabled: Address is considered closed/completed
+
+**Follow Up:**
+
+- Can only be enabled if Keep Open is also enabled
+- When enabled: System prompts for a follow-up date when this state is selected
+- Useful for states like "Callback Requested" or "Meeting Scheduled"
+
+### Color Selection
+
+Colors help visually identify states on:
+
+- Map markers
+- Table badges
+- Charts and reports
+
+A predefined color palette is available, or you can enter a custom hex color. If no color is selected, one is automatically determined based on the Keep Open and Follow Up settings.
+
+## Editing States
+
+### Modify State
+
+1. Click the actions menu (three dots) on the state row
+2. Select **Edit**
+3. Update the fields
+4. Save changes
+
+> **Note:** Editing states requires the `interactionsstate:update` permission.
+
+## Project Assignments
+
+States are assigned to projects to make them available when recording interactions.
+
+### Assign to Projects
+
+1. Click the actions menu on a state
+2. Select **Assign to Projects**
+3. Toggle projects on/off to assign/unassign
+4. Changes save automatically
+
+The dialog shows:
+
+- All active and draft projects
+- Project status badge
+- Current assignment status
+
+> **Note:** Archived states cannot be assigned to projects.
+
+## Archiving States
+
+### Archive a State
+
+Instead of permanently deleting states, you can archive them to preserve historical data:
+
+1. Click the actions menu on the state
+2. Select **Archive**
+3. Review the warning (shows how many projects use this state)
+4. Confirm
+
+When archived:
+
+- State is removed from all project assignments
+- Existing interactions using this state are preserved
+- State no longer appears in dropdowns
+- State can be restored later
+
+> **Note:** Archiving states requires the `interactionsstate:delete` permission.
+
+### Restore a State
+
+1. Enable **Show archived** to view archived states
+2. Click the actions menu on the archived state
+3. Select **Unarchive**
+4. State becomes active again
+
+After restoring, you'll need to reassign the state to projects.
+
+## Audit History
+
+Team owners can view the change history for any state:
+
+1. Click the actions menu on a state
+2. Select **View Audit History**
+3. See all changes made to the state and its project assignments
+
+## Permissions
+
+| Action                 | Permission Required        |
+| ---------------------- | -------------------------- |
+| View states            | `interactionsstate:select` |
+| Create states          | `interactionsstate:create` |
+| Edit states            | `interactionsstate:update` |
+| Archive/Restore states | `interactionsstate:delete` |
+| Assign to projects     | `interactionsstate:create` |
+| View audit history     | Team owner only            |
+
+## Best Practices
+
+### Designing States
+
+1. **Keep it simple** - Start with a few essential states
+2. **Clear names** - Use names that are easy to understand
+3. **Distinct colors** - Use different colors for easy visual identification
+4. **Logical flow** - Order states to match your sales process
+
+### Common State Sets
+
+**Basic Set:**
+
+- No Answer (Keep Open)
+- Interested (Keep Open + Follow Up)
+- Not Interested (Closed)
+- Sold (Closed)
+
+**Extended Set:**
+
+- New (Keep Open)
+- Not Home (Keep Open)
+- Contacted (Keep Open)
+- Interested (Keep Open + Follow Up)
+- Appointment Set (Keep Open + Follow Up)
+- Sold (Closed)
+- Not Interested (Closed)
+- Do Not Contact (Closed)
+
+## Integration with Other Features
+
+### Map Colors
+
+States determine marker colors on maps, providing quick visual identification of address status.
+
+### Filtering
+
+Filter addresses by state in:
+
+- Address lists
+- Project views
+- Dashboard widgets
+
+### Reporting
+
+States appear in reports showing:
+
+- Distribution by state
+- Conversion rates
+- Team performance
+
+## Troubleshooting
+
+### State Not Appearing in Dropdown
+
+If a state doesn't appear when recording an interaction:
+
+1. Verify the state is assigned to the project
+2. Check the state is not archived
+3. Refresh the page
+
+### Wrong Color on Map
+
+If the map shows an incorrect color:
+
+1. Check the state's color setting
+2. Clear browser cache
+3. Refresh the map
+
+### Can't Archive State
+
+If you can't archive a state:
+
+1. Verify you have the `interactionsstate:delete` permission
+2. Check if you're the team owner or have sufficient role hierarchy
+
+## Related Topics
+
+- Sale Models - Sale workflow configuration
+- Managing Addresses - Using states with addresses
+- Recording Interactions - Changing address states
+- Team Overview - Team features

@@ -1,0 +1,140 @@
+---
+title: Personal Calendar
+description: >-
+  The personal calendar shows your scheduled follow-ups in a visual calendar interface, helping you plan your work day and manage callbacks.
+order: 4
+categories:
+  - user-guide
+tags:
+  - personal-account
+status: published
+collapsible: false
+collapsed: false
+---
+The personal calendar shows your scheduled follow-ups in a visual calendar interface, helping you plan your work day and manage callbacks.
+
+## Accessing the Calendar
+
+1. Click **Calendar** in the sidebar navigation
+2. View your scheduled follow-ups
+3. The URL is `/home/calendar`
+
+## Calendar Display
+
+The calendar uses a weekly schedule view that displays your follow-ups as events:
+
+### View Settings
+
+- **Week View** - The calendar shows a 7-day week view
+- **Week starts on Monday** - Calendar weeks begin on Monday
+- **Time range** - Hours from 6:00 AM to 10:00 PM are displayed
+- **1-hour duration** - Each follow-up is displayed as a 1-hour time block
+
+### Event Information
+
+Each follow-up event displays:
+
+- **Title** - Street address (with unit label if applicable)
+- **Subtitle** - Interaction state name
+- **Description** - Comment from the interaction (if any)
+- **Color** - Project-specific color for easy identification
+
+### Tooltips
+
+Hover over an event to see additional metadata:
+
+| Field | Description |
+|-------|-------------|
+| **Project** | Project name |
+| **Zone** | Zone name (if assigned) |
+| **Address** | Full street address |
+| **Unit** | Unit label (for apartments) |
+| **Zip** | Postal code |
+| **City** | City name |
+| **State** | State/province |
+| **Type** | Address type |
+| **Status** | Address status |
+
+## Event Colors
+
+Events are color-coded by project for easy identification. Each project has a consistent color generated from a palette including:
+
+- Blue, Red, Emerald, Amber, Violet
+- Cyan, Lime, Pink, Indigo, Teal
+
+This helps you quickly identify which project a follow-up belongs to when viewing multiple projects.
+
+## Navigation
+
+### Clicking Events
+
+Click on any event to navigate directly to the address detail page. The link includes the project ID for proper context:
+
+`/home/addresses/[addressSlug]?projectId=[projectId]`
+
+From there you can:
+- View full address information
+- Record a new interaction
+- Record a sale
+- See interaction history
+
+## Empty State
+
+If no follow-ups are scheduled, the calendar displays:
+"No follow-ups scheduled"
+
+This means you don't have any upcoming follow-up dates from interactions.
+
+## Data Sources
+
+The calendar displays follow-ups from:
+
+- All team accounts you're a member of
+- Interactions where a follow-up date was set
+- Future follow-ups only (today and onwards)
+
+The data is fetched using the `get_nearest_future_interactions` database function.
+
+## Creating Follow-Ups
+
+To add events to your calendar:
+
+1. Go to an address detail page
+2. Click **Add Interaction**
+3. Enable the follow-up option
+4. Set the date and time
+5. Save the interaction
+
+The follow-up appears on your calendar automatically.
+
+> **Note:** Follow-ups cannot be created directly from the calendar. They must be created through interactions on address detail pages.
+
+See Follow-Up Reminders for detailed instructions.
+
+## Mobile Viewing
+
+The calendar is responsive and works on mobile devices:
+
+- Scroll horizontally to see the full week
+- Tap events to navigate to address details
+- Full-height display for maximum visibility
+
+## Relationship with Follow-Ups Page
+
+The calendar and Follow-Ups page show the same data in different formats:
+
+| Feature | Calendar | Follow-Ups Page |
+|---------|----------|-----------------|
+| View format | Visual weekly schedule | List/table |
+| Sorting | By time | By date or distance |
+| Quick actions | Click to navigate | Add interaction, sale, delete |
+| Search | Not available | Available |
+
+Use the calendar for visual planning and the Follow-Ups page for managing and searching.
+
+## Related Topics
+
+- Follow-Ups - List view of follow-ups
+- Follow-Up Reminders - Creating follow-ups
+- Team Calendar - Team-level calendar
+- Dashboard - Quick overview

@@ -1,0 +1,310 @@
+---
+title: Troubleshooting Billing Issues
+description: >-
+  Solutions for problems with payments, subscriptions, and billing.
+order: 3
+categories:
+  - user-guide
+tags:
+  - troubleshooting
+status: published
+collapsible: false
+collapsed: false
+---
+Solutions for problems with payments, subscriptions, and billing.
+
+## Payment Problems
+
+### Payment Declined
+
+**Symptom:** Payment method rejected
+
+**Solutions:**
+
+1. **Check card details** - Number, expiration, CVV correct?
+2. **Sufficient funds** - Balance available?
+3. **Contact your bank** - May need to authorize
+4. **Try different card** - Another payment method
+5. **Billing address** - Matches card statement?
+
+### Payment Processing Error
+
+**Symptom:** Error during payment processing
+
+**Solutions:**
+
+1. **Wait and retry** - Temporary issue
+2. **Refresh page** - Then try again
+3. **Different browser** - Browser-specific issue
+4. **Contact support** - If persists
+
+### Can't Add Payment Method
+
+**Symptom:** Unable to save new card
+
+**Solutions:**
+
+1. **Verify card details** - All fields correct
+2. **Check card status** - Card active?
+3. **Try different card** - Card may not be supported
+4. **Browser settings** - Popups allowed?
+
+### Can't Remove Payment Method
+
+**Symptom:** Unable to delete payment method
+
+**Cause:** Can't remove only payment method with active subscription
+
+**Solution:**
+1. Add new payment method first
+2. Set new method as default
+3. Then remove old method
+
+## Subscription Issues
+
+Plans may be available with monthly or yearly billing intervals. Some plans may include a free trial period.
+
+### Can't Upgrade Plan
+
+**Symptom:** Unable to change to higher plan
+
+**Solutions:**
+
+1. **Check payment method** - Valid card on file?
+2. **Check permissions** - Only users with billing access can change plans
+3. **Contact support** - May need manual assistance
+
+### Can't Downgrade Plan
+
+**Symptom:** Unable to change to lower plan
+
+**Possible causes:**
+
+1. **Per-seat billing** - If you have per-seat billing, you may need to reduce team members first
+2. **Contact support** - For assistance with plan changes
+
+**Solutions:**
+1. Reduce team size if on per-seat billing
+2. Contact support for assistance
+
+### Subscription Not Activating
+
+**Symptom:** Paid but subscription not active
+
+**Solutions:**
+
+1. **Wait a few minutes** - Processing time for payment webhooks
+2. **Refresh page** - May need reload
+3. **Sign out and in** - Reset session
+4. **Check payment** - Was it successful in the billing portal?
+5. **Contact support** - With payment confirmation
+
+### Subscription Canceled Unexpectedly
+
+**Symptom:** Subscription canceled without request
+
+**Possible causes:**
+
+1. **Payment failed** - Check payment method
+2. **Card expired** - Update payment method
+3. **Manual cancellation** - Someone with billing access canceled?
+
+**Solutions:**
+1. Update payment method
+2. Reactivate subscription through billing portal
+3. Contact support if unclear
+
+## Invoice Issues
+
+### Invoice Not Received
+
+**Symptom:** No invoice email
+
+**Solutions:**
+
+1. **Check spam folder** - Often filtered
+2. **Verify billing email** - Correct address?
+3. **Download from portal** - Access in billing history
+4. **Contact support** - Request resend
+
+### Wrong Amount Charged
+
+**Symptom:** Unexpected charge amount
+
+**Possible causes:**
+
+1. **Prorated charges** - Upgrade mid-cycle
+2. **Tax added** - Varies by location
+3. **Plan change** - Different pricing
+4. **Additional charges** - Overage fees
+
+**Solutions:**
+1. Review invoice details
+2. Check for proration
+3. Verify current plan
+4. Contact support if unclear
+
+### Missing Invoice
+
+**Symptom:** Invoice not in billing history
+
+**Solutions:**
+
+1. **Check date range** - Invoice in different period?
+2. **Access billing portal** - More complete history
+3. **Contact support** - Request copy
+
+## Billing Portal Issues
+
+The billing portal is provided by your payment provider (Stripe, Lemon Squeezy, or Paddle) and allows you to manage subscriptions, view invoices, and update payment methods.
+
+### Can't Access Billing Portal
+
+**Symptom:** Billing portal won't open
+
+**Solutions:**
+
+1. **Check permissions** - Only users with `billing.manage` permission (Owner role for teams, account owner for personal accounts) can access billing
+2. **Allow popups** - Portal may open in new window
+3. **Try different browser** - Browser compatibility issues
+4. **Clear cache** - Remove old sessions
+5. **Contact support** - If still inaccessible
+
+### Portal Shows Wrong Info
+
+**Symptom:** Information doesn't match
+
+**Solutions:**
+
+1. **Refresh portal** - Get latest data
+2. **Check sync** - May take time to update after recent changes
+3. **Contact support** - For discrepancies
+
+## Refund Requests
+
+### Requesting a Refund
+
+**Process:**
+
+1. Contact support
+2. Explain the situation
+3. Provide relevant details
+4. Wait for review
+5. Refund processed if approved
+
+### Refund Not Received
+
+**Symptom:** Approved refund not appearing
+
+**Solutions:**
+
+1. **Wait processing time** - 5-10 business days typical
+2. **Check original payment method** - Refund goes there
+3. **Contact support** - With refund confirmation
+
+## Account Status Issues
+
+### Account Suspended for Non-Payment
+
+**Symptom:** Access restricted due to billing
+
+**Solutions:**
+
+1. **Update payment method** - Add valid card
+2. **Pay outstanding balance** - Clear overdue
+3. **Contact support** - If you believe error
+4. **Access restored** - After payment confirmed
+
+### Free Trial Ended
+
+**Symptom:** Lost access after trial
+
+**Note:** Some plans include a free trial period. Trial start and end dates are tracked in your subscription.
+
+**Solutions:**
+
+1. **Subscribe to paid plan** - Continue using the service
+2. **Contact support** - Discuss options
+3. **Check trial status** - Your trial end date is visible in billing settings
+
+## Tax Issues
+
+Tax handling is managed by the payment provider (Stripe, Lemon Squeezy, or Paddle). Tax rates are determined by the billing provider based on your location.
+
+### Tax Not Correct
+
+**Symptom:** Wrong tax rate applied
+
+**Solutions:**
+
+1. **Verify location** - Your billing address determines tax rate
+2. **Update billing address** - If incorrect, update in the billing portal
+3. **Contact support** - For corrections or questions about tax rates
+
+### Need Tax Invoice
+
+**Symptom:** Need invoice with tax details
+
+**Solutions:**
+
+1. **Access billing portal** - Invoices are available in the customer portal
+2. **Contact support** - For special documentation requirements
+
+## Enterprise/Custom Billing
+
+### Contract Questions
+
+For enterprise contracts:
+
+1. Contact your account manager
+2. Review contract terms
+3. Request amendments through proper channel
+
+### Custom Pricing
+
+For custom pricing inquiries:
+
+1. Contact sales team
+2. Discuss your needs
+3. Receive custom quote
+
+## Prevention
+
+### Avoiding Billing Issues
+
+1. **Keep payment info current** - Update before expiration
+2. **Monitor billing emails** - Don't ignore alerts
+3. **Check invoices** - Catch issues early
+4. **Know your plan** - Understand limits
+
+### Setting Up Alerts
+
+Configure notifications for:
+- Payment failures
+- Upcoming renewal
+- Plan changes
+
+## Getting Help
+
+### Before Contacting Support
+
+Gather:
+1. Account email
+2. Invoice number (if applicable)
+3. Error message
+4. Screenshot of issue
+5. Payment confirmation (if applicable)
+
+### Contact Support
+
+For billing issues:
+1. Use billing-specific support channel
+2. Provide account information
+3. Describe issue clearly
+4. Include relevant documents
+
+## Related Topics
+
+- Personal Billing - Individual billing
+- Team Billing - Team billing
+- Account Access - Access issues

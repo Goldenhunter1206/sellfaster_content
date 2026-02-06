@@ -1,0 +1,303 @@
+---
+title: Custom Fields
+description: >-
+  Define additional fields for addresses to capture data specific to your business needs.
+order: 4
+categories:
+  - user-guide
+tags:
+  - team-administration
+status: published
+collapsible: false
+collapsed: false
+---
+Define additional fields for addresses to capture data specific to your business needs.
+
+> **Note:** Custom fields are a premium feature. You need an active premium subscription (not Starter plan) to access this feature.
+
+## Accessing Custom Fields
+
+1. Ensure you're in your team account
+2. Click **Custom Fields** in the sidebar
+3. The URL is `/home/[team]/custom-fields`
+
+> **Note:** Access requires the `customfields.manage` permission or team owner status.
+
+## Overview
+
+The custom fields page has two tabs:
+- **Fields** - Manage individual field definitions
+- **Templates** - Group fields into templates and assign them to projects
+
+## Field Types
+
+Custom fields support the following types:
+
+### Text Fields
+
+| Type | Description | Example |
+|------|-------------|---------|
+| **Text** | Single line text with optional length limits and pattern validation | "ABC Company" |
+| **Email** | Email address with built-in validation | "user@example.com" |
+| **Phone** | Phone number with pattern validation | "+1 555-1234" |
+| **URL** | Web address with URL validation | "https://example.com" |
+
+### Number Fields
+
+| Type | Description | Example |
+|------|-------------|---------|
+| **Number** | Numeric value with optional min/max and decimal places | 42 or 99.99 |
+
+### Date/Time Fields
+
+| Type | Description | Example |
+|------|-------------|---------|
+| **Date** | Date picker with optional min/max date range | 2024-01-15 |
+| **DateTime** | Date and time in ISO 8601 format | 2024-01-15T14:30:00 |
+
+### Selection Fields
+
+| Type | Description | Example |
+|------|-------------|---------|
+| **Dropdown** | Single selection from predefined options | Choose one option |
+| **Multi-select** | Multiple selections from predefined options | Choose multiple options |
+
+### Other Fields
+
+| Type | Description |
+|------|-------------|
+| **Boolean** | Yes/No checkbox |
+
+## Creating Custom Fields
+
+### Add New Field
+
+1. Go to the **Fields** tab
+2. Click **Create Field**
+3. Fill in the form:
+   - **Name** (required) - Display name (1-100 characters)
+   - **Field Key** (required) - Unique identifier (lowercase letters, numbers, underscores only)
+   - **Field Type** (required) - Select from available types
+   - **Description** (optional) - Help text for users
+   - **Required** - Whether the field must be filled
+   - **Default Value** (optional) - Pre-filled value for new entries
+   - **Options** - For dropdown/multi-select, define the available choices
+   - **Validation Rules** - Type-specific validation (see below)
+4. Save
+
+### Field Properties
+
+| Property | Description |
+|----------|-------------|
+| **Name** | Display label shown to users (1-100 characters) |
+| **Field Key** | Internal identifier, must be unique per account (1-50 characters) |
+| **Description** | Help text shown below the field (up to 500 characters) |
+| **Required** | Field must have a value |
+| **User Editable** | Whether end users can modify this field |
+| **Show in Table** | Display field value in address table views |
+| **Visibility Condition** | When field appears: All addresses, Buildings only, or Non-buildings only |
+
+### Validation Rules
+
+**Text fields:**
+- Minimum length
+- Maximum length
+- Pattern (regex)
+
+**Number fields:**
+- Minimum value
+- Maximum value
+- Decimal places
+
+**Date/DateTime fields:**
+- Minimum date
+- Maximum date
+
+### Selection Options
+
+For dropdown and multi-select fields:
+
+1. In the Options section, click **Add Option**
+2. Enter **Value** (internal identifier) and **Label** (display text)
+3. Add more options as needed
+4. Reorder by dragging
+
+## Editing Fields
+
+### Modify Field
+
+1. Click the actions menu on a field
+2. Select **Edit**
+3. Update properties
+4. Save
+
+> **Note:** The field key cannot be changed if the field is already in use to prevent data integrity issues.
+
+### Reordering Fields
+
+Fields can be reordered to control display order on forms:
+
+1. Use the up/down arrows on field rows
+2. Order saves automatically
+
+## Archiving Fields
+
+### Archive a Field
+
+Instead of permanently deleting, archive fields to preserve data:
+
+1. Click the actions menu on a field
+2. Select **Archive**
+3. Confirm
+
+When archived:
+- Field no longer appears on forms
+- Existing data is preserved
+- Can be restored later
+
+### Restore a Field
+
+1. Enable **Show archived** to view archived fields
+2. Click the actions menu on the archived field
+3. Select **Restore**
+
+## Templates
+
+### What are Templates?
+
+Templates are collections of fields that can be assigned to projects. This allows different projects to use different sets of custom fields.
+
+### Creating Templates
+
+1. Go to the **Templates** tab
+2. Click **Create Template**
+3. Enter:
+   - **Name** (required)
+   - **Description** (optional)
+   - **Default** - Mark as default template for new projects
+4. Save
+
+### Adding Fields to Templates
+
+1. Open a template
+2. Click **Add Field**
+3. Select fields to include
+4. Optionally override the "Required" setting per template
+5. Save
+
+### Reordering Template Fields
+
+Fields within a template can be reordered:
+1. Use drag handles or up/down arrows
+2. Order saves automatically
+
+### Assigning Templates to Projects
+
+1. Click the actions menu on a template
+2. Select **Assign to Projects**
+3. Toggle projects on/off
+4. Changes save automatically
+
+> **Note:** Each project can only have one template assigned. Assigning a new template replaces the existing assignment.
+
+### Default Template
+
+One template can be marked as default:
+- Automatically suggested when creating new projects
+- Set in template edit form or via the checkbox
+
+## Using Custom Fields
+
+### On Address Forms
+
+Custom fields appear automatically when:
+- Creating a new address
+- Editing an existing address
+- The project has a template with fields assigned
+
+Fields are rendered based on their type with appropriate input controls.
+
+### In Address Tables
+
+Fields marked with **Show in Table** appear as additional columns in address list views.
+
+### Filtering
+
+Filter addresses by custom field values in:
+- Address list views
+- Project views
+- Advanced search
+
+## Visibility Conditions
+
+Control when fields appear based on address type:
+
+| Condition | Description |
+|-----------|-------------|
+| **All** | Field shows for all addresses |
+| **Buildings Only** | Field only shows for building-type addresses |
+| **Non-buildings Only** | Field only shows for non-building addresses |
+
+## Permissions
+
+| Action | Requirement |
+|--------|-------------|
+| View custom fields page | `customfields.manage` permission or team owner |
+| Create/Edit fields | `customfields.manage` permission or team owner |
+| Archive/Restore fields | `customfields.manage` permission or team owner |
+| Create/Edit templates | `customfields.manage` permission or team owner |
+| Assign templates | `customfields.manage` permission or team owner |
+
+Additionally, all custom fields operations require an active premium subscription.
+
+## Best Practices
+
+### Field Design
+
+1. **Plan ahead** - Think about what data you'll need for reporting
+2. **Use clear names** - Make field labels self-explanatory
+3. **Don't over-create** - Only add fields you'll actually use
+4. **Group logically** - Use templates to organize related fields
+
+### Field Types
+
+1. **Use appropriate types** - Match the type to the expected data format
+2. **Use selections for fixed options** - Don't use text when choices are limited
+3. **Use required sparingly** - Only mark truly essential fields as required
+
+### Templates
+
+1. **Create purpose-specific templates** - Different project types may need different fields
+2. **Set a default** - Make the most common template the default
+3. **Document purpose** - Use descriptions to explain template usage
+
+## Troubleshooting
+
+### Field Not Appearing on Form
+
+If a field doesn't show on an address form:
+1. Verify the field is included in a template
+2. Check the template is assigned to the project
+3. Verify the field is not archived
+4. Check the visibility condition matches the address type
+
+### Validation Errors
+
+If field values won't save:
+1. Check if the field is marked as required
+2. Verify the value matches the expected format
+3. Check min/max constraints
+4. For selections, ensure the value is a valid option
+
+### Premium Feature Unavailable
+
+If you can't access custom fields:
+1. Verify your subscription plan (requires Premium, not Starter)
+2. Check your billing status
+3. Contact your team owner about subscription
+
+## Related Topics
+
+- Managing Addresses - Using custom fields on addresses
+- Project Configuration - Assigning templates to projects
+- Advanced Search - Filtering by custom fields

@@ -1,0 +1,222 @@
+---
+title: How to Record Interactions
+description: >-
+  This guide provides step-by-step instructions for recording interactions with addresses - the core activity in Sellfaster.
+order: 0
+categories:
+  - user-guide
+tags:
+  - how-to
+status: published
+collapsible: false
+collapsed: false
+---
+This guide provides step-by-step instructions for recording interactions with addresses - the core activity in Sellfaster.
+
+## What is an Interaction?
+
+An interaction is a record of contact or activity with an address. Unlike some CRM systems with fixed types like "Visit" or "Call", Sellfaster uses **configurable interaction states** that your team administrator defines. This allows complete flexibility in how your team categorizes interactions.
+
+Common interaction states teams might configure include:
+- Contact Made
+- Not Home
+- Appointment Set
+- Follow-Up Required
+- Email Sent
+
+Your available states depend on your team's configuration and may vary by project.
+
+## Prerequisites
+
+Before recording interactions:
+
+1. You must be signed in
+2. The address must exist within a project
+3. You need the `interactions:create` permission
+
+## Recording from Address Detail
+
+The primary way to record an interaction:
+
+1. **Navigate to the address**
+   - Go to your project: `/home/[team]/projects/[project]/addresses/[address]`
+   - Or find the address through your project's address list
+
+![Address Detail Page](./images/address-detail-page.png)
+*The address detail page showing the map, address information, and action buttons*
+
+2. **Open the interaction form**
+   - Click the "Add Interaction" button on the address detail page
+   - The interaction dialog will open
+
+![Create Interaction Dialog](./images/create-interaction-dialog.png)
+*The Create Interaction dialog with state selection and comment field*
+
+3. **Select an interaction state**
+   - Choose from the available states for this project
+   - States are configured by your team administrator
+   - The state you select determines what happens next
+
+4. **Add notes (optional)**
+   - Enter any relevant details in the comment field
+   - Notes help provide context for future reference
+
+5. **Set follow-up date (conditional)**
+   - If the selected state has follow-up enabled, a date picker appears
+   - Select when you want to follow up
+   - Includes time selection
+   - Cannot select dates in the past
+
+6. **Save**
+   - Submit the interaction
+   - The interaction is recorded immediately
+
+## Interaction Form Fields
+
+### Required Fields
+
+| Field | Description |
+|-------|-------------|
+| **Interaction State** | Select from configured states for the project |
+
+### Optional/Conditional Fields
+
+| Field | Description |
+|-------|-------------|
+| **Comment** | Notes about the interaction |
+| **Follow-Up Date** | Only appears if the selected state has `follow_up: true` configured |
+
+## Understanding Interaction States
+
+### State Properties
+
+Each interaction state can have special behaviors configured:
+
+| Property | Effect |
+|----------|--------|
+| **follow_up** | When `true`, shows the follow-up date picker |
+| **keep_open** | Determines if the address remains open for further contact |
+| **is_email_reply** | Marks the state as an email reply type |
+| **color** | Visual indicator in the UI |
+
+### How States Work
+
+- States are defined at the account level
+- States can be assigned to specific projects
+- The available states you see depend on your current project
+- Selecting a state may trigger the follow-up date field to appear
+
+## Email Interactions
+
+Sellfaster can record email interactions automatically:
+
+1. **Sending emails from the app**
+   - When you send an email through the platform, it automatically creates an interaction
+   - The interaction includes the email subject and body reference
+   - Linked via `email_transaction_id` for threading
+
+2. **Email interaction states**
+   - Your team may have specific states marked as `is_email_reply`
+   - These are used when the system logs email activity
+
+## Adding Notes
+
+### What to Include
+
+Good interaction notes capture:
+
+- **What was discussed** - Topics, questions, concerns
+- **Who was present** - Names if known
+- **Outcome** - Result of the conversation
+- **Next steps** - What happens next
+- **Context** - Anything relevant for future visits
+
+### Example Notes
+
+```
+Spoke with Jane about solar panel options.
+She's interested but wants to discuss with husband.
+Husband works until 6pm. Call back tomorrow evening.
+```
+
+```
+Not home. Car in driveway. Left brochure in door.
+Try again this weekend.
+```
+
+## Setting Follow-Ups
+
+### When Follow-Up Appears
+
+The follow-up date field only appears when:
+- The selected interaction state has `follow_up: true` configured
+- This is determined by your team's state configuration
+
+### How to Schedule
+
+1. Select an interaction state that enables follow-ups
+2. The date picker appears automatically
+3. Choose the date and time
+4. Minimum date is today (cannot backdate)
+5. Time selection is included
+
+See Follow-Up Reminders for managing your follow-ups.
+
+## After Recording
+
+When you save an interaction:
+
+1. **Interaction is stored** - Linked to the address, project, and account
+2. **AI Summary updates** - The system may regenerate the address summary
+3. **History updated** - Appears in the address's interaction history
+4. **Follow-up created** - If you set a follow-up date, it appears in your calendar
+
+## Best Practices
+
+### Recording Interactions
+
+1. **Record immediately** - Don't wait, details fade
+2. **Be specific** - Include useful details in notes
+3. **Use correct state** - Accurate categorization matters
+4. **Schedule follow-ups** - When the state allows and appropriate
+
+### Note Quality
+
+1. **Names when possible** - Who did you speak with?
+2. **Specific times** - "Call after 5pm" vs "call later"
+3. **Action items** - What needs to happen next?
+4. **Context** - Why is this important?
+
+## Troubleshooting
+
+### Can't Record Interaction
+
+If you can't record:
+
+1. Check you're signed in
+2. Verify you have `interactions:create` permission
+3. Ensure the address is in an active project
+4. Try refreshing the page
+
+### Interaction Not Saving
+
+If save fails:
+
+1. Check internet connection
+2. Verify you selected an interaction state (required)
+3. Check for error messages
+4. Try again
+
+### Follow-Up Date Not Showing
+
+If the follow-up field doesn't appear:
+
+1. The selected state may not have follow-up enabled
+2. Try selecting a different state
+3. Contact your administrator to check state configuration
+
+## Related Topics
+
+- Managing Addresses - Address management
+- Follow-Up Reminders - Scheduling follow-ups
+- Interaction States - State configuration
