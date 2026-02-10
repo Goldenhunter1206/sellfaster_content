@@ -1,8 +1,10 @@
 ---
 title: Personal Calendar
 description: >-
-  The personal calendar shows your scheduled follow-ups in a visual calendar interface, helping you plan your work day and manage callbacks.
+  The personal calendar shows your scheduled follow-ups in a visual calendar
+  interface, helping you plan your work day and manage callbacks.
 order: 4
+language: en
 categories:
   - user-guide
 tags:
@@ -16,10 +18,12 @@ The personal calendar shows your scheduled follow-ups in a visual calendar inter
 ## Accessing the Calendar
 
 1. Click **Calendar** in the sidebar navigation
-2. View your scheduled follow-ups
-3. The URL is `/home/calendar`
+1. View your scheduled follow-ups
+1. The URL is `https://sellfaster.eu/home/calendar`
 
 ## Calendar Display
+
+![](https://raw.githubusercontent.com/Goldenhunter1206/sellfaster_content/main/public/site/images/user-guide/personal-account/calendar/image.png)
 
 The calendar uses a weekly schedule view that displays your follow-ups as events:
 
@@ -34,30 +38,44 @@ The calendar uses a weekly schedule view that displays your follow-ups as events
 
 Each follow-up event displays:
 
-- **Title** - Street address (with unit label if applicable)
+- **Title** - Street address and name if applicable
 - **Subtitle** - Interaction state name
 - **Description** - Comment from the interaction (if any)
-- **Color** - Project-specific color for easy identification
+- **Color** - Campaign-specific color for easy identification
 
 ### Tooltips
 
 Hover over an event to see additional metadata:
 
-| Field | Description |
-|-------|-------------|
-| **Project** | Project name |
-| **Zone** | Zone name (if assigned) |
-| **Address** | Full street address |
-| **Unit** | Unit label (for apartments) |
-| **Zip** | Postal code |
-| **City** | City name |
-| **State** | State/province |
-| **Type** | Address type |
-| **Status** | Address status |
+{% table %}
+- Field
+- Description
+---
+- **Campaign**
+- Campaign name
+---
+- **Zone**
+- Zone name (if assigned)
+---
+- **Address**
+- Full street address
+---
+- **Name**
+- Contact name
+---
+- **Zip**
+- Postal code
+---
+- **City**
+- City name
+---
+- **Status**
+- Address status
+{% /table %}
 
 ## Event Colors
 
-Events are color-coded by project for easy identification. Each project has a consistent color generated from a palette including:
+Events are color-coded by project for easy identification. Each campaign has a consistent color generated from a palette including:
 
 - Blue, Red, Emerald, Amber, Violet
 - Cyan, Lime, Pink, Indigo, Teal
@@ -70,10 +88,11 @@ This helps you quickly identify which project a follow-up belongs to when viewin
 
 Click on any event to navigate directly to the address detail page. The link includes the project ID for proper context:
 
-`/home/addresses/[addressSlug]?projectId=[projectId]`
+`https://sellfaster.eu/home/addresses/[addressSlug]?projectId=[projectId]`
 
 From there you can:
-- View full address information
+
+- View full lead information
 - Record a new interaction
 - Record a sale
 - See interaction history
@@ -93,17 +112,15 @@ The calendar displays follow-ups from:
 - Interactions where a follow-up date was set
 - Future follow-ups only (today and onwards)
 
-The data is fetched using the `get_nearest_future_interactions` database function.
-
 ## Creating Follow-Ups
 
 To add events to your calendar:
 
-1. Go to an address detail page
-2. Click **Add Interaction**
-3. Enable the follow-up option
-4. Set the date and time
-5. Save the interaction
+1. Go to an lead detail page
+1. Click **Add Interaction**
+1. Enable the follow-up option
+1. Set the date and time
+1. Save the interaction
 
 The follow-up appears on your calendar automatically.
 
@@ -123,12 +140,27 @@ The calendar is responsive and works on mobile devices:
 
 The calendar and [Follow-Ups page](/docs/user-guide/personal-account/follow-ups) show the same data in different formats:
 
-| Feature | Calendar | Follow-Ups Page |
-|---------|----------|-----------------|
-| View format | Visual weekly schedule | List/table |
-| Sorting | By time | By date or distance |
-| Quick actions | Click to navigate | Add interaction, sale, delete |
-| Search | Not available | Available |
+{% table %}
+- Feature
+- Calendar
+- Follow-Ups Page
+---
+- View format
+- Visual weekly schedule
+- List/table
+---
+- Sorting
+- By time
+- By date or distance
+---
+- Quick actions
+- Click to navigate
+- Add interaction, sale, delete
+---
+- Search
+- Not available
+- Available
+{% /table %}
 
 Use the calendar for visual planning and the Follow-Ups page for managing and searching.
 
