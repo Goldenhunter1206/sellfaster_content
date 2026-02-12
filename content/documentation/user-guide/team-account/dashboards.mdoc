@@ -1,7 +1,8 @@
 ---
 title: Team Dashboards
 description: >-
-  Dashboards provide customizable analytics views for your team, helping you track performance, monitor progress, and make data-driven decisions.
+  Dashboards provide customizable analytics views for your team, helping you
+  track performance, monitor progress, and make data-driven decisions.
 order: 0
 categories:
   - user-guide
@@ -16,8 +17,8 @@ Dashboards provide customizable analytics views for your team, helping you track
 ## Accessing Dashboards
 
 1. Ensure you're in your team account
-2. Click **Dashboard** in the sidebar
-3. The URL is `/home/[team]/dashboards`
+1. Click **Dashboard** in the sidebar
+1. The URL is `/home/[team]/dashboards`
 
 ## Dashboard Overview
 
@@ -34,6 +35,7 @@ A dashboard is a collection of widgets that display data visualizations:
 ### Dashboard Visibility
 
 Dashboards can be:
+
 - **Private** - Only you can see them
 - **Shared** - Team members with permissions can view or edit
 
@@ -41,22 +43,32 @@ Dashboards can be:
 
 The dashboard list page shows all dashboards you have access to:
 
-| Information | Description |
-|-------------|-------------|
-| **Name** | Dashboard title |
-| **Widget Count** | Number of widgets |
-| **Created** | When the dashboard was created |
-| **Sharing Status** | Private (lock icon) or shared (users icon) |
+{% table %}
+- Information
+- Description
+---
+- **Name**
+- Dashboard title
+---
+- **Widget Count**
+- Number of widgets
+---
+- **Created**
+- When was the dashboard created
+---
+- **Sharing Status**
+- Private (lock icon) or shared (users icon)
+{% /table %}
 
 ## Creating a Dashboard
 
 ### New Dashboard
 
 1. Click **New Dashboard**
-2. Enter a dashboard name
-3. Optionally add a description
-4. Choose privacy setting (private or shared)
-5. Click **Create**
+1. Enter a dashboard name
+1. Optionally add a description
+1. Choose privacy setting (private or shared)
+1. Click **Create**
 
 New dashboards start empty and require adding widgets.
 
@@ -65,72 +77,93 @@ New dashboards start empty and require adding widgets.
 ### Widget Wizard
 
 1. Click **Add Widget** on your dashboard
-2. The widget wizard opens with these steps:
+1. The widget wizard opens with these steps:
 
 **Step 1: Widget Info**
+
 - Enter widget name and description
 - Select widget type
 
 **Step 2: Data Source**
+
 - Choose which data to visualize
 
 **Step 3: Configuration**
+
 - Configure metrics and dimensions
 - Set filters and time ranges
 - Define sorting and limits
 
 **Step 4: Display Options**
+
 - Set number formatting
 - Configure targets (for KPI cards)
 - Set up links (for link widgets)
 
 **Step 5: Preview**
+
 - Review your widget before saving
 
 ### Widget Types
 
 #### Metric Card
+
 Displays a single aggregated number:
+
 - Total sales this month
 - Number of addresses
 - Average order value
 
 #### KPI Card
+
 Metric with performance tracking:
+
 - Shows current value vs target
 - Performance indicator
 - Comparison to goal
 
 #### Bar Chart
+
 Compare values across categories:
+
 - Sales by product
 - Addresses by state
 - Revenue by team member
 
 #### Line Chart
+
 Show trends over time:
+
 - Daily sales trend
 - Weekly activity
 - Monthly commission
 
 #### Area Chart
+
 Time series with filled areas:
+
 - Cumulative sales
 - Progress tracking
 
 #### Pie/Doughnut Chart
+
 Show proportions:
+
 - Sales distribution by product
 - Addresses by status
 
 #### Data Table
+
 Display records in rows:
+
 - Recent sales list
 - Top performers
 - Activity log
 
 #### Link Widget
+
 Navigation tiles:
+
 - Quick links to other dashboards
 - External URLs
 
@@ -138,22 +171,45 @@ Navigation tiles:
 
 Widgets can visualize data from:
 
-| Data Source | Description |
-|-------------|-------------|
-| **Sales** | Revenue, status, products, salesperson |
-| **Commissions** | Commission amounts and dates |
-| **Interactions** | Customer/contact interactions |
-| **Addresses** | Location and status data |
-| **Projects** | Project tracking |
-| **Zones** | Geographic zone data |
-| **Bonus Targets** | Goal tracking |
-| **Products** | Product catalog |
-| **Promotions** | Promotional campaigns |
-| **Inventory Movements** | Stock tracking |
+{% table %}
+- Data Source
+- Description
+---
+- **Sales**
+- Revenue, status, products, salesperson
+---
+- **Commissions**
+- Commission amounts and dates
+---
+- **Interactions**
+- Customer/contact interactions
+---
+- **Addresses**
+- Location and status data
+---
+- **Projects**
+- Project tracking
+---
+- **Zones**
+- Geographic zone data
+---
+- **Bonus Targets**
+- Goal tracking
+---
+- **Products**
+- Product catalog
+---
+- **Promotions**
+- Promotional campaigns
+---
+- **Inventory Movements**
+- Stock tracking
+{% /table %}
 
 ### Widget Templates
 
 Use pre-built templates for quick setup:
+
 - Templates appear in a template gallery
 - One-click to add common widgets
 - Customize after creation
@@ -163,6 +219,7 @@ Use pre-built templates for quick setup:
 ### Layout Editing
 
 Dashboards use a grid-based layout:
+
 - Drag widgets to reposition
 - Resize widgets by dragging corners
 - Layout changes auto-save
@@ -170,6 +227,7 @@ Dashboards use a grid-based layout:
 ### Widget Options
 
 For each widget you can:
+
 - **Edit** - Modify configuration
 - **Delete** - Remove from dashboard
 
@@ -182,22 +240,30 @@ Widget data automatically refreshes every 60 seconds to keep information current
 ### Accessing Settings
 
 1. Open your dashboard
-2. Click the **Settings** button in the toolbar
-3. Or click **Settings** from the dashboard list
+1. Click the **Settings** button in the toolbar
+1. Or click **Settings** from the dashboard list
 
 ### Available Settings
 
-| Setting | Description |
-|---------|-------------|
-| **Name** | Dashboard title |
-| **Description** | Purpose of the dashboard |
-| **Privacy** | Private or shared |
+{% table %}
+- Setting
+- Description
+---
+- **Name**
+- Dashboard title
+---
+- **Description**
+- Purpose of the dashboard
+---
+- **Privacy**
+- Private or shared
+{% /table %}
 
 ### Deleting a Dashboard
 
 1. Go to dashboard settings
-2. Click **Delete Dashboard**
-3. Confirm deletion
+1. Click **Delete Dashboard**
+1. Confirm deletion
 
 > **Warning:** Deleting a dashboard removes all its widgets and cannot be undone.
 
@@ -205,23 +271,30 @@ Widget data automatically refreshes every 60 seconds to keep information current
 
 ### Permission Levels
 
-| Level | Capabilities |
-|-------|--------------|
-| **View** | See widget data (read-only) |
-| **Edit** | Add, modify, and delete widgets |
+{% table %}
+- Level
+- Capabilities
+---
+- **View**
+- See widget data (read-only)
+---
+- **Edit**
+- Add, modify, and delete widgets
+{% /table %}
 
 ### Managing Permissions
 
 Dashboard creators can manage who has access:
 
 1. Open dashboard settings
-2. Navigate to permissions section
-3. Add users or roles with specific permission levels
-4. Remove access as needed
+1. Navigate to permissions section
+1. Add users or roles with specific permission levels
+1. Remove access as needed
 
 ### Assigning Permissions
 
 Permissions can be assigned to:
+
 - **Specific users** - Grant access to individual team members
 - **Roles** - Grant access to everyone with a specific role (e.g., all managers)
 
@@ -232,8 +305,8 @@ Permissions can be assigned to:
 Set a dashboard as your default landing page:
 
 1. From the dashboard list, click the menu on a dashboard
-2. Select **Set as Default**
-3. This dashboard opens when you visit the dashboards page
+1. Select **Set as Default**
+1. This dashboard opens when you visit the dashboards page
 
 ### Your Default vs Team Default
 
@@ -244,8 +317,8 @@ Each user can have their own default dashboard. This setting is personal and doe
 Team owners can view the change history for dashboards:
 
 1. Click the menu on a dashboard
-2. Select **View Audit History**
-3. See who made changes and when
+1. Select **View Audit History**
+1. See who made changes and when
 
 This includes changes to dashboard settings and widgets.
 
@@ -254,50 +327,66 @@ This includes changes to dashboard settings and widgets.
 ### Dashboard Design
 
 1. **Keep it focused** - One purpose per dashboard
-2. **Prioritize key metrics** - Most important at the top-left
-3. **Use appropriate widgets** - Match visualization to data type
-4. **Don't overcrowd** - Leave white space for readability
+1. **Prioritize key metrics** - Most important at the top-left
+1. **Use appropriate widgets** - Match visualization to data type
+1. **Don't overcrowd** - Leave white space for readability
 
 ### Widget Selection
 
-| Use Case | Recommended Widget |
-|----------|-------------------|
-| Single key number | Metric Card |
-| Progress toward goal | KPI Card |
-| Compare categories | Bar Chart |
-| Trends over time | Line Chart |
-| Show proportions | Pie/Doughnut Chart |
-| Detailed records | Data Table |
+{% table %}
+- Use Case
+- Recommended Widget
+---
+- Single key number
+- Metric Card
+---
+- Progress toward goal
+- KPI Card
+---
+- Compare categories
+- Bar Chart
+---
+- Trends over time
+- Line Chart
+---
+- Show proportions
+- Pie/Doughnut Chart
+---
+- Detailed records
+- Data Table
+{% /table %}
 
 ### Permission Management
 
 1. **Start private** - Create dashboards privately first
-2. **Share when ready** - Make shared after configuration is complete
-3. **Use roles** - Assign permissions to roles for easier management
-4. **Review periodically** - Audit who has access to sensitive dashboards
+1. **Share when ready** - Make shared after configuration is complete
+1. **Use roles** - Assign permissions to roles for easier management
+1. **Review periodically** - Audit who has access to sensitive dashboards
 
 ## Troubleshooting
 
 ### Widget Shows No Data
 
 1. Verify filter settings aren't too restrictive
-2. Check the time range configuration
-3. Ensure data exists for the selected criteria
-4. Try editing and re-saving the widget
+1. Check the time range configuration
+1. Ensure data exists for the selected criteria
+1. Try editing and re-saving the widget
 
 ### Permission Issues
 
 If you can't view or edit a dashboard:
+
 1. Verify you have the appropriate permission level
-2. Contact the dashboard creator to request access
-3. Check if you're in the correct team account
+1. Contact the dashboard creator to request access
+1. Check if you're in the correct team account
 
 ### Performance Issues
 
 If dashboards are slow:
+
 1. Reduce the number of widgets
-2. Narrow time ranges
-3. Use simpler aggregations
+1. Narrow time ranges
+1. Use simpler aggregations
 
 ## Related Topics
 
