@@ -1,7 +1,9 @@
 ---
 title: Team Addresses
 description: >-
-  Manage all addresses across your team. This provides a centralized view of every address your team is tracking, regardless of which project they belong to.
+  Manage all addresses across your team. This provides a centralized view of
+  every address your team is tracking, regardless of which project they belong
+  to.
 order: 1
 categories:
   - user-guide
@@ -13,113 +15,133 @@ collapsed: false
 ---
 Manage all addresses across your team. This provides a centralized view of every address your team is tracking, regardless of which project they belong to.
 
-## Accessing Team Addresses
+## Accessing Team Leads
 
 1. Ensure you're in your team account
-2. Click **Addresses** in the sidebar
-3. The URL is `/home/[team]/addresses`
+1. Click **Leads** in the sidebar
+1. The URL is `/home/[team]/addresses`
 
-## Address List
+## Leads List
 
 ### What You See
 
-The team addresses page shows all addresses in your account:
+The team leads page shows all addresses in your account:
+
 - Addresses assigned to projects
 - Addresses across all zones
 - Filterable and searchable list
 
 ### Table Columns
 
-| Column | Description |
-|--------|-------------|
-| **Address** | Street address and unit info |
-| **City** | City name |
-| **State** | State/province |
-| **Postal Code** | ZIP/postal code |
-| **Project** | Assigned project (if any) |
-| **Verified** | Whether coordinates are verified |
-| **Building Type** | Building or single address |
+{% table %}
+- Column
+- Description
+---
+- **Address**
+- Street address and unit info
+---
+- **City**
+- City name
+---
+- **State**
+- State/province
+---
+- **Postal Code**
+- ZIP/postal code
+---
+- **Project**
+- Assigned project (if any)
+---
+- **Verified**
+- Whether coordinates are verified
+---
+- **Building Type**
+- Building or single address
+{% /table %}
 
 ## Filtering Addresses
 
 ### Available Filters
 
-| Filter | Options |
-|--------|---------|
-| **Search** | Text search across address fields |
-| **Project** | Filter by specific project |
-| **Building Type** | Building or single |
-| **Verified** | Verified or unverified |
-| **Archived** | Show archived addresses |
+{% table %}
+- Filter
+- Options
+---
+- **Search**
+- Text search across address fields
+---
+- **Project**
+- Filter by specific project
+---
+- **Building Type**
+- Apartment building or single
+---
+- **Verified**
+- Verified or unverified
+---
+- **Archived**
+- Show archived addresses
+{% /table %}
 
 ### Using Search
 
 Search across address data:
+
 - Street address
 - City
 - Postal code
 
 ## Adding Addresses
 
-### Create New Address
+### Create New Lead
 
-1. Click **Add Address**
-2. Fill in the address details:
+1. Click **Add Lead > Manual Entry**
+1. Fill in the address details:
    - Street address
    - City
    - State
    - Postal code
    - Country
-3. Optionally set address type and other fields
-4. Save the address
+1. Optionally set address type and other fields
+1. Save the address
 
 ### Importing Addresses
 
-Import multiple addresses at once:
+Import multiple leads at once:
 
-1. Click **Import**
-2. Upload a CSV file
-3. Map columns to address fields
-4. Review and import
+1. Click **Add Lead > Import CSV**
+1. Upload a CSV file
+1. Map columns to address fields
+1. Review and import
 
 The import runs in the background and shows progress.
 
-## Managing Addresses
+## Managing Leads
 
-### Viewing Address Details
+### Viewing Lead Details
 
-Click an address to view its details page with:
+Click a lead to view its details page with:
+
 - Full address information
 - Coordinates and verification status
 - Custom field values
 - Interaction history
 - Sales history
 
-### Editing Addresses
+### Editing Leads
 
-1. Click an address row
-2. Click **Edit**
-3. Modify the fields
-4. Save changes
+1. Click a lead row
+1. Click **Edit**
+1. Modify the fields
+1. Save changes
 
-### Archiving Addresses
+### Archiving Leads
 
-Instead of deleting, archive addresses you no longer need:
-1. Edit the address
-2. Change status to archived
-3. Use the archived filter to view archived addresses later
+Instead of deleting, archive leads you no longer need:
 
-## Batch Operations
-
-### Batch Assign to Zone
-
-Assign multiple addresses to zones at once:
-
-1. Select addresses using checkboxes
-2. Click **Batch Actions**
-3. Select **Assign to Zone**
-4. Choose the target zone
-5. Confirm the assignment
+1. Open the menu for the lead
+1. Change status to archived
+1. Use the archived filter to view archived leads later
 
 ## Duplicate Detection
 
@@ -127,13 +149,14 @@ Assign multiple addresses to zones at once:
 
 The system can detect potential duplicate addresses:
 
-1. Click **Find Duplicates**
-2. Review suggested matches
-3. For each duplicate pair, choose to merge or dismiss
+1. Click **Detect Duplicates**
+1. Review suggested matches
+1. For each duplicate pair, choose to merge or dismiss
 
 ### Resolving Duplicates
 
 When duplicates are found:
+
 - Compare the addresses
 - Choose which to keep as primary
 - Merge or dismiss each match
@@ -141,6 +164,7 @@ When duplicates are found:
 ## Custom Fields
 
 If custom fields are configured for addresses:
+
 - Additional fields appear in the address form
 - Custom field values are shown in the address list
 - Filter and search by custom field values
@@ -157,13 +181,15 @@ See [Custom Fields](/docs/user-guide/team-administration/custom-fields) for conf
 ### Filtering by Verification
 
 Use the verified filter to:
+
 - Show only verified addresses
 - Show only unverified addresses (to review)
 
-## Building vs Single Addresses
+## Apartment building vs Single Addresses
 
 Addresses can be classified as:
-- **Building**: Multi-unit buildings with sub-addresses
+
+- **Apartment building**: Multi-unit buildings with sub-addresses
 - **Single**: Individual addresses without units
 
 Filter by building type to focus on specific address types.
@@ -173,40 +199,43 @@ Filter by building type to focus on specific address types.
 ### Organization
 
 1. **Assign to projects** - Keep addresses organized by project
-2. **Verify coordinates** - Ensure map accuracy
-3. **Use custom fields** - Track additional relevant data
-4. **Regular cleanup** - Archive addresses no longer needed
+1. **Verify coordinates** - Ensure map accuracy
+1. **Use custom fields** - Track additional relevant data
+1. **Regular cleanup** - Archive addresses no longer needed
 
 ### Data Quality
 
 1. **Check duplicates** - Periodically run duplicate detection
-2. **Complete records** - Fill in all relevant fields
-3. **Update regularly** - Keep information current
+1. **Complete records** - Fill in all relevant fields
+1. **Update regularly** - Keep information current
 
 ## Troubleshooting
 
 ### Address Not Appearing
 
 If an address doesn't show:
+
 1. Check the project filter
-2. Check the archived filter
-3. Search by the address text
-4. Verify it was saved successfully
+1. Check the archived filter
+1. Search by the address text
+1. Verify it was saved successfully
 
 ### Import Issues
 
 If import fails:
+
 1. Check CSV format and column headers
-2. Verify required fields are present
-3. Check for invalid data in rows
-4. Review import error messages
+1. Verify required fields are present
+1. Check for invalid data in rows
+1. Review import error messages
 
 ### Wrong Coordinates
 
 If an address appears in the wrong location:
+
 1. Edit the address
-2. Update the coordinates
-3. Mark as verified once confirmed
+1. Update the coordinates
+1. Mark as verified once confirmed
 
 ## Related Topics
 
