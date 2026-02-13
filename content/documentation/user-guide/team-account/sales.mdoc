@@ -1,7 +1,8 @@
 ---
 title: Team Sales
 description: >-
-  Track and manage all sales across your team. View sales records, filter by various criteria, and manage sale statuses.
+  Track and manage all sales across your team. View sales records, filter by
+  various criteria, and manage sale statuses.
 order: 3
 categories:
   - user-guide
@@ -16,24 +17,42 @@ Track and manage all sales across your team. View sales records, filter by vario
 ## Accessing Team Sales
 
 1. Ensure you're in your team account
-2. Click **Sales** in the sidebar
-3. The URL is `/home/[team]/sales`
+1. Click **Sales** in the sidebar
+1. The URL is `/home/[team]/sales`
 
 ## Sales List
+
+![](https://raw.githubusercontent.com/Goldenhunter1206/sellfaster_content/main/public/site/images/user-guide/team-account/sales/image.png)
 
 ### Table Columns
 
 The sales table shows all team sales with the following columns:
 
-| Column | Description |
-|--------|-------------|
-| **Order #** | Order number (or "Standalone" for single sales) |
-| **Sale Date** | When the sale was recorded |
-| **Project** | Associated project |
-| **Address** | Customer address with unit/name info |
-| **Items** | Number of items in the order |
-| **Status** | Current sale state |
-| **Salesperson** | Team member who made the sale |
+{% table %}
+- Column
+- Description
+---
+- **Order #**
+- Order number (or "Standalone" for single sales)
+---
+- **Sale Date**
+- When the sale was recorded
+---
+- **Campaign**
+- Associated project
+---
+- **Lead**
+- Customer address with unit/name info
+---
+- **Items**
+- Number of items in the order
+---
+- **Status**
+- Current sale state
+---
+- **Salesperson**
+- Team member who made the sale
+{% /table %}
 
 ### Row Navigation
 
@@ -43,23 +62,37 @@ Click any row to view the full sale details.
 
 ### Available Filters
 
-| Filter | Description |
-|--------|-------------|
-| **Search** | Search addresses or products |
-| **State** | Filter by sale state |
-| **Project** | Filter by project |
-| **Product** | Filter by product |
-| **Start Date** | Filter from date |
-| **End Date** | Filter to date |
+{% table %}
+- Filter
+- Description
+---
+- **Search**
+- Search addresses or products
+---
+- **State**
+- Filter by sale state
+---
+- **Project**
+- Filter by project
+---
+- **Product**
+- Filter by product
+---
+- **Start Date**
+- Filter from date
+---
+- **End Date**
+- Filter to date
+{% /table %}
 
 ### Using Filters
 
 1. Enter search text to filter by address or product
-2. Select a state from the dropdown to filter by status
-3. Select a project to see only that project's sales
-4. Select a product to see sales containing that product
-5. Use date inputs to filter by date range
-6. Click **Clear Filters** to reset all filters
+1. Select a state from the dropdown to filter by status
+1. Select a project to see only that project's sales
+1. Select a product to see sales containing that product
+1. Use date inputs to filter by date range
+1. Click **Clear Filters** to reset all filters
 
 ## Sale Details
 
@@ -68,6 +101,7 @@ Click any row to view the full sale details.
 Click a sale row to view the detail page showing:
 
 **Sale Details Card:**
+
 - Sale number
 - Product name
 - Price (shows original and sale price if discounted)
@@ -76,8 +110,10 @@ Click a sale row to view the detail page showing:
 - Salesperson
 - Commission amount
 - Commission paid status
+- Link to project
 
 **Additional Information:**
+
 - Order link (if part of an order)
 - Notes
 - Linked bonus targets
@@ -85,6 +121,7 @@ Click a sale row to view the detail page showing:
 ### Applied Promotions
 
 If promotions were applied to the sale, a dedicated card shows:
+
 - Promotion name and type
 - Original price vs final price with savings
 - Original commission vs adjusted commission
@@ -92,12 +129,14 @@ If promotions were applied to the sale, a dedicated card shows:
 ### Address Information
 
 Shows the address where the sale was made with links to:
+
 - View address details
 - View project
 
 ### Commissions Table
 
 Lists all commission entries for the sale:
+
 - Commission type (earned/reclaimed)
 - Amount
 - Salesperson
@@ -114,28 +153,28 @@ Timeline showing all status changes for the sale.
 Users with `sales:update` permission can edit sales:
 
 1. Open the sale detail page
-2. Click the actions menu (three dots)
-3. Select **Edit**
-4. Modify the details in the dialog
-5. Save changes
+1. Click the actions menu (three dots)
+1. Select **Edit**
+1. Modify the details in the dialog
+1. Save changes
 
 ### Transitioning Sale Status
 
 If valid state transitions are available:
 
 1. Open the sale detail page
-2. Click the actions menu
-3. Select a transition option (e.g., "To Completed")
-4. The status updates immediately
+1. Click the actions menu
+1. Select a transition option (e.g., "To Completed")
+1. The status updates immediately
 
 ### Bulk State Transitions
 
 From the sales list, you can bulk transition visible sales:
 
 1. Apply filters to show the sales you want to transition
-2. Click **Bulk Transition**
-3. Select the target state
-4. All visible sales will transition to that state
+1. Click **Bulk Transition**
+1. Select the target state
+1. All visible sales will transition to that state
 
 > **Note:** Only sales with valid transitions to the target state will be updated.
 
@@ -144,12 +183,13 @@ From the sales list, you can bulk transition visible sales:
 Team owners can view the audit history:
 
 1. Open the sale detail page
-2. Click the actions menu
-3. Select **View Audit History**
+1. Click the actions menu
+1. Select **View Audit History**
 
 ## Sale States
 
 Sales follow the state workflow defined in your Sale Models. The available states and transitions depend on:
+
 - The sale model assigned to the project
 - The current state of the sale
 
@@ -159,18 +199,20 @@ See [Sale Models](/docs/user-guide/team-administration/sale-models) for workflow
 
 ### How Commission Works
 
-- Commission is calculated based on the product's commission amount
+- Commission is calculated based on the product's current commission amount
 - Promotions may adjust the commission amount
 - Commission entries are created when sales reach certain states
 
 ### Commission on Sales
 
 Each sale shows:
+
 - Commission amount
 - Whether commission has been paid
 - Payment date (if paid)
 
 Commissions automatically feed into:
+
 - [Commission](/docs/user-guide/team-account/commission) reports
 - Payslip calculations
 
@@ -179,47 +221,51 @@ Commissions automatically feed into:
 ### Recording Sales
 
 1. **Record promptly** - Enter sales when they happen
-2. **Include notes** - Add context for future reference
-3. **Verify details** - Check product, price, and address before saving
+1. **Include notes** - Add context for future reference
+1. **Verify details** - Check product, price, and address before saving
 
 ### Team Management
 
 1. **Regular review** - Check sales regularly
-2. **Use filters** - Find specific sales quickly
-3. **Track status** - Keep sale states current
-4. **Monitor performance** - Use dashboards for analytics
+1. **Use filters** - Find specific sales quickly
+1. **Track status** - Keep sale states current
+1. **Monitor performance** - Use dashboards for analytics
 
 ## Troubleshooting
 
 ### Sale Not Appearing
 
 If a sale isn't showing:
+
 1. Check the date filter range
-2. Check the project filter
-3. Check the state filter
-4. Check the product filter
-5. Clear all filters and search again
-6. Refresh the page
+1. Check the project filter
+1. Check the state filter
+1. Check the product filter
+1. Clear all filters and search again
+1. Refresh the page
 
 ### Commission Not Showing
 
 If commission seems missing:
+
 1. Verify the product has a commission amount set
-2. Check if the sale status affects commission
-3. Review sale model rules
+1. Check if the sale status affects commission
+1. Review sale model rules
 
 ### Can't Edit Sale
 
 If you can't edit:
+
 1. Verify you have `sales:update` permission
-2. Check with your team owner/manager
+1. Check with your team owner/manager
 
 ### Status Transition Not Available
 
 If you can't transition to a state:
+
 1. Check the sale model configuration
-2. Verify the transition is allowed from the current state
-3. Ensure you have `sales:update` permission
+1. Verify the transition is allowed from the current state
+1. Ensure you have `sales:update` permission
 
 ## Related Topics
 
