@@ -1,8 +1,8 @@
 ---
-title: Project Addresses
+title: Campaign Leads
 description: >-
-  Manage the addresses within a specific project. This includes viewing, adding,
-  importing, and organizing addresses tied to a project territory.
+  Manage the leads within a specific campaign. This includes viewing, adding,
+  importing, and organizing leads tied to a campaign territory.
 order: 1
 categories:
   - user-guide
@@ -12,27 +12,27 @@ status: published
 collapsible: false
 collapsed: false
 ---
-Manage the addresses within a specific project. This includes viewing, adding, importing, and organizing addresses tied to a project territory.
+Manage the leads within a specific campaign. This includes viewing, adding, importing, and organizing leads tied to a campaign territory.
 
-## Accessing Project Addresses
+## Accessing Campaign Leads
 
-1. Navigate to your project
-1. Click the **Addresses** tab
-1. View the list of addresses in this project
+1. Navigate to your campaign
+1. Click the **Leads** tab
+1. View the list of leads in this campaign
 
-## Viewing Addresses
+## Viewing Leads
 
 ### Table View
 
-The addresses table displays project addresses with expandable rows for buildings. Each address shows:
+The leads table displays campaign leads with expandable rows for buildings. Each lead shows:
 
-- Street address and unit information
+- Street lead and unit information
 - Current interaction state (color-coded)
 - Zone assignment
 - Verification status
 - Actions menu
 
-Buildings (multi-unit addresses) can be expanded to show individual units.
+Buildings (multi-unit leads) can be expanded to show individual units.
 
 ### Table Columns
 
@@ -40,8 +40,8 @@ Buildings (multi-unit addresses) can be expanded to show individual units.
 - Column
 - Description
 ---
-- **Address**
-- Street address with expand controls for buildings
+- **Lead**
+- Street lead with expand controls for buildings
 ---
 - **Interaction State**
 - Current state with color indicator
@@ -65,7 +65,7 @@ Buildings (multi-unit addresses) can be expanded to show individual units.
 - Description
 ---
 - **Search**
-- Search by address text
+- Search by lead text
 ---
 - **Zone**
 - Filter by assigned zone
@@ -79,7 +79,7 @@ Buildings (multi-unit addresses) can be expanded to show individual units.
 
 ### Using Filters
 
-1. Enter text in the search box to filter by address
+1. Enter text in the search box to filter by lead
 1. Select a zone from the dropdown
 1. Select an interaction state to filter
 1. Choose verified/unverified status
@@ -87,28 +87,28 @@ Buildings (multi-unit addresses) can be expanded to show individual units.
 
 Filters update the URL and persist across page refreshes.
 
-## Adding Addresses
+## Adding Leads
 
 ### Manual Entry
 
-Users with `addresses:create` permission can add addresses:
+Users with `leads:create` permission can add leads:
 
-1. Click **Add Address**
-1. Enter address details:
+1. Click **Add Lead**
+1. Enter lead details:
 
-- Street address
+- Street lead
 - City, state, postal code
 - Country
 
-3. Save the address
+3. Save the lead
 
-### Importing Addresses
+### Importing Leads
 
-Import multiple addresses at once:
+Import multiple leads at once:
 
 1. Click **Import** button
 1. Upload a CSV file
-1. Map columns to address fields
+1. Map columns to lead fields
 1. Preview the import
 1. Confirm and start import
 
@@ -129,72 +129,72 @@ During import, duplicates may be detected:
 1. Import pauses when duplicates are found
 1. Review each potential duplicate
 1. Choose to merge, skip, or create anyway
-1. Continue with remaining addresses
+1. Continue with remaining leads
 
-## Managing Addresses
+## Managing Leads
 
-### Viewing Address Details
+### Viewing Lead Details
 
-Click an address row to navigate to its detail page showing:
+Click an lead row to navigate to its detail page showing:
 
-- Full address information
+- Full lead information
 - Interaction history
 - Sales history
 - Custom field values
 - Units (for buildings)
 
-### Editing Addresses
+### Editing Leads
 
-Users with `addresses:update` permission:
+Users with `leads:update` permission:
 
-1. Click the address row menu
+1. Click the lead row menu
 1. Select edit action
 1. Modify fields
 1. Save changes
 
 ### Assigning to Zones
 
-Addresses can be assigned to zones:
+Leads can be assigned to zones:
 
-1. From the address actions menu
+1. From the lead actions menu
 1. Select a zone
 1. Or use the Map view for geographic assignment
 
 ### Bulk Operations
 
-Select multiple addresses for bulk actions:
+Select multiple leads for bulk actions:
 
 - **Bulk Unassign** - Remove zone assignments
 
-## Exporting Addresses
+## Exporting Leads
 
 ### Export Options
 
 1. Click **Export** button
 1. Choose export format:
 
-- Export visible (filtered) addresses
-- Export all addresses
+- Export visible (filtered) leads
+- Export all leads
 
 ### Export Format
 
 Exports generate a CSV file with:
 
-- Address fields
+- Lead fields
 - Zone assignments
 - Interaction states
 - Custom field values
 
-The filename includes the project name and date.
+The filename includes the campaign name and date.
 
-## Address States
+## Lead States
 
 ### Interaction States
 
-Each address shows its current interaction state:
+Each lead shows its current interaction state:
 
 - Color-coded badges
-- States defined in project configuration
+- States defined in campaign configuration
 - Updated when interactions are recorded
 
 See [Interaction States](/docs/user-guide/team-administration/interaction-states) for configuration.
@@ -207,36 +207,36 @@ See [Interaction States](/docs/user-guide/team-administration/interaction-states
 - Action
 - Permission Required
 ---
-- Create address
-- `addresses:create` + active/draft project
+- Create lead
+- `leads:create` + active/draft campaign
 ---
-- Update address
-- `addresses:update` + active/draft project
+- Update lead
+- `leads:update` + active/draft campaign
 ---
-- Unassign address
-- `addresses:delete` + active/draft project
+- Unassign lead
+- `leads:delete` + active/draft  campaign
 {% /table %}
 
 ## Best Practices
 
 ### Data Quality
 
-1. **Verify coordinates** - Check addresses appear correctly on map
-1. **Assign to zones** - Organize addresses geographically
+1. **Verify coordinates** - Check leads appear correctly on map
+1. **Assign to zones** - Organize leads geographically
 1. **Keep states current** - Update interaction states regularly
 
 ### Importing
 
 1. **Clean data before import** - Fix formatting issues first
-1. **Use consistent format** - Same address format across imports
+1. **Use consistent format** - Same lead format across imports
 1. **Review duplicates** - Carefully merge or skip duplicates
-1. **Export regularly** - Backup address data periodically
+1. **Export regularly** - Backup lead data periodically
 
 ## Troubleshooting
 
-### Address Not Appearing
+### Lead Not Appearing
 
-If an address isn't showing:
+If an lead isn't showing:
 
 1. Check the search filter
 1. Check the zone filter
@@ -258,13 +258,13 @@ If import fails:
 If duplicate dialog appears:
 
 1. Review each potential match carefully
-1. Compare addresses to determine if truly duplicate
-1. Merge if same address, skip if different
-1. Continue processing remaining addresses
+1. Compare leads to determine if truly duplicate
+1. Merge if same lead, skip if different
+1. Continue processing remaining leads
 
 ## Related Topics
 
 - [Map View](/docs/user-guide/team-account/projects/map-view) - Geographic visualization
-- [Project Overview](/docs/user-guide/team-account/projects) - Project management
+- [Campaign Overview](/docs/user-guide/team-account/projects/overview) - Campaign management
 - [Interaction States](/docs/user-guide/team-administration/interaction-states) - State configuration
-- [Team Addresses](/docs/user-guide/team-account/addresses) - Team-wide address view
+- [Team Leads](/docs/user-guide/team-account/leads) - Team-wide lead view
