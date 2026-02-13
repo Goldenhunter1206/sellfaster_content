@@ -1,8 +1,9 @@
 ---
 title: Project Sales
 description: >-
-  Track and manage sales made within a specific project. View sales, filter by various criteria, and manage sale statuses.
-order: 2
+  Track and manage sales made within a specific project. View sales, filter by
+  various criteria, and manage sale statuses.
+order: 3
 categories:
   - user-guide
 tags:
@@ -16,8 +17,8 @@ Track and manage sales made within a specific project. View sales, filter by var
 ## Accessing Project Sales
 
 1. Navigate to your project
-2. Click the **Sales** tab
-3. View all sales from this project
+1. Click the **Sales** tab
+1. View all sales from this project
 
 ## Sales Table
 
@@ -25,14 +26,28 @@ Track and manage sales made within a specific project. View sales, filter by var
 
 The sales table shows project sales with:
 
-| Column | Description |
-|--------|-------------|
-| **Order #** | Order number (or "Standalone") |
-| **Sale Date** | When the sale was recorded |
-| **Address** | Location of the sale |
-| **Items** | Number of items in the order |
-| **Status** | Current sale state |
-| **Salesperson** | Who made the sale |
+{% table %}
+- Column
+- Description
+---
+- **Order #**
+- Order number (or "Standalone")
+---
+- **Sale Date**
+- When the sale was recorded
+---
+- **Address**
+- Location of the sale
+---
+- **Items**
+- Number of items in the order
+---
+- **Status**
+- Current sale state
+---
+- **Salesperson**
+- Who made the sale
+{% /table %}
 
 ### Row Navigation
 
@@ -42,18 +57,26 @@ Click any row to view the full sale details.
 
 ### Available Filters
 
-| Filter | Description |
-|--------|-------------|
-| **Search** | Search addresses or products |
-| **State** | Filter by sale state |
-| **Zone** | Filter by address zone |
+{% table %}
+- Filter
+- Description
+---
+- **Search**
+- Search addresses or products
+---
+- **State**
+- Filter by sale state
+---
+- **Zone**
+- Filter by address zone
+{% /table %}
 
 ### Using Filters
 
 1. Enter search text to filter by address or product
-2. Select a state from the dropdown
-3. Select a zone to see only sales from that zone
-4. Click **Clear Filters** to reset
+1. Select a state from the dropdown
+1. Select a zone to see only sales from that zone
+1. Click **Clear Filters** to reset
 
 ## Sale Details
 
@@ -78,17 +101,17 @@ See [Team Sales](/docs/user-guide/team-account/sales) for more details on sale m
 From the sales table, you can transition sale statuses:
 
 1. Click the actions menu on a sale row
-2. Select a transition option
-3. The status updates immediately
+1. Select a transition option
+1. The status updates immediately
 
 ### Bulk State Transitions
 
 To transition multiple sales at once:
 
 1. Apply filters to show the sales you want to transition
-2. Click **Bulk Transition**
-3. Select the target state
-4. All visible sales will transition
+1. Click **Bulk Transition**
+1. Select the target state
+1. All visible sales will transition
 
 > **Note:** Only sales with valid transitions will be updated.
 
@@ -97,7 +120,7 @@ To transition multiple sales at once:
 Sales are typically recorded from:
 
 1. **Address detail page** - When interacting with a specific address
-2. **During interactions** - As part of recording an interaction
+1. **During interactions** - As part of recording an interaction
 
 See [Recording Sales](/docs/user-guide/how-to/recording-sales) for complete instructions.
 
@@ -112,6 +135,7 @@ Project sales contribute to commissions:
 ## Related to Bonus Targets
 
 Project sales may contribute to:
+
 - Project-scoped bonus targets
 - Salesperson bonus targets
 - Account-wide bonus targets
@@ -122,43 +146,53 @@ Progress updates automatically when sales reach qualifying states.
 
 Sales management requires appropriate permissions:
 
-| Action | Permission Required |
-|--------|-------------------|
-| View sales | Basic team member access |
-| Update sale status | `sales:update` permission |
-| Bulk transition | `sales:update` permission |
+{% table %}
+- Action
+- Permission Required
+---
+- View sales
+- Basic team member access
+---
+- Update sale status
+- `sales:update` permission
+---
+- Bulk transition
+- `sales:update` permission
+{% /table %}
 
 ## Best Practices
 
 ### Recording Sales
 
 1. **Record promptly** - Enter sales when they happen
-2. **Include notes** - Add context for future reference
-3. **Verify details** - Check product, price, and address
+1. **Include notes** - Add context for future reference
+1. **Verify details** - Check product, price, and address
 
 ### Tracking Progress
 
 1. **Use filters** - Focus on specific states or zones
-2. **Review regularly** - Check sales status
-3. **Monitor commission** - Track earnings from project sales
+1. **Review regularly** - Check sales status
+1. **Monitor commission** - Track earnings from project sales
 
 ## Troubleshooting
 
 ### Sale Not Appearing
 
 If a sale isn't showing:
+
 1. Check the state filter
-2. Check the zone filter
-3. Clear all filters
-4. Verify the sale is linked to this project
-5. Refresh the page
+1. Check the zone filter
+1. Clear all filters
+1. Verify the sale is linked to this project
+1. Refresh the page
 
 ### Status Transition Not Available
 
 If you can't transition a sale:
+
 1. Check the sale model configuration
-2. Verify the transition is allowed from current state
-3. Ensure you have `sales:update` permission
+1. Verify the transition is allowed from current state
+1. Ensure you have `sales:update` permission
 
 ## Related Topics
 
