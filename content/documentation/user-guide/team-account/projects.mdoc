@@ -1,7 +1,8 @@
 ---
-title: Projects
+title: Campaigns
 description: >-
-  Projects help you organize addresses, territories, and sales campaigns. Each project groups related addresses together for focused management and tracking.
+  Projects help you organize addresses, territories, and sales campaigns. Each
+  project groups related addresses together for focused management and tracking.
 order: 0
 categories:
   - user-guide
@@ -25,8 +26,8 @@ A project represents:
 ## Accessing Projects
 
 1. Ensure you're in your team account
-2. Click **Projects** in the sidebar
-3. The URL is `/home/[team]/projects`
+1. Click **Projects** in the sidebar
+1. The URL is `/home/[team]/projects`
 
 ## Projects List
 
@@ -34,16 +35,27 @@ A project represents:
 
 The projects table shows:
 
-| Column | Description |
-|--------|-------------|
-| **Name** | Project name |
-| **Status** | Active, Draft, Completed, or Cancelled |
-| **Start Date** | Project start date (if set) |
-| **End Date** | Project end date (if set) |
+{% table %}
+- Column
+- Description
+---
+- **Name**
+- Project name
+---
+- **Status**
+- Active, Draft, Completed, or Cancelled
+---
+- **Start Date**
+- Project start date (if set)
+---
+- **End Date**
+- Project end date (if set)
+{% /table %}
 
 ### Filtering Projects
 
 Filter the list by:
+
 - **Search** - Search by name, status, or description
 - **Status** - Filter by one or more statuses (Active, Draft, Completed, Cancelled)
 
@@ -54,34 +66,62 @@ By default, only Active and Draft projects are shown.
 ### New Project
 
 1. Click **New Project** button
-2. Enter project details:
+1. Enter project details:
    - **Name** - Project title (required)
    - **Description** - Purpose and notes
    - **Start Date** - When the project begins
    - **End Date** - When the project ends
    - **Allow salesmen to create addresses** - Permission setting
-3. Click **Create Project**
+1. Click **Create Project**
 
 You'll be redirected to the project configuration page after creation.
 
 ### Project Fields
 
-| Field | Required | Description |
-|-------|----------|-------------|
-| **Name** | Yes | Project identifier |
-| **Description** | No | Details about the project |
-| **Start Date** | No | Project start |
-| **End Date** | No | Expected completion |
-| **Allow salesmen to create addresses** | No | Allow members to add addresses |
+{% table %}
+- Field
+- Required
+- Description
+---
+- **Name**
+- Yes
+- Project identifier
+---
+- **Description**
+- No
+- Details about the project
+---
+- **Start Date**
+- No
+- Project start
+---
+- **End Date**
+- No
+- Expected completion
+---
+- **Allow salesmen to create addresses**
+- No
+- Allow members to add addresses
+{% /table %}
 
 ## Project Statuses
 
-| Status | Description |
-|--------|-------------|
-| **Active** | Currently in progress |
-| **Draft** | Not yet started |
-| **Completed** | Finished successfully |
-| **Cancelled** | Terminated |
+{% table %}
+- Status
+- Description
+---
+- **Active**
+- Currently in progress
+---
+- **Draft**
+- Not yet started
+---
+- **Completed**
+- Finished successfully
+---
+- **Cancelled**
+- Terminated
+{% /table %}
 
 ## Project Detail
 
@@ -93,13 +133,25 @@ Click a project row to view its detail page.
 
 Each project has five tabs:
 
-| Tab | Description |
-|-----|-------------|
-| **Overview** | Project summary (default tab) |
-| **Configuration** | Project settings |
-| **Addresses** | List of project addresses |
-| **Sales** | Sales from this project |
-| **Map** | Geographic view with zones |
+{% table %}
+- Tab
+- Description
+---
+- **Overview**
+- Project summary (default tab)
+---
+- **Configuration**
+- Project settings
+---
+- **Addresses**
+- List of project addresses
+---
+- **Sales**
+- Sales from this project
+---
+- **Map**
+- Geographic view with zones
+{% /table %}
 
 ## Project Navigation
 
@@ -110,6 +162,7 @@ The landing page for a project showing summary information.
 ### Configuration Tab
 
 Project settings including:
+
 - Edit project details
 - Zone management
 - Product assignments
@@ -121,6 +174,7 @@ See [Project Configuration](/docs/user-guide/team-account/projects/configuration
 ### Addresses Tab
 
 View and manage project addresses:
+
 - Table view of all addresses
 - Filter and search
 - Add new addresses
@@ -132,6 +186,7 @@ See [Project Addresses](/docs/user-guide/team-account/projects/addresses) for de
 ### Sales Tab
 
 Track project sales:
+
 - Sales list with filters
 - Status management
 - Bulk state transitions
@@ -141,6 +196,7 @@ See [Project Sales](/docs/user-guide/team-account/projects/sales) for details.
 ### Map Tab
 
 Interactive geographic view:
+
 - Address markers
 - Zone overlays
 - Drawing tools
@@ -155,24 +211,26 @@ See [Map View](/docs/user-guide/team-account/projects/map-view) for details.
 Users with `projects:update` permission can edit:
 
 1. Navigate to the project
-2. Click the actions menu (three dots) on the projects list
-3. Select **Edit Project**
-4. Update project details in the dialog
-5. Save changes
+1. Click the actions menu (three dots) on the projects list
+1. Select **Edit Project**
+1. Update project details in the dialog
+1. Save changes
 
 Or from within the project:
+
 1. Go to the Configuration tab
-2. Edit the project settings
+1. Edit the project settings
 
 ### Cancelling a Project
 
 To cancel a project:
 
 1. Click the actions menu on the project row
-2. Select **Cancel**
-3. The project status changes to Cancelled
+1. Select **Cancel**
+1. The project status changes to Cancelled
 
 Cancelled projects:
+
 - Can be filtered to view in the projects list
 - Can be reactivated if needed
 
@@ -181,16 +239,16 @@ Cancelled projects:
 To reactivate a cancelled project:
 
 1. Click the actions menu on the cancelled project
-2. Select **Reactivate Project**
-3. The project returns to its previous status
+1. Select **Reactivate Project**
+1. The project returns to its previous status
 
 ### Viewing Audit History
 
 Team owners can view project audit history:
 
 1. Click the actions menu on the project row
-2. Select **Audit History**
-3. Review the change history
+1. Select **Audit History**
+1. Review the change history
 
 ## Project Zones
 
@@ -207,26 +265,34 @@ See [Map View](/docs/user-guide/team-account/projects/map-view) for zone managem
 
 ### Required Permissions
 
-| Action | Permission Required |
-|--------|-------------------|
-| Create project | `projects:create` + active subscription |
-| Update project | `projects:update` + active subscription |
-| View audit history | Owner role |
+{% table %}
+- Action
+- Permission Required
+---
+- Create project
+- `projects:create` + active subscription
+---
+- Update project
+- `projects:update` + active subscription
+---
+- View audit history
+- Owner role
+{% /table %}
 
 ## Best Practices
 
 ### Project Organization
 
 1. **Use descriptive names** - Clear project identification
-2. **Set date ranges** - Define project timeline
-3. **Add descriptions** - Document project purpose
-4. **Use statuses properly** - Keep project states current
+1. **Set date ranges** - Define project timeline
+1. **Add descriptions** - Document project purpose
+1. **Use statuses properly** - Keep project states current
 
 ### Data Management
 
 1. **Import addresses early** - Set up before starting
-2. **Define zones** - Organize geographically
-3. **Configure sale model** - Set up workflow before sales begin
+1. **Define zones** - Organize geographically
+1. **Configure sale model** - Set up workflow before sales begin
 
 ## Related Topics
 
