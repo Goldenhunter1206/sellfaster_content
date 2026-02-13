@@ -1,7 +1,8 @@
 ---
 title: Commission
 description: >-
-  Track commissions and manage payslips for your team. The commission page provides visibility into earned commissions and tools for generating payslips.
+  Track commissions and manage payslips for your team. The commission page
+  provides visibility into earned commissions and tools for generating payslips.
 order: 4
 categories:
   - user-guide
@@ -16,8 +17,8 @@ Track commissions and manage payslips for your team. The commission page provide
 ## Accessing Commission
 
 1. Ensure you're in your team account
-2. Click **Commission** in the sidebar
-3. The URL is `/home/[team]/commission`
+1. Click **Commission** in the sidebar
+1. The URL is `/home/[team]/commission`
 
 ## Commission Page Tabs
 
@@ -31,6 +32,10 @@ View and create payslips for team members.
 
 View the detailed log of all commission entries.
 
+### Templates
+
+Upload and use templates to create your payslips with.
+
 ## Payslips
 
 ### What is a Payslip?
@@ -41,35 +46,45 @@ A payslip is a record summarizing commissions owed to a team member for a specif
 
 The payslips table shows:
 
-| Column | Description |
-|--------|-------------|
-| **Date** | Payslip date |
-| **User** | Team member |
-| **Amount** | Total payslip amount |
-| **Created** | When the payslip was created |
+{% table %}
+- Column
+- Description
+---
+- **Date**
+- Payslip date
+---
+- **User**
+- Team member
+---
+- **Amount**
+- Total payslip amount
+---
+- **Created**
+- When the payslip was created
+{% /table %}
 
 ### Filtering Payslips
 
 Filter payslips by:
+
 - **Search** - Search by content
 - **Date Range** - Filter by payslip date
 
 ### Creating a Payslip
 
 1. Click **Create Payslip**
-2. Select the team member
-3. Enter the payslip date
-4. Enter the amount
-5. Add any notes or description
-6. Save the payslip
+1. Select the team member
+1. Create the payslip
 
 ### Exporting Payslips to PDF
 
 1. Click on a payslip to view details
-2. Click **Export PDF**
-3. The payslip downloads as a formatted PDF document
+1. Click **Export PDF**
+1. The payslip downloads as a formatted PDF document
 
 ## Commission Log
+
+![](https://raw.githubusercontent.com/Goldenhunter1206/sellfaster_content/main/public/site/images/user-guide/team-account/commission/image.png)
 
 ### What is the Commission Log?
 
@@ -77,40 +92,75 @@ The commission log shows individual commission entries, both earned and reclaime
 
 ### Commission Entry Information
 
-| Field | Description |
-|-------|-------------|
-| **Date** | When the commission was recorded |
-| **Sale** | The related sale |
-| **Product** | Product sold |
-| **Address** | Sale location |
-| **Amount** | Commission amount |
-| **Type** | Earned or Reclaimed |
-| **Paid Status** | Whether included in a payslip |
-| **Promotion Affected** | Whether affected by a promotion |
+{% table %}
+- Field
+- Description
+---
+- **Date**
+- When the commission was recorded
+---
+- **Sale**
+- The related sale
+---
+- **Product**
+- Product sold
+---
+- **Address**
+- Sale location
+---
+- **Amount**
+- Commission amount
+---
+- **Type**
+- Earned or Reclaimed
+---
+- **Paid Status**
+- Whether included in a payslip
+---
+- **Promotion Affected**
+- Whether affected by a promotion
+{% /table %}
 
 ### Commission Types
 
-| Type | Description |
-|------|-------------|
-| **Earned** | Standard commission from a completed sale |
-| **Reclaimed** | Commission reversed (e.g., canceled sale) |
+{% table %}
+- Type
+- Description
+---
+- **Earned**
+- Standard commission from a completed sale
+---
+- **Reclaimed**
+- Commission reversed (e.g., canceled sale)
+{% /table %}
 
 ### Filtering Commissions
 
 Filter the commission log by:
 
-| Filter | Options |
-|--------|---------|
-| **Commission Type** | Earned, Reclaimed, All |
-| **Paid Status** | Paid, Unpaid, All |
-| **Promotion** | Affected, Not Affected, All |
-| **Date Range** | Custom date range |
+{% table %}
+- Filter
+- Options
+---
+- **Commission Type**
+- Earned, Reclaimed, All
+---
+- **Paid Status**
+- Paid, Unpaid, All
+---
+- **Promotion**
+- Affected, Not Affected, All
+---
+- **Date Range**
+- Custom date range
+{% /table %}
 
 ## How Commission Works
 
 ### Commission Calculation
 
 Commissions are calculated based on:
+
 - Product commission rates (set in inventory)
 - Sale model rules
 - Sale completion status
@@ -118,6 +168,7 @@ Commissions are calculated based on:
 ### When Commission is Created
 
 Commission entries are created automatically when:
+
 - A sale reaches a completed status
 - The sale has a product with a commission rate
 
@@ -136,40 +187,43 @@ Sales can be affected by promotions, which may modify commission amounts. The co
 ### For Team Managers
 
 1. **Regular payslips** - Create payslips on a consistent schedule
-2. **Review before paying** - Verify commission amounts
-3. **Use filters** - Focus on unpaid commissions when creating payslips
-4. **Export records** - Keep PDF records for accounting
+1. **Review before paying** - Verify commission amounts
+1. **Use filters** - Focus on unpaid commissions when creating payslips
+1. **Export records** - Keep PDF records for accounting
 
 ### For Team Members
 
 1. **Review your commissions** - Check the commission log regularly
-2. **Verify accuracy** - Report any discrepancies
-3. **Track promotions** - Understand how promotions affect your earnings
+1. **Verify accuracy** - Report any discrepancies
+1. **Track promotions** - Understand how promotions affect your earnings
 
 ## Troubleshooting
 
 ### Commission Not Appearing
 
 If a commission doesn't appear:
+
 1. Verify the sale status is complete
-2. Check that the product has a commission rate set
-3. Verify the sale is linked to the correct user
-4. Check the date filter range
+1. Check that the product has a commission rate set
+1. Verify the sale is linked to the correct user
+1. Check the date filter range
 
 ### Wrong Commission Amount
 
 If commission seems incorrect:
+
 1. Review the product commission rate in inventory
-2. Check if a promotion affected the sale
-3. Verify the sale amount was recorded correctly
-4. Review the sale model rules
+1. Check if a promotion affected the sale
+1. Verify the sale amount was recorded correctly
+1. Review the sale model rules
 
 ### Payslip Issues
 
 If you can't create a payslip:
+
 1. Verify you have the appropriate permissions
-2. Ensure you've selected a team member
-3. Check that the amount is valid
+1. Ensure you've selected a team member
+1. Check that the amount is valid
 
 ## Related Topics
 
