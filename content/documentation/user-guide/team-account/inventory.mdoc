@@ -1,7 +1,8 @@
 ---
 title: Inventory
 description: >-
-  Manage your team's product catalog, including products available for sale, pricing, and commission settings.
+  Manage your team's product catalog, including products available for sale,
+  pricing, and commission settings.
 order: 2
 categories:
   - user-guide
@@ -16,8 +17,8 @@ Manage your team's product catalog, including products available for sale, prici
 ## Accessing Inventory
 
 1. Ensure you're in your team account
-2. Click **Inventory** in the sidebar
-3. The URL is `/home/[team]/inventory`
+1. Click **Inventory** in the sidebar
+1. The URL is `/home/[team]/inventory`
 
 ## What is Inventory?
 
@@ -35,20 +36,31 @@ The inventory system tracks:
 
 The inventory page displays all products:
 
-| Column         | Description                 |
-| -------------- | --------------------------- |
-| **Name**       | Product name                |
-| **Price**      | Sale price                  |
-| **Commission** | Commission per sale         |
-| **Projects**   | Assigned projects           |
-| **Quantity**   | Stock quantity (if tracked) |
-| **Status**     | Active or Archived          |
+{% table %}
+- Column
+- Description
+---
+- **Name**
+- Product name
+---
+- **Description**
+- Product description
+---
+- **Commission**
+- Commission per sale
+---
+- **Projects**
+- Assigned projects
+---
+- **Quantity**
+- Stock quantity (if tracked)
+{% /table %}
 
 ### Filtering Products
 
 Filter the product list by:
 
-- Search by name
+- Sort by creation date or name
 - Active or archived products
 
 ## Adding Products
@@ -56,19 +68,43 @@ Filter the product list by:
 ### Create New Product
 
 1. Click **Add Product**
-2. Fill in product details:
+1. Fill in product details:
 
-| Field              | Required | Description                        |
-| ------------------ | -------- | ---------------------------------- |
-| **Name**           | Yes      | Product name                       |
-| **Description**    | No       | Product details                    |
-| **Price**          | No       | Sale price                         |
-| **Commission**     | No       | Commission amount per sale         |
-| **Allow Multiple** | No       | Can sell multiple per unit address |
-| **Track Quantity** | No       | Track stock quantity               |
-| **Quantity**       | No       | Initial stock (if tracking)        |
+{% table %}
+- Field
+- Required
+- Description
+---
+- **Name**
+- Yes
+- Product name
+---
+- **Description**
+- No
+- Product details
+---
+- **Price**
+- No
+- Sale price
+---
+- **Commission**
+- No
+- Commission amount per sale
+---
+- **Allow Multiple**
+- No
+- Can sell multiple per unit/address
+---
+- **Track Quantity**
+- No
+- Track stock quantity
+---
+- **Quantity**
+- No
+- Initial stock (if tracking)
+{% /table %}
 
-1. Click **Create**
+3. Click **Create**
 
 ### Product Settings
 
@@ -97,17 +133,17 @@ Click a product to see its detail page with:
 ### Editing Products
 
 1. Click a product
-2. Click **Edit**
-3. Modify the fields
-4. Save changes
+1. Click **Edit**
+1. Modify the fields
+1. Save changes
 
 ### Archiving Products
 
 Instead of deleting, archive products you no longer sell:
 
 1. Click the product menu
-2. Select **Archive**
-3. Product is hidden but preserved
+1. Select **Archive**
+1. Product is hidden but preserved
 
 Archived products:
 
@@ -122,9 +158,9 @@ Archived products:
 Products can be assigned to specific projects to control availability:
 
 1. Click a product
-2. Click **Assign to Project**
-3. Select the project(s)
-4. Save
+1. Click **Assign to Projects**
+1. Select the project(s)
+1. Save
 
 ### Assignment Effects
 
@@ -139,18 +175,21 @@ When a product is assigned to projects:
 Track inventory additions with shipments:
 
 1. Click a product
-2. Click **Record Shipment**
-3. Enter quantity received
-4. Add notes
-5. Save
+1. Click **Record Shipment**
+1. Select the shipment type (in or out)
+1. Enter quantity received
+1. Add notes
+1. Save
 
-Shipments increase the product's available quantity.
+Shipments "in" increase the product's available quantity, e.g. a delivery of products arrives.
+
+Shipments "out" decrease the product's available quantity, e.g. some products were damaged and need to be repalced.
 
 ### Shipment History
 
 View all shipments in the product detail page:
 
-- Date received
+- Date received/sent out or sold
 - Quantity
 - Notes
 - Recorded by
@@ -169,7 +208,7 @@ Each product can have a commission amount:
 
 When a sale is recorded:
 
-- Commission is calculated based on the product's commission amount
+- Commission is calculated based on the product's current commission amount
 - Multiple items multiply the commission
 - Appears in the salesperson's commission log
 
@@ -178,16 +217,16 @@ When a sale is recorded:
 ### Product Management
 
 1. **Use clear names** - Easy to identify during sales
-2. **Add descriptions** - Help sales team understand the product
-3. **Set pricing** - Keep prices current
-4. **Configure commission** - Set before first sale
+1. **Add descriptions** - Help sales team understand the product
+1. **Set pricing** - Keep prices current
+1. **Configure commission** - Set before first sale
 
 ### Inventory Control
 
 1. **Track quantity** - For limited products
-2. **Record shipments** - Keep quantity accurate
-3. **Archive unused** - Keep the list clean
-4. **Assign to projects** - Control availability
+1. **Record shipments** - Keep quantity accurate
+1. **Archive unused** - Keep the list clean
+1. **Assign to projects** - Control availability
 
 ## Troubleshooting
 
@@ -196,25 +235,25 @@ When a sale is recorded:
 If you can't select a product when recording a sale:
 
 1. Check if the product is archived
-2. Verify project assignment (if in a specific project)
-3. Check quantity (if tracking and at zero)
-4. Refresh the page
+1. Verify project assignment (if in a specific project)
+1. Check quantity (if tracking and at zero)
+1. Refresh the page
 
 ### Wrong Commission
 
 If commission seems incorrect:
 
 1. Check the product's commission amount
-2. Verify the quantity sold
-3. Review sale model rules
+1. Verify the quantity sold
+1. Review sale model rules
 
 ### Quantity Issues
 
 If quantity tracking is incorrect:
 
 1. Review shipment history
-2. Check recent sales
-3. Verify initial quantity was set correctly
+1. Check recent sales
+1. Verify initial quantity was set correctly
 
 ## Related Topics
 
