@@ -1,8 +1,9 @@
 ---
 title: Project Addresses
 description: >-
-  Manage the addresses within a specific project. This includes viewing, adding, importing, and organizing addresses tied to a project territory.
-order: 0
+  Manage the addresses within a specific project. This includes viewing, adding,
+  importing, and organizing addresses tied to a project territory.
+order: 1
 categories:
   - user-guide
 tags:
@@ -16,8 +17,8 @@ Manage the addresses within a specific project. This includes viewing, adding, i
 ## Accessing Project Addresses
 
 1. Navigate to your project
-2. Click the **Addresses** tab
-3. View the list of addresses in this project
+1. Click the **Addresses** tab
+1. View the list of addresses in this project
 
 ## Viewing Addresses
 
@@ -35,32 +36,54 @@ Buildings (multi-unit addresses) can be expanded to show individual units.
 
 ### Table Columns
 
-| Column                | Description                                       |
-| --------------------- | ------------------------------------------------- |
-| **Address**           | Street address with expand controls for buildings |
-| **Interaction State** | Current state with color indicator                |
-| **Zone**              | Assigned zone (if any)                            |
-| **Verified**          | Coordinates verification status                   |
-| **Actions**           | Edit, delete, and other options                   |
+{% table %}
+- Column
+- Description
+---
+- **Address**
+- Street address with expand controls for buildings
+---
+- **Interaction State**
+- Current state with color indicator
+---
+- **Zone**
+- Assigned zone (if any)
+---
+- **Verified**
+- Coordinates verification status
+---
+- **Actions**
+- Edit, delete, and other options
+{% /table %}
 
 ## Filtering and Search
 
 ### Available Filters
 
-| Filter       | Description                   |
-| ------------ | ----------------------------- |
-| **Search**   | Search by address text        |
-| **Zone**     | Filter by assigned zone       |
-| **Status**   | Filter by interaction state   |
-| **Verified** | Filter by verification status |
+{% table %}
+- Filter
+- Description
+---
+- **Search**
+- Search by address text
+---
+- **Zone**
+- Filter by assigned zone
+---
+- **Status**
+- Filter by interaction state
+---
+- **Verified**
+- Filter by verification status
+{% /table %}
 
 ### Using Filters
 
 1. Enter text in the search box to filter by address
-2. Select a zone from the dropdown
-3. Select an interaction state to filter
-4. Choose verified/unverified status
-5. Use **Clear Filters** to reset all filters
+1. Select a zone from the dropdown
+1. Select an interaction state to filter
+1. Choose verified/unverified status
+1. Use **Clear Filters** to reset all filters
 
 Filters update the URL and persist across page refreshes.
 
@@ -71,10 +94,12 @@ Filters update the URL and persist across page refreshes.
 Users with `addresses:create` permission can add addresses:
 
 1. Click **Add Address**
-2. Enter address details:
-  - Street address
-  - City, state, postal code
-  - Country
+1. Enter address details:
+
+- Street address
+- City, state, postal code
+- Country
+
 3. Save the address
 
 ### Importing Addresses
@@ -82,10 +107,10 @@ Users with `addresses:create` permission can add addresses:
 Import multiple addresses at once:
 
 1. Click **Import** button
-2. Upload a CSV file
-3. Map columns to address fields
-4. Preview the import
-5. Confirm and start import
+1. Upload a CSV file
+1. Map columns to address fields
+1. Preview the import
+1. Confirm and start import
 
 Large imports run in the background with progress tracking.
 
@@ -102,9 +127,9 @@ For background imports:
 During import, duplicates may be detected:
 
 1. Import pauses when duplicates are found
-2. Review each potential duplicate
-3. Choose to merge, skip, or create anyway
-4. Continue with remaining addresses
+1. Review each potential duplicate
+1. Choose to merge, skip, or create anyway
+1. Continue with remaining addresses
 
 ## Managing Addresses
 
@@ -123,17 +148,17 @@ Click an address row to navigate to its detail page showing:
 Users with `addresses:update` permission:
 
 1. Click the address row menu
-2. Select edit action
-3. Modify fields
-4. Save changes
+1. Select edit action
+1. Modify fields
+1. Save changes
 
 ### Assigning to Zones
 
 Addresses can be assigned to zones:
 
 1. From the address actions menu
-2. Select a zone
-3. Or use the Map view for geographic assignment
+1. Select a zone
+1. Or use the Map view for geographic assignment
 
 ### Bulk Operations
 
@@ -146,9 +171,10 @@ Select multiple addresses for bulk actions:
 ### Export Options
 
 1. Click **Export** button
-2. Choose export format:
-  - Export visible (filtered) addresses
-  - Export all addresses
+1. Choose export format:
+
+- Export visible (filtered) addresses
+- Export all addresses
 
 ### Export Format
 
@@ -177,26 +203,34 @@ See [Interaction States](/docs/user-guide/team-administration/interaction-states
 
 ### Required Permissions
 
-| Action           | Permission Required                       |
-| ---------------- | ----------------------------------------- |
-| Create address   | `addresses:create` + active/draft project |
-| Update address   | `addresses:update` + active/draft project |
-| Unassign address | `addresses:delete` + active/draft project |
+{% table %}
+- Action
+- Permission Required
+---
+- Create address
+- `addresses:create` + active/draft project
+---
+- Update address
+- `addresses:update` + active/draft project
+---
+- Unassign address
+- `addresses:delete` + active/draft project
+{% /table %}
 
 ## Best Practices
 
 ### Data Quality
 
 1. **Verify coordinates** - Check addresses appear correctly on map
-2. **Assign to zones** - Organize addresses geographically
-3. **Keep states current** - Update interaction states regularly
+1. **Assign to zones** - Organize addresses geographically
+1. **Keep states current** - Update interaction states regularly
 
 ### Importing
 
 1. **Clean data before import** - Fix formatting issues first
-2. **Use consistent format** - Same address format across imports
-3. **Review duplicates** - Carefully merge or skip duplicates
-4. **Export regularly** - Backup address data periodically
+1. **Use consistent format** - Same address format across imports
+1. **Review duplicates** - Carefully merge or skip duplicates
+1. **Export regularly** - Backup address data periodically
 
 ## Troubleshooting
 
@@ -205,28 +239,28 @@ See [Interaction States](/docs/user-guide/team-administration/interaction-states
 If an address isn't showing:
 
 1. Check the search filter
-2. Check the zone filter
-3. Check the status filter
-4. Clear all filters and try again
-5. Refresh the page
+1. Check the zone filter
+1. Check the status filter
+1. Clear all filters and try again
+1. Refresh the page
 
 ### Import Issues
 
 If import fails:
 
 1. Check CSV format and column headers
-2. Verify required fields are present
-3. Review import error messages
-4. Check for invalid data in rows
+1. Verify required fields are present
+1. Review import error messages
+1. Check for invalid data in rows
 
 ### Duplicate Dialog
 
 If duplicate dialog appears:
 
 1. Review each potential match carefully
-2. Compare addresses to determine if truly duplicate
-3. Merge if same address, skip if different
-4. Continue processing remaining addresses
+1. Compare addresses to determine if truly duplicate
+1. Merge if same address, skip if different
+1. Continue processing remaining addresses
 
 ## Related Topics
 
