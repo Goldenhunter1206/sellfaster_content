@@ -1,0 +1,283 @@
+---
+title: How to Send Emails
+description: >-
+  This guide walks you through setting up and sending emails to leads directly
+  from Sellfaster, including SMTP/IMAP configuration, email field setup, and
+  reply tracking.
+order: 1
+categories:
+  - user-guide
+tags:
+  - how-to
+status: published
+collapsible: false
+collapsed: false
+---
+This guide walks you through setting up and sending emails to leads directly from Sellfaster, including SMTP/IMAP configuration, email field setup, and reply tracking.
+
+## What is the Email Feature?
+
+Sellfaster allows you to send emails directly to leads without leaving the app. When you send an email:
+
+- The email is delivered via your team's configured SMTP server
+- An interaction is automatically recorded on the lead
+- The email is stored for threading so replies can be tracked
+- If IMAP is configured, incoming replies are captured automatically
+
+This keeps all communication history in one place alongside visits, calls, and other interactions.
+
+## Prerequisites
+
+Before you can send emails, the following must be in place:
+
+1. **Email settings configured** - Your team administrator must set up SMTP (and optionally IMAP) in [Team Settings](/docs/user-guide/team-administration/team-settings)
+1. **An email custom field** - Your template must include a custom field with type `email` (see [Custom Fields](/docs/user-guide/team-administration/custom-fields))
+1. **A lead with an email address** - The email field must be filled in on the lead you want to contact
+1. **Permission** - You need the `interactions:create` permission
+
+## Step 1: Configure Email Settings
+
+Your team administrator configures email in the team settings page.
+
+1. Navigate to `/home/[team]/settings`
+1. Scroll to the **Email Configuration** section
+1. Fill in the required fields
+
+### SMTP Settings (Outgoing Email)
+
+{% table %}
+- Field
+- Default
+- Description
+---
+- **Host**
+- —
+- SMTP server hostname (required)
+---
+- **Port**
+- 587
+- SMTP server port (required)
+---
+- **Use TLS**
+- Off
+- Enable TLS encryption
+---
+- **Username**
+- —
+- SMTP authentication username
+---
+- **Password**
+- —
+- SMTP authentication password
+{% /table %}
+
+### IMAP Settings (Incoming Email / Reply Tracking)
+
+{% table %}
+- Field
+- Default
+- Description
+---
+- **Host**
+- —
+- IMAP server hostname (required)
+---
+- **Port**
+- 993
+- IMAP server port (required)
+---
+- **Use TLS**
+- On
+- Enable TLS encryption
+---
+- **Username**
+- —
+- IMAP authentication username
+---
+- **Password**
+- —
+- IMAP authentication password
+{% /table %}
+
+### General Email Settings
+
+{% table %}
+- Field
+- Description
+---
+- **From Email**
+- Email address used as the sender (required)
+---
+- **From Name**
+- Display name for outgoing emails (optional)
+---
+- **Email Signature**
+- Signature appended to all outgoing emails (optional)
+{% /table %}
+
+When updating email settings, you can leave password fields blank to keep the existing password. A placeholder will indicate if a password is already set.
+
+## Step 2: Create an Email Custom Field
+
+To send emails to leads, your template needs a field that stores the lead's email address.
+
+1. Navigate to `/home/[team]/custom-fields`
+1. Click **Create Field**
+1. Set the field type to **Email**
+1. Give it a name (e.g. "Email Address") and a field key (e.g. `email_address`)
+1. Configure validation and visibility as needed
+1. Add the field to a template
+1. Assign the template to your project
+
+The `email` field type includes built-in email validation, ensuring only valid email addresses are accepted.
+
+For detailed instructions, see [Custom Fields](/docs/user-guide/team-administration/custom-fields).
+
+## Step 3: Add an Email Address to a Lead
+
+Once the template is assigned:
+
+1. Navigate to the lead's detail page: `/home/[team]/projects/[campaign]/addresses/[address]`
+1. Find the email custom field in the lead's details
+1. Enter the lead's email address
+1. Save the changes
+
+## Sending an Email
+
+With setup complete, you can now send emails:
+
+1. **Navigate to the lead**
+   - Go to the lead's detail page
+   - Or find the lead through your campaign's address list
+
+1. **Open the interaction form**
+   - Click the **Add Interaction** button
+
+1. **Select the email option**
+   - Click the email action to switch to the email compose form
+
+1. **Compose your email**
+   - The **To** field is pre-filled from the lead's email custom field
+   - Enter a **Subject** line
+   - Write the **Body** of your email
+   - Your configured email signature is appended automatically
+
+1. **Select an interaction state**
+   - Choose the appropriate state for this interaction
+
+1. **Set a follow-up (optional)**
+   - If the selected state has follow-up enabled, set a reminder date
+
+1. **Send**
+   - Click send to deliver the email and record the interaction
+
+### Email Form Fields
+
+{% table %}
+- Field
+- Type
+- Description
+---
+- **To**
+- pre-filled
+- Recipient email address from the lead's email field
+---
+- **Subject**
+- required
+- Email subject line
+---
+- **Body**
+- required
+- Email message content
+---
+- **Interaction State**
+- required
+- Select from configured states for the campaign
+---
+- **Follow-Up Date**
+- conditional & optional
+- Only appears if the selected state has `follow_up: true` configured
+{% /table %}
+
+## What Happens When You Send
+
+When you click send:
+
+1. **Email is delivered** - Sent via your team's SMTP server to the lead's email address
+1. **Interaction is logged** - An interaction is automatically created on the lead with the selected state
+1. **Email is stored** - The email content is saved and linked via a transaction ID for threading
+1. **AI Summary updates** - The lead's AI-generated summary may be updated to reflect the new interaction
+
+## Email Reply Tracking
+
+If your team has IMAP configured, Sellfaster can automatically capture email replies:
+
+- Incoming replies are matched to the original email via threading
+- Matched replies are logged as interactions on the lead
+- Your team may have specific interaction states marked as `is_email_reply` for these automatic entries
+- Reply content is stored for reference in the interaction history
+
+This means you can see the full email conversation history directly on the lead's detail page.
+
+## Best Practices
+
+### Email Content
+
+1. **Keep it concise** - Short, clear emails get better responses
+1. **Personalize** - Reference previous interactions or specific details
+1. **Clear call to action** - Tell the recipient what you need from them
+1. **Professional tone** - Remember emails represent your team
+
+### Follow-Ups
+
+1. **Set reminders** - Use follow-up dates for emails that need a response
+1. **Track replies** - Check the lead's interaction history for incoming replies
+1. **Follow up promptly** - Respond to replies while context is fresh
+
+### Signatures
+
+1. **Configure once** - Set your email signature in team settings so it's consistent
+1. **Include contact info** - Make it easy for recipients to reach you by other means
+
+## Troubleshooting
+
+### Email Not Sending
+
+If emails fail to send:
+
+1. Verify SMTP settings are correct in team settings
+1. Check the SMTP host, port, and credentials
+1. Ensure TLS settings match your email provider's requirements
+1. Contact your team administrator to review the configuration
+
+### No Email Option Available
+
+If you don't see the email action on a lead:
+
+1. Confirm your template includes a custom field with type `email`
+1. Verify the template is assigned to the project
+1. Check that the lead has an email address filled in
+
+### Can't See the Send Button
+
+If the email send option is not visible:
+
+1. Verify you have the `interactions:create` permission
+1. Contact your team administrator to check your role
+
+### Replies Not Appearing
+
+If email replies aren't being tracked:
+
+1. Confirm IMAP settings are configured in team settings
+1. Check the IMAP host, port, and credentials
+1. Ensure TLS settings are correct for your email provider
+1. Verify your team has interaction states with `is_email_reply` configured
+
+## Related Topics
+
+- [Recording Interactions](/docs/user-guide/how-to/recording-interactions) - Logging visits, calls, and other contacts
+- [Follow-Up Reminders](/docs/user-guide/how-to/follow-up-reminders) - Scheduling follow-up reminders
+- [Custom Fields](/docs/user-guide/team-administration/custom-fields) - Managing custom fields and templates
+- [Interaction States](/docs/user-guide/team-administration/interaction-states) - Configuring interaction states
+- [Team Settings](/docs/user-guide/team-administration/team-settings) - Email and account configuration
