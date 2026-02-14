@@ -2,7 +2,7 @@
 title: How to Record Interactions
 description: >-
   This guide provides step-by-step instructions for recording interactions with
-  addresses - the core activity in Sellfaster.
+  leads - the core activity in Sellfaster.
 order: 0
 categories:
   - user-guide
@@ -12,11 +12,11 @@ status: published
 collapsible: false
 collapsed: false
 ---
-This guide provides step-by-step instructions for recording interactions with addresses - the core activity in Sellfaster.
+This guide provides step-by-step instructions for recording interactions with leads - the core activity in Sellfaster.
 
 ## What is an Interaction?
 
-An interaction is a record of contact or activity with an address. Unlike some CRM systems with fixed types like "Visit" or "Call", Sellfaster uses **configurable interaction states** that your team administrator defines. This allows complete flexibility in how your team categorizes interactions.
+An interaction is a record of contact or activity with an lead. Unlike some CRM systems with fixed types like "Visit" or "Call", Sellfaster uses **configurable interaction states** that your team administrator defines. This allows complete flexibility in how your team categorizes interactions.
 
 Common interaction states teams might configure include:
 
@@ -26,34 +26,34 @@ Common interaction states teams might configure include:
 - Follow-Up Required
 - Email Sent
 
-Your available states depend on your team's configuration and may vary by project.
+Your available states depend on your team's configuration and may vary by campaign.
 
 ## Prerequisites
 
 Before recording interactions:
 
 1. You must be signed in
-1. The address must exist within a project
+1. The leadmust exist within a campaign
 1. You need the `interactions:create` permission
 
-## Recording from Address Detail
+## Recording from Lead Detail
 
 The primary way to record an interaction:
 
-1. Navigate to the address
-   - Go to your project: `/home/[team]/projects/[project]/addresses/[address]`
-   - Or find the address through your project's address list
+1. Navigate to the lead
+   - Go to your campaign: `/home/[team]/projects/[campaign]/addresses/[address]`
+   - Or find the lead through your campaign's lead list
 
 *The address detail page showing the map, address information, and action buttons*
 
 2. Open the interaction form
-   - Click the "Add Interaction" button on the address detail page
+   - Click the "Add Interaction" button on the lead detail page
    - The interaction dialog will open
 
 *The Create Interaction dialog with state selection and comment field*
 
 3. Select an interaction state
-   - Choose from the available states for this project
+   - Choose from the available states for this campaign
    - States are configured by your team administrator
    - The state you select determines what happens next
 1. Add notes (optional)
@@ -77,7 +77,7 @@ The primary way to record an interaction:
 ---
 - **Interaction State**
 - required
-- Select from configured states for the project
+- Select from configured states for the campaign
 ---
 - **Comment**
 - optional
@@ -102,7 +102,7 @@ Each interaction state can have special behaviors configured:
 - When `true`, shows the follow-up date picker
 ---
 - **keep\_open**
-- Determines if the address remains open for further contact
+- Determines if the lead remains open for further contact
 ---
 - **is\_email\_reply**
 - Marks the state as an email reply type
@@ -114,8 +114,8 @@ Each interaction state can have special behaviors configured:
 ### How States Work
 
 - States are defined at the account level
-- States can be assigned to specific projects
-- The available states you see depend on your current project
+- States can be assigned to specific campaigns
+- The available states you see depend on your current campaign
 - Selecting a state may trigger the follow-up date field to appear
 
 ## Email Interactions
@@ -178,9 +178,9 @@ See [Follow-Up Reminders](/docs/user-guide/how-to/follow-up-reminders) for manag
 
 When you save an interaction:
 
-1. **Interaction is stored** - Linked to the address, project, and account
-1. **AI Summary updates** - The system may regenerate the address summary
-1. **History updated** - Appears in the address's interaction history
+1. **Interaction is stored** - Linked to the lead, campaign, and account
+1. **AI Summary updates** - The system may regenerate the lead summary
+1. **History updated** - Appears in the lead's interaction history
 1. **Follow-up created** - If you set a follow-up date, it appears in your calendar
 
 ## Best Practices
@@ -207,7 +207,7 @@ If you can't record:
 
 1. Check you're signed in
 1. Verify you have `interactions:create` permission
-1. Ensure the address is in an active project
+1. Ensure the lead is in an active campaign
 1. Try refreshing the page
 
 ### Interaction Not Saving
@@ -229,6 +229,6 @@ If the follow-up field doesn't appear:
 
 ## Related Topics
 
-- [Managing Addresses](/docs/user-guide/personal-account/managing-addresses) - Address management
+- [Managing Leads](/docs/user-guide/personal-account/managing-addresses) - Lead management
 - [Follow-Up Reminders](/docs/user-guide/how-to/follow-up-reminders) - Scheduling follow-ups
 - [Interaction States](/docs/user-guide/team-administration/interaction-states) - State configuration
