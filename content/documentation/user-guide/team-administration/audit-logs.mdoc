@@ -1,7 +1,8 @@
 ---
 title: Audit Logs
 description: >-
-  Review activity history and track changes across your team. Audit logs provide transparency and accountability for all team actions.
+  Review activity history and track changes across your team. Audit logs provide
+  transparency and accountability for all team actions.
 order: 5
 categories:
   - user-guide
@@ -16,8 +17,8 @@ Review activity history and track changes across your team. Audit logs provide t
 ## Accessing Audit Logs
 
 1. Ensure you're in your team account
-2. Click **Audit** in the sidebar
-3. The URL is `/home/[team]/audit`
+1. Click **Audit** in the sidebar
+1. The URL is `https://sellfaster.eu/home/[team]/audit`
 
 > **Note:** Audit logs are only accessible to team owners.
 
@@ -26,6 +27,7 @@ Review activity history and track changes across your team. Audit logs provide t
 Audit logs automatically track INSERT, UPDATE, and DELETE operations on the following tables:
 
 **Core Data:**
+
 - Projects
 - Addresses
 - Interactions
@@ -34,11 +36,13 @@ Audit logs automatically track INSERT, UPDATE, and DELETE operations on the foll
 - Zone Members
 
 **Support Data:**
+
 - Bonus Targets
 - Products
 - Product Project Assignments
 
 **Custom Fields:**
+
 - Custom Field Definitions
 - Custom Field Templates
 - Custom Field Template Fields
@@ -46,36 +50,58 @@ Audit logs automatically track INSERT, UPDATE, and DELETE operations on the foll
 - Custom Field Values
 
 **Dashboards:**
+
 - Dashboards
 - Dashboard Widgets
 - Dashboard Permissions
 
 ## Viewing Audit Logs
 
+![](https://raw.githubusercontent.com/Goldenhunter1206/sellfaster_content/main/public/site/images/user-guide/team-administration/audit-logs/image.png)
+
 ### Log Table
 
 The audit logs table displays:
 
-| Column | Description |
-|--------|-------------|
-| **Timestamp** | When the change occurred (with relative time) |
-| **User** | Who made the change (or "System" for automated actions) |
-| **Action** | Created (green), Updated (gray), or Deleted (red) |
-| **Category** | The table/entity that was changed |
-| **Description** | Human-readable summary of the change |
-| **Details** | Eye icon to view full change details |
+{% table %}
+- Column
+- Description
+---
+- **Timestamp**
+- When the change occurred (with relative time)
+---
+- **User**
+- Who made the change (or "System" for automated actions)
+---
+- **Action**
+- Created (green), Updated (gray), or Deleted (red)
+---
+- **Category**
+- The table/entity that was changed
+---
+- **Description**
+- Human-readable summary of the change
+---
+- **Details**
+- Eye icon to view full change details
+{% /table %}
 
 ### Viewing Details
+
+![](https://raw.githubusercontent.com/Goldenhunter1206/sellfaster_content/main/public/site/images/user-guide/team-administration/audit-logs/image.png)
 
 Click the eye icon on any log entry to see:
 
 **For Created entries:**
+
 - Full JSON of the created record
 
 **For Deleted entries:**
+
 - Full JSON of the deleted record
 
 **For Updated entries:**
+
 - Field-by-field comparison showing:
   - Field name
   - Before value (highlighted in red)
@@ -85,19 +111,29 @@ Click the eye icon on any log entry to see:
 
 ### Available Filters
 
-| Filter | Description |
-|--------|-------------|
-| **Date Range** | Start and end dates |
-| **User** | Filter by specific team member |
-| **Category** | Filter by table name (Projects, Addresses, etc.) |
-| **Action** | Filter by Created, Updated, or Deleted |
+{% table %}
+- Filter
+- Description
+---
+- **Date Range**
+- Start and end dates
+---
+- **User**
+- Filter by specific team member
+---
+- **Category**
+- Filter by table name (Projects, Addresses, etc.)
+---
+- **Action**
+- Filter by Created, Updated, or Deleted
+{% /table %}
 
 ### Using Filters
 
 1. Use the filter dropdowns at the top of the table
-2. Select filter criteria
-3. Results update automatically with debouncing
-4. Click **Clear Filters** to reset all filters
+1. Select filter criteria
+1. Results update automatically with debouncing
+1. Click **Clear Filters** to reset all filters
 
 Filters are reflected in the URL, so you can bookmark or share filtered views.
 
@@ -112,11 +148,12 @@ Filters are reflected in the URL, so you can bookmark or share filtered views.
 Throughout the app, you can view audit history for specific records:
 
 1. Navigate to any audited entity (project, address, sale, etc.)
-2. Click the actions menu
-3. Select **View Audit History**
-4. See only changes related to that specific record
+1. Click the actions menu
+1. Select **View Audit History**
+1. See only changes related to that specific record
 
 This feature appears on:
+
 - Sales detail views
 - Projects listing
 - Bonus Targets configuration
@@ -141,6 +178,7 @@ Only team owners can access the audit logs page. Other team members, including a
 ### Compliance
 
 Use audit logs for:
+
 - Regulatory compliance requirements
 - Internal policy auditing
 - Security reviews
@@ -148,6 +186,7 @@ Use audit logs for:
 ### Troubleshooting
 
 Investigate issues by:
+
 - Finding when a problem started
 - Identifying what changed
 - Seeing who made the change
@@ -155,6 +194,7 @@ Investigate issues by:
 ### Accountability
 
 Track team activity:
+
 - Who modified important records
 - When changes occurred
 - What specifically changed
@@ -162,6 +202,7 @@ Track team activity:
 ### Security
 
 Monitor for:
+
 - Unusual activity patterns
 - Unauthorized modifications
 - Unexpected deletions
@@ -171,41 +212,45 @@ Monitor for:
 ### Regular Review
 
 1. **Periodic checks** - Review audit logs regularly for unusual activity
-2. **Investigate anomalies** - Follow up on unexpected changes
-3. **Document findings** - Note any patterns or concerns
+1. **Investigate anomalies** - Follow up on unexpected changes
+1. **Document findings** - Note any patterns or concerns
 
 ### Investigation Process
 
 When investigating an issue:
+
 1. Start with the affected entity using record-specific history
-2. Filter by date range around the incident
-3. Work backwards through the timeline
-4. Check related entities for context
-5. Document your findings
+1. Filter by date range around the incident
+1. Work backwards through the timeline
+1. Check related entities for context
+1. Document your findings
 
 ## Troubleshooting
 
 ### Missing Entries
 
 If expected logs don't appear:
+
 1. Check your date range filter
-2. Verify the action type filter
-3. Some system actions may not trigger audit logs
-4. Entries older than 3 years are automatically removed
+1. Verify the action type filter
+1. Some system actions may not trigger audit logs
+1. Entries older than 3 years are automatically removed
 
 ### Incomplete Details
 
 If details seem incomplete:
+
 1. Some changes may be summarized
-2. Very old logs may have less detail
-3. Try viewing the specific record's history instead
+1. Very old logs may have less detail
+1. Try viewing the specific record's history instead
 
 ### Page Loading Slowly
 
 If the audit logs page is slow:
+
 1. Narrow your date range
-2. Apply more specific filters
-3. Filter by category or user to reduce results
+1. Apply more specific filters
+1. Filter by category or user to reduce results
 
 ## Related Topics
 
