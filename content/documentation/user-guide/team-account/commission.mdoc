@@ -82,6 +82,126 @@ Filter payslips by:
 1. Click **Export PDF**
 1. The payslip downloads as a formatted PDF document
 
+## Payslip Templates
+
+### What are Payslip Templates?
+
+Payslip templates are Word (`.docx`) files with placeholders that are used to generate formatted payslips. Upload a template to customize the layout and content of exported payslips.
+
+### Accessing Templates
+
+1. Navigate to the **Commission** page
+1. Click the **Templates** tab
+
+### Uploading a Template
+
+1. Click **Upload Template**
+1. Select a `.docx` file (maximum 5 MB)
+1. The template is validated and activated
+
+Only one active template can exist at a time. Uploading a new template replaces the previous one.
+
+### Template Placeholders
+
+Use the following placeholders in your `.docx` template:
+
+#### Simple Tags
+
+{% table %}
+- Placeholder
+- Description
+---
+- `{userName}`
+- Name of the team member
+---
+- `{payslipDate}`
+- Date of the payslip
+---
+- `{accountName}`
+- Team account name
+---
+- `{commissionsTotal}`
+- Total commission amount
+---
+- `{bonusTotal}`
+- Total bonus amount
+---
+- `{grandTotal}`
+- Grand total (commissions + bonuses)
+{% /table %}
+
+#### Commission Loop
+
+Use `{#commissions}...{/commissions}` to repeat a row or section for each commission entry:
+
+{% table %}
+- Placeholder
+- Description
+---
+- `{saleDate}`
+- Date of the sale
+---
+- `{amount}`
+- Commission amount
+---
+- `{commissionType}`
+- Earned or Reclaimed
+---
+- `{address}`
+- Address of the sale
+---
+- `{promotionNote}`
+- Promotion details (if applicable)
+{% /table %}
+
+#### Bonus Loop
+
+Use `{#bonusTargets}...{/bonusTargets}` to repeat a row or section for each bonus:
+
+{% table %}
+- Placeholder
+- Description
+---
+- `{targetName}`
+- Name of the bonus target
+---
+- `{description}`
+- Bonus target description
+---
+- `{bonusAmount}`
+- Bonus amount earned
+{% /table %}
+
+### Required Placeholders
+
+The following placeholders must be present in every template:
+
+- `{userName}`
+- `{payslipDate}`
+- `{grandTotal}`
+
+Templates missing these placeholders will fail validation.
+
+### Example Template
+
+A downloadable example template is available from the Templates tab. Use it as a starting point and customize it to match your payslip layout.
+
+### Managing Templates
+
+- **View** — See the active template name, upload date, and file size
+- **Replace** — Upload a new template to replace the current one
+- **Delete** — Remove the active template
+
+### Validation
+
+Templates are validated on upload. The system checks for:
+
+- Valid `.docx` format
+- Recognized placeholders
+- Required placeholders present
+
+Unknown placeholders are flagged as warnings so you can correct them before generating payslips.
+
 ## Commission Log
 
 ![](https://raw.githubusercontent.com/Goldenhunter1206/sellfaster_content/main/public/site/images/user-guide/team-account/commission/image.png)
