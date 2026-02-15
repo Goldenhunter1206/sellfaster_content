@@ -1,7 +1,8 @@
 ---
 title: How to Set Up Multi-Factor Authentication (MFA)
 description: >-
-  This guide walks you through enabling MFA to add an extra layer of security to your account.
+  This guide walks you through enabling MFA to add an extra layer of security to
+  your account.
 order: 7
 categories:
   - user-guide
@@ -18,7 +19,7 @@ This guide walks you through enabling MFA to add an extra layer of security to y
 Multi-Factor Authentication (also called Two-Factor Authentication or 2FA) adds security by requiring two things to sign in:
 
 1. **Something you know** - Your password
-2. **Something you have** - A code from your authenticator app
+1. **Something you have** - A code from your authenticator app
 
 This means even if someone gets your password, they can't access your account without your phone.
 
@@ -27,64 +28,75 @@ This means even if someone gets your password, they can't access your account wi
 Before setting up MFA:
 
 1. Install an authenticator app on your phone
-2. Have your phone accessible
-3. Be signed in to your account
+1. Have your phone accessible
+1. Be signed in to your account
 
 ### Recommended Authenticator Apps
 
-| App | Platform |
-|-----|----------|
-| **Google Authenticator** | iOS, Android |
-| **Microsoft Authenticator** | iOS, Android |
-| **Authy** | iOS, Android, Desktop |
-| **1Password** | iOS, Android, Desktop |
+{% table %}
+- App
+- Platform
+---
+- **Google Authenticator**
+- iOS, Android
+---
+- **Microsoft Authenticator**
+- iOS, Android
+---
+- **Authy**
+- iOS, Android, Desktop
+---
+- **1Password**
+- iOS, Android, Desktop
+{% /table %}
 
 ## Setting Up MFA
 
 ### Step 1: Access Security Settings
 
 1. Click your profile avatar
-2. Go to **Settings**
-3. Navigate to **Security** section (scroll down to Multi-Factor Authentication)
+1. Go to **Settings**
+1. Navigate to **Security** section (scroll down to Multi-Factor Authentication)
 
-*The Multi-Factor Authentication section in Settings showing enrolled factors and the Setup button*
+*![](https://raw.githubusercontent.com/Goldenhunter1206/sellfaster_content/main/public/site/images/user-guide/how-to/setting-up-mfa/image-mfa-enrolled.png)*
 
 ### Step 2: Start MFA Setup
 
 1. Find **Multi-Factor Authentication** section
-2. Click **Enable MFA** or **Set Up**
-3. The setup dialog opens
+1. Click **Enable MFA** or **Set Up**
+1. The setup dialog opens
 
 ### Step 3: Name Your Factor
 
 1. Enter a friendly name for the factor
-2. Example: "iPhone", "Work Phone", "Backup Device"
-3. This helps identify the factor later
+1. Example: "iPhone", "Work Phone", "Backup Device"
+1. This helps identify the factor later
 
 ### Step 4: Scan QR Code
 
 A QR code appears on screen:
 
 1. Open your authenticator app
-2. Tap **+** or **Add Account**
-3. Select **Scan QR Code**
-4. Point your camera at the QR code
-5. Account is added to your app
+1. Tap **+** or **Add Account**
+1. Select **Scan QR Code**
+1. Point your camera at the QR code
+1. Account is added to your app
 
 The QR code uses your app name as the issuer for easy identification.
 
 ### Step 5: Enter Verification Code
 
 1. Look at your authenticator app
-2. Find the 6-digit code for Sellfaster
-3. Enter the code in the verification field (6 digits)
-4. Click **Verify**
+1. Find the 6-digit code for Sellfaster
+1. Enter the code in the verification field (6 digits)
+1. Click **Verify**
 
 The system creates a challenge and verifies your code.
 
 ### Step 6: Confirmation
 
 MFA is now enabled:
+
 - You'll see a success message
 - MFA status shows "Enabled"
 - Factor appears in your factors list
@@ -95,17 +107,18 @@ MFA is now enabled:
 ### Normal Sign-In Process
 
 1. Enter your email and password
-2. Click **Sign In**
-3. MFA verification page appears at `/auth/verify`
-4. If you have multiple factors, select which one to use
-5. Open your authenticator app
-6. Enter the current 6-digit code
-7. Click **Verify**
-8. You're signed in!
+1. Click **Sign In**
+1. MFA verification page appears at `/auth/verify`
+1. If you have multiple factors, select which one to use
+1. Open your authenticator app
+1. Enter the current 6-digit code
+1. Click **Verify**
+1. You're signed in!
 
 ### Assurance Levels
 
 The system uses Assurance Levels (AAL):
+
 - **AAL1**: Password-only authentication
 - **AAL2**: Password + MFA verification
 
@@ -118,27 +131,37 @@ Certain actions may require AAL2 (MFA verification).
 Check your enrolled factors:
 
 1. Go to **Settings** > **Security**
-2. See list of enrolled factors
-3. Each shows: friendly name, factor type (TOTP), and status
+1. See list of enrolled factors
+1. Each shows: friendly name, factor type (TOTP), and status
 
 ### Factor Table Columns
 
-| Column | Description |
-|--------|-------------|
-| **Name** | Your friendly name for the factor |
-| **Type** | TOTP (Time-based One-Time Password) |
-| **Status** | Verified or Unverified |
-| **Actions** | Delete/Unenroll |
+{% table %}
+- Column
+- Description
+---
+- **Name**
+- Your friendly name for the factor
+---
+- **Type**
+- TOTP (Time-based One-Time Password)
+---
+- **Status**
+- Verified or Unverified
+---
+- **Actions**
+- Delete/Unenroll
+{% /table %}
 
 ### Disabling MFA (Unenrolling)
 
 To remove a factor:
 
 1. Go to **Settings** > **Security**
-2. Find the factor in the list
-3. Click **Delete** or the delete icon
-4. Confirm the deletion
-5. Factor is unenrolled
+1. Find the factor in the list
+1. Click **Delete** or the delete icon
+1. Confirm the deletion
+1. Factor is unenrolled
 
 > **Note:** Removing all factors disables MFA for your account.
 
@@ -147,12 +170,14 @@ To remove a factor:
 ### Super Admin Access
 
 Super admins are required to have MFA enabled:
+
 - The `is_super_admin()` function requires AAL2
 - This ensures privileged operations have enhanced security
 
 ### MFA Compliance
 
 The system has an `is_mfa_compliant()` function:
+
 - If you have verified MFA factors, AAL2 is required
 - Without MFA factors, AAL1 is sufficient
 - This applies to various sensitive operations
@@ -160,6 +185,7 @@ The system has an `is_mfa_compliant()` function:
 ### Protected Tables
 
 MFA compliance policies apply to:
+
 - Accounts
 - Account memberships
 - Subscriptions
@@ -177,53 +203,53 @@ MFA compliance policies apply to:
 If your code isn't accepted:
 
 1. **Check the time** - Codes change every 30 seconds
-2. **Wait for new code** - Try the next one
-3. **Verify correct account** - Right entry in app?
-4. **Check phone time** - Must be accurate
+1. **Wait for new code** - Try the next one
+1. **Verify correct account** - Right entry in app?
+1. **Check phone time** - Must be accurate
 
 ### Phone Time Issues
 
 TOTP codes depend on accurate time:
 
 1. Check your phone's time settings
-2. Enable automatic time
-3. Restart your authenticator app
-4. Try again
+1. Enable automatic time
+1. Restart your authenticator app
+1. Try again
 
 ### Lost Phone
 
 If you lose your phone:
 
 1. You'll need to contact support for identity verification
-2. After verification, MFA can be reset
-3. Set up MFA again with a new device
+1. After verification, MFA can be reset
+1. Set up MFA again with a new device
 
 ### Codes Always Rejected
 
 If codes never work:
 
 1. Check your phone's time settings (must be accurate)
-2. Enable automatic time sync
-3. Disable MFA and re-enable (if you can still access)
-4. Try a different authenticator app
+1. Enable automatic time sync
+1. Disable MFA and re-enable (if you can still access)
+1. Try a different authenticator app
 
 ### Factor Won't Delete
 
 If you can't remove a factor:
 
 1. Verify you're authenticated
-2. Check for any errors in the console
-3. Try refreshing the page
-4. Contact support if issue persists
+1. Check for any errors in the console
+1. Try refreshing the page
+1. Contact support if issue persists
 
 ## MFA Best Practices
 
 ### Security Tips
 
 1. **Always enable MFA** - Extra protection for your account
-2. **Secure your phone** - Lock screen, biometrics
-3. **Backup your authenticator** - Some apps support cloud backup
-4. **Use descriptive names** - Makes managing multiple factors easier
+1. **Secure your phone** - Lock screen, biometrics
+1. **Backup your authenticator** - Some apps support cloud backup
+1. **Use descriptive names** - Makes managing multiple factors easier
 
 ### What If You Change Phones?
 
@@ -232,8 +258,7 @@ When getting a new phone:
 1. **Before wiping old phone:**
    - Transfer authenticator accounts if app supports it
    - Or keep old phone accessible temporarily
-
-2. **After setting up new phone:**
+1. **After setting up new phone:**
    - Install authenticator app
    - Go to Security settings
    - Unenroll old factor
@@ -242,6 +267,7 @@ When getting a new phone:
 ### Multiple Factors
 
 Consider adding multiple factors:
+
 - Primary phone
 - Backup device
 - Different authenticator apps
@@ -253,6 +279,7 @@ If you have multiple factors, you can choose which one to use during sign-in.
 ### TOTP Standard
 
 Sellfaster uses TOTP (Time-based One-Time Password):
+
 - Codes change every 30 seconds
 - 6-digit codes
 - Standard algorithm compatible with most authenticator apps
@@ -260,11 +287,11 @@ Sellfaster uses TOTP (Time-based One-Time Password):
 ### Authentication Flow
 
 1. User enters password (AAL1)
-2. If MFA required, redirected to `/auth/verify`
-3. User selects factor (if multiple)
-4. User enters TOTP code
-5. System verifies via `challengeAndVerify`
-6. Session upgraded to AAL2
+1. If MFA required, redirected to `/auth/verify`
+1. User selects factor (if multiple)
+1. User enters TOTP code
+1. System verifies via `challengeAndVerify`
+1. Session upgraded to AAL2
 
 ## Related Topics
 
