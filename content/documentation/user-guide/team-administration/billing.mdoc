@@ -1,7 +1,6 @@
 ---
 title: Team Billing
-description: >-
-  Manage your team's subscription and view usage information.
+description: Manage your team's subscription and view usage information.
 order: 6
 categories:
   - user-guide
@@ -13,38 +12,59 @@ collapsed: false
 ---
 Manage your team's subscription and view usage information.
 
-> **Note:** Team billing is only available if enabled for your organization. The feature must be enabled via the `NEXT_PUBLIC_ENABLE_TEAM_ACCOUNTS_BILLING` environment variable.
-
 ## Accessing Team Billing
 
 1. Ensure you're in your team account
-2. Click **Billing** in the sidebar
-3. The URL is `/home/[team]/billing`
+1. Click **Billing** in the sidebar
+1. The URL is `https://sellfaster.eu/home/[team]/billing`
 
-> **Note:** Billing access requires the `billing.manage` permission, typically restricted to team owners.
+> **Note:** Billing access requires the `billing.manage` permission, which is restricted to team owners.
 
 ## Subscription Overview
 
 ### Current Plan
 
+![](https://raw.githubusercontent.com/Goldenhunter1206/sellfaster_content/main/public/site/images/user-guide/team-administration/billing/image1.png)
+
 If you have an active subscription, you'll see:
 
-| Information | Description |
-|-------------|-------------|
-| **Plan Name** | Your subscription tier (e.g., Starter, Premium) |
-| **Status** | Active, Canceled, or Past Due |
-| **Price** | Monthly or annual cost |
-| **Billing Cycle** | Monthly or Annual |
-| **Renewal Date** | Next billing date |
+{% table %}
+- Information
+- Description
+---
+- **Plan Name**
+- Your subscription tier (e.g., Starter, Premium)
+---
+- **Status**
+- Active, Canceled, or Past Due
+---
+- **Price**
+- Monthly or annual cost
+---
+- **Billing Cycle**
+- Monthly or Annual
+---
+- **Renewal Date**
+- Next billing date
+{% /table %}
 
 ### Available Plans
 
 Two subscription tiers are available:
 
-| Plan | Price | Features |
-|------|-------|----------|
-| **Starter** | €19.99/month per seat | Basic features |
-| **Premium** | €29.99/month per seat | Advanced features including Custom Fields |
+{% table %}
+- Plan
+- Price
+- Features
+---
+- **Starter**
+- €19.99/month per seat
+- Basic features
+---
+- **Premium**
+- €29.99/month per seat
+- Advanced features including Custom Fields
+{% /table %}
 
 Both plans include a 7-day trial period.
 
@@ -57,13 +77,14 @@ Both plans include a 7-day trial period.
 If you don't have an active subscription:
 
 1. Navigate to the Billing page
-2. Select a plan from the plan picker
-3. Complete the checkout process
-4. Your subscription becomes active immediately
+1. Select a plan from the plan picker
+1. Complete the checkout process
+1. Your subscription becomes active immediately
 
 ### Checkout Return
 
 After completing checkout, you'll be redirected to a confirmation page showing:
+
 - Checkout status (success, pending, or failed)
 - Option to resume incomplete checkouts
 
@@ -74,110 +95,67 @@ After completing checkout, you'll be redirected to a confirmation page showing:
 For advanced billing management, use the billing portal:
 
 1. Click **Manage Billing** or **Billing Portal**
-2. You'll be redirected to the payment provider's portal
-3. From there you can:
+1. You'll be redirected to the payment provider's portal
+1. From there you can:
    - Update payment methods
    - Cancel your subscription
    - View billing history and invoices
    - Download tax documents
 
-> **Note:** The billing portal button only appears if you are an existing customer with a customer ID.
+> **Note:** The billing portal button only appears if you are an existing customer.
 
 ### Changing Plans
 
 To upgrade or downgrade your plan:
 
 1. Access the billing portal
-2. Modify your subscription
-3. Changes are processed according to the billing provider's policies
+1. Modify your subscription
+1. Changes are processed according to the billing provider's policies
 
 ### Canceling
 
 To cancel your subscription:
 
 1. Access the billing portal
-2. Cancel your subscription
-3. Access continues until the end of the current billing period
-
-## Geocoding Usage
-
-The billing page displays your team's geocoding usage:
-
-### Usage Display
-
-| Information | Description |
-|-------------|-------------|
-| **Current Usage** | Queries used this billing period |
-| **Budget** | Total allowed queries |
-| **Progress Bar** | Visual indicator of usage |
-| **Period** | Start and end dates of billing period |
-
-### Budget Calculation
-
-Your geocoding budget consists of:
-- **Base Budget** - Included with your subscription tier
-- **Member Bonus** - Additional queries per team member
-- **Total** - Sum of base and member bonuses
-
-### Usage Alerts
-
-Visual warnings appear when:
-- Usage exceeds 80% of budget (warning)
-- Usage exceeds budget (alert)
-
-## Permissions
-
-| Action | Requirement |
-|--------|-------------|
-| View billing page | `billing.manage` permission |
-| Access billing portal | `billing.manage` permission + existing customer |
-| Subscribe to plan | `billing.manage` permission |
+1. Cancel your subscription
+1. Access continues until the end of the current billing period
 
 ## Limitations
 
 ### Not Available In-App
 
 The following features require the external billing portal:
+
 - Direct payment method management
 - Invoice history and downloads
 - Subscription cancellation
 - Refund requests
-
-### Feature Flag Required
-
-Team billing must be explicitly enabled for your organization. If you don't see the Billing option in your sidebar, contact your administrator.
 
 ## Troubleshooting
 
 ### Can't Access Billing
 
 If you can't access the billing page:
-1. Verify you have the `billing.manage` permission
-2. Check if team billing is enabled for your organization
-3. Contact your team owner
+
+1. Verify you are the owner of the team account
+1. Contact your team owner
 
 ### Billing Portal Not Working
 
 If you can't access the billing portal:
+
 1. Verify you have an active subscription or past purchase
-2. Check that you're the billing account holder
-3. Try clearing browser cache and cookies
+1. Check that you're the billing account holder
+1. Try clearing browser cache and cookies
 
 ### Payment Failed
 
 If your payment fails:
+
 1. Access the billing portal
-2. Update your payment method
-3. Retry the payment
-4. Contact your bank if issues persist
-
-### Geocoding Budget Exceeded
-
-If you've exceeded your geocoding budget:
-1. Consider upgrading to a higher tier
-2. Add team members (increases budget)
-3. Wait for the next billing period
-4. Contact support for additional options
+1. Update your payment method
+1. Retry the payment
+1. Contact your bank if issues persist
 
 ## Related Topics
 
