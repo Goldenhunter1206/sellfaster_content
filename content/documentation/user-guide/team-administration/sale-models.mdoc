@@ -1,7 +1,8 @@
 ---
 title: Sale Models
 description: >-
-  Configure how sales flow through your system, including states, transitions, and commission rules.
+  Configure how sales flow through your system, including states, transitions,
+  and commission rules.
 order: 3
 categories:
   - user-guide
@@ -16,31 +17,45 @@ Configure how sales flow through your system, including states, transitions, and
 ## Accessing Sale Models
 
 1. Ensure you're in your team account
-2. Click **Sale Models** in the sidebar
-3. The URL is `/home/[team]/sale-models`
+1. Click **Sale States** in the sidebar
+1. The URL is `https://sellfaster.eu/home/[team]/sale-models`
 
 ## What are Sale Models?
 
 Sale models define the workflow for tracking sales from creation to completion. Each model includes:
 
-- **States** - The stages a sale can be in (e.g., Proposal, Confirmed, Cancelled)
+- **States** - The stages a sale can be in (e.g., Sold, Return Period Over, Cancelled)
 - **Transitions** - Allowed movements between states
 - **Commission Rules** - When commission is earned or reclaimed
 - **Address Actions** - How sales affect address status
 
 ## Viewing Sale Models
 
+![](https://raw.githubusercontent.com/Goldenhunter1206/sellfaster_content/main/public/site/images/user-guide/team-administration/sale-models/image.png)
+
 ### Model List
 
 The table displays:
 
-| Column | Description |
-|--------|-------------|
-| **Name** | Model name with "Default" badge if default, "Archived" if archived |
-| **Description** | Model description (optional) |
-| **States** | First 4 states with color badges, "+N more" if additional |
-| **Projects** | Assigned projects (first 3, with count of additional) |
-| **Actions** | Available actions menu |
+{% table %}
+- Column
+- Description
+---
+- **Name**
+- Model name with "Default" badge if default, "Archived" if archived
+---
+- **Description**
+- Model description (optional)
+---
+- **States**
+- First 4 states with color badges, "+N more" if additional
+---
+- **Projects**
+- Assigned projects (first 3, with count of additional)
+---
+- **Actions**
+- Available actions menu
+{% /table %}
 
 ### Filtering Models
 
@@ -51,12 +66,12 @@ By default, archived models are hidden. Toggle **Show archived** to view them.
 ### New Model
 
 1. Click **Create Model**
-2. Enter model details:
+1. Enter model details:
    - **Name** (required) - Unique name for the model
    - **Description** (optional) - Purpose of this model
-3. Configure states (see below)
-4. Define transitions between states
-5. Save
+1. Configure states (see below)
+1. Define transitions between states
+1. Save
 
 > **Note:** Creating models requires the `salestatemodels:create` permission.
 
@@ -64,11 +79,23 @@ By default, archived models are hidden. Toggle **Show archived** to view them.
 
 New models come with three pre-configured states:
 
-| State | Type | Commission |
-|-------|------|------------|
-| **Proposal** | Initial | - |
-| **Confirmed** | - | Triggers commission |
-| **Cancelled** | Terminal | Reclaims commission |
+{% table %}
+- State
+- Type
+- Commission
+---
+- **Proposal**
+- Initial
+- -
+---
+- **Confirmed**
+- -
+- Triggers commission
+---
+- **Cancelled**
+- Terminal
+- Reclaims commission
+{% /table %}
 
 You can modify, add, or remove these states as needed.
 
@@ -78,42 +105,69 @@ You can modify, add, or remove these states as needed.
 
 Each state within a model has:
 
-| Property | Description |
-|----------|-------------|
-| **Name** | State identifier (max 255 characters) |
-| **Color** | Visual color from preset palette or custom hex |
-| **Position** | Display order (affects dropdown and visualization) |
-| **Is Initial** | Marks the starting state (only one per model) |
-| **Is Terminal** | Marks an end state (sale workflow complete) |
+{% table %}
+- Property
+- Description
+---
+- **Name**
+- State identifier (max 255 characters)
+---
+- **Color**
+- Visual color from preset palette or custom hex
+---
+- **Position**
+- Display order (affects dropdown and visualization)
+---
+- **Is Initial**
+- Marks the starting state (only one per model)
+---
+- **Is Terminal**
+- Marks an end state (sale workflow complete)
+{% /table %}
 
 ### Commission Properties
 
-| Property | Description |
-|----------|-------------|
-| **Triggers Commission** | Commission is calculated when entering this state |
-| **Reclaims Commission** | Previously earned commission is reversed when entering this state |
+{% table %}
+- Property
+- Description
+---
+- **Triggers Commission**
+- Commission is calculated when entering this state
+---
+- **Reclaims Commission**
+- Previously earned commission is reversed when entering this state
+{% /table %}
 
 ### Address Properties
 
-| Property | Description |
-|----------|-------------|
-| **Cancels Address** | Marks the address as inactive when entering this state |
-| **Active Address** | Marks the address as active when entering this state |
+{% table %}
+- Property
+- Description
+---
+- **Cancels Address**
+- Marks the address as inactive when entering this state
+---
+- **Active Address**
+- Marks the address as active when entering this state
+{% /table %}
 
 ### Managing States
 
 **Add a State:**
+
 1. In the edit dialog, go to the States tab
-2. Click **Add State**
-3. Configure the state properties
-4. Save
+1. Click **Add State**
+1. Configure the state properties
+1. Save
 
 **Edit a State:**
+
 1. Click on the state in the list
-2. Modify properties
-3. Save
+1. Modify properties
+1. Save
 
 **Remove a State:**
+
 - Click the remove button on the state row
 - Cannot remove if sales reference this state
 
@@ -124,6 +178,7 @@ Each state within a model has:
 ### What are Transitions?
 
 Transitions define which state changes are allowed. For example:
+
 - Proposal → Confirmed (allowed)
 - Proposal → Cancelled (allowed)
 - Cancelled → Proposal (not allowed)
@@ -131,7 +186,7 @@ Transitions define which state changes are allowed. For example:
 ### Configuring Transitions
 
 1. In the edit dialog, go to the Transitions tab
-2. For each transition, specify:
+1. For each transition, specify:
    - **From State** - Starting state
    - **To State** - Destination state
    - **Is Default** - Makes this the default transition option
@@ -140,6 +195,7 @@ Transitions define which state changes are allowed. For example:
 ### Auto-Transitions
 
 Set a number of days after which a sale automatically moves to the next state. Useful for:
+
 - Auto-confirming proposals after a waiting period
 - Auto-cancelling stale proposals
 
@@ -148,15 +204,15 @@ Set a number of days after which a sale automatically moves to the next state. U
 ### Edit Model Info
 
 1. Click the actions menu on a model
-2. Select **Edit**
-3. Go to the Info tab
-4. Update name, description, or set as default
-5. Save
+1. Select **Edit**
+1. Go to the Info tab
+1. Update name, description, or set as default
+1. Save
 
 ### Edit States and Transitions
 
 1. Open the Edit dialog
-2. Use the tabs to switch between:
+1. Use the tabs to switch between:
    - **Info** - Model name and description
    - **States** - Manage state properties
    - **Transitions** - Manage allowed transitions
@@ -168,10 +224,11 @@ Set a number of days after which a sale automatically moves to the next state. U
 View an interactive diagram of your model:
 
 1. Click the actions menu on a model
-2. Select **Visualize**
-3. See the state flow diagram
+1. Select **Visualize**
+1. See the state flow diagram
 
 The diagram shows:
+
 - State nodes with colors
 - State properties (Initial, Terminal, Commission flags)
 - Arrows showing transitions
@@ -184,9 +241,9 @@ The diagram shows:
 ### Assign to Projects
 
 1. Click the actions menu on a model
-2. Select **Assign to Projects**
-3. Toggle projects on/off
-4. Changes save automatically
+1. Select **Assign to Projects**
+1. Toggle projects on/off
+1. Changes save automatically
 
 > **Note:** Each project can only have one sale model assigned. Assigning a new model replaces the existing assignment.
 
@@ -197,8 +254,8 @@ The diagram shows:
 One model can be marked as the default:
 
 1. Edit the model
-2. Enable the **Default** checkbox
-3. Save
+1. Enable the **Default** checkbox
+1. Save
 
 The default model is automatically suggested when creating sales. Only one model per team can be default.
 
@@ -207,10 +264,11 @@ The default model is automatically suggested when creating sales. Only one model
 ### Archive a Model
 
 1. Click the actions menu on a model
-2. Select **Archive**
-3. Confirm
+1. Select **Archive**
+1. Confirm
 
 When archived:
+
 - Model is unassigned from all projects
 - Cannot be used for new sales
 - Existing sales using the model's states are preserved
@@ -221,8 +279,8 @@ When archived:
 ### Restore a Model
 
 1. Enable **Show archived**
-2. Click the actions menu on the archived model
-3. Select **Unarchive**
+1. Click the actions menu on the archived model
+1. Select **Unarchive**
 
 After restoring, reassign the model to projects as needed.
 
@@ -231,72 +289,91 @@ After restoring, reassign the model to projects as needed.
 Models can only be permanently deleted if no sales reference their states:
 
 1. Archive the model first
-2. If no sales use it, the **Delete** option appears
-3. Confirm permanent deletion
+1. If no sales use it, the **Delete** option appears
+1. Confirm permanent deletion
 
 ## Audit History
 
 Team owners can view change history:
 
 1. Click the actions menu on a model
-2. Select **View Audit History**
-3. See changes to the model, its states, and transitions
+1. Select **View Audit History**
+1. See changes to the model, its states, and transitions
 
 ## Permissions
 
-| Action | Permission Required |
-|--------|---------------------|
-| View models | `salestatemodels:select` |
-| Create models | `salestatemodels:create` |
-| Edit models | `salestatemodels:update` |
-| Assign to projects | `salestatemodels:update` |
-| Archive/Restore | `salestatemodels:delete` |
-| Delete models | `salestatemodels:delete` |
-| View audit history | Team owner only |
+{% table %}
+- Action
+- Permission Required
+---
+- View models
+- `salestatemodels:select`
+---
+- Create models
+- `salestatemodels:create`
+---
+- Edit models
+- `salestatemodels:update`
+---
+- Assign to projects
+- `salestatemodels:update`
+---
+- Archive/Restore
+- `salestatemodels:delete`
+---
+- Delete models
+- `salestatemodels:delete`
+---
+- View audit history
+- Team owner only
+{% /table %}
 
 ## Best Practices
 
 ### Model Design
 
 1. **Start simple** - Begin with basic states (Proposal, Confirmed, Cancelled)
-2. **Clear names** - Use descriptive state names
-3. **Document rules** - Add descriptions explaining when to use each state
-4. **Test first** - Verify transitions before assigning to active projects
+1. **Clear names** - Use descriptive state names
+1. **Document rules** - Add descriptions explaining when to use each state
+1. **Test first** - Verify transitions before assigning to active projects
 
 ### Commission Configuration
 
 1. **Clear triggers** - Define exactly which state triggers commission
-2. **Handle cancellations** - Always have a state that reclaims commission for cancelled sales
-3. **Consistent rules** - Use the same model for similar sales types
+1. **Handle cancellations** - Always have a state that reclaims commission for cancelled sales
+1. **Consistent rules** - Use the same model for similar sales types
 
 ### Workflow Tips
 
 1. **Initial state** - Always start from a "pending" type state
-2. **Terminal states** - Mark final states (Confirmed, Cancelled) as terminal
-3. **Transitions** - Only allow logical progressions
-4. **Auto-transitions** - Use sparingly and with appropriate timeframes
+1. **Terminal states** - Mark final states (Confirmed, Cancelled) as terminal
+1. **Transitions** - Only allow logical progressions
+1. **Auto-transitions** - Use sparingly and with appropriate timeframes
 
 ## Troubleshooting
 
 ### Can't Delete State
 
 If you can't delete a state:
+
 - Sales may reference this state
 - Archive the state instead if possible
 
 ### Commission Not Calculated
 
 If commission isn't showing:
+
 1. Verify the sale reached a state with "Triggers Commission" enabled
-2. Check the sale is using the correct model
-3. Verify commission rules are configured
+1. Check the sale is using the correct model
+1. Verify commission rules are configured
 
 ### Wrong Model Applied
 
 To change a sale's model:
+
 1. Edit the sale
-2. Change the model selection
-3. The new model's rules will apply
+1. Change the model selection
+1. The new model's rules will apply
 
 ## Related Topics
 
