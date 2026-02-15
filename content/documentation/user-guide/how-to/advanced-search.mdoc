@@ -1,7 +1,8 @@
 ---
 title: How to Use Search and Filters
 description: >-
-  This guide covers how to find addresses, sales, and other data using search and filter capabilities.
+  This guide covers how to find leads, sales, and other data using search and
+  filter capabilities.
 order: 4
 categories:
   - user-guide
@@ -11,17 +12,25 @@ status: published
 collapsible: false
 collapsed: false
 ---
-This guide covers how to find addresses, sales, and other data using search and filter capabilities.
+This guide covers how to find leads, sales, and other data using search and filter capabilities.
 
 ## Search Modes
 
 Sellfaster offers three search modes:
 
-| Mode | Description |
-|------|-------------|
-| **Simple** | Basic text search (ILIKE) - default |
-| **Structured** | JQL-like query syntax for precise filtering |
-| **AI** | Natural language search translated to filters |
+{% table %}
+- Mode
+- Description
+---
+- **Simple**
+- Basic text search (ILIKE) - default
+---
+- **Structured**
+- JQL-like query syntax for precise filtering
+---
+- **AI**
+- Natural language search translated to filters
+{% /table %}
 
 ### Switching Search Modes
 
@@ -34,8 +43,8 @@ Use the search mode selector to switch between modes.
 The simplest way to find something:
 
 1. Click the search bar
-2. Type your search term
-3. Results filter in real-time
+1. Type your search term
+1. Results filter in real-time
 
 *The search bar showing a structured query with the Query mode selected*
 
@@ -43,12 +52,22 @@ The simplest way to find something:
 
 Simple search works across multiple fields depending on the data type:
 
-| Data Type | Searchable Fields |
-|-----------|-------------------|
-| **Addresses** | Street, city, contact name |
-| **Sales** | Customer name, notes |
-| **Products** | Name |
-| **Members** | Name, email |
+{% table %}
+- Data Type
+- Searchable Fields
+---
+- **Leads**
+- Street, city, contact name
+---
+- **Sales**
+- Customer name, notes
+---
+- **Products**
+- Name
+---
+- **Members**
+- Name, email
+{% /table %}
 
 ## Structured Query Search
 
@@ -62,26 +81,63 @@ Field OPERATOR "Value" [AND|OR] Field OPERATOR "Value"
 
 ### Available Fields
 
-| Field | Description |
-|-------|-------------|
-| **city** | City name |
-| **street** | Street address |
-| **project** | Project name |
-| **status** | Address status |
-| **name** | Contact name |
-| **latest_state** | Latest interaction state |
-| **cf:field_key** | Custom field (prefix with `cf:`) |
+{% table %}
+- Field
+- Description
+---
+- **city**
+- City name
+---
+- **street**
+- Street address
+---
+- **campaign**
+- Campaign name
+---
+- **status**
+- Lead status
+---
+- **name**
+- Contact name
+---
+- **latest\_state**
+- Latest interaction state
+---
+- **cf:field\_key**
+- Custom field (prefix with `cf:`)
+{% /table %}
 
 ### Operators
 
-| Operator | Meaning | Example |
-|----------|---------|---------|
-| **=** | Exact match (case-insensitive) | `city = "Berlin"` |
-| **!=** | Not equal | `status != "inactive"` |
-| **~** | Contains (ILIKE) | `city ~ "Ber"` |
-| **!~** | Does not contain | `street !~ "Main"` |
-| **>** | Greater than | `cf:age > "30"` |
-| **<** | Less than | `cf:score < "50"` |
+{% table %}
+- Operator
+- Meaning
+- Example
+---
+- **=**
+- Exact match (case-insensitive)
+- `city = "Berlin"`
+---
+- **!=**
+- Not equal
+- `status != "inactive"`
+---
+- **\~**
+- Contains (ILIKE)
+- `city ~ "Ber"`
+---
+- **!\~**
+- Does not contain
+- `street !~ "Main"`
+---
+- **>**
+- Greater than
+- `cf:age > "30"`
+---
+- **<**
+- Less than
+- `cf:score < "50"`
+{% /table %}
 
 ### Conjunctions
 
@@ -117,9 +173,9 @@ cf:roof_age > "10"
 Natural language search using AI:
 
 1. Switch to AI mode
-2. Type your query in plain language
-3. AI translates to structured filters
-4. Results display automatically
+1. Type your query in plain language
+1. AI translates to structured filters
+1. Results display automatically
 
 ### Features
 
@@ -130,40 +186,65 @@ Natural language search using AI:
 
 ### Example Queries
 
-- "Show me addresses in Berlin that are interested"
-- "Find all active contacts in the Downtown project"
+- "Show me leads in Berlin that are interested"
+- "Find all active contacts in the Downtown campaign"
 
 ## Filter Panel
 
 ### Accessing Filters
 
 1. Look for the **Filter** button
-2. Click to open filter panel
-3. Configure your criteria
+1. Click to open filter panel
+1. Configure your criteria
 
-### Address Filters
+### Lead Filters
 
-| Filter | Description |
-|--------|-------------|
-| **City** | Filter by city |
-| **Project** | Filter by project name |
-| **Address Status** | Filter by active/inactive |
-| **Latest State** | Filter by interaction state |
-| **Custom Fields** | Filter by custom field values |
+{% table %}
+- Filter
+- Description
+---
+- **City**
+- Filter by city
+---
+- **Campaign**
+- Filter by campaign name
+---
+- **Lead Status**
+- Filter by active/inactive
+---
+- **Latest State**
+- Filter by interaction state
+---
+- **Custom Fields**
+- Filter by custom field values
+{% /table %}
 
 ### Sales Filters
 
-| Filter | Description |
-|--------|-------------|
-| **Date Range** | Sale date (start/end) |
-| **Status** | Sale state |
-| **Product** | Products sold |
-| **Project** | Associated project |
-| **Salesperson** | Who made the sale |
+{% table %}
+- Filter
+- Description
+---
+- **Date Range**
+- Sale date (start/end)
+---
+- **Status**
+- Sale state
+---
+- **Product**
+- Products sold
+---
+- **Campaign**
+- Associated campaign
+---
+- **Salesperson**
+- Who made the sale
+{% /table %}
 
 ### Column Filters
 
 Individual column filtering:
+
 - Click filter icon on column header
 - Select values to include
 - Clear individual filters with X button
@@ -173,7 +254,8 @@ Individual column filtering:
 ### Mobile Filters
 
 On mobile devices:
-- Three key filters: City, Project, Latest State
+
+- Three key filters: City, Campaign, Latest State
 - Responsive filter panel
 - X button to clear individual filters
 
@@ -184,18 +266,19 @@ On mobile devices:
 If supported:
 
 1. Configure your filters
-2. Click **Save View**
-3. Name the view
-4. Use later with one click
+1. Click **Save View**
+1. Name the view
+1. Use later with one click
 
 ### Saved View Contents
 
 Views save:
+
 - City filter
-- Project name filter
-- Address status filter
+- Campaign name filter
+- Lead status filter
 - Latest state filter
-- Sort preference (address or distance)
+- Sort preference (lead or distance)
 - Search text and mode
 - Structured query filters
 - Custom field filters
@@ -215,50 +298,70 @@ Views save:
 Clear all filters at once:
 
 1. Click **Reset** or **Clear Filters**
-2. All filters removed
-3. Full list displays
+1. All filters removed
+1. Full list displays
 
 ### Clear Individual
 
 Remove one filter:
 
 1. Click the X on the filter chip
-2. Or uncheck the option
-3. Other filters remain
+1. Or uncheck the option
+1. Other filters remain
 
 ## Exporting Filtered Results
 
 ### CSV Export
 
-Export filtered addresses to CSV:
+Export filtered leads to CSV:
 
 1. Apply your filters
-2. Click **Export**
-3. Only matching items exported
-4. CSV includes UTF-8 BOM for Excel compatibility
+1. Click **Export**
+1. Only matching items exported
+1. CSV includes UTF-8 BOM for Excel compatibility
 
 ### Exported Fields
 
-| Field | Description |
-|-------|-------------|
-| Street Address | Full street address |
-| Name | Contact name |
-| City | City |
-| State | State/province |
-| Postal Code | ZIP/postal code |
-| Country | Country |
-| Zone | Assigned zone |
-| Status | Active/inactive |
-| Verified | Yes/No |
+{% table %}
+- Field
+- Description
+---
+- Street Address
+- Full street lead
+---
+- Name
+- Contact name
+---
+- City
+- City
+---
+- State
+- State/province
+---
+- Postal Code
+- ZIP/postal code
+---
+- Country
+- Country
+---
+- Zone
+- Assigned zone
+---
+- Status
+- Active/inactive
+---
+- Verified
+- Yes/No
+{% /table %}
 
 ## Search Tips
 
 ### Effective Searching
 
 1. **Start broad** - Use simple terms first
-2. **Refine gradually** - Add filters as needed
-3. **Check spelling** - Typos affect results
-4. **Use structured queries** - For precise filtering
+1. **Refine gradually** - Add filters as needed
+1. **Check spelling** - Typos affect results
+1. **Use structured queries** - For precise filtering
 
 ### Performance
 
@@ -268,29 +371,29 @@ Export filtered addresses to CSV:
 
 ## Common Search Scenarios
 
-### Finding Addresses to Visit
+### Finding Leads to Visit
 
-**Goal:** Find new addresses in your area
+**Goal:** Find new leads in your area
 
 1. Filter Latest State = "New" or specific states
-2. Filter by Project or City
-3. Result: Your work list
+1. Filter by Campaign or City
+1. Result: Your work list
 
 ### Finding Hot Leads
 
 **Goal:** Find interested prospects
 
 1. Filter Latest State = "Interested"
-2. Optionally filter by recent date
-3. Result: Active opportunities
+1. Optionally filter by recent date
+1. Result: Active opportunities
 
 ### Finding by Custom Field
 
-**Goal:** Find addresses with specific attributes
+**Goal:** Find leads with specific attributes
 
 1. Use structured query: `cf:property_type = "Commercial"`
-2. Or combine: `city = "Berlin" AND cf:size > "1000"`
-3. Result: Filtered list
+1. Or combine: `city = "Berlin" AND cf:size > "1000"`
+1. Result: Filtered list
 
 ## Table Controls
 
@@ -299,23 +402,26 @@ Export filtered addresses to CSV:
 Toggle which columns display:
 
 1. Click **Columns** menu
-2. Check/uncheck columns to show
-3. Custom field columns available
+1. Check/uncheck columns to show
+1. Custom field columns available
 
 ### Show/Hide Units
 
 For buildings with multiple units:
+
 - Toggle units display on/off
 
 ### Sorting
 
 Sort options:
-- By address (alphabetical)
+
+- By lead (alphabetical)
 - By distance (requires location access)
 
 ### Page Size
 
 Control items per page:
+
 - Options: 10-100 items
 
 ## Troubleshooting
@@ -325,38 +431,38 @@ Control items per page:
 If search returns nothing:
 
 1. Check spelling
-2. Broaden filters
-3. Clear all filters to verify data exists
-4. Try different search terms
-5. Check search mode (simple vs structured)
+1. Broaden filters
+1. Clear all filters to verify data exists
+1. Try different search terms
+1. Check search mode (simple vs structured)
 
 ### Too Many Results
 
 If results are overwhelming:
 
 1. Add more filters
-2. Use more specific search terms
-3. Use structured query for precision
+1. Use more specific search terms
+1. Use structured query for precision
 
 ### Structured Query Errors
 
 If query has errors:
 
 1. Check syntax (Field OPERATOR "Value")
-2. Verify field name is valid
-3. Quote values properly
-4. Don't mix AND/OR
+1. Verify field name is valid
+1. Quote values properly
+1. Don't mix AND/OR
 
 ### AI Search Not Working
 
 If AI search fails:
 
 1. System falls back to simple search automatically
-2. Try structured query instead
-3. Check network connection
+1. Try structured query instead
+1. Check network connection
 
 ## Related Topics
 
 - [Dashboard](/docs/user-guide/personal-account/dashboard) - Filtering on dashboard
-- [Project Addresses](/docs/user-guide/team-account/projects/addresses) - Project filtering
+- [Campaign Leads](/docs/user-guide/team-account/projects/addresses) - Campaign filtering
 - [Custom Fields](/docs/user-guide/team-administration/custom-fields) - Field configuration
