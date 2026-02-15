@@ -1,7 +1,6 @@
 ---
 title: Troubleshooting Data Issues
-description: >-
-  Solutions for problems with data display, sync, imports, and data management.
+description: Solutions for problems with data display, sync, imports, and data management.
 order: 2
 categories:
   - user-guide
@@ -22,10 +21,10 @@ Solutions for problems with data display, sync, imports, and data management.
 **Solutions:**
 
 1. **Check filters** - Clear all filters
-2. **Check date range** - Expand date selection
-3. **Check account** - Correct personal/team account?
-4. **Refresh page** - Data may need reload
-5. **Check permissions** - May not have access
+1. **Check date range** - Expand date selection
+1. **Check account** - Correct personal/team account?
+1. **Refresh page** - Data may need reload
+1. **Check permissions** - May not have access
 
 ### Data Missing
 
@@ -34,10 +33,10 @@ Solutions for problems with data display, sync, imports, and data management.
 **Solutions:**
 
 1. **Search for it** - Use search function
-2. **Check filters** - May be hidden by filters
-3. **Check other locations** - Different project?
-4. **Verify it was saved** - Was save successful?
-5. **Check with others** - Someone delete it?
+1. **Check filters** - May be hidden by filters
+1. **Check other locations** - Different campaign?
+1. **Verify it was saved** - Was save successful?
+1. **Check with others** - Someone delete it?
 
 ### Outdated Data
 
@@ -46,9 +45,9 @@ Solutions for problems with data display, sync, imports, and data management.
 **Solutions:**
 
 1. **Refresh page** - Get latest data
-2. **Clear cache** - Browser may cache old data
-3. **Check sync status** - Look for sync indicators
-4. **Wait and retry** - Sync may be in progress
+1. **Clear cache** - Browser may cache old data
+1. **Check sync status** - Look for sync indicators
+1. **Wait and retry** - Sync may be in progress
 
 ## Sync Problems
 
@@ -59,10 +58,10 @@ Solutions for problems with data display, sync, imports, and data management.
 **Solutions:**
 
 1. **Check for errors** - Look for error messages in the UI
-2. **Verify internet** - Need connection to save
-3. **Try again** - May be temporary issue
-4. **Required fields** - All required fields filled?
-5. **Check permissions** - Your role may not allow editing this item
+1. **Verify internet** - Need connection to save
+1. **Try again** - May be temporary issue
+1. **Required fields** - All required fields filled?
+1. **Check permissions** - Your role may not allow editing this item
 
 ### Sync Conflicts
 
@@ -71,8 +70,8 @@ Solutions for problems with data display, sync, imports, and data management.
 **Solutions:**
 
 1. **Refresh and review** - Get latest version
-2. **Make changes again** - On updated data
-3. **Coordinate with team** - Avoid simultaneous edits on the same record
+1. **Make changes again** - On updated data
+1. **Coordinate with team** - Avoid simultaneous edits on the same record
 
 ### Real-Time Updates Not Working
 
@@ -81,9 +80,9 @@ Solutions for problems with data display, sync, imports, and data management.
 **Solutions:**
 
 1. **Refresh page** - Manual update to see latest changes
-2. **Check connection** - Internet issues may prevent real-time updates
-3. **Real-time availability** - Real-time updates are used for specific features like import job status; not all data updates in real-time
-4. **Fallback** - If real-time fails, the system uses polling as a fallback
+1. **Check connection** - Internet issues may prevent real-time updates
+1. **Real-time availability** - Real-time updates are used for specific features like import job status; not all data updates in real-time
+1. **Fallback** - If real-time fails, the system uses polling as a fallback
 
 ## Import Problems
 
@@ -94,9 +93,9 @@ Solutions for problems with data display, sync, imports, and data management.
 **Solutions:**
 
 1. **Check file format** - Only CSV files are supported
-2. **Review file** - Ensure columns match expected format
-3. **Check file size** - Very large files may cause issues
-4. **Review error log** - Check the import job status for specific error messages
+1. **Review file** - Ensure columns match expected format
+1. **Check file size** - Very large files may cause issues
+1. **Review error log** - Check the import job status for specific error messages
 
 ### Wrong Data Imported
 
@@ -105,8 +104,8 @@ Solutions for problems with data display, sync, imports, and data management.
 **Solutions:**
 
 1. **Review column mapping** - Ensure fields are mapped correctly during import
-2. **Check data format** - Dates and numbers must be in correct format
-3. **Re-import** - With corrected mapping
+1. **Check data format** - Dates and numbers must be in correct format
+1. **Re-import** - With corrected mapping
 
 ### Duplicates Created
 
@@ -116,11 +115,12 @@ Solutions for problems with data display, sync, imports, and data management.
 
 During import, you'll be prompted with duplicate resolution options:
 
-1. **Skip** - Use the existing address without modifications
-2. **Merge** - Update existing address with new data (with configurable merge strategies for custom fields)
-3. **Create** - Create a new address despite the duplicate
+1. **Skip** - Use the existing lead without modifications
+1. **Merge** - Update existing lead with new data (with configurable merge strategies for custom fields)
+1. **Create** - Create a new lead despite the duplicate
 
 For custom fields, you can choose how to merge:
+
 - **Keep existing** - Preserve all existing values
 - **Merge non-null** - Fill empty fields from CSV, keep existing non-empty values
 - **Overwrite non-null** - Update existing values with new non-null CSV values
@@ -133,57 +133,58 @@ For custom fields, you can choose how to merge:
 **Solutions:**
 
 1. **Wait longer** - Large imports take time; check the progress indicator
-2. **Check status** - Import jobs show status (pending, running, completed, failed, cancelled)
-3. **Check for user input required** - Duplicate resolution may be waiting for your decision
-4. **Try smaller batch** - Split file and retry
-5. **Contact support** - If stuck indefinitely
+1. **Check status** - Import jobs show status (pending, running, completed, failed, cancelled)
+1. **Check for user input required** - Duplicate resolution may be waiting for your decision
+1. **Try smaller batch** - Split file and retry
+1. **Contact support** - If stuck indefinitely
 
 ## Data Export
 
-The application supports CSV export for addresses within projects. CSV files include UTF-8 encoding for proper handling of special characters and can be opened in Excel or other spreadsheet applications.
+The application supports CSV export for leads within campaigns. CSV files include UTF-8 encoding for proper handling of special characters and can be opened in Excel or other spreadsheet applications.
 
-To export addresses:
-1. Navigate to your project's address list
-2. Use the export option to download addresses as CSV
+To export leads:
 
-**Note:** Export is currently available for addresses only. Other data types do not have export functionality - contact your administrator if you need to export other data.
+1. Navigate to your campaign's lead list
+1. Use the export option to download leads as CSV
 
-## Address Data Issues
+**Note:** Export is currently available for leads only. Other data types do not have export functionality - contact your administrator if you need to export other data.
 
-### Address Not Geocoding
+## Lead Data Issues
 
-**Symptom:** Address has no map location (not verified)
+### Lead Not Geocoding
+
+**Symptom:** Lead has no map location (not verified)
 
 **Solutions:**
 
-1. **Verify address** - Is it a valid, complete address?
-2. **Format correctly** - Include street, city, state, zip
-3. **Manual correction** - You can manually enter latitude and longitude coordinates
-4. **Trigger re-geocode** - Use the re-geocode option if available
+1. **Verify lead** - Is it a valid, complete lead?
+1. **Format correctly** - Include street, city, state, zip
+1. **Manual correction** - You can manually enter latitude and longitude coordinates
+1. **Trigger re-geocode** - Use the re-geocode option if available
 
-**Note:** Addresses are marked as "verified" when they have valid coordinates. Coordinates must be within valid ranges (longitude: -180 to 180, latitude: -90 to 90).
+**Note:** Leads are marked as "verified" when they have valid coordinates. Coordinates must be within valid ranges (longitude: -180 to 180, latitude: -90 to 90).
 
 ### Wrong Map Location
 
-**Symptom:** Address in wrong place on map
+**Symptom:** Lead in wrong place on map
 
 **Solutions:**
 
-1. **Check address** - Any typos in the address?
-2. **Edit coordinates** - Manually correct the latitude/longitude
-3. **Verify address format** - Use standard address formatting
+1. **Check lead** - Any typos in the lead?
+1. **Edit coordinates** - Manually correct the latitude/longitude
+1. **Verify lead format** - Use standard lead formatting
 
-### Duplicate Addresses
+### Duplicate Leads
 
-**Symptom:** Same address appears multiple times
+**Symptom:** Same lead appears multiple times
 
 **Solutions:**
 
-Duplicate detection happens during import. When importing addresses:
+Duplicate detection happens during import. When importing leads:
 
 1. **During import** - You'll be prompted to handle duplicates (skip, merge, or create)
-2. **For existing duplicates** - You may need to manually identify and delete extras
-3. **Prevention** - Use the merge option during import to update existing records instead of creating duplicates
+1. **For existing duplicates** - You may need to manually identify and delete extras
+1. **Prevention** - Use the merge option during import to update existing records instead of creating duplicates
 
 ## Sales Data Issues
 
@@ -194,9 +195,9 @@ Duplicate detection happens during import. When importing addresses:
 **Solutions:**
 
 1. **Check date filter** - Sale within range?
-2. **Check project** - Right project selected?
-3. **Check status** - May be in different status
-4. **Verify it saved** - Check for errors during save
+1. **Check campaign** - Right campaign selected?
+1. **Check status** - May be in different status
+1. **Verify it saved** - Check for errors during save
 
 ### Wrong Commission
 
@@ -205,9 +206,9 @@ Duplicate detection happens during import. When importing addresses:
 **Solutions:**
 
 1. **Check sale details** - Products, amounts correct?
-2. **Review sale model** - Rules may have changed
-3. **Check product rates** - Per-product commission
-4. **Contact admin** - For rule questions
+1. **Review sale model** - Rules may have changed
+1. **Check product rates** - Per-product commission
+1. **Contact admin** - For rule questions
 
 ## Performance Issues
 
@@ -218,9 +219,9 @@ Duplicate detection happens during import. When importing addresses:
 **Solutions:**
 
 1. **Apply filters** - Reduce data volume
-2. **Close other tabs** - Free browser resources
-3. **Check internet** - Speed issues?
-4. **Try later** - Server may be busy
+1. **Close other tabs** - Free browser resources
+1. **Check internet** - Speed issues?
+1. **Try later** - Server may be busy
 
 ### Timeouts
 
@@ -229,8 +230,8 @@ Duplicate detection happens during import. When importing addresses:
 **Solutions:**
 
 1. **Reduce scope** - Smaller date range, more filters
-2. **Refresh and retry** - Temporary issue
-3. **Try different time** - Server load varies
+1. **Refresh and retry** - Temporary issue
+1. **Try different time** - Server load varies
 
 ## Data Integrity
 
@@ -241,9 +242,9 @@ Duplicate detection happens during import. When importing addresses:
 **Solutions:**
 
 1. **Refresh page** - Clear display issue
-2. **Clear cache** - Remove cached bad data
-3. **Report issue** - May need support help
-4. **Don't edit** - Until issue resolved
+1. **Clear cache** - Remove cached bad data
+1. **Report issue** - May need support help
+1. **Don't edit** - Until issue resolved
 
 ### Unexpected Changes
 
@@ -252,11 +253,11 @@ Duplicate detection happens during import. When importing addresses:
 **Solutions:**
 
 1. **Check audit log** - Team owners can view the audit log to see who made changes, when, and what was modified
-2. **Review history** - Audit logs show old and new values for tracked tables
-3. **Communicate with team** - Understand the change
-4. **Note:** Audit logs are retained for 3 years
+1. **Review history** - Audit logs show old and new values for tracked tables
+1. **Communicate with team** - Understand the change
+1. **Note:** Audit logs are retained for 3 years
 
-**Audited tables:** Projects, addresses, interactions, sales, zones, zone members, bonus targets, products, product project assignments, custom field definitions, custom field templates, custom field template fields, custom field project assignments, and custom field values.
+**Audited tables:** Campaigns, leads, interactions, sales, zones, zone members, bonus targets, products, product campaign assignments, custom field definitions, custom field templates, custom field template fields, custom field campaign assignments, and custom field values.
 
 ## Getting Help
 
@@ -265,10 +266,10 @@ Duplicate detection happens during import. When importing addresses:
 Before contacting support:
 
 1. What data is affected
-2. When the issue started
-3. Error messages (exact text)
-4. Steps to reproduce
-5. What you've already tried
+1. When the issue started
+1. Error messages (exact text)
+1. Steps to reproduce
+1. What you've already tried
 
 ### When to Contact Support
 
@@ -282,6 +283,6 @@ Contact support if:
 ## Related Topics
 
 - [Advanced Search](/docs/user-guide/how-to/advanced-search) - Finding data
-- [Project Addresses](/docs/user-guide/team-account/projects/addresses) - Import process
-- [Managing Addresses](/docs/user-guide/personal-account/managing-addresses) - Address management
+- [Campaign Leads](/docs/user-guide/team-account/projects/addresses) - Import process
+- [Managing Leads](/docs/user-guide/personal-account/managing-addresses) - Lead management
 - [Team Sales](/docs/user-guide/team-account/sales) - Sales data
