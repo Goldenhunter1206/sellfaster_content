@@ -1,7 +1,8 @@
 ---
 title: Member Management
 description: >-
-  Manage your team members, send invitations, assign roles, and control access permissions.
+  Manage your team members, send invitations, assign roles, and control access
+  permissions.
 order: 1
 categories:
   - user-guide
@@ -16,45 +17,69 @@ Manage your team members, send invitations, assign roles, and control access per
 ## Accessing Member Management
 
 1. Ensure you're in your team account
-2. Click **Members** in the sidebar
-3. The URL is `/home/[team]/members`
+1. Click **Members** in the sidebar
+1. The URL is `https://sellfaster.eu/home/[team]/members`
 
 ## Team Members List
+
+![](https://raw.githubusercontent.com/Goldenhunter1206/sellfaster_content/main/public/site/images/user-guide/team-administration/member-management/image1.png)
 
 ### Viewing Members
 
 The members table displays:
 
-| Column | Description |
-|--------|-------------|
-| **Name** | Member's display name (shows "You" badge for your own entry) |
-| **Email** | Account email |
-| **Role** | Role badge (owner, member, or custom role) |
-| **Joined** | Date they joined the team |
-| **Actions** | Dropdown menu with available actions |
+{% table %}
+- Column
+- Description
+---
+- **Name**
+- Member's display name (shows "You" badge for your own entry)
+---
+- **Email**
+- Account email
+---
+- **Role**
+- Role badge (owner, member, or custom role)
+---
+- **Joined**
+- Date they joined the team
+---
+- **Actions**
+- Dropdown menu with available actions
+{% /table %}
+
+### Profile
+
+Profiles are accessed via the actions menu **View Profile**.
+
+![](https://raw.githubusercontent.com/Goldenhunter1206/sellfaster_content/main/public/site/images/user-guide/team-administration/member-management/image2.png)
+
+It contains performance KPIs as well as the latest interactions and sales of the team member.
 
 ### Role Badges
 
 Roles are displayed with color-coded badges:
+
 - **Owner** - No background color
+- **Manager** - Outlined style
 - **Member** - Blue background
-- **Custom Roles** - Outlined style
 
 ## Inviting New Members
 
 ### Sending Invitations
 
 1. Click **Invite Members** button
-2. Enter email address
-3. Select role for invitee
-4. Click **Send Invitation**
+1. Enter email address
+1. Select role for invitee
+1. Click **Send Invitation**
 
 You can invite up to 5 members at once:
-1. Click **Add another** to add more email fields
-2. Each invitee receives the role you select
-3. Click **Send Invitations**
 
-> **Note:** Inviting members requires the `invites.manage` permission.
+1. Click **Add another** to add more email fields
+1. Each invitee receives the role you select
+1. Click **Send Invitations**
+
+> **Note:** Inviting members requires you to have the roler manager or owner.
 
 ### Role Selection
 
@@ -63,6 +88,7 @@ When inviting, you can only assign roles at or below your own hierarchy level. T
 ### Invitation Email
 
 Invitees receive an email with:
+
 - Team name
 - Accept invitation link
 - The link to create an account or sign in
@@ -73,42 +99,69 @@ Invitees receive an email with:
 
 The invitations table shows outstanding invitations:
 
-| Column | Description |
-|--------|-------------|
-| **Email** | Invited email address |
-| **Role** | Role that will be granted |
-| **Invited At** | When the invitation was sent |
-| **Expires At** | When the invitation expires |
-| **Status** | Active (green) or Expired (warning) |
-| **Actions** | Available actions |
+{% table %}
+- Column
+- Description
+---
+- **Email**
+- Invited email address
+---
+- **Role**
+- Role that will be granted
+---
+- **Invited At**
+- When the invitation was sent
+---
+- **Expires At**
+- When the invitation expires
+---
+- **Status**
+- Active (green) or Expired (warning)
+---
+- **Actions**
+- Available actions
+{% /table %}
 
 ### Managing Invitations
 
 Actions available for pending invitations:
 
-| Action | Description | Requirement |
-|--------|-------------|-------------|
-| **Update Invitation** | Change the assigned role | `roles.manage` permission |
-| **Renew Invitation** | Resend an expired invitation | `roles.manage` permission, invitation must be expired |
-| **Remove Invitation** | Cancel the invitation | `roles.manage` permission |
+{% table %}
+- Action
+- Description
+- Requirement
+---
+- **Update Invitation**
+- Change the assigned role
+- `manager` or `owner` role
+---
+- **Renew Invitation**
+- Resend an expired invitation
+- `manager` or `owner` role, invitation must be expired
+---
+- **Remove Invitation**
+- Cancel the invitation
+- `manager` or `owner` role
+{% /table %}
 
 ## Member Roles
 
 ### Role Hierarchy
 
-Roles have a hierarchy level that determines permissions. Higher hierarchy levels grant more access.
+Roles have a hierarchy level that determines permissions. Higher hierarchy levels grant more access (`owner` > `manager` > `member`).
 
 ### Changing Roles
 
 To change a member's role:
 
 1. Find the member in the list
-2. Click the actions menu (three dots)
-3. Select **Update Role**
-4. Choose the new role
-5. Confirm
+1. Click the actions menu (three dots)
+1. Select **Update Role**
+1. Choose the new role
+1. Confirm
 
 **Restrictions:**
+
 - You cannot change your own role
 - You cannot change the primary owner's role
 - You can only assign roles at or below your hierarchy level
@@ -119,11 +172,11 @@ To change a member's role:
 Primary owners can transfer team ownership:
 
 1. Find the member to receive ownership
-2. Click the actions menu
-3. Select **Transfer Ownership**
-4. Read the warning disclaimer
-5. Complete OTP verification
-6. Confirm transfer
+1. Click the actions menu
+1. Select **Transfer Ownership**
+1. Read the warning disclaimer
+1. Complete OTP verification
+1. Confirm transfer
 
 > **Warning:** After transfer, you lose owner privileges and the new owner gains full control of the team.
 
@@ -134,11 +187,12 @@ Primary owners can transfer team ownership:
 To remove a member:
 
 1. Find the member
-2. Click the actions menu
-3. Select **Remove Member**
-4. Confirm removal
+1. Click the actions menu
+1. Select **Remove Member**
+1. Confirm removal
 
 **Restrictions:**
+
 - You cannot remove yourself (use Leave Team in Settings instead)
 - You cannot remove the primary owner
 - You can only remove members with lower or equal role hierarchy
@@ -153,46 +207,62 @@ To remove a member:
 
 ## Permissions Required
 
-| Action | Permission Needed |
-|--------|-------------------|
-| View members | Team membership |
-| Invite members | `invites.manage` |
-| Change roles | `roles.manage` (or primary owner) |
-| Remove members | `roles.manage` (or primary owner) |
-| Transfer ownership | Primary owner only |
+{% table %}
+- Action
+- Permission Needed
+---
+- View members
+- Team membership
+---
+- Invite members
+- `manager` or `owner` role
+---
+- Change roles
+- `manager` or `owner` role (or primary owner)
+---
+- Remove members
+- `manager` or `owner` role (or primary owner)
+---
+- Transfer ownership
+- Primary owner only
+{% /table %}
 
 ## Troubleshooting
 
 ### Invitation Not Received
 
 If invitee doesn't receive the email:
+
 1. Check their spam folder
-2. Verify the email address is correct
-3. Resend the invitation
-4. Try a different email address
+1. Verify the email address is correct
+1. Resend the invitation
+1. Try a different email address
 
 ### Can't Change Role
 
 If you can't modify a role:
-1. Verify you have the `roles.manage` permission
-2. You cannot change your own role
-3. You cannot demote the primary owner
-4. Check if the target role is above your hierarchy level
+
+1. Verify you have the `manager` or `owner` role
+1. You cannot change your own role
+1. You cannot demote the primary owner
+1. Check if the target role is above your hierarchy level
 
 ### Can't Remove Member
 
 If you can't remove a member:
+
 1. You cannot remove yourself
-2. You cannot remove the primary owner
-3. The member may have a higher role hierarchy than you
+1. You cannot remove the primary owner
+1. The member may have a higher role hierarchy than you
 
 ### Member Can't Access Team
 
 If a member can't access the team:
+
 1. Check their invitation status (accepted vs pending)
-2. Verify they're using the correct email to sign in
-3. Check they haven't been removed
-4. Have them sign out and back in
+1. Verify they're using the correct email to sign in
+1. Check they haven't been removed
+1. Have them sign out and back in
 
 ## Related Topics
 
