@@ -1,7 +1,8 @@
 ---
 title: How to Use Map View
 description: >-
-  This guide covers how to effectively use the map view to visualize addresses and work with territories.
+  This guide covers how to effectively use the map view to visualize leads and
+  work with territories.
 order: 3
 categories:
   - user-guide
@@ -11,31 +12,31 @@ status: published
 collapsible: false
 collapsed: false
 ---
-This guide covers how to effectively use the map view to visualize addresses and work with territories.
+This guide covers how to effectively use the map view to visualize leads and work with territories.
 
 ## Map Technology
 
-Sellfaster uses MapLibre GL with OpenFreemap tiles to display addresses geographically. The map provides:
+Sellfaster uses MapLibre GL with OpenFreemap tiles to display leads geographically. The map provides:
 
 - Interactive pan and zoom
-- Address markers with state indicators
+- Lead markers with state indicators
 - Zone overlays
 - Clustering for large datasets
 
 ## Accessing Map View
 
-### Project Map
+### Campaign Map
 
-1. Navigate to a project
-2. Go to `/home/[team]/projects/[project]/map`
-3. View all project addresses on the map
+1. Navigate to a campaign
+1. Go to `/home/[team]/projects/[campaign]/map`
+1. View all campaign leads on the map
 
-*The interactive map showing clustered address markers with the filter panel on the right*
+*The interactive map showing clustered* lead *markers with the filter panel on the right*
 
-### Personal Addresses Map
+### Personal Leads Map
 
 1. Navigate to `/home`
-2. Find the map view for your personal addresses across all projects
+1. Find the map view for your personal leads across all campaigns
 
 ## Basic Navigation
 
@@ -43,21 +44,37 @@ Sellfaster uses MapLibre GL with OpenFreemap tiles to display addresses geograph
 
 Move around the map:
 
-| Action | How |
-|--------|-----|
-| **Mouse drag** | Click and drag to pan |
-| **Touch** | Swipe on mobile |
+{% table %}
+- Action
+- How
+---
+- **Mouse drag**
+- Click and drag to pan
+---
+- **Touch**
+- Swipe on mobile
+{% /table %}
 
 ### Zooming
 
 Adjust the view:
 
-| Action | How |
-|--------|-----|
-| **Scroll wheel** | Scroll up/down to zoom |
-| **Zoom buttons** | Click +/- controls |
-| **Double-click** | Double-click to zoom in |
-| **Pinch** | Pinch gesture on mobile |
+{% table %}
+- Action
+- How
+---
+- **Scroll wheel**
+- Scroll up/down to zoom
+---
+- **Zoom buttons**
+- Click +/- controls
+---
+- **Double-click**
+- Double-click to zoom in
+---
+- **Pinch**
+- Pinch gesture on mobile
+{% /table %}
 
 ## Understanding Markers
 
@@ -65,12 +82,22 @@ Adjust the view:
 
 Markers are color-coded based on interaction state:
 
-| Color | State |
-|-------|-------|
-| **Red** (#ef4444) | Closed - address has `keep_open: false` |
-| **Yellow** (#eab308) | Appointment Pending - has `follow_up: true` |
-| **Green** (#22c55e) | Open - has `keep_open: true` |
-| **Gray** (#6b7280) | No Interaction recorded |
+{% table %}
+- Color
+- State
+---
+- **Red** (#ef4444)
+- Closed - lead has `keep_open: false`
+---
+- **Yellow** (#eab308)
+- Appointment Pending - has `follow_up: true`
+---
+- **Green** (#22c55e)
+- Open - has `keep_open: true`
+---
+- **Gray** (#6b7280)
+- No Interaction recorded
+{% /table %}
 
 ### Apartment Building Markers
 
@@ -83,7 +110,7 @@ Buildings with multiple units display differently:
 
 ### Marker Clustering
 
-When zoomed out or viewing many addresses:
+When zoomed out or viewing many leads:
 
 - Nearby markers cluster together
 - Cluster shows total count
@@ -92,17 +119,17 @@ When zoomed out or viewing many addresses:
   - Blue: < 10 points
   - Yellow: 10-100 points
   - Pink: > 100 points
-- Clustering enables automatically when 50+ addresses visible
+- Clustering enables automatically when 50+ leads visible
 - Clusters appear at zoom levels < 15
 
-## Interacting with Addresses
+## Interacting with Leads
 
-### Viewing Address Info
+### Viewing Lead Info
 
 Click a marker to see a popup with:
 
-- Street address
-- Project name
+- Street lead
+- Campaign name
 - Zone name (with "Auto-assigned" badge if applicable)
 - Unit breakdown for buildings
 - Interaction state badge
@@ -116,41 +143,54 @@ Click a marker to see a popup with:
 
 ### Navigation
 
-Click "View Details" to go to the full address page at:
-`/home/[account]/projects/[project]/addresses/[address]`
+Click "View Details" to go to the full lead page at: `/home/[account]/projects/[campaign]/addresses/[lead]`
 
 ## Filtering the Map
 
 ### Filter Panel
 
-The project map includes a filter panel with tabs:
+The campaign map includes a filter panel with tabs:
 
 1. **Zone Filter** - Show/hide specific zones
-2. **Interaction Filter** - Filter by interaction state
-3. **Sales Filter** - Filter by product and sale state
+1. **Interaction Filter** - Filter by interaction state
+1. **Sales Filter** - Filter by product and sale state
 
 ### Available Filters
 
-| Filter | Description |
-|--------|-------------|
-| **Zone** | Checkbox selection of multiple zones |
-| **Interaction State** | Filter by configured states |
-| **Product** | Filter sales by product |
-| **Sale State** | Filter by sale state |
-| **Date Range** | Start and end date pickers |
+{% table %}
+- Filter
+- Description
+---
+- **Zone**
+- Checkbox selection of multiple zones
+---
+- **Interaction State**
+- Filter by configured states
+---
+- **Product**
+- Filter sales by product
+---
+- **Sale State**
+- Filter by sale state
+---
+- **Date Range**
+- Start and end date pickers
+{% /table %}
 
 ### Visibility Toggles
 
 Toggle display of:
+
 - Zones (show/hide zone overlays)
 - Interactions (filter interaction markers)
 - Sales (filter sale markers)
 
-### Address Source
+### Lead Source
 
 Switch between:
-- Project addresses only
-- All account addresses
+
+- Campaign leads only
+- All account leads
 
 ## Working with Zones
 
@@ -167,13 +207,15 @@ Zones display as colored polygon overlays:
 ### Zone Information
 
 Click a zone to see:
+
 - Zone name
 - Zone color
-- Address count within zone
+- Lead count within zone
 
 ### Zone Display
 
 Zones are rendered as GeoJSON features supporting:
+
 - Polygon shapes
 - MultiPolygon shapes
 
@@ -181,14 +223,15 @@ Zones are rendered as GeoJSON features supporting:
 
 The map uses intelligent loading for performance:
 
-- Addresses load based on visible map bounds
+- Leads load based on visible map bounds
 - 500ms debounce prevents excessive loading
 - Data merges as you pan (doesn't reload everything)
-- Activity indicators show addresses with interactions/sales
+- Activity indicators show leads with interactions/sales
 
 ## Map Legend
 
 The legend shows:
+
 - Marker color meanings (Closed, Appointment, Open, No Interaction)
 - Apartment building indicator
 - Can be toggled on/off
@@ -196,7 +239,8 @@ The legend shows:
 ## Map Statistics
 
 The map displays:
-- Total addresses shown
+
+- Total leads shown
 - Clusters shown (when clustering enabled)
 - Total data points
 
@@ -205,61 +249,62 @@ The map displays:
 ### Visual Planning
 
 1. **Color scanning** - Quickly identify states by color
-2. **Cluster awareness** - Zoom into dense areas for detail
-3. **Zone organization** - Work within assigned zones
-4. **Filter usage** - Show only relevant addresses
+1. **Cluster awareness** - Zoom into dense areas for detail
+1. **Zone organization** - Work within assigned zones
+1. **Filter usage** - Show only relevant leads
 
 ### Performance
 
 For better performance:
-1. Use filters to reduce visible addresses
-2. Zoom into your working area
-3. Filter by zone to limit data
-4. Clustering helps with large datasets
+
+1. Use filters to reduce visible leads
+1. Zoom into your working area
+1. Filter by zone to limit data
+1. Clustering helps with large datasets
 
 ### Daily Workflow
 
 1. **Morning review** - View your territory
-2. **Identify targets** - Find addresses by state/color
-3. **Work by area** - Focus on one zone at a time
-4. **Track progress** - Watch colors change as you work
+1. **Identify targets** - Find leads by state/color
+1. **Work by area** - Focus on one zone at a time
+1. **Track progress** - Watch colors change as you work
 
 ## Troubleshooting
 
-### Addresses Not Showing
+### Leads Not Showing
 
 If markers don't appear:
 
 1. Check active filters
-2. Zoom out to see all markers
-3. Verify addresses have coordinates (latitude/longitude)
-4. Refresh the page
+1. Zoom out to see all markers
+1. Verify leads have coordinates (latitude/longitude)
+1. Refresh the page
 
 ### Map Not Loading
 
 If map won't load:
 
 1. Check internet connection
-2. Clear browser cache
-3. The map has retry logic (up to 10 attempts)
-4. Try a different browser
+1. Clear browser cache
+1. The map has retry logic (up to 10 attempts)
+1. Try a different browser
 
 ### Wrong Location
 
-If addresses are misplaced:
+If leads are misplaced:
 
-1. Check the original address entry
-2. Address may need geocoding correction
-3. Verify coordinates are accurate
+1. Check the original lead entry
+1. Lead may need geocoding correction
+1. Verify coordinates are accurate
 
 ### Slow Performance
 
 If map is slow:
 
-1. Apply filters to reduce visible addresses
-2. Zoom into a smaller area
-3. Clustering should enable automatically
-4. Close other browser tabs
+1. Apply filters to reduce visible leads
+1. Zoom into a smaller area
+1. Clustering should enable automatically
+1. Close other browser tabs
 
 ## Technical Details
 
@@ -268,7 +313,7 @@ If map is slow:
 - **Tile provider**: OpenFreemap (Liberty style)
 - **Library**: MapLibre GL via react-map-gl
 - **Data format**: GeoJSON for zones and clustering
-- **Clustering threshold**: 50+ addresses
+- **Clustering threshold**: 50+ leads
 - **Cluster zoom threshold**: < zoom level 15
 
 ### Viewport Loading
@@ -279,6 +324,6 @@ If map is slow:
 
 ## Related Topics
 
-- [Map View](/docs/user-guide/team-account/projects/map-view) - Project map features
-- [Recording Interactions](/docs/user-guide/how-to/recording-interactions) - From address detail
-- [Project Addresses](/docs/user-guide/team-account/projects/addresses) - Address management
+- [Map View](/docs/user-guide/team-account/projects/map-view) - Campaign map features
+- [Recording Interactions](/docs/user-guide/how-to/recording-interactions) - From lead detail
+- [Campaign Leads](/docs/user-guide/team-account/projects/addresses) - Lead management
