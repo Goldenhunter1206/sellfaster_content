@@ -1,7 +1,8 @@
 ---
 title: How to Schedule Follow-Up Reminders
 description: >-
-  This guide shows you how to create and manage follow-up reminders to ensure you never miss an important callback or visit.
+  This guide shows you how to create and manage follow-up reminders to ensure
+  you never miss an important callback or visit.
 order: 2
 categories:
   - user-guide
@@ -27,25 +28,21 @@ Follow-ups are created **as part of recording an interaction**. You cannot creat
 
 ### Creating a Follow-Up
 
-1. **Record an interaction**
+1. Record an interaction
    - Navigate to an address
    - Open the interaction form
-
-2. **Select an appropriate state**
+1. Select an appropriate state
    - Choose an interaction state that has follow-up enabled
    - The follow-up date field only appears for states with `follow_up: true`
-
-3. **Set the follow-up date and time**
+1. Set the follow-up date and time
    - Date picker appears automatically for follow-up-enabled states
    - Select the date for your follow-up
    - Time selection is included
    - Cannot select dates in the past (minimum is today)
-
-4. **Add notes**
+1. Add notes
    - Include context in the interaction comment
    - This helps you remember what to do when following up
-
-5. **Save the interaction**
+1. Save the interaction
    - The follow-up is created along with the interaction
 
 ## Viewing Your Follow-Ups
@@ -55,8 +52,8 @@ Follow-ups are created **as part of recording an interaction**. You cannot creat
 View all your scheduled follow-ups:
 
 1. Navigate to `/home/follow-ups`
-2. See a list of all your upcoming follow-ups
-3. Features include:
+1. See a list of all your upcoming follow-ups
+1. Features include:
    - Search across address, city, project name, and comment
    - Sort by date (default) or distance from your location
    - Overdue follow-ups are highlighted
@@ -68,18 +65,33 @@ View all your scheduled follow-ups:
 
 The follow-ups list shows:
 
-| Column | Description |
-|--------|-------------|
-| **Address** | Street address and location |
-| **City** | City of the address |
-| **Project** | Associated project |
-| **Follow-Up Date** | Scheduled date and time |
-| **Comment** | Notes from the interaction |
-| **State** | Interaction state name |
+{% table %}
+- Column
+- Description
+---
+- **Address**
+- Street address and location
+---
+- **City**
+- City of the address
+---
+- **Project**
+- Associated project
+---
+- **Follow-Up Date**
+- Scheduled date and time
+---
+- **Comment**
+- Notes from the interaction
+---
+- **State**
+- Interaction state name
+{% /table %}
 
 ### Mobile View
 
 On mobile devices:
+
 - Follow-ups display as swipeable cards
 - Overdue items show with a red border indicator
 - Quick actions available via swipe gestures
@@ -92,18 +104,18 @@ Follow-ups appear in the calendar:
 ### Personal Calendar
 
 1. Navigate to `/home/calendar`
-2. View follow-ups in a weekly schedule
-3. Calendar shows 6 AM to 10 PM hours
-4. Events are color-coded by project
-5. Click an event to navigate to the address
+1. View follow-ups in a weekly schedule
+1. Calendar shows 6 AM to 10 PM hours
+1. Events are color-coded by project
+1. Click an event to navigate to the address
 
 *The calendar view showing a weekly schedule with Day, Week, and Month toggle options*
 
 ### Team Calendar
 
 1. Navigate to `/home/[team]/calendar`
-2. See team follow-ups
-3. Filter by team member or project
+1. See team follow-ups
+1. Filter by team member or project
 
 ### Calendar Features
 
@@ -119,19 +131,27 @@ Follow-ups appear in the calendar:
 When you've made contact:
 
 1. Go to the address
-2. Record a new interaction
-3. The new interaction updates the follow-up status
-4. Previous follow-up is considered addressed
+1. Record a new interaction
+1. The new interaction updates the follow-up status
+1. Previous follow-up is considered addressed
 
 ### Taking Action on Follow-Ups
 
 From the follow-ups list, you can:
 
-| Action | Description |
-|--------|-------------|
-| **Add Interaction** | Record a new interaction for the address |
-| **Add Sale** | Record a sale for the address |
-| **View Address** | Navigate to full address details |
+{% table %}
+- Action
+- Description
+---
+- **Add Interaction**
+- Record a new interaction for the address
+---
+- **Add Sale**
+- Record a sale for the address
+---
+- **View Address**
+- Navigate to full address details
+{% /table %}
 
 ### Overdue Follow-Ups
 
@@ -145,33 +165,48 @@ Follow-ups become overdue when the scheduled date/time passes:
 
 Each follow-up includes:
 
-| Field | Description |
-|-------|-------------|
-| **follow_up_date** | Scheduled date and time |
-| **comment** | Notes from the interaction |
-| **address** | Full address details |
-| **project** | Project information |
-| **interaction_state** | State name and properties |
-| **zone** | Zone assignment if applicable |
+{% table %}
+- Field
+- Description
+---
+- **follow\_up\_date**
+- Scheduled date and time
+---
+- **comment**
+- Notes from the interaction
+---
+- **address**
+- Full address details
+---
+- **project**
+- Project information
+---
+- **interaction\_state**
+- State name and properties
+---
+- **zone**
+- Zone assignment if applicable
+{% /table %}
 
 ## Best Practices
 
 ### Scheduling
 
 1. **Be realistic** - Schedule times you can actually follow through
-2. **Use specific times** - When the customer gave a callback time
-3. **Consider time zones** - Schedule appropriately for the customer
-4. **Don't overload** - Space out follow-ups throughout the day
+1. **Use specific times** - When the customer gave a callback time
+1. **Consider time zones** - Schedule appropriately for the customer
+1. **Don't overload** - Space out follow-ups throughout the day
 
 ### Organization
 
 1. **Morning review** - Check today's follow-ups each morning
-2. **Address overdue items** - Handle old follow-ups promptly
-3. **Update after contact** - Record new interactions to mark progress
+1. **Address overdue items** - Handle old follow-ups promptly
+1. **Update after contact** - Record new interactions to mark progress
 
 ### Notes Quality
 
 Include helpful context:
+
 - Why you're following up
 - What was discussed previously
 - What you need to bring or prepare
@@ -182,6 +217,7 @@ Include helpful context:
 ### Current Behavior
 
 Follow-ups appear in:
+
 - The follow-ups list page
 - Calendar views (personal and team)
 - Address detail pages
@@ -197,26 +233,26 @@ The system currently manages follow-ups through the UI (tables and calendar view
 If the follow-up date field doesn't show:
 
 1. Check the interaction state you selected
-2. Not all states have follow-up enabled
-3. Try selecting a different state
-4. Contact your administrator to verify state configuration
+1. Not all states have follow-up enabled
+1. Try selecting a different state
+1. Contact your administrator to verify state configuration
 
 ### Follow-Up Not Showing in List
 
 If a follow-up isn't visible:
 
 1. Check the date - it may have already passed
-2. Verify you have access to the project
-3. Check filters aren't hiding it
-4. Refresh the page
+1. Verify you have access to the project
+1. Check filters aren't hiding it
+1. Refresh the page
 
 ### Can't Edit Follow-Up
 
 To change a follow-up:
 
 1. Record a new interaction on the address
-2. Set the new follow-up date
-3. The latest interaction's follow-up takes precedence
+1. Set the new follow-up date
+1. The latest interaction's follow-up takes precedence
 
 ## Related Topics
 
