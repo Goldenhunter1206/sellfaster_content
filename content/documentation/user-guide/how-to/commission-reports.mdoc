@@ -1,7 +1,8 @@
 ---
 title: How to View Commission and Payslips
 description: >-
-  This guide shows you how to view commission data and manage payslips for tracking your earnings.
+  This guide shows you how to view commission data and manage payslips for
+  tracking your earnings.
 order: 5
 categories:
   - user-guide
@@ -20,8 +21,8 @@ This guide shows you how to view commission data and manage payslips for trackin
 Navigate to the commission section:
 
 1. Go to your team account
-2. Navigate to `/home/[team]/commission`
-3. View commission and payslips tabs
+1. Navigate to `/home/[team]/commission`
+1. View commission and payslips tabs
 
 ## Commission Page Tabs
 
@@ -49,80 +50,132 @@ View detailed commission entries:
 
 ### Payslips Table
 
-*The Payslips tab showing payslip records with date, amount, and description*
+*![](https://raw.githubusercontent.com/Goldenhunter1206/sellfaster_content/main/public/site/images/user-guide/how-to/commission-reports/image-payslips-tab.png)*
 
 The payslips table shows:
 
-| Column | Description |
-|--------|-------------|
-| **Date** | Payslip date |
-| **Amount** | Total payslip amount |
-| **Description** | Content description |
+{% table %}
+- Column
+- Description
+---
+- **Date**
+- Payslip date
+---
+- **Amount**
+- Total payslip amount
+---
+- **Description**
+- Content description
+{% /table %}
 
 ### Payslip Actions
 
-| Action | Description |
-|--------|-------------|
-| **Preview** | View payslip in modal with PDF iframe |
-| **Download** | Download individual payslip as PDF |
-| **Batch Download** | Download selected payslips as ZIP |
+{% table %}
+- Action
+- Description
+---
+- **Preview**
+- View payslip in modal with PDF iframe
+---
+- **Download**
+- Download individual payslip as PDF
+---
+- **Batch Download**
+- Download selected payslips as ZIP
+{% /table %}
 
 ### Payslip PDF Content
 
 Each payslip PDF includes:
 
 **Header:**
+
 - Title
 - Employee name
 - Payslip date
 
 **Commissions Section:**
+
 - Table with: Sale Date, Type (Earned/Reclaimed), Amount, Address
 - Note for promotion-affected sales
 - Commission subtotal
 
 **Bonus Targets Section:**
+
 - Table with: Bonus target name, description, bonus amount
 - Bonus subtotal
 
 **Total:**
+
 - Sum of commissions and bonuses
 
 ## Viewing Commission Log
 
 ### Commission Table
 
-*The Commission Log tab showing detailed commission entries with filters*
+*![](https://raw.githubusercontent.com/Goldenhunter1206/sellfaster_content/main/public/site/images/user-guide/how-to/commission-reports/image-commission-log.png)*
 
 The commission log displays:
 
-| Column | Description |
-|--------|-------------|
-| **Salesperson** | Team member who earned it |
-| **Product** | Product sold |
-| **Address** | Customer address |
-| **Amount** | Commission amount |
-| **Type** | Earned or Reclaimed |
-| **Status** | Paid or Pending |
-| **Date** | When commission was created |
+{% table %}
+- Column
+- Description
+---
+- **Salesperson**
+- Team member who earned it
+---
+- **Product**
+- Product sold
+---
+- **Address**
+- Customer address
+---
+- **Amount**
+- Commission amount
+---
+- **Type**
+- Earned or Reclaimed
+---
+- **Status**
+- Paid or Pending
+---
+- **Date**
+- When commission was created
+{% /table %}
 
 ### Commission Types
 
-| Type | Description |
-|------|-------------|
-| **Earned** | Positive commission from sales |
-| **Reclaimed** | Negative commission (reversed) |
+{% table %}
+- Type
+- Description
+---
+- **Earned**
+- Positive commission from sales
+---
+- **Reclaimed**
+- Negative commission (reversed)
+{% /table %}
 
 ### Commission Filters
 
 Filter the commission log by:
 
-| Filter | Options |
-|--------|---------|
-| **Commission Type** | earned, reclaimed, all |
-| **Payment Status** | paid, unpaid, all |
-| **Promotion Impact** | affected, not_affected, all |
-| **Date Range** | Custom from/to dates |
+{% table %}
+- Filter
+- Options
+---
+- **Commission Type**
+- earned, reclaimed, all
+---
+- **Payment Status**
+- paid, unpaid, all
+---
+- **Promotion Impact**
+- affected, not_affected, all
+---
+- **Date Range**
+- Custom from/to dates
+{% /table %}
 
 ### Promotion Indicator
 
@@ -133,25 +186,26 @@ Products affected by promotions show a tag indicator in the table.
 ### Prerequisites
 
 To create payslips:
+
 - You need `payslips:create` permission
 - Active or trialing subscription required
 
 ### Create Payslip Process
 
 1. Click **Create Payslip** button (if you have permission)
-2. Select team members (multi-select or "all")
-3. Set payslip date (cannot be future)
-4. Submit
+1. Select team members (multi-select or "all")
+1. Set payslip date (cannot be future)
+1. Submit
 
 ### What Happens When Creating
 
 1. System fetches unpaid commissions for selected user(s)
-2. Fetches unpaid achieved bonus targets
-3. Calculates total: commissions + bonuses
-4. Creates payslip with content arrays
-5. Marks included commissions as paid
-6. Marks bonus targets as paid
-7. Sends notification to team member
+1. Fetches unpaid achieved bonus targets
+1. Calculates total: commissions + bonuses
+1. Creates payslip with content arrays
+1. Marks included commissions as paid
+1. Marks bonus targets as paid
+1. Sends notification to team member
 
 ## Filtering Data
 
@@ -160,12 +214,13 @@ To create payslips:
 Filter both payslips and commissions by date:
 
 1. Set start date (from)
-2. Set end date (to)
-3. Format: ISO date strings
+1. Set end date (to)
+1. Format: ISO date strings
 
 ### Pagination
 
 Both tables support pagination:
+
 - Payslips: 10 items per page
 - Commissions: 20 items per page
 
@@ -180,14 +235,15 @@ Payslips support search by description (case-insensitive).
 Commissions are created automatically:
 
 1. **On sale state change**: When sale enters a state with `triggers_commission: true`
-2. **On commission reclaim**: When sale enters a state with `reclaims_commission: true`
-3. **On new sale**: If initial state triggers commission
+1. **On commission reclaim**: When sale enters a state with `reclaims_commission: true`
+1. **On new sale**: If initial state triggers commission
 
 ### Commission Amount
 
 The system uses:
+
 1. `sale.commission_amount` if set (includes promotion adjustments)
-2. Otherwise, falls back to `product.commission` (base amount)
+1. Otherwise, falls back to `product.commission` (base amount)
 
 ### Tracking
 
@@ -200,23 +256,23 @@ The system uses:
 ### Regular Review
 
 1. **Check commission log** - Verify sales are generating commissions
-2. **Review before payslip** - Confirm amounts are correct
-3. **Track paid vs unpaid** - Know what's been paid out
+1. **Review before payslip** - Confirm amounts are correct
+1. **Track paid vs unpaid** - Know what's been paid out
 
 ### Record Keeping
 
 1. Download payslips for your records
-2. Use batch download for multiple payslips
-3. Keep records for tax purposes
+1. Use batch download for multiple payslips
+1. Keep records for tax purposes
 
 ### Verification
 
 Before relying on data:
 
 1. Verify sale count matches expected
-2. Check commission rates on products
-3. Review any promotion adjustments
-4. Report discrepancies to your administrator
+1. Check commission rates on products
+1. Review any promotion adjustments
+1. Report discrepancies to your administrator
 
 ## Troubleshooting
 
@@ -225,35 +281,35 @@ Before relying on data:
 If commission is missing:
 
 1. Check sale state - must be a commission-triggering state
-2. Verify product has commission configured
-3. Check the date range filter
-4. Verify sale model configuration
+1. Verify product has commission configured
+1. Check the date range filter
+1. Verify sale model configuration
 
 ### Wrong Amount
 
 If amounts seem incorrect:
 
 1. Review sale details
-2. Check product commission rate
-3. Look for promotion adjustments (`affected_by_promotion` flag)
-4. Compare to sale model rules
+1. Check product commission rate
+1. Look for promotion adjustments (`affected_by_promotion` flag)
+1. Compare to sale model rules
 
 ### Can't Create Payslip
 
 If you can't create payslips:
 
 1. Verify you have `payslips:create` permission
-2. Check subscription status (must be active or trialing)
-3. Contact your administrator
+1. Check subscription status (must be active or trialing)
+1. Contact your administrator
 
 ### Payslip Won't Download
 
 If download fails:
 
 1. Try a smaller date range
-2. Clear browser cache
-3. Try a different browser
-4. Check for popup blockers
+1. Clear browser cache
+1. Try a different browser
+1. Check for popup blockers
 
 ## Related Topics
 
