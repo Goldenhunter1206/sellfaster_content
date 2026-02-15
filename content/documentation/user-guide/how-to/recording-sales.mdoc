@@ -1,7 +1,8 @@
 ---
 title: How to Record Sales
 description: >-
-  This guide provides step-by-step instructions for recording sales in Sellfaster.
+  This guide provides step-by-step instructions for recording sales in
+  Sellfaster.
 order: 1
 categories:
   - user-guide
@@ -20,7 +21,7 @@ A sale records a completed transaction linking:
 - A product from your inventory
 - An address (customer)
 - A salesperson
-- The project context
+- The campaign context
 
 Sales are tracked with configurable states and can trigger commission calculations.
 
@@ -28,9 +29,9 @@ Sales are tracked with configurable states and can trigger commission calculatio
 
 Before recording sales:
 
-1. Products must be configured in your project
-2. You need access to a team account with sales permissions
-3. The address should exist in a project
+1. Products must be configured in your campaign
+1. You need access to a team account with sales permissions
+1. The address should exist in a campaign
 
 ## Understanding Sales Structure
 
@@ -45,32 +46,27 @@ Each sale gets a unique number like `SALE-A1B2C3D4-000001`, and orders get numbe
 
 ## Recording a Sale
 
-### From the Project Sales Page
+### From the Campaign Sales Page
 
 1. **Navigate to Sales**
-   - Go to `/home/[team]/projects/[project]/sales`
-   - Or click **Sales** in the project navigation
+   - Go to `/home/[team]/projects/[campaign]/sales`
+   - Or click **Sales** in the campaign navigation
 
-*The project sales page showing the sales table with filters*
+*The* campaign *sales page showing the sales table with filters*
 
 2. **Find the sale creation option**
    - Look for the option to record a new sale
-
-3. **Select the Address**
+1. **Select the Address**
    - Choose the customer address for the sale
-   - The address must exist in the project
-
-4. **Select the Product**
-   - Choose from products configured for the project
+   - The address must exist in the campaign
+1. **Select the Product**
+   - Choose from products configured for the campaign
    - Products define the commission amount
-
-5. **Set the Sale Date**
+1. **Set the Sale Date**
    - Select when the sale occurred
-
-6. **Add Notes (Optional)**
+1. **Add Notes (Optional)**
    - Include any relevant details
-
-7. **Save**
+1. **Save**
    - The sale is created with an auto-generated sale number
    - Initial sale state is applied automatically
 
@@ -86,25 +82,45 @@ Some products are configured to allow multiple sales per address:
 
 ### Required Fields
 
-| Field | Description |
-|-------|-------------|
-| **Address** | Customer address for the sale |
-| **Product** | Product being sold |
-| **Sale Date** | Date of the sale |
+{% table %}
+- Field
+- Description
+---
+- **Address**
+- Customer address for the sale
+---
+- **Product**
+- Product being sold
+---
+- **Sale Date**
+- Date of the sale
+{% /table %}
 
 ### Optional Fields
 
-| Field | Description |
-|-------|-------------|
-| **Notes** | Additional information about the sale |
+{% table %}
+- Field
+- Description
+---
+- **Notes**
+- Additional information about the sale
+{% /table %}
 
 ### Auto-Generated Fields
 
-| Field | Description |
-|-------|-------------|
-| **Sale Number** | Unique identifier (auto-generated) |
-| **Sale State** | Initial state based on sale model |
-| **User** | Salesperson (typically current user) |
+{% table %}
+- Field
+- Description
+---
+- **Sale Number**
+- Unique identifier (auto-generated)
+---
+- **Sale State**
+- Initial state based on sale model
+---
+- **User**
+- Salesperson (typically current user)
+{% /table %}
 
 *The team sales page showing orders with order numbers, dates, campaigns, and status*
 
@@ -115,32 +131,56 @@ Some products are configured to allow multiple sales per address:
 Sellfaster uses a configurable state system for sales:
 
 1. **Sale State Models** - Templates that define workflow
-2. **Sale States** - Individual states within a model
-3. **State Transitions** - Allowed moves between states
+1. **Sale States** - Individual states within a model
+1. **State Transitions** - Allowed moves between states
 
 ### State Properties
 
 Each sale state can have these properties:
 
-| Property | Effect |
-|----------|--------|
-| **is_initial** | Starting state for new sales |
-| **is_terminal** | No further transitions allowed |
-| **triggers_commission** | Creates commission when entering this state |
-| **reclaims_commission** | Reverses commission when entering this state |
-| **cancels_address** | Marks address as sold |
-| **color** | Visual indicator in the UI |
-| **position** | Order in the workflow |
+{% table %}
+- Property
+- Effect
+---
+- **is\_initial**
+- Starting state for new sales
+---
+- **is\_terminal**
+- No further transitions allowed
+---
+- **triggers\_commission**
+- Creates commission when entering this state
+---
+- **reclaims\_commission**
+- Reverses commission when entering this state
+---
+- **cancels\_address**
+- Marks address as sold
+---
+- **color**
+- Visual indicator in the UI
+---
+- **position**
+- Order in the workflow
+{% /table %}
 
 ### Common State Workflows
 
 Example states your team might configure:
 
-| State | Typical Purpose |
-|-------|-----------------|
-| **Pending** | Initial state, awaiting processing |
-| **Confirmed** | Sale verified and finalized |
-| **Cancelled** | Sale was cancelled |
+{% table %}
+- State
+- Typical Purpose
+---
+- **Pending**
+- Initial state, awaiting processing
+---
+- **Confirmed**
+- Sale verified and finalized
+---
+- **Cancelled**
+- Sale was cancelled
+{% /table %}
 
 State transitions are validated - you can only move between states that are configured as valid transitions.
 
@@ -151,8 +191,8 @@ State transitions are validated - you can only move between states that are conf
 Commission is calculated automatically based on:
 
 1. **Product commission amount** - Set on the product configuration
-2. **Sale state triggers** - States configured with `triggers_commission: true`
-3. **Promotions** - May adjust the commission amount
+1. **Sale state triggers** - States configured with `triggers_commission: true`
+1. **Promotions** - May adjust the commission amount
 
 ### Commission Tracking
 
@@ -163,6 +203,7 @@ Commission is calculated automatically based on:
 ### Viewing Commission
 
 After a sale is recorded:
+
 - Commission appears in the [Commission](/docs/user-guide/team-account/commission) section
 - Linked to the salesperson
 - Tracked until paid via payslip
@@ -172,11 +213,13 @@ After a sale is recorded:
 ### What Can Be Edited
 
 After creation, you can update:
+
 - Notes
 
 ### What Cannot Be Changed
 
 Depending on configuration:
+
 - Sale state (must use state transitions)
 - Product
 - Address
@@ -187,9 +230,9 @@ Depending on configuration:
 To change a sale's state:
 
 1. Open the sale detail
-2. Find the state transition options
-3. Select a valid next state
-4. Confirm the transition
+1. Find the state transition options
+1. Select a valid next state
+1. Confirm the transition
 
 This may trigger commission changes based on state configuration.
 
@@ -210,15 +253,15 @@ Inventory movements are immutable after creation.
 ### Recording Sales
 
 1. **Record promptly** - When the sale happens
-2. **Link to correct address** - Ensures proper tracking
-3. **Verify product** - Correct product for commission
-4. **Add useful notes** - Context for future reference
+1. **Link to correct address** - Ensures proper tracking
+1. **Verify product** - Correct product for commission
+1. **Add useful notes** - Context for future reference
 
 ### State Management
 
 1. **Understand your workflow** - Know valid transitions
-2. **Use correct states** - Affects commission calculation
-3. **Don't skip states** - Follow the configured workflow
+1. **Use correct states** - Affects commission calculation
+1. **Don't skip states** - Follow the configured workflow
 
 ## Troubleshooting
 
@@ -227,26 +270,26 @@ Inventory movements are immutable after creation.
 If you can't create a sale:
 
 1. Verify you have sales permissions
-2. Check the address exists and is accessible
-3. Verify products are configured for the project
-4. Check for validation errors
+1. Check the address exists and is accessible
+1. Verify products are configured for the campaign
+1. Check for validation errors
 
 ### Commission Not Appearing
 
 If commission doesn't show:
 
 1. Check the sale state - must be a commission-triggering state
-2. Verify product has commission configured
-3. Check the sale model configuration
-4. Commission may appear after state transition
+1. Verify product has commission configured
+1. Check the sale model configuration
+1. Commission may appear after state transition
 
 ### Can't Transition State
 
 If you can't change sale state:
 
 1. Check if current state is terminal (no transitions allowed)
-2. Verify the target state is a valid transition
-3. Check your permissions
+1. Verify the target state is a valid transition
+1. Check your permissions
 
 ## Related Topics
 
