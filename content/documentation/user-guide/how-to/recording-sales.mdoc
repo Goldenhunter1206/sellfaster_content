@@ -31,7 +31,7 @@ Before recording sales:
 
 1. Products must be configured in your campaign
 1. You need access to a team account with sales permissions
-1. The address should exist in a campaign
+1. The lead should exist in a campaign
 
 ## Understanding Sales Structure
 
@@ -56,9 +56,9 @@ Each sale gets a unique number like `SALE-A1B2C3D4-000001`, and orders get numbe
 
 2. **Find the sale creation option**
    - Look for the option to record a new sale
-1. **Select the Address**
-   - Choose the customer address for the sale
-   - The address must exist in the campaign
+1. **Select the Lead**
+   - Choose the customer lead for the sale
+   - The lead must exist in the campaign
 1. **Select the Product**
    - Choose from products configured for the campaign
    - Products define the commission amount
@@ -68,14 +68,14 @@ Each sale gets a unique number like `SALE-A1B2C3D4-000001`, and orders get numbe
    - Include any relevant details
 1. **Save**
    - The sale is created with an auto-generated sale number
-   - Initial sale state is applied automatically
+   - Initial sale state is applied automatically depending on your sales model
 
 ### Multi-Unit Products
 
-Some products are configured to allow multiple sales per address:
+Some products are configured to allow multiple sales per lead:
 
 - When `allow_multiple_per_unit` is enabled on a product
-- You can sell multiple units to the same address
+- You can sell multiple units to the same lead
 - Example: Mobile phone contracts (one per household member)
 
 ## Sale Form Fields
@@ -86,8 +86,8 @@ Some products are configured to allow multiple sales per address:
 - Field
 - Description
 ---
-- **Address**
-- Customer address for the sale
+- **Lead**
+- Customer lead for the sale
 ---
 - **Product**
 - Product being sold
@@ -154,8 +154,8 @@ Each sale state can have these properties:
 - **reclaims\_commission**
 - Reverses commission when entering this state
 ---
-- **cancels\_address**
-- Marks address as sold
+- **cancels\_lead**
+- Marks lead as sold
 ---
 - **color**
 - Visual indicator in the UI
