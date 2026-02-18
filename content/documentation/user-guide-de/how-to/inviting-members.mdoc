@@ -1,0 +1,301 @@
+---
+title: Teammitglieder einladen
+description: Diese Anleitung zeigt Ihnen, wie Sie neue Mitglieder in Ihr Team einladen.
+order: 6
+language: de
+categories:
+  - user-guide
+tags:
+  - how-to
+status: published
+collapsible: false
+collapsed: false
+---
+Diese Anleitung zeigt Ihnen, wie Sie neue Mitglieder in Ihr Team einladen.
+
+## Voraussetzungen
+
+Bevor Sie Mitglieder einladen:
+
+1. Sie müssen die Berechtigung `invites.manage` haben
+1. Sie müssen sich im Teamkonto befinden
+1. Sie müssen die E-Mail-Adressen der einzuladenden Personen kennen
+
+## Per E-Mail einladen
+
+### Schritt für Schritt
+
+1. Zu Mitgliedern navigieren
+   - Gehen Sie zu Ihrem Teamkonto
+   - Klicken Sie auf **Mitglieder** in der Seitenleiste
+   - Oder gehen Sie zu `/home/[team]/members`
+
+*![](https://raw.githubusercontent.com/Goldenhunter1206/sellfaster_content/main/public/site/images/user-guide/how-to/inviting-members/image-members-page.png)*
+
+2. Einladen klicken
+   - Finden Sie die Schaltfläche **Mitglied einladen**
+   - Der Einladungsdialog öffnet sich
+
+*![](https://raw.githubusercontent.com/Goldenhunter1206/sellfaster_content/main/public/site/images/user-guide/how-to/inviting-members/image.png)*
+
+3. E-Mail eingeben
+   - Geben Sie die E-Mail-Adresse der Person ein
+   - Überprüfen Sie auf Tippfehler
+1. Rolle auswählen
+   - Wählen Sie die passende Rolle aus dem Dropdown
+   - Sie können nur Rollen auf oder unter Ihrer eigenen Hierarchieebene zuweisen
+1. Einladung senden
+   - Klicken Sie auf **Senden** oder **Einladen**
+   - Die Einladungs-E-Mail wird sofort versendet
+
+## Mehrere Mitglieder einladen
+
+### Masseneinladung
+
+Laden Sie bis zu 5 Personen gleichzeitig ein:
+
+1. Klicken Sie auf **Mitglieder einladen**
+1. Fügen Sie mehrere E-Mail/Rollen-Paare hinzu:
+   - Klicken Sie auf "Weitere hinzufügen", um weitere Einladungen hinzuzufügen
+   - Maximal 5 Einladungen pro Übermittlung
+1. Jede Einladung hat eine eigene E-Mail- und Rollenauswahl
+1. Keine doppelten E-Mails in einem Stapel erlaubt
+1. Einladungen senden
+
+## Rollen verstehen
+
+### Rollenhierarchie
+
+Rollen haben Hierarchieebenen. Sie können nur Mitglieder zu Rollen auf oder unter Ihrer eigenen Ebene einladen.
+
+Das System prüft:
+
+- `has_permission` - Haben Sie die Berechtigung `invites.manage`?
+- `has_more_elevated_role` - Ist Ihre Rolle höher als die eingeladene Rolle?
+- `has_same_role_hierarchy_level` - Sind Sie auf derselben Ebene?
+
+### Verfügbare Rollen
+
+Rollen werden dynamisch abgerufen basierend auf:
+
+- Der Hierarchieebene Ihrer aktuellen Rolle
+- Den für Ihr Konto konfigurierten Rollen
+
+Häufige Rollen umfassen:
+
+- **Admin** - Kann Teameinstellungen verwalten und Mitglieder einladen
+- **Mitglied** - Standardzugriff auf Teamfunktionen
+
+## Die Einladungs-E-Mail
+
+### Was die Eingeladenen erhalten
+
+Eingeladene erhalten eine E-Mail mit:
+
+- Ihrem Teamnamen
+- Einladungslink mit eindeutigem Token
+- Anweisungen zur Annahme
+
+### Ablauf der Einladung
+
+- Einladungen verfallen standardmäßig nach **7 Tagen**
+- Abgelaufene Einladungen können von Administratoren erneuert werden
+
+## Ausstehende Einladungen verwalten
+
+### Ausstehende anzeigen
+
+Offene Einladungen einsehen:
+
+1. Gehen Sie zur Seite **Mitglieder**
+1. Finden Sie den Bereich **Ausstehende Einladungen**
+1. Alle gesendeten Einladungen anzeigen
+
+### Spalten der Einladungstabelle
+
+{% table %}
+- Spalte
+- Beschreibung
+---
+- **E-Mail**
+- Eingeladene E-Mail-Adresse
+---
+- **Rolle**
+- Zugewiesene Rolle
+---
+- **Eingeladen am**
+- Wann die Einladung gesendet wurde
+---
+- **Läuft ab am**
+- Ablaufdatum
+---
+- **Status**
+- Aktiv oder Abgelaufen
+---
+- **Aktionen**
+- Aktualisieren, Löschen, Erneuern
+{% /table %}
+
+### Einladungen aktualisieren
+
+Rolle des eingeladenen Benutzers ändern:
+
+1. Finden Sie die ausstehende Einladung
+1. Klicken Sie auf **Aktualisieren** oder die Bearbeitungsaktion
+1. Wählen Sie eine neue Rolle
+1. Änderungen speichern
+
+### Einladungen erneuern
+
+Wenn eine Einladung abgelaufen ist:
+
+1. Finden Sie die abgelaufene Einladung
+1. Klicken Sie auf **Erneuern**
+1. Ablauf wird um 7 Tage verlängert
+1. Der Eingeladene kann die Einladung nun erneut annehmen
+
+### Einladungen löschen
+
+Um eine Einladung zu widerrufen:
+
+1. Finden Sie die ausstehende Einladung
+1. Klicken Sie auf **Löschen** oder die Löschaktion
+1. Löschung bestätigen
+1. Der Einladungstoken wird ungültig
+
+## Einladungen annehmen
+
+### Was für die Eingeladenen passiert
+
+Wenn jemand Ihre Einladung erhält:
+
+1. Link in der E-Mail klicken
+1. Anmelden oder Registrieren
+   - Bestehende Benutzer melden sich an
+   - Neue Benutzer erstellen ein Konto
+1. Einladung annehmen
+   - Wird Ihrem Team hinzugefügt
+   - Erhält die ausgewählte Rolle
+
+### Neue Benutzer
+
+Wenn der Eingeladene kein Konto hat:
+
+1. Sie klicken auf den Einladungslink
+1. Werden zur Registrierung weitergeleitet
+1. Erstellen ihr Konto
+1. Werden automatisch Ihrem Team hinzugefügt
+
+### Bestehende Benutzer
+
+Wenn sie bereits ein Konto haben:
+
+1. Sie klicken auf den Einladungslink
+1. Melden sich bei Bedarf an
+1. Nehmen die Einladung an
+1. Werden Ihrem Team hinzugefügt
+
+## Datenbankbeschränkungen
+
+### Geschäftsregeln
+
+- Eindeutigkeitsbeschränkung auf (E-Mail, Konto-ID) - verhindert doppelte Einladungen
+- Nur Teamkonten können Einladungen haben (keine persönlichen Konten)
+- Token-basierte Annahme mit Validierung
+
+## Sicherheitsfunktionen
+
+### Berechtigungsprüfungen
+
+Alle Einladungsoperationen validieren:
+
+- Berechtigung `invites.manage` erforderlich
+- Rollenhierarchie-Validierung
+- Kontomitgliedschaftsüberprüfung
+
+### Token-Sicherheit
+
+- Jede Einladung hat einen eindeutigen Token (UUID)
+- Token wird bei Annahme validiert
+- Token wird nach erfolgreicher Annahme gelöscht
+
+## Best Practices
+
+### Vor dem Einladen
+
+1. **E-Mail überprüfen** - Korrekte Adresse sicherstellen
+1. **Rolle sorgfältig wählen** - Angemessene Zugriffsebene
+1. **Hierarchie berücksichtigen** - Können Sie diese Rolle zuweisen?
+
+### Nach dem Einladen
+
+1. **Benachrichtigen** - Teilen Sie ihnen mit, dass sie eine E-Mail erwarten sollen
+1. **Spam prüfen** - Erinnern Sie an den Spam-Ordner
+1. **Nachfassen** - Wenn nach einigen Tagen nicht angenommen
+1. **Bei Bedarf erneuern** - Vor dem Ablauf
+
+### Sicherheit
+
+1. **Regelmäßig prüfen** - Teammitgliedschaft überprüfen
+1. **Ausgetretene entfernen** - Wenn Personen das Team verlassen
+1. **Rollenüberprüfung** - Sicherstellen, dass Rollen angemessen sind
+
+## Fehlerbehebung
+
+### Einladung nicht erhalten
+
+Wenn die E-Mail nicht angekommen ist:
+
+1. Prüfen Sie, ob die E-Mail-Adresse korrekt ist
+1. Bitten Sie den Empfänger, den Spam-/Junk-Ordner zu prüfen
+1. Einladung löschen und erneut senden
+1. Eine andere E-Mail-Adresse versuchen
+
+### Einladung kann nicht angenommen werden
+
+Wenn die Annahme nicht funktioniert:
+
+1. Sicherstellen, dass der Link nicht abgelaufen ist
+1. Prüfen, ob die richtige E-Mail verwendet wird
+1. Einen anderen Browser versuchen
+1. Einladung löschen und neue senden
+
+### Falsche Rolle zugewiesen
+
+Wenn die falsche Rolle gewählt wurde:
+
+1. Für ausstehende Einladungen: Einladung aktualisieren
+1. Nach dem Beitritt: Rolle in den Mitgliedereinstellungen ändern
+
+### Einladungen können nicht gesendet werden
+
+Wenn Sie nicht einladen können:
+
+1. Überprüfen Sie, ob Sie die Berechtigung `invites.manage` haben
+1. Prüfen Sie, ob Sie nicht versuchen, eine höhere Rolle als Ihre eigene zuzuweisen
+1. Abonnementstatus des Kontos überprüfen
+
+## Nach dem Beitritt
+
+### Mitgliedschaft überprüfen
+
+Bestätigen, dass sie beigetreten sind:
+
+1. Gehen Sie zur Mitgliederseite
+1. Finden Sie ihren Namen in der Liste der aktiven Mitglieder
+1. Überprüfen Sie, ob ihre Rolle korrekt ist
+
+### Rollen ändern
+
+Um die Rolle eines Mitglieds nach dem Beitritt zu ändern:
+
+1. Gehen Sie zur Mitgliederseite
+1. Finden Sie das Mitglied
+1. Verwenden Sie die Rollenauswahl, um die Rolle zu ändern
+1. Änderungen speichern
+
+## Verwandte Themen
+
+- [Mitgliederverwaltung](/docs/user-guide-de/team-administration/member-management) - Vollständige Mitgliederverwaltung
+- [Teamübersicht](/docs/user-guide-de/team-account) - Team-Grundlagen
+- [Einstellungen](/docs/user-guide-de/team-administration/team-settings) - Teamkonfiguration

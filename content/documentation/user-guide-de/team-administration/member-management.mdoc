@@ -1,0 +1,271 @@
+---
+title: Mitgliederverwaltung
+description: >-
+  Verwalten Sie Ihre Teammitglieder, senden Sie Einladungen, weisen Sie Rollen zu und kontrollieren Sie Zugriffsberechtigungen.
+order: 1
+language: de
+categories:
+  - user-guide
+tags:
+  - team-administration
+status: published
+collapsible: false
+collapsed: false
+---
+Verwalten Sie Ihre Teammitglieder, senden Sie Einladungen, weisen Sie Rollen zu und kontrollieren Sie Zugriffsberechtigungen.
+
+## Zugriff auf die Mitgliederverwaltung
+
+1. Stellen Sie sicher, dass Sie sich in Ihrem Teamkonto befinden
+1. Klicken Sie auf **Mitglieder** in der Seitenleiste
+1. Die URL lautet `https://sellfaster.eu/home/[team]/members`
+
+## Teammitgliederliste
+
+![](https://raw.githubusercontent.com/Goldenhunter1206/sellfaster_content/main/public/site/images/user-guide/team-administration/member-management/image1.png)
+
+### Mitglieder anzeigen
+
+Die Mitgliedertabelle zeigt:
+
+{% table %}
+- Spalte
+- Beschreibung
+---
+- **Name**
+- Anzeigename des Mitglieds (zeigt "Sie"-Badge für Ihren eigenen Eintrag)
+---
+- **E-Mail**
+- Konto-E-Mail
+---
+- **Rolle**
+- Rollen-Badge (Eigentümer, Mitglied oder benutzerdefinierte Rolle)
+---
+- **Beigetreten**
+- Datum des Teambeitritts
+---
+- **Aktionen**
+- Dropdown-Menü mit verfügbaren Aktionen
+{% /table %}
+
+### Profil
+
+Profile werden über das Aktionsmenü **Profil anzeigen** aufgerufen.
+
+![](https://raw.githubusercontent.com/Goldenhunter1206/sellfaster_content/main/public/site/images/user-guide/team-administration/member-management/image2.png)
+
+Es enthält Leistungs-KPIs sowie die neuesten Interaktionen und Verkäufe des Teammitglieds.
+
+### Rollen-Badges
+
+Rollen werden mit farbcodierten Badges angezeigt:
+
+- **Eigentümer** - Keine Hintergrundfarbe
+- **Manager** - Umrandeter Stil
+- **Mitglied** - Blauer Hintergrund
+
+## Neue Mitglieder einladen
+
+### Einladungen senden
+
+1. Klicken Sie auf die Schaltfläche **Mitglieder einladen**
+1. Geben Sie die E-Mail-Adresse ein
+1. Wählen Sie die Rolle für den Eingeladenen
+1. Klicken Sie auf **Einladung senden**
+
+Sie können bis zu 5 Mitglieder gleichzeitig einladen:
+
+1. Klicken Sie auf **Weitere hinzufügen**, um weitere E-Mail-Felder hinzuzufügen
+1. Jeder Eingeladene erhält die von Ihnen gewählte Rolle
+1. Klicken Sie auf **Einladungen senden**
+
+> **Hinweis:** Das Einladen von Mitgliedern erfordert die Rolle Manager oder Eigentümer.
+
+### Rollenauswahl
+
+Beim Einladen können Sie nur Rollen auf oder unter Ihrer eigenen Hierarchieebene zuweisen. Dies verhindert, dass Mitglieder Berechtigungen vergeben, die sie selbst nicht haben.
+
+### Einladungs-E-Mail
+
+Eingeladene erhalten eine E-Mail mit:
+
+- Teamname
+- Link zur Annahme der Einladung
+- Link zum Erstellen eines Kontos oder zur Anmeldung
+
+## Ausstehende Einladungen
+
+### Einladungen anzeigen
+
+Die Einladungstabelle zeigt ausstehende Einladungen:
+
+{% table %}
+- Spalte
+- Beschreibung
+---
+- **E-Mail**
+- Eingeladene E-Mail-Adresse
+---
+- **Rolle**
+- Rolle, die gewährt wird
+---
+- **Eingeladen am**
+- Wann die Einladung gesendet wurde
+---
+- **Läuft ab am**
+- Wann die Einladung abläuft
+---
+- **Status**
+- Aktiv (grün) oder Abgelaufen (Warnung)
+---
+- **Aktionen**
+- Verfügbare Aktionen
+{% /table %}
+
+### Einladungen verwalten
+
+Verfügbare Aktionen für ausstehende Einladungen:
+
+{% table %}
+- Aktion
+- Beschreibung
+- Voraussetzung
+---
+- **Einladung aktualisieren**
+- Die zugewiesene Rolle ändern
+- Rolle `Manager` oder `Eigentümer`
+---
+- **Einladung erneuern**
+- Eine abgelaufene Einladung erneut senden
+- Rolle `Manager` oder `Eigentümer`, Einladung muss abgelaufen sein
+---
+- **Einladung entfernen**
+- Die Einladung stornieren
+- Rolle `Manager` oder `Eigentümer`
+{% /table %}
+
+## Mitgliederrollen
+
+### Rollenhierarchie
+
+Rollen haben eine Hierarchieebene, die die Berechtigungen bestimmt. Höhere Hierarchieebenen gewähren mehr Zugriff (`Eigentümer` > `Manager` > `Mitglied`).
+
+### Rollen ändern
+
+Um die Rolle eines Mitglieds zu ändern:
+
+1. Finden Sie das Mitglied in der Liste
+1. Klicken Sie auf das Aktionsmenü (drei Punkte)
+1. Wählen Sie **Rolle aktualisieren**
+1. Wählen Sie die neue Rolle
+1. Bestätigen
+
+**Einschränkungen:**
+
+- Sie können Ihre eigene Rolle nicht ändern
+- Sie können die Rolle des primären Eigentümers nicht ändern
+- Sie können nur Rollen auf oder unter Ihrer Hierarchieebene zuweisen
+- Primäre Eigentümer können jede Rolle ändern
+
+## Eigentümerschaft übertragen
+
+Primäre Eigentümer können die Team-Eigentümerschaft übertragen:
+
+1. Finden Sie das Mitglied, das die Eigentümerschaft erhalten soll
+1. Klicken Sie auf das Aktionsmenü
+1. Wählen Sie **Eigentümerschaft übertragen**
+1. Lesen Sie den Warnhinweis
+1. Schließen Sie die OTP-Verifizierung ab
+1. Bestätigen Sie die Übertragung
+
+> **Warnung:** Nach der Übertragung verlieren Sie Eigentümerrechte und der neue Eigentümer erhält die volle Kontrolle über das Team.
+
+## Mitglieder entfernen
+
+### Aus dem Team entfernen
+
+Um ein Mitglied zu entfernen:
+
+1. Finden Sie das Mitglied
+1. Klicken Sie auf das Aktionsmenü
+1. Wählen Sie **Mitglied entfernen**
+1. Bestätigen Sie die Entfernung
+
+**Einschränkungen:**
+
+- Sie können sich nicht selbst entfernen (verwenden Sie stattdessen Team verlassen in den Einstellungen)
+- Sie können den primären Eigentümer nicht entfernen
+- Sie können nur Mitglieder mit niedrigerer oder gleicher Rollenhierarchie entfernen
+- Primäre Eigentümer können jedes Mitglied entfernen
+
+### Was passiert bei Entfernung
+
+- Das Mitglied verliert sofort den Zugriff
+- Dessen Inhalte (Adressen, Verkäufe usw.) verbleiben beim Team
+- Historische Datensätze bleiben erhalten
+- Das Mitglied kann später erneut eingeladen werden
+
+## Erforderliche Berechtigungen
+
+{% table %}
+- Aktion
+- Erforderliche Berechtigung
+---
+- Mitglieder anzeigen
+- Teammitgliedschaft
+---
+- Mitglieder einladen
+- Rolle `Manager` oder `Eigentümer`
+---
+- Rollen ändern
+- Rolle `Manager` oder `Eigentümer` (oder primärer Eigentümer)
+---
+- Mitglieder entfernen
+- Rolle `Manager` oder `Eigentümer` (oder primärer Eigentümer)
+---
+- Eigentümerschaft übertragen
+- Nur primärer Eigentümer
+{% /table %}
+
+## Fehlerbehebung
+
+### Einladung nicht erhalten
+
+Wenn der Eingeladene die E-Mail nicht erhält:
+
+1. Überprüfen Sie den Spam-Ordner
+1. Stellen Sie sicher, dass die E-Mail-Adresse korrekt ist
+1. Senden Sie die Einladung erneut
+1. Versuchen Sie eine andere E-Mail-Adresse
+
+### Rolle kann nicht geändert werden
+
+Wenn Sie eine Rolle nicht ändern können:
+
+1. Stellen Sie sicher, dass Sie die Rolle `Manager` oder `Eigentümer` haben
+1. Sie können Ihre eigene Rolle nicht ändern
+1. Sie können den primären Eigentümer nicht herabstufen
+1. Überprüfen Sie, ob die Zielrolle über Ihrer Hierarchieebene liegt
+
+### Mitglied kann nicht entfernt werden
+
+Wenn Sie ein Mitglied nicht entfernen können:
+
+1. Sie können sich nicht selbst entfernen
+1. Sie können den primären Eigentümer nicht entfernen
+1. Das Mitglied hat möglicherweise eine höhere Rollenhierarchie als Sie
+
+### Mitglied kann nicht auf das Team zugreifen
+
+Wenn ein Mitglied nicht auf das Team zugreifen kann:
+
+1. Überprüfen Sie den Einladungsstatus (angenommen vs. ausstehend)
+1. Stellen Sie sicher, dass die richtige E-Mail zur Anmeldung verwendet wird
+1. Prüfen Sie, ob das Mitglied nicht entfernt wurde
+1. Lassen Sie das Mitglied sich ab- und wieder anmelden
+
+## Verwandte Themen
+
+- [Teameinstellungen](/docs/user-guide-de/team-administration/team-settings) - Teamkonfiguration
+- [Teamübersicht](/docs/user-guide-de/team-account) - Team-Grundlagen
+- [Mitglieder einladen](/docs/user-guide-de/how-to/inviting-members) - Detaillierte Anleitung

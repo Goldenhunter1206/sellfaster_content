@@ -1,0 +1,262 @@
+---
+title: Nachverfolgungserinnerungen planen
+description: >-
+  Diese Anleitung zeigt Ihnen, wie Sie Nachverfolgungserinnerungen erstellen und verwalten,
+  damit Sie keinen wichtigen Rückruf oder Besuch verpassen.
+order: 2
+language: de
+categories:
+  - user-guide
+tags:
+  - how-to
+status: published
+collapsible: false
+collapsed: false
+---
+Diese Anleitung zeigt Ihnen, wie Sie Nachverfolgungserinnerungen erstellen und verwalten, damit Sie keinen wichtigen Rückruf oder Besuch verpassen.
+
+## Was sind Nachverfolgungen?
+
+Nachverfolgungen sind geplante Erinnerungen, die an Interaktionen angehängt werden. Sie helfen Ihnen:
+
+- Sich an den Rückruf eines Interessenten zu erinnern
+- Zu einem bestimmten Zeitpunkt zu einem Lead zurückzukehren
+- Ausstehende Aufgaben für einen Lead nachzuverfolgen
+
+## Wie Nachverfolgungen erstellt werden
+
+Nachverfolgungen werden **als Teil der Erfassung einer Interaktion** erstellt. Sie können keine eigenständige Nachverfolgung erstellen - sie muss mit einer Interaktion verknüpft sein.
+
+### Eine Nachverfolgung erstellen
+
+1. Eine Interaktion erfassen
+   - Navigieren Sie zu einem Lead
+   - Öffnen Sie das Interaktionsformular
+1. Einen passenden Status auswählen
+   - Wählen Sie einen Interaktionsstatus, bei dem die Nachverfolgung aktiviert ist
+   - Das Nachverfolgungsdatumsfeld erscheint nur bei Status mit `follow_up: true`
+1. Nachverfolgungsdatum und -uhrzeit festlegen
+   - Die Datumsauswahl erscheint automatisch bei nachverfolgungsfähigen Status
+   - Wählen Sie das Datum für Ihre Nachverfolgung
+   - Uhrzeitauswahl ist enthalten
+   - Vergangene Daten können nicht ausgewählt werden (Minimum ist heute)
+1. Notizen hinzufügen
+   - Fügen Sie Kontext im Interaktionskommentar hinzu
+   - Das hilft Ihnen, sich bei der Nachverfolgung zu erinnern, was zu tun ist
+1. Interaktion speichern
+   - Die Nachverfolgung wird zusammen mit der Interaktion erstellt
+
+## Ihre Nachverfolgungen anzeigen
+
+### Persönliche Nachverfolgungsseite
+
+Alle Ihre geplanten Nachverfolgungen anzeigen:
+
+1. Navigieren Sie zu `/home/follow-ups`
+1. Sehen Sie eine Liste aller anstehenden Nachverfolgungen
+1. Funktionen umfassen:
+   - Suche über Lead, Stadt, Kampagnenname und Kommentar
+   - Sortierung nach Datum (Standard) oder Entfernung von Ihrem Standort
+   - Überfällige Nachverfolgungen werden hervorgehoben
+   - Paginierungsunterstützung
+
+*![](https://raw.githubusercontent.com/Goldenhunter1206/sellfaster_content/main/public/site/images/user-guide/how-to/follow-up-reminders/image-personal-follow-ups.png)*
+
+### Spalten der Nachverfolgungstabelle
+
+Die Nachverfolgungsliste zeigt:
+
+{% table %}
+- Spalte
+- Beschreibung
+---
+- **Lead**
+- Straße des Leads und Standort
+---
+- **Stadt**
+- Stadt des Leads
+---
+- Kampagne
+- Zugehörige Kampagne
+---
+- **Nachverfolgungsdatum**
+- Geplantes Datum und Uhrzeit
+---
+- **Kommentar**
+- Notizen aus der Interaktion
+---
+- **Status**
+- Name des Interaktionsstatus
+{% /table %}
+
+### Mobile Ansicht
+
+Auf mobilen Geräten:
+
+- Nachverfolgungen werden als wischbare Karten angezeigt
+- Überfällige Einträge zeigen einen roten Randindikator
+- Schnellaktionen über Wischgesten verfügbar
+- Entfernungsberechnung von Ihrem aktuellen Standort
+
+## Kalenderansicht
+
+Nachverfolgungen erscheinen im Kalender:
+
+### Persönlicher Kalender
+
+1. Navigieren Sie zu `/home/calendar`
+1. Nachverfolgungen in einem Wochenplan anzeigen
+1. Der Kalender zeigt die Stunden von 6:00 bis 22:00 Uhr
+1. Ereignisse sind nach Kampagne farbcodiert
+1. Klicken Sie auf ein Ereignis, um zum Lead zu navigieren
+
+*![](https://raw.githubusercontent.com/Goldenhunter1206/sellfaster_content/main/public/site/images/user-guide/how-to/follow-up-reminders/image-personal-calendar.png)*
+
+### Team-Kalender
+
+1. Navigieren Sie zu `/home/[team]/calendar`
+1. Team-Nachverfolgungen ansehen
+
+### Kalenderfunktionen
+
+- Wochenansicht
+- Ereignisse zeigen standardmäßig 1 Stunde Dauer
+- Hover zeigt Lead-Details im Tooltip
+- Klick navigiert zur Lead-Detailseite
+
+## Nachverfolgungen verwalten
+
+### Eine Nachverfolgung abschließen
+
+Wenn Sie Kontakt aufgenommen haben:
+
+1. Gehen Sie zum Lead
+1. Erfassen Sie eine neue Interaktion
+1. Die neue Interaktion aktualisiert den Nachverfolgungsstatus
+1. Die vorherige Nachverfolgung gilt als erledigt
+
+### Aktionen bei Nachverfolgungen
+
+Aus der Nachverfolgungsliste können Sie:
+
+{% table %}
+- Aktion
+- Beschreibung
+---
+- **Interaktion hinzufügen**
+- Eine neue Interaktion für den Lead erfassen
+---
+- **Verkauf hinzufügen**
+- Einen Verkauf für den Lead erfassen
+---
+- **Lead anzeigen**
+- Zu den vollständigen Lead-Details navigieren
+{% /table %}
+
+### Überfällige Nachverfolgungen
+
+Nachverfolgungen werden überfällig, wenn das geplante Datum/die Uhrzeit verstrichen ist:
+
+- Mit visuellem Indikator angezeigt (roter Rand auf Mobilgeräten)
+- Erscheinen weiterhin in Ihrer Liste, bis sie erledigt sind
+- Nach Datum sortieren, um überfällige Einträge zuerst zu sehen
+
+## Nachverfolgungsdaten
+
+Jede Nachverfolgung enthält:
+
+{% table %}
+- Feld
+- Beschreibung
+---
+- **follow\_up\_date**
+- Geplantes Datum und Uhrzeit
+---
+- **comment**
+- Notizen aus der Interaktion
+---
+- **lead**
+- Vollständige Lead-Details
+---
+- campaign
+- Kampagneninformationen
+---
+- **interaction\_state**
+- Statusname und Eigenschaften
+---
+- **zone**
+- Zonenzuweisung falls zutreffend
+{% /table %}
+
+## Best Practices
+
+### Planung
+
+1. **Realistisch sein** - Planen Sie Zeiten, die Sie auch einhalten können
+1. **Spezifische Zeiten verwenden** - Wenn der Kunde eine Rückrufzeit angegeben hat
+1. **Zeitzonen berücksichtigen** - Passend für den Kunden planen
+1. **Nicht überladen** - Nachverfolgungen über den Tag verteilen
+
+### Organisation
+
+1. **Morgenroutine** - Jeden Morgen die heutigen Nachverfolgungen prüfen
+1. **Überfällige Einträge priorisieren** - Alte Nachverfolgungen zeitnah bearbeiten
+1. **Nach Kontakt aktualisieren** - Neue Interaktionen erfassen, um den Fortschritt zu dokumentieren
+
+### Qualität der Notizen
+
+Hilfreichen Kontext einbeziehen:
+
+- Warum Sie nachverfolgen
+- Was zuvor besprochen wurde
+- Was Sie mitbringen oder vorbereiten müssen
+- Kundenpräferenzen oder Bedenken
+
+## Benachrichtigungen
+
+### Aktuelles Verhalten
+
+Nachverfolgungen erscheinen in:
+
+- Der Nachverfolgungslistenseite
+- Kalenderansichten (persönlich und Team)
+- Lead-Detailseiten
+
+### Hinweis zu Push-Benachrichtigungen
+
+Das System verwaltet Nachverfolgungen derzeit über die Benutzeroberfläche (Tabellen und Kalenderansichten). Automatische E-Mail- oder Push-Benachrichtigungen für nahende Nachverfolgungstermine sind derzeit nicht implementiert.
+
+## Fehlerbehebung
+
+### Nachverfolgungsdatum wird nicht angezeigt
+
+Wenn das Nachverfolgungsdatumsfeld nicht erscheint:
+
+1. Prüfen Sie den ausgewählten Interaktionsstatus
+1. Nicht alle Status haben die Nachverfolgung aktiviert
+1. Versuchen Sie einen anderen Status auszuwählen
+1. Kontaktieren Sie Ihren Administrator, um die Statuskonfiguration zu überprüfen
+
+### Nachverfolgung wird nicht in der Liste angezeigt
+
+Wenn eine Nachverfolgung nicht sichtbar ist:
+
+1. Prüfen Sie das Datum - es könnte bereits vergangen sein
+1. Überprüfen Sie, ob Sie Zugriff auf die Kampagne haben
+1. Prüfen Sie, ob Filter sie verbergen
+1. Seite aktualisieren
+
+### Nachverfolgung kann nicht bearbeitet werden
+
+Um eine Nachverfolgung zu ändern:
+
+1. Erfassen Sie eine neue Interaktion für den Lead
+1. Legen Sie das neue Nachverfolgungsdatum fest
+1. Die Nachverfolgung der neuesten Interaktion hat Vorrang
+
+## Verwandte Themen
+
+- [Nachverfolgungen](/docs/user-guide-de/personal-account/follow-ups) - Übersicht Nachverfolgungsverwaltung
+- [Interaktionen erfassen](/docs/user-guide-de/how-to/recording-interactions) - Interaktionen erstellen
+- [Kalender](/docs/user-guide-de/personal-account/calendar) - Kalenderansicht
+- [Interaktionsstatus](/docs/user-guide-de/team-administration/interaction-states) - Statuskonfiguration

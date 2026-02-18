@@ -1,0 +1,276 @@
+---
+title: Team-Verkaufe
+description: >-
+  Verfolgen und verwalten Sie alle Verkaufe in Ihrem Team. Sehen Sie Verkaufsdatensatze ein, filtern Sie nach verschiedenen Kriterien und verwalten Sie Verkaufsstatus.
+order: 3
+language: de
+categories:
+  - user-guide
+tags:
+  - team-account
+status: published
+collapsible: false
+collapsed: false
+---
+Verfolgen und verwalten Sie alle Verkaufe in Ihrem Team. Sehen Sie Verkaufsdatensatze ein, filtern Sie nach verschiedenen Kriterien und verwalten Sie Verkaufsstatus.
+
+## Zugriff auf Team-Verkaufe
+
+1. Stellen Sie sicher, dass Sie sich in Ihrem Teamkonto befinden
+1. Klicken Sie auf **Verkaufe** in der Seitenleiste
+1. Die URL ist `/home/[team]/sales`
+
+## Verkaufsliste
+
+![](https://raw.githubusercontent.com/Goldenhunter1206/sellfaster_content/main/public/site/images/user-guide/team-account/sales/image.png)
+
+### Tabellenspalten
+
+Die Verkaufstabelle zeigt alle Team-Verkaufe mit folgenden Spalten:
+
+{% table %}
+- Spalte
+- Beschreibung
+---
+- **Bestellnr.**
+- Bestellnummer (oder "Einzelverkauf" fur einzelne Verkaufe)
+---
+- **Verkaufsdatum**
+- Wann der Verkauf erfasst wurde
+---
+- **Kampagne**
+- Zugehorige Kampagne
+---
+- **Lead**
+- Kundenadresse mit Einheits-/Namensinformationen
+---
+- **Artikel**
+- Anzahl der Artikel in der Bestellung
+---
+- **Status**
+- Aktueller Verkaufsstatus
+---
+- **Verkaufer**
+- Teammitglied, das den Verkauf getatigt hat
+{% /table %}
+
+### Zeilennavigation
+
+Klicken Sie auf eine beliebige Zeile, um die vollstandigen Verkaufsdetails anzuzeigen.
+
+## Verkaufe filtern
+
+### Verfugbare Filter
+
+{% table %}
+- Filter
+- Beschreibung
+---
+- **Suche**
+- Adressen oder Produkte suchen
+---
+- **Status**
+- Nach Verkaufsstatus filtern
+---
+- **Kampagne**
+- Nach Kampagne filtern
+---
+- **Produkt**
+- Nach Produkt filtern
+---
+- **Startdatum**
+- Ab Datum filtern
+---
+- **Enddatum**
+- Bis Datum filtern
+{% /table %}
+
+### Filter verwenden
+
+1. Geben Sie Suchtext ein, um nach Adresse oder Produkt zu filtern
+1. Wahlen Sie einen Status aus dem Dropdown, um nach Status zu filtern
+1. Wahlen Sie eine Kampagne, um nur deren Verkaufe zu sehen
+1. Wahlen Sie ein Produkt, um Verkaufe mit diesem Produkt zu sehen
+1. Verwenden Sie Datumseingaben, um nach Zeitraum zu filtern
+1. Klicken Sie auf **Filter zurucksetzen**, um alle Filter zuruckzusetzen
+
+## Verkaufsdetails
+
+### Einen Verkauf anzeigen
+
+Klicken Sie auf eine Verkaufszeile, um die Detailseite anzuzeigen:
+
+**Verkaufsdetail-Karte:**
+
+- Verkaufsnummer
+- Produktname
+- Preis (zeigt Original- und Verkaufspreis bei Rabatt)
+- Verkaufsdatum
+- Status
+- Verkaufer
+- Provisionsbetrag
+- Provisionsbezahlstatus
+- Link zur Kampagne
+
+**Zusatzliche Informationen:**
+
+- Bestellungslink (falls Teil einer Bestellung)
+- Notizen
+- Verknupfte Bonusziele
+
+### Angewendete Aktionen
+
+Wenn Aktionen auf den Verkauf angewendet wurden, zeigt eine eigene Karte:
+
+- Aktionsname und -typ
+- Originalpreis vs. Endpreis mit Ersparnis
+- Originalprovision vs. angepasste Provision
+
+### Adressinformationen
+
+Zeigt die Adresse, an der der Verkauf stattfand, mit Links zu:
+
+- Adressdetails anzeigen
+- Kampagne anzeigen
+
+### Provisionstabelle
+
+Listet alle Provisionseintrage fur den Verkauf auf:
+
+- Provisionstyp (verdient/zuruckgefordert)
+- Betrag
+- Verkaufer
+- Zahlungsdatum
+
+### Statusverlauf
+
+Zeitlinie aller Statusanderungen fur den Verkauf.
+
+## Verkaufe verwalten
+
+### Einen Verkauf bearbeiten
+
+Benutzer mit `sales:update`-Berechtigung konnen Verkaufe bearbeiten:
+
+1. Offnen Sie die Verkaufsdetailseite
+1. Klicken Sie auf das Aktionsmenu (drei Punkte)
+1. Wahlen Sie **Bearbeiten**
+1. Andern Sie die Details im Dialog
+1. Speichern Sie die Anderungen
+
+### Verkaufsstatus andern
+
+Wenn gultige Statusubergange verfugbar sind:
+
+1. Offnen Sie die Verkaufsdetailseite
+1. Klicken Sie auf das Aktionsmenu
+1. Wahlen Sie eine Ubergangsoption (z.B. "Zu Abgeschlossen")
+1. Der Status wird sofort aktualisiert
+
+### Massenstatusubergange
+
+Aus der Verkaufsliste konnen Sie sichtbare Verkaufe massenweise andern:
+
+1. Wenden Sie Filter an, um die zu andernden Verkaufe anzuzeigen
+1. Klicken Sie auf **Massenuberfuhrung**
+1. Wahlen Sie den Zielstatus
+1. Alle sichtbaren Verkaufe werden in diesen Status uberfuhrt
+
+> **Hinweis:** Nur Verkaufe mit gultigen Ubergangen zum Zielstatus werden aktualisiert.
+
+### Protokollverlauf anzeigen
+
+Teameigentumer konnen den Protokollverlauf einsehen:
+
+1. Offnen Sie die Verkaufsdetailseite
+1. Klicken Sie auf das Aktionsmenu
+1. Wahlen Sie **Protokollverlauf anzeigen**
+
+## Verkaufsstatus
+
+Verkaufe folgen dem Status-Workflow, der in Ihren Verkaufsstatusmodellen definiert ist. Die verfugbaren Status und Ubergange hangen ab von:
+
+- Dem der Kampagne zugewiesenen Verkaufsstatusmodell
+- Dem aktuellen Status des Verkaufs
+
+Siehe [Verkaufsstatusmodelle](/docs/user-guide-de/team-administration/sale-models) fur die Workflow-Konfiguration.
+
+## Provisionsverfolgung
+
+### Wie Provisionen funktionieren
+
+- Die Provision wird basierend auf dem aktuellen Provisionsbetrag des Produkts berechnet
+- Aktionen konnen den Provisionsbetrag anpassen
+- Provisionseintrage werden erstellt, wenn Verkaufe bestimmte Status erreichen
+
+### Provision bei Verkaufen
+
+Jeder Verkauf zeigt:
+
+- Provisionsbetrag
+- Ob die Provision bezahlt wurde
+- Zahlungsdatum (falls bezahlt)
+
+Provisionen fliessen automatisch ein in:
+
+- [Provision](/docs/user-guide-de/team-account/commission)-Berichte
+- Abrechnungsberechnungen
+
+## Best Practices
+
+### Verkaufe erfassen
+
+1. **Zeitnah erfassen** - Verkaufe eingeben, wenn sie stattfinden
+1. **Notizen hinzufugen** - Kontext fur zukunftige Referenz hinzufugen
+1. **Details uberprufen** - Produkt, Preis und Adresse vor dem Speichern prufen
+
+### Teamverwaltung
+
+1. **Regelmassige Uberprufung** - Verkaufe regelmasig prufen
+1. **Filter verwenden** - Bestimmte Verkaufe schnell finden
+1. **Status verfolgen** - Verkaufsstatus aktuell halten
+1. **Leistung uberwachen** - Dashboards fur Analysen verwenden
+
+## Fehlerbehebung
+
+### Verkauf wird nicht angezeigt
+
+Wenn ein Verkauf nicht erscheint:
+
+1. Prufen Sie den Zeitraumfilter
+1. Prufen Sie den Kampagnenfilter
+1. Prufen Sie den Statusfilter
+1. Prufen Sie den Produktfilter
+1. Setzen Sie alle Filter zuruck und suchen Sie erneut
+1. Aktualisieren Sie die Seite
+
+### Provision wird nicht angezeigt
+
+Wenn die Provision fehlt:
+
+1. Uberprufen Sie, ob das Produkt einen Provisionsbetrag hat
+1. Prufen Sie, ob der Verkaufsstatus die Provision beeinflusst
+1. Uberprufen Sie die Verkaufsstatusmodell-Regeln
+
+### Verkauf kann nicht bearbeitet werden
+
+Wenn Sie nicht bearbeiten konnen:
+
+1. Uberprufen Sie, ob Sie die `sales:update`-Berechtigung haben
+1. Wenden Sie sich an Ihren Teameigentumer/Manager
+
+### Statusubergang nicht verfugbar
+
+Wenn Sie nicht zu einem Status wechseln konnen:
+
+1. Prufen Sie die Verkaufsstatusmodell-Konfiguration
+1. Uberprufen Sie, ob der Ubergang vom aktuellen Status erlaubt ist
+1. Stellen Sie sicher, dass Sie die `sales:update`-Berechtigung haben
+
+## Verwandte Themen
+
+- [Verkaufe erfassen](/docs/user-guide-de/how-to/recording-sales) - Wie man Verkaufe erfasst
+- [Provision](/docs/user-guide-de/team-account/commission) - Verdienstverfolgung
+- [Inventar](/docs/user-guide-de/team-account/inventory) - Produktverwaltung
+- [Verkaufsstatusmodelle](/docs/user-guide-de/team-administration/sale-models) - Workflow-Konfiguration
+- [Kampagnen-Verkaufe](/docs/user-guide-de/team-account/projects/sales) - Kampagnenspezifische Verkaufe

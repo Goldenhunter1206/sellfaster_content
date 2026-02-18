@@ -1,0 +1,355 @@
+---
+title: Provision
+description: >-
+  Verfolgen Sie Provisionen und verwalten Sie Abrechnungen fur Ihr Team. Die Provisionsseite bietet Transparenz uber verdiente Provisionen und Werkzeuge zur Erstellung von Abrechnungen.
+order: 4
+language: de
+categories:
+  - user-guide
+tags:
+  - team-account
+status: published
+collapsible: false
+collapsed: false
+---
+Verfolgen Sie Provisionen und verwalten Sie Abrechnungen fur Ihr Team. Die Provisionsseite bietet Transparenz uber verdiente Provisionen und Werkzeuge zur Erstellung von Abrechnungen.
+
+## Zugriff auf Provision
+
+1. Stellen Sie sicher, dass Sie sich in Ihrem Teamkonto befinden
+1. Klicken Sie auf **Provision** in der Seitenleiste
+1. Die URL ist `/home/[team]/commission`
+
+## Tabs der Provisionsseite
+
+Die Provisionsseite hat zwei Tabs:
+
+### Abrechnungen-Tab
+
+Abrechnungen fur Teammitglieder anzeigen und erstellen.
+
+### Provisionsprotokoll-Tab
+
+Das detaillierte Protokoll aller Provisionseintrage anzeigen.
+
+### Vorlagen
+
+Vorlagen hochladen und verwenden, um Ihre Abrechnungen zu erstellen.
+
+## Abrechnungen
+
+### Was ist eine Abrechnung?
+
+Eine Abrechnung ist ein Datensatz, der die einem Teammitglied fur einen bestimmten Zeitraum geschuldeten Provisionen zusammenfasst. Abrechnungen werden manuell von Team-Managern erstellt.
+
+### Abrechnungen anzeigen
+
+Die Abrechnungstabelle zeigt:
+
+{% table %}
+- Spalte
+- Beschreibung
+---
+- **Datum**
+- Abrechnungsdatum
+---
+- **Benutzer**
+- Teammitglied
+---
+- **Betrag**
+- Gesamtbetrag der Abrechnung
+---
+- **Erstellt**
+- Wann die Abrechnung erstellt wurde
+{% /table %}
+
+### Abrechnungen filtern
+
+Abrechnungen filtern nach:
+
+- **Suche** - Nach Inhalt suchen
+- **Zeitraum** - Nach Abrechnungsdatum filtern
+
+### Abrechnung erstellen
+
+1. Klicken Sie auf **Abrechnung erstellen**
+1. Wahlen Sie das Teammitglied
+1. Erstellen Sie die Abrechnung
+
+### Abrechnungen als PDF exportieren
+
+1. Klicken Sie auf eine Abrechnung, um Details anzuzeigen
+1. Klicken Sie auf **PDF exportieren**
+1. Die Abrechnung wird als formatiertes PDF-Dokument heruntergeladen
+
+## Abrechnungsvorlagen
+
+![](https://raw.githubusercontent.com/Goldenhunter1206/sellfaster_content/main/public/site/images/user-guide/team-account/commission/2026-02-14_14-54-36.png)
+
+### Was sind Abrechnungsvorlagen?
+
+Abrechnungsvorlagen sind Word-Dateien (`.docx`) mit Platzhaltern, die zur Erstellung formatierter Abrechnungen verwendet werden. Laden Sie eine Vorlage hoch, um das Layout und den Inhalt exportierter Abrechnungen anzupassen.
+
+### Zugriff auf Vorlagen
+
+1. Navigieren Sie zur **Provision**-Seite
+1. Klicken Sie auf den **Vorlagen**-Tab
+
+### Vorlage hochladen
+
+1. Klicken Sie auf **Vorlage hochladen**
+1. Wahlen Sie eine `.docx`-Datei (maximal 5 MB)
+1. Die Vorlage wird validiert und aktiviert
+
+Es kann nur eine aktive Vorlage gleichzeitig existieren. Das Hochladen einer neuen Vorlage ersetzt die vorherige.
+
+### Vorlagen-Platzhalter
+
+Verwenden Sie die folgenden Platzhalter in Ihrer `.docx`-Vorlage:
+
+#### Einfache Tags
+
+{% table %}
+- Platzhalter
+- Beschreibung
+---
+- `{userName}`
+- Name des Teammitglieds
+---
+- `{payslipDate}`
+- Datum der Abrechnung
+---
+- `{accountName}`
+- Name des Teamkontos
+---
+- `{commissionsTotal}`
+- Gesamtprovisionsbetrag
+---
+- `{bonusTotal}`
+- Gesamtbonusbetrag
+---
+- `{grandTotal}`
+- Gesamtsumme (Provisionen + Boni)
+{% /table %}
+
+#### Provisionsschleife
+
+Verwenden Sie `{#commissions}...{/commissions}`, um eine Zeile oder einen Abschnitt fur jeden Provisionseintrag zu wiederholen:
+
+{% table %}
+- Platzhalter
+- Beschreibung
+---
+- `{saleDate}`
+- Datum des Verkaufs
+---
+- `{amount}`
+- Provisionsbetrag
+---
+- `{commissionType}`
+- Verdient oder Zuruckgefordert
+---
+- `{address}`
+- Adresse des Verkaufs
+---
+- `{promotionNote}`
+- Aktionsdetails (falls zutreffend)
+{% /table %}
+
+#### Bonusschleife
+
+Verwenden Sie `{#bonusTargets}...{/bonusTargets}`, um eine Zeile oder einen Abschnitt fur jeden Bonus zu wiederholen:
+
+{% table %}
+- Platzhalter
+- Beschreibung
+---
+- `{targetName}`
+- Name des Bonusziels
+---
+- `{description}`
+- Beschreibung des Bonusziels
+---
+- `{bonusAmount}`
+- Verdientter Bonusbetrag
+{% /table %}
+
+### Erforderliche Platzhalter
+
+Die folgenden Platzhalter mussen in jeder Vorlage vorhanden sein:
+
+- `{userName}`
+- `{payslipDate}`
+- `{grandTotal}`
+
+Vorlagen ohne diese Platzhalter bestehen die Validierung nicht.
+
+### Beispielvorlage
+
+Eine herunterladbare Beispielvorlage ist im Vorlagen-Tab verfugbar. Verwenden Sie sie als Ausgangspunkt und passen Sie sie an Ihr Abrechnungslayout an.
+
+### Vorlagen verwalten
+
+- **Anzeigen** - Aktiven Vorlagennamen, Upload-Datum und Dateigrosse einsehen
+- **Ersetzen** - Eine neue Vorlage hochladen, um die aktuelle zu ersetzen
+- **Loschen** - Die aktive Vorlage entfernen
+
+### Validierung
+
+Vorlagen werden beim Hochladen validiert. Das System pruft:
+
+- Gultiges `.docx`-Format
+- Erkannte Platzhalter
+- Erforderliche Platzhalter vorhanden
+
+Unbekannte Platzhalter werden als Warnungen gekennzeichnet, damit Sie sie vor der Abrechnungserstellung korrigieren konnen.
+
+## Provisionsprotokoll
+
+![](https://raw.githubusercontent.com/Goldenhunter1206/sellfaster_content/main/public/site/images/user-guide/team-account/commission/image.png)
+
+### Was ist das Provisionsprotokoll?
+
+Das Provisionsprotokoll zeigt einzelne Provisionseintrage, sowohl verdiente als auch zuruckgeforderte. Jede Provision ist mit einem bestimmten Verkauf verknupft.
+
+### Informationen zum Provisionseintrag
+
+{% table %}
+- Feld
+- Beschreibung
+---
+- **Datum**
+- Wann die Provision erfasst wurde
+---
+- **Verkauf**
+- Der zugehorige Verkauf
+---
+- **Produkt**
+- Verkauftes Produkt
+---
+- **Adresse**
+- Verkaufsort
+---
+- **Betrag**
+- Provisionsbetrag
+---
+- **Typ**
+- Verdient oder Zuruckgefordert
+---
+- **Bezahlstatus**
+- Ob in einer Abrechnung enthalten
+---
+- **Aktion betroffen**
+- Ob durch eine Aktion beeinflusst
+{% /table %}
+
+### Provisionstypen
+
+{% table %}
+- Typ
+- Beschreibung
+---
+- **Verdient**
+- Standardprovision aus einem abgeschlossenen Verkauf
+---
+- **Zuruckgefordert**
+- Provision storniert (z.B. stornierter Verkauf)
+{% /table %}
+
+### Provisionen filtern
+
+Das Provisionsprotokoll filtern nach:
+
+{% table %}
+- Filter
+- Optionen
+---
+- **Provisionstyp**
+- Verdient, Zuruckgefordert, Alle
+---
+- **Bezahlstatus**
+- Bezahlt, Unbezahlt, Alle
+---
+- **Aktion**
+- Betroffen, Nicht betroffen, Alle
+---
+- **Zeitraum**
+- Benutzerdefinierter Zeitraum
+{% /table %}
+
+## Wie Provisionen funktionieren
+
+### Provisionsberechnung
+
+Provisionen werden berechnet basierend auf:
+
+- Produktprovisionssatze (im Inventar festgelegt)
+- Verkaufsstatusmodell-Regeln
+- Verkaufsabschlussstatus
+
+### Wann Provisionen erstellt werden
+
+Provisionseintrage werden automatisch erstellt, wenn:
+
+- Ein Verkauf einen abgeschlossenen Status erreicht
+- Der Verkauf ein Produkt mit einem Provisionssatz enthalt
+
+### Provisionen und Abrechnungen
+
+- Provisionen starten als "unbezahlt"
+- Wenn sie in einer Abrechnung enthalten sind, werden sie "bezahlt"
+- Die Abrechnung dokumentiert die Zahlung
+
+### Aktionen und Provisionen
+
+Verkaufe konnen durch Aktionen beeinflusst werden, die Provisionsbetrage andern konnen. Das Provisionsprotokoll verfolgt, ob jeder Eintrag von einer Aktion betroffen war.
+
+## Best Practices
+
+### Fur Team-Manager
+
+1. **Regelmassige Abrechnungen** - Erstellen Sie Abrechnungen nach einem konsistenten Zeitplan
+1. **Vor der Zahlung prufen** - Uberprufen Sie Provisionsbetrage
+1. **Filter verwenden** - Konzentrieren Sie sich auf unbezahlte Provisionen bei der Abrechnungserstellung
+1. **Aufzeichnungen exportieren** - Bewahren Sie PDF-Aufzeichnungen fur die Buchhaltung auf
+
+### Fur Teammitglieder
+
+1. **Provisionen uberprufen** - Prufen Sie das Provisionsprotokoll regelmasig
+1. **Richtigkeit uberprufen** - Melden Sie Abweichungen
+1. **Aktionen verfolgen** - Verstehen Sie, wie Aktionen Ihre Verdienste beeinflussen
+
+## Fehlerbehebung
+
+### Provision erscheint nicht
+
+Wenn eine Provision nicht erscheint:
+
+1. Uberprufen Sie, ob der Verkaufsstatus abgeschlossen ist
+1. Prufen Sie, ob das Produkt einen Provisionssatz hat
+1. Uberprufen Sie, ob der Verkauf dem richtigen Benutzer zugeordnet ist
+1. Prufen Sie den Zeitraumfilter
+
+### Falscher Provisionsbetrag
+
+Wenn die Provision falsch erscheint:
+
+1. Uberprufen Sie den Produktprovisionssatz im Inventar
+1. Prufen Sie, ob eine Aktion den Verkauf beeinflusst hat
+1. Uberprufen Sie, ob der Verkaufsbetrag korrekt erfasst wurde
+1. Uberprufen Sie die Verkaufsstatusmodell-Regeln
+
+### Abrechnungsprobleme
+
+Wenn Sie keine Abrechnung erstellen konnen:
+
+1. Uberprufen Sie, ob Sie die entsprechenden Berechtigungen haben
+1. Stellen Sie sicher, dass Sie ein Teammitglied ausgewahlt haben
+1. Prufen Sie, ob der Betrag gultig ist
+
+## Verwandte Themen
+
+- [Verkaufe](/docs/user-guide-de/team-account/sales) - Verkaufe, die Provisionen generieren
+- [Inventar](/docs/user-guide-de/team-account/inventory) - Produktprovisionssatze
+- [Verkaufsstatusmodelle](/docs/user-guide-de/team-administration/sale-models) - Provisions-Workflows
+- [Bonusziele](/docs/user-guide-de/team-account/bonus-targets) - Ziele und Boni

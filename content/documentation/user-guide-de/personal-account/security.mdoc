@@ -1,0 +1,196 @@
+---
+title: Sicherheitseinstellungen
+description: >-
+  Verwalten Sie Ihre Kontosicherheit einschließlich Passwort, Multi-Faktor-Authentifizierung und verknüpfter Konten.
+order: 6
+language: de
+categories:
+  - user-guide
+tags:
+  - personal-account
+status: published
+collapsible: false
+collapsed: false
+---
+Verwalten Sie Ihre Kontosicherheit einschließlich Passwort, Multi-Faktor-Authentifizierung und verknüpfter Konten.
+
+## Zugriff auf Sicherheitseinstellungen
+
+Die Sicherheitseinstellungen sind Teil Ihrer Profileinstellungen:
+
+1. Gehen Sie zu **Profil** in der Seitenleiste
+2. Navigieren Sie zu den sicherheitsrelevanten Abschnitten
+3. Die URL ist `/home/settings`
+
+## Passwortverwaltung
+
+### Passwort ändern
+
+Wenn die Passwort-Authentifizierung aktiviert ist:
+
+1. Finden Sie den Abschnitt **Passwort**
+2. Geben Sie Ihr aktuelles Passwort ein
+3. Geben Sie Ihr neues Passwort ein
+4. Bestätigen Sie das neue Passwort
+5. Klicken Sie auf **Passwort aktualisieren**
+
+> **Hinweis:** Die Passwortänderung ist nur verfügbar, wenn Ihre Organisation die Passwort-Authentifizierung aktiviert hat.
+
+### Best Practices für Passwörter
+
+- **Verwenden Sie einzigartige Passwörter** - Verwenden Sie keine Passwörter von anderen Websites
+- **Verwenden Sie einen Passwort-Manager** - Tools wie 1Password, LastPass oder Bitwarden
+- **Teilen Sie niemals Ihr Passwort** - Der Support wird Sie niemals danach fragen
+
+## Multi-Faktor-Authentifizierung (MFA)
+
+MFA fügt eine zusätzliche Sicherheitsebene hinzu, indem bei der Anmeldung ein zweiter Verifizierungsschritt erforderlich ist.
+
+### MFA-Faktoren anzeigen
+
+Der Abschnitt Multi-Faktor-Authentifizierung zeigt:
+
+- Eine Tabelle der registrierten Faktoren
+- Faktorname (Anzeigename)
+- Faktortyp (z.B. TOTP)
+- Faktorstatus (verifiziert oder nicht verifiziert)
+
+### Keine Faktoren registriert
+
+Wenn Sie keine MFA-Faktoren registriert haben, sehen Sie eine Informationskarte, die Sie zur Einrichtung der Multi-Faktor-Authentifizierung auffordert.
+
+### MFA einrichten (TOTP Authenticator)
+
+1. Finden Sie den Abschnitt **Multi-Faktor-Authentifizierung**
+2. Klicken Sie auf **Authenticator-App einrichten**
+3. Ein Dialog mit einem QR-Code öffnet sich
+4. Scannen Sie den QR-Code mit Ihrer Authenticator-App:
+   - Google Authenticator
+   - Authy
+   - Microsoft Authenticator
+   - 1Password
+5. Geben Sie den 6-stelligen Code aus der App zur Verifizierung ein
+6. Der Faktor erscheint in Ihrer Tabelle der registrierten Faktoren
+
+### MFA-Faktor entfernen
+
+Um einen MFA-Faktor zu entfernen:
+
+1. Finden Sie den Faktor in Ihrer Tabelle der registrierten Faktoren
+2. Klicken Sie auf die **X**-Schaltfläche zum Entfernen
+3. Ein Bestätigungsdialog erscheint
+4. Bestätigen Sie die Entfernung
+
+> **Warnung:** Das Entfernen Ihres MFA-Faktors macht Ihr Konto weniger sicher.
+
+### MFA bei der Anmeldung verwenden
+
+Sobald MFA aktiviert ist:
+
+1. Geben Sie Ihre E-Mail und Ihr Passwort ein
+2. Wenn aufgefordert, öffnen Sie Ihre Authenticator-App
+3. Geben Sie den 6-stelligen Code ein
+4. Klicken Sie auf **Verifizieren**
+
+Siehe [MFA einrichten](/docs/user-guide-de/how-to/setting-up-mfa) für detaillierte Anweisungen.
+
+## Verknüpfte Konten
+
+Wenn die Identitätsverknüpfung aktiviert ist, können Sie mehrere Anmeldemethoden mit Ihrem Konto verbinden.
+
+### Verknüpfte Konten anzeigen
+
+Der Abschnitt **Verknüpfte Konten** zeigt:
+
+- Ihre aktuellen Authentifizierungsmethoden
+- E-Mail-/Passwort-Verbindungsstatus
+- OAuth-Anbieter-Verbindungen (Google usw.)
+
+### Ein neues Konto verknüpfen
+
+1. Klicken Sie auf **Verknüpfen** neben einem verfügbaren Anbieter
+2. Führen Sie den OAuth-Ablauf durch (beim Anbieter anmelden)
+3. Das Konto ist nun verknüpft
+
+### Ein Konto trennen
+
+1. Finden Sie das Konto in Ihrer verknüpften Liste
+2. Klicken Sie auf **Trennen**, um die Verbindung zu entfernen
+3. Bestätigen Sie die Aktion
+
+> **Hinweis:** Sie müssen mindestens eine Anmeldemethode haben. Sie können Ihre einzige Authentifizierungsmethode nicht trennen.
+
+### Vorteile verknüpfter Konten
+
+- **Anmeldeflexibilität** - Verwenden Sie jede verknüpfte Methode zur Anmeldung
+- **Kontowiederherstellung** - Mehrere Möglichkeiten, auf Ihr Konto zuzugreifen
+- **Komfort** - OAuth statt Passwort verwenden
+
+## E-Mail-Authentifizierung
+
+### E-Mail aktualisieren
+
+Um Ihre E-Mail-Adresse zu ändern:
+
+1. Finden Sie den Abschnitt **E-Mail aktualisieren**
+2. Geben Sie Ihre neue E-Mail-Adresse ein
+3. Klicken Sie auf **E-Mail aktualisieren**
+4. Eine Bestätigungs-E-Mail wird gesendet
+5. Klicken Sie auf den Link in der E-Mail zur Bestätigung
+
+### E-Mail verknüpfen (wenn nicht primäre Methode)
+
+Wenn Sie sich mit OAuth registriert haben und E-Mail-Anmeldung hinzufügen möchten:
+
+1. Finden Sie den Abschnitt **Verknüpfte Konten**
+2. Klicken Sie auf **E-Mail verknüpfen** (falls verfügbar)
+3. Geben Sie die E-Mail und das Passwort ein, die Sie verwenden möchten
+4. Verifizieren Sie über die Bestätigungs-E-Mail
+
+## Passwort vergessen
+
+Wenn Sie Ihr Passwort vergessen haben:
+
+1. Gehen Sie zur Anmeldeseite
+2. Klicken Sie auf **Passwort vergessen**
+3. Geben Sie Ihre E-Mail-Adresse ein
+4. Prüfen Sie Ihre E-Mail auf den Zurücksetzungslink
+5. Erstellen Sie ein neues Passwort
+
+Siehe [Passwort zurücksetzen](/docs/user-guide-de/getting-started/password-reset) für Details.
+
+## Sicherheitsempfehlungen
+
+### Checkliste
+
+- Verwenden Sie ein starkes, einzigartiges Passwort
+- Aktivieren Sie die Multi-Faktor-Authentifizierung
+- Überprüfen Sie regelmäßig verknüpfte Konten
+- Seien Sie vorsichtig bei Phishing-Versuchen
+
+### Was tun bei Kompromittierung
+
+Wenn Sie vermuten, dass Ihr Konto kompromittiert wurde:
+
+1. **Ändern Sie sofort Ihr Passwort**
+2. **Überprüfen Sie verknüpfte Konten** - Entfernen Sie alle, die Sie nicht erkennen
+3. **Aktivieren Sie MFA**, falls noch nicht geschehen
+4. **Kontaktieren Sie den Support** bei Bedarf
+
+## Funktionsverfügbarkeit
+
+Sicherheitsfunktionen hängen von der Konfiguration Ihrer Organisation ab:
+
+| Funktion | Konfiguration |
+|----------|--------------|
+| Passwort ändern | Passwort-Authentifizierung aktiviert |
+| MFA-Registrierung | Immer verfügbar |
+| Identitätsverknüpfung | Identitätsverknüpfung aktiviert |
+| E-Mail-Verknüpfung | E-Mail-Authentifizierung aktiviert |
+
+## Verwandte Themen
+
+- [MFA einrichten](/docs/user-guide-de/how-to/setting-up-mfa) - Detaillierte MFA-Anleitung
+- [Passwort zurücksetzen](/docs/user-guide-de/getting-started/password-reset) - Zugang wiederherstellen
+- [Anmelden](/docs/user-guide-de/getting-started/signing-in) - Authentifizierungsmethoden
+- [Profil](/docs/user-guide-de/personal-account/profile-settings) - Kontoinformationen

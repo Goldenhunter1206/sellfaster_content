@@ -1,0 +1,357 @@
+---
+title: Verkaufsstatusmodelle
+description: >-
+  Konfigurieren Sie, wie Verkäufe durch Ihr System fließen, einschließlich Status, Übergänge und Provisionsregeln.
+order: 3
+language: de
+categories:
+  - user-guide
+tags:
+  - team-administration
+status: published
+collapsible: false
+collapsed: false
+---
+Konfigurieren Sie, wie Verkäufe durch Ihr System fließen, einschließlich Status, Übergänge und Provisionsregeln.
+
+## Zugriff auf Verkaufsstatusmodelle
+
+1. Stellen Sie sicher, dass Sie sich in Ihrem Teamkonto befinden
+1. Klicken Sie auf **Verkaufsstatus** in der Seitenleiste
+1. Die URL lautet `https://sellfaster.eu/home/[team]/sale-models`
+
+## Was sind Verkaufsstatusmodelle?
+
+Verkaufsstatusmodelle definieren den Workflow zur Verfolgung von Verkäufen von der Erstellung bis zum Abschluss. Jedes Modell umfasst:
+
+- **Status** - Die Phasen, in denen sich ein Verkauf befinden kann (z. B. Verkauft, Widerrufsfrist abgelaufen, Storniert)
+- **Übergänge** - Erlaubte Bewegungen zwischen Status
+- **Provisionsregeln** - Wann Provision verdient oder zurückgefordert wird
+- **Adressaktionen** - Wie Verkäufe den Adressstatus beeinflussen
+
+## Verkaufsstatusmodelle anzeigen
+
+![](https://raw.githubusercontent.com/Goldenhunter1206/sellfaster_content/main/public/site/images/user-guide/team-administration/sale-models/image1.png)
+
+### Modellliste
+
+Die Tabelle zeigt:
+
+{% table %}
+- Spalte
+- Beschreibung
+---
+- **Name**
+- Modellname mit "Standard"-Badge wenn Standard, "Archiviert" wenn archiviert
+---
+- **Beschreibung**
+- Modellbeschreibung (optional)
+---
+- **Status**
+- Erste 4 Status mit Farb-Badges, "+N weitere" bei zusätzlichen
+---
+- **Kampagnen**
+- Zugewiesene Kampagnen (erste 3, mit Anzahl weiterer)
+---
+- **Aktionen**
+- Verfügbares Aktionsmenü
+{% /table %}
+
+### Modelle filtern
+
+Standardmäßig werden archivierte Modelle ausgeblendet. Schalten Sie **Archivierte anzeigen** um, um sie anzuzeigen.
+
+## Ein Verkaufsstatusmodell erstellen
+
+### Neues Modell
+
+1. Klicken Sie auf **Modell erstellen**
+1. Geben Sie Modelldetails ein:
+   - **Name** (erforderlich) - Eindeutiger Name für das Modell
+   - **Beschreibung** (optional) - Zweck dieses Modells
+1. Konfigurieren Sie Status (siehe unten)
+1. Definieren Sie Übergänge zwischen Status
+1. Speichern
+
+> **Hinweis:** Das Erstellen von Modellen erfordert die Rolle `Manager` oder `Eigentümer`.
+
+### Standardstatus
+
+Neue Modelle werden mit drei vorkonfigurierten Status geliefert:
+
+{% table %}
+- Status
+- Typ
+- Provision
+---
+- **Angebot**
+- Initial
+-
+---
+- **Bestätigt**
+-
+- Löst Provision aus
+---
+- **Storniert**
+- Terminal
+- Fordert Provision zurück
+{% /table %}
+
+Sie können diese Status nach Bedarf ändern, hinzufügen oder entfernen.
+
+## Statuskonfiguration
+
+### Statuseigenschaften
+
+Jeder Status innerhalb eines Modells hat:
+
+{% table %}
+- Eigenschaft
+- Beschreibung
+---
+- **Name**
+- Statusbezeichnung (max. 255 Zeichen)
+---
+- **Farbe**
+- Visuelle Farbe aus voreingestellter Palette oder benutzerdefiniertem Hex
+---
+- **Position**
+- Anzeigereihenfolge (beeinflusst Dropdown und Visualisierung)
+---
+- **Ist Initial**
+- Markiert den Startstatus (nur einer pro Modell)
+---
+- **Ist Terminal**
+- Markiert einen Endstatus (Verkaufs-Workflow abgeschlossen)
+{% /table %}
+
+### Provisionseigenschaften
+
+{% table %}
+- Eigenschaft
+- Beschreibung
+---
+- **Löst Provision aus**
+- Provision wird beim Eintritt in diesen Status berechnet
+---
+- **Fordert Provision zurück**
+- Zuvor verdiente Provision wird beim Eintritt in diesen Status rückgängig gemacht
+{% /table %}
+
+### Adresseigenschaften
+
+{% table %}
+- Eigenschaft
+- Beschreibung
+---
+- **Storniert Adresse**
+- Markiert die Adresse als inaktiv beim Eintritt in diesen Status
+---
+- **Aktive Adresse**
+- Markiert die Adresse als aktiv beim Eintritt in diesen Status
+{% /table %}
+
+### Status verwalten
+
+**Status hinzufügen:**
+
+1. Gehen Sie im Bearbeitungsdialog zum Tab Status
+1. Klicken Sie auf **Status hinzufügen**
+1. Konfigurieren Sie die Statuseigenschaften
+1. Speichern
+
+**Status bearbeiten:**
+
+1. Klicken Sie auf den Status in der Liste
+1. Ändern Sie die Eigenschaften
+1. Speichern
+
+**Status entfernen:**
+
+- Klicken Sie auf die Entfernen-Schaltfläche in der Statuszeile
+- Kann nicht entfernt werden, wenn Verkäufe diesen Status referenzieren
+
+> **Hinweis:** Jedes Modell muss mindestens einen Status und genau einen Initialstatus haben.
+
+## Übergänge
+
+![](https://raw.githubusercontent.com/Goldenhunter1206/sellfaster_content/main/public/site/images/user-guide/team-administration/sale-models/image.png)
+
+### Was sind Übergänge?
+
+Übergänge definieren, welche Statuswechsel erlaubt sind. Zum Beispiel:
+
+- Angebot → Bestätigt (erlaubt)
+- Angebot → Storniert (erlaubt)
+- Storniert → Angebot (nicht erlaubt)
+
+### Übergänge konfigurieren
+
+1. Gehen Sie im Bearbeitungsdialog zum Tab Übergänge
+1. Für jeden Übergang geben Sie an:
+   - **Von Status** - Ausgangsstatus
+   - **Zu Status** - Zielstatus
+   - **Ist Standard** - Macht dies zur Standard-Übergangsoption
+   - **Auto-Übergang Tage** (optional) - Automatischer Übergang nach N Tagen
+
+### Auto-Übergänge
+
+Legen Sie eine Anzahl von Tagen fest, nach denen ein Verkauf automatisch in den nächsten Status wechselt. Nützlich für:
+
+- Automatische Bestätigung von Angeboten nach einer Wartezeit
+- Automatische Stornierung veralteter Angebote
+
+## Modelle bearbeiten
+
+### Modellinformationen bearbeiten
+
+1. Klicken Sie auf das Aktionsmenü eines Modells
+1. Wählen Sie **Bearbeiten**
+1. Gehen Sie zum Tab Info
+1. Aktualisieren Sie Name, Beschreibung oder setzen Sie es als Standard
+1. Speichern
+
+### Status und Übergänge bearbeiten
+
+1. Öffnen Sie den Bearbeitungsdialog
+1. Verwenden Sie die Tabs, um zwischen folgenden Bereichen zu wechseln:
+   - **Info** - Modellname und Beschreibung
+   - **Status** - Statuseigenschaften verwalten
+   - **Übergänge** - Erlaubte Übergänge verwalten
+
+## Modelle visualisieren
+
+### Flussdiagramm
+
+Zeigen Sie ein interaktives Diagramm Ihres Modells an:
+
+1. Klicken Sie auf das Aktionsmenü eines Modells
+1. Wählen Sie **Fluss visualisieren**
+1. Sehen Sie das Statusflussdiagramm
+
+Das Diagramm zeigt:
+
+- Statusknoten mit Farben
+- Statuseigenschaften (Initial, Terminal, Provisions-Flags)
+- Pfeile, die Übergänge zeigen
+- Auto-Übergangs-Tage an den Kanten beschriftet
+
+## Kampagnenzuweisungen
+
+### Kampagnen zuweisen
+
+1. Klicken Sie auf das Aktionsmenü eines Modells
+1. Wählen Sie **Kampagnen zuweisen**
+1. Schalten Sie Kampagnen ein/aus
+1. Änderungen werden automatisch gespeichert
+
+> **Hinweis:** Jede Kampagne kann nur ein Verkaufsstatusmodell zugewiesen bekommen. Das Zuweisen eines neuen Modells ersetzt die bestehende Zuweisung.
+
+> **Hinweis:** Archivierte Modelle können nicht Kampagnen zugewiesen werden.
+
+## Standardmodell festlegen
+
+Ein Modell kann als Standard markiert werden:
+
+1. Bearbeiten Sie das Modell
+1. Aktivieren Sie das Kontrollkästchen **Standard**
+1. Speichern
+
+Das Standardmodell wird automatisch beim Erstellen von Verkäufen vorgeschlagen. Nur ein Modell pro Team kann Standard sein.
+
+## Modelle archivieren
+
+### Ein Modell archivieren
+
+1. Klicken Sie auf das Aktionsmenü eines Modells
+1. Wählen Sie **Archivieren**
+1. Bestätigen
+
+Wenn archiviert:
+
+- Modell wird von allen Kampagnen abgewiesen
+- Kann nicht für neue Verkäufe verwendet werden
+- Bestehende Verkäufe, die die Status des Modells verwenden, bleiben erhalten
+- Kann später wiederhergestellt werden
+
+> **Hinweis:** Modelle mit aktiven Verkäufen, die deren Status referenzieren, können archiviert werden.
+
+### Ein Modell wiederherstellen
+
+1. Aktivieren Sie **Archivierte anzeigen**
+1. Klicken Sie auf das Aktionsmenü des archivierten Modells
+1. Wählen Sie **Dearchivieren**
+
+Nach der Wiederherstellung weisen Sie das Modell bei Bedarf erneut Kampagnen zu.
+
+## Audit-Protokoll
+
+Teameigentümer können die Änderungshistorie einsehen:
+
+1. Klicken Sie auf das Aktionsmenü eines Modells
+1. Wählen Sie **Audit-Protokoll anzeigen**
+1. Sehen Sie Änderungen am Modell, seinen Status und Übergängen
+
+## Berechtigungen
+
+{% table %}
+- Aktion
+- Erforderliche Berechtigung
+---
+- Modelle anzeigen
+- Jeder
+---
+- Modelle erstellen
+- Nur Rolle `Manager` und `Eigentümer`
+---
+- Modelle bearbeiten
+- Nur Rolle `Manager` und `Eigentümer`
+---
+- Kampagnen zuweisen
+- Nur Rolle `Manager` und `Eigentümer`
+---
+- Archivieren/Wiederherstellen
+- Nur Rolle `Manager` und `Eigentümer`
+---
+- Audit-Protokoll anzeigen
+- Nur Teameigentümer
+{% /table %}
+
+## Best Practices
+
+### Modellgestaltung
+
+1. **Einfach beginnen** - Starten Sie mit grundlegenden Status (Angebot, Bestätigt, Storniert)
+1. **Klare Namen** - Verwenden Sie beschreibende Statusnamen
+1. **Regeln dokumentieren** - Fügen Sie Beschreibungen hinzu, die erklären, wann welcher Status verwendet wird
+1. **Zuerst testen** - Überprüfen Sie Übergänge, bevor Sie sie aktiven Kampagnen zuweisen
+
+### Provisionskonfiguration
+
+1. **Klare Auslöser** - Definieren Sie genau, welcher Status die Provision auslöst
+1. **Stornierungen behandeln** - Haben Sie immer einen Status, der die Provision bei stornierten Verkäufen zurückfordert
+1. **Konsistente Regeln** - Verwenden Sie dasselbe Modell für ähnliche Verkaufstypen
+
+### Workflow-Tipps
+
+1. **Initialstatus** - Beginnen Sie immer mit einem Status vom Typ "ausstehend"
+1. **Terminalstatus** - Markieren Sie Endstatus (Bestätigt, Storniert) als terminal
+1. **Übergänge** - Erlauben Sie nur logische Fortschritte
+1. **Auto-Übergänge** - Verwenden Sie diese sparsam und mit angemessenen Zeitrahmen
+
+## Fehlerbehebung
+
+### Provision wird nicht berechnet
+
+Wenn die Provision nicht angezeigt wird:
+
+1. Stellen Sie sicher, dass der Verkauf einen Status mit "Löst Provision aus" erreicht hat
+1. Prüfen Sie, ob der Verkauf das richtige Modell verwendet
+1. Überprüfen Sie, ob die Provisionsregeln konfiguriert sind
+
+## Verwandte Themen
+
+- [Provision](/docs/user-guide-de/team-account/commission) - Provisionsberichte anzeigen
+- [Verkäufe erfassen](/docs/user-guide-de/how-to/recording-sales) - Verkäufe erstellen
+- [Interaktionsstatus](/docs/user-guide-de/team-administration/interaction-states) - Adress-Interaktionsstatus
+- [Teamverkäufe](/docs/user-guide-de/team-account/sales) - Verkaufsverwaltung

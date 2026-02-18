@@ -1,0 +1,263 @@
+---
+title: Inventar
+description: >-
+  Verwalten Sie den Produktkatalog Ihres Teams, einschliesslich zum Verkauf verfugbarer Produkte, Preise und Provisionseinstellungen.
+order: 2
+language: de
+categories:
+  - user-guide
+tags:
+  - team-account
+status: published
+collapsible: false
+collapsed: false
+---
+Verwalten Sie den Produktkatalog Ihres Teams, einschliesslich zum Verkauf verfugbarer Produkte, Preise und Provisionseinstellungen.
+
+## Zugriff auf Inventar
+
+1. Stellen Sie sicher, dass Sie sich in Ihrem Teamkonto befinden
+1. Klicken Sie auf **Inventar** in der Seitenleiste
+1. Die URL ist `/home/[team]/inventory`
+
+## Was ist Inventar?
+
+Das Inventarsystem verfolgt:
+
+- **Produkte** - Zum Verkauf verfugbare Artikel
+- **Preise** - Produktpreise
+- **Provision** - Provisionsbetrag pro Produkt
+- **Kampagnenzuordnungen** - In welchen Kampagnen ein Produkt verfugbar ist
+- **Mengenverfolgung** - Fur Produkte mit begrenzter Stuckzahl
+
+## Produktliste
+
+### Produkte anzeigen
+
+Die Inventarseite zeigt alle Produkte an:
+
+{% table %}
+- Spalte
+- Beschreibung
+---
+- **Name**
+- Produktname
+---
+- **Beschreibung**
+- Produktbeschreibung
+---
+- **Provision**
+- Provision pro Verkauf
+---
+- **Kampagnen**
+- Zugeordnete Kampagnen
+---
+- **Menge**
+- Lagerbestand (falls verfolgt)
+{% /table %}
+
+### Produkte filtern
+
+Produktliste filtern nach:
+
+- Nach Erstellungsdatum oder Name sortieren
+- Aktive oder archivierte Produkte
+
+## Produkte hinzufugen
+
+### Neues Produkt erstellen
+
+1. Klicken Sie auf **Produkt hinzufugen**
+1. Fullen Sie die Produktdetails aus:
+
+{% table %}
+- Feld
+- Erforderlich
+- Beschreibung
+---
+- **Name**
+- Ja
+- Produktname
+---
+- **Beschreibung**
+- Nein
+- Produktdetails
+---
+- **Preis**
+- Nein
+- Verkaufspreis
+---
+- **Provision**
+- Nein
+- Provisionsbetrag pro Verkauf
+---
+- **Mehrfach erlauben**
+- Nein
+- Kann mehrfach pro Einheit/Adresse verkauft werden
+---
+- **Menge verfolgen**
+- Nein
+- Lagerbestand verfolgen
+---
+- **Menge**
+- Nein
+- Anfangsbestand (falls verfolgt)
+{% /table %}
+
+3. Klicken Sie auf **Erstellen**
+
+### Produkteinstellungen
+
+#### Mehrfach pro Einheit erlauben
+
+Wenn aktiviert, kann dasselbe Produkt mehrmals an dieselbe Adresse/Einheit verkauft werden.
+
+#### Mengenverfolgung
+
+Produkte konnen sein:
+
+- **Unbegrenzt**: Unbegrenzte Verfugbarkeit (Standard)
+- **Verfolgt**: Begrenzte Menge, die mit Verkaufen abnimmt
+
+## Produktdetails anzeigen
+
+Klicken Sie auf ein Produkt, um seine Detailseite zu sehen mit:
+
+- Produktinformationen
+- Provisionseinstellungen
+- Kampagnenzuordnungen
+- Inventarbewegungen (Lieferungen)
+
+## Produkte verwalten
+
+### Produkte bearbeiten
+
+1. Klicken Sie auf ein Produkt
+1. Klicken Sie auf **Bearbeiten**
+1. Andern Sie die Felder
+1. Speichern Sie die Anderungen
+
+### Produkte archivieren
+
+Anstatt zu loschen, archivieren Sie Produkte, die Sie nicht mehr verkaufen:
+
+1. Klicken Sie auf das Produktmenu
+1. Wahlen Sie **Archivieren**
+1. Das Produkt wird ausgeblendet, aber bewahrt
+
+Archivierte Produkte:
+
+- Erscheinen nicht in Verkaufsformularen
+- Bewahren historische Verkaufsdaten
+- Konnen bei Bedarf wiederhergestellt werden
+
+## Kampagnenzuordnung
+
+### Kampagnen zuweisen
+
+Produkte konnen bestimmten Kampagnen zugeordnet werden, um die Verfugbarkeit zu steuern:
+
+1. Klicken Sie auf ein Produkt
+1. Klicken Sie auf **Kampagnen zuweisen**
+1. Wahlen Sie die Kampagne(n)
+1. Speichern
+
+### Auswirkungen der Zuordnung
+
+Wenn ein Produkt Kampagnen zugeordnet ist:
+
+- Nur in diesen Kampagnen fur Verkaufe verfugbar
+
+## Lieferungen
+
+### Lieferungen erfassen
+
+Inventarzugange mit Lieferungen verfolgen:
+
+1. Klicken Sie auf ein Produkt
+1. Klicken Sie auf **Lieferung erfassen**
+1. Wahlen Sie den Lieferungstyp (ein oder aus)
+1. Geben Sie die erhaltene Menge ein
+1. Fugen Sie Notizen hinzu
+1. Speichern
+
+Lieferungen "ein" erhohen die verfugbare Menge des Produkts, z.B. wenn eine Produktlieferung eintrifft.
+
+Lieferungen "aus" verringern die verfugbare Menge des Produkts, z.B. wenn Produkte beschadigt wurden und ersetzt werden mussen.
+
+### Lieferungsverlauf
+
+Alle Lieferungen auf der Produktdetailseite anzeigen:
+
+- Empfangs-/Versanddatum oder Verkaufsdatum
+- Menge
+- Notizen
+- Erfasst von
+
+## Provisionseinstellungen
+
+### Provision pro Produkt
+
+Jedes Produkt kann einen Provisionsbetrag haben:
+
+- Wird beim Erstellen/Bearbeiten des Produkts festgelegt
+- Wird angewendet, wenn das Produkt verkauft wird
+- Erscheint in Provisionsberichten
+
+### Provisionsberechnung
+
+Wenn ein Verkauf erfasst wird:
+
+- Die Provision wird basierend auf dem aktuellen Provisionsbetrag des Produkts berechnet
+- Mehrere Artikel vervielfachen die Provision
+- Erscheint im Provisionsprotokoll des Verkaufers
+
+## Best Practices
+
+### Produktverwaltung
+
+1. **Klare Namen verwenden** - Leicht identifizierbar beim Verkauf
+1. **Beschreibungen hinzufugen** - Helfen dem Vertriebsteam, das Produkt zu verstehen
+1. **Preise festlegen** - Preise aktuell halten
+1. **Provision konfigurieren** - Vor dem ersten Verkauf festlegen
+
+### Bestandskontrolle
+
+1. **Menge verfolgen** - Fur begrenzte Produkte
+1. **Lieferungen erfassen** - Menge genau halten
+1. **Ungenutzte archivieren** - Liste sauber halten
+1. **Kampagnen zuweisen** - Verfugbarkeit steuern
+
+## Fehlerbehebung
+
+### Produkt erscheint nicht bei Verkaufen
+
+Wenn Sie ein Produkt beim Erfassen eines Verkaufs nicht auswahlen konnen:
+
+1. Prufen Sie, ob das Produkt archiviert ist
+1. Uberprufen Sie die Kampagnenzuordnung (bei einer bestimmten Kampagne)
+1. Prufen Sie die Menge (falls verfolgt und bei Null)
+1. Aktualisieren Sie die Seite
+
+### Falsche Provision
+
+Wenn die Provision falsch erscheint:
+
+1. Prufen Sie den Provisionsbetrag des Produkts
+1. Uberprufen Sie die verkaufte Menge
+1. Uberprufen Sie die Verkaufsstatusmodell-Regeln
+
+### Mengenprobleme
+
+Wenn die Mengenverfolgung falsch ist:
+
+1. Uberprufen Sie den Lieferungsverlauf
+1. Prufen Sie aktuelle Verkaufe
+1. Uberprufen Sie, ob die Anfangsmenge korrekt gesetzt wurde
+
+## Verwandte Themen
+
+- [Verkaufe erfassen](/docs/user-guide-de/how-to/recording-sales) - Produkte bei Verkaufen verwenden
+- [Provision](/docs/user-guide-de/team-account/commission) - Verdienstverfolgung
+- [Verkaufsstatusmodelle](/docs/user-guide-de/team-administration/sale-models) - Provisions-Workflows
+- [Verkaufe](/docs/user-guide-de/team-account/sales) - Team-Verkaufsdatensatze

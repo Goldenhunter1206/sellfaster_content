@@ -1,0 +1,172 @@
+---
+title: Persönlicher Kalender
+description: >-
+  Der persönliche Kalender zeigt Ihre geplanten Nachverfolgungen in einer visuellen
+  Kalenderansicht und hilft Ihnen, Ihren Arbeitstag zu planen und Rückrufe zu verwalten.
+order: 4
+language: de
+categories:
+  - user-guide
+tags:
+  - personal-account
+status: published
+collapsible: false
+collapsed: false
+---
+Der persönliche Kalender zeigt Ihre geplanten Nachverfolgungen in einer visuellen Kalenderansicht und hilft Ihnen, Ihren Arbeitstag zu planen und Rückrufe zu verwalten.
+
+## Zugriff auf den Kalender
+
+1. Klicken Sie auf **Kalender** in der Seitenleiste
+1. Sehen Sie Ihre geplanten Nachverfolgungen
+1. Die URL ist `https://sellfaster.eu/home/calendar`
+
+## Kalenderanzeige
+
+![](https://raw.githubusercontent.com/Goldenhunter1206/sellfaster_content/main/public/site/images/user-guide/personal-account/calendar/image.png)
+
+Der Kalender verwendet eine Wochenansicht, die Ihre Nachverfolgungen als Ereignisse anzeigt:
+
+### Ansichtseinstellungen
+
+- **Wochenansicht** - Der Kalender zeigt eine 7-Tage-Wochenansicht
+- **Woche beginnt am Montag** - Kalenderwochen beginnen am Montag
+- **Zeitraum** - Stunden von 6:00 bis 22:00 Uhr werden angezeigt
+- **1 Stunde Dauer** - Jede Nachverfolgung wird als 1-Stunden-Zeitblock angezeigt
+
+### Ereignisinformationen
+
+Jedes Nachverfolgungs-Ereignis zeigt:
+
+- **Titel** - Straßenadresse und Name, falls vorhanden
+- **Untertitel** - Name des Interaktionsstatus
+- **Beschreibung** - Kommentar aus der Interaktion (falls vorhanden)
+- **Farbe** - Kampagnenspezifische Farbe zur einfachen Identifizierung
+
+### Tooltips
+
+Fahren Sie mit der Maus über ein Ereignis, um zusätzliche Metadaten zu sehen:
+
+{% table %}
+- Feld
+- Beschreibung
+---
+- **Kampagne**
+- Kampagnenname
+---
+- **Zone**
+- Zonenname (falls zugewiesen)
+---
+- **Adresse**
+- Vollständige Straßenadresse
+---
+- **Name**
+- Kontaktname
+---
+- **PLZ**
+- Postleitzahl
+---
+- **Stadt**
+- Stadtname
+---
+- **Status**
+- Adressstatus
+{% /table %}
+
+## Ereignisfarben
+
+Ereignisse sind nach Kampagne farbcodiert zur einfachen Identifizierung. Jede Kampagne hat eine konsistente Farbe aus einer Palette, die Folgendes umfasst:
+
+- Blau, Rot, Smaragd, Bernstein, Violett
+- Cyan, Limette, Pink, Indigo, Teal
+
+Dies hilft Ihnen, schnell zu erkennen, zu welcher Kampagne eine Nachverfolgung gehört, wenn Sie mehrere Kampagnen betrachten.
+
+## Navigation
+
+### Klicken auf Ereignisse
+
+Klicken Sie auf ein Ereignis, um direkt zur Adress-Detailseite zu navigieren. Der Link enthält die Kampagnen-ID für den richtigen Kontext:
+
+`https://sellfaster.eu/home/addresses/[addressSlug]?projectId=[projectId]`
+
+Von dort aus können Sie:
+
+- Vollständige Lead-Informationen ansehen
+- Eine neue Interaktion erfassen
+- Einen Verkauf erfassen
+- Den Interaktionsverlauf einsehen
+
+## Leerer Zustand
+
+Wenn keine Nachverfolgungen geplant sind, zeigt der Kalender an:
+"Keine Nachverfolgungen geplant"
+
+Das bedeutet, dass Sie keine bevorstehenden Nachverfolgungstermine aus Interaktionen haben.
+
+## Datenquellen
+
+Der Kalender zeigt Nachverfolgungen aus:
+
+- Allen Teamkonten, in denen Sie Mitglied sind
+- Interaktionen, bei denen ein Nachverfolgungsdatum gesetzt wurde
+- Nur zukünftige Nachverfolgungen (ab heute)
+
+## Nachverfolgungen erstellen
+
+Um Ereignisse zu Ihrem Kalender hinzuzufügen:
+
+1. Gehen Sie zu einer Lead-Detailseite
+1. Klicken Sie auf **Interaktion hinzufügen**
+1. Aktivieren Sie die Nachverfolgungsoption
+1. Legen Sie Datum und Uhrzeit fest
+1. Speichern Sie die Interaktion
+
+Die Nachverfolgung erscheint automatisch in Ihrem Kalender.
+
+> **Hinweis:** Nachverfolgungen können nicht direkt über den Kalender erstellt werden. Sie müssen über Interaktionen auf Adress-Detailseiten erstellt werden.
+
+Siehe [Nachverfolgungs-Erinnerungen](/docs/user-guide-de/how-to/follow-up-reminders) für detaillierte Anweisungen.
+
+## Mobile Ansicht
+
+Der Kalender ist responsiv und funktioniert auf mobilen Geräten:
+
+- Horizontal scrollen, um die vollständige Woche zu sehen
+- Auf Ereignisse tippen, um zu den Adressdetails zu navigieren
+- Vollbildanzeige für maximale Sichtbarkeit
+
+## Beziehung zur Nachverfolgungsseite
+
+Der Kalender und die [Nachverfolgungsseite](/docs/user-guide-de/personal-account/follow-ups) zeigen dieselben Daten in unterschiedlichen Formaten:
+
+{% table %}
+- Funktion
+- Kalender
+- Nachverfolgungsseite
+---
+- Ansichtsformat
+- Visueller Wochenplan
+- Liste/Tabelle
+---
+- Sortierung
+- Nach Zeit
+- Nach Datum oder Entfernung
+---
+- Schnellaktionen
+- Klicken zum Navigieren
+- Interaktion hinzufügen, Verkauf, Löschen
+---
+- Suche
+- Nicht verfügbar
+- Verfügbar
+{% /table %}
+
+Verwenden Sie den Kalender für visuelle Planung und die Nachverfolgungsseite zum Verwalten und Suchen.
+
+## Verwandte Themen
+
+- [Nachverfolgungen](/docs/user-guide-de/personal-account/follow-ups) - Listenansicht der Nachverfolgungen
+- [Nachverfolgungs-Erinnerungen](/docs/user-guide-de/how-to/follow-up-reminders) - Nachverfolgungen erstellen
+- [Team-Kalender](/docs/user-guide-de/team-account/calendar) - Kalender auf Teamebene
+- [Dashboard](/docs/user-guide-de/personal-account/dashboard) - Schnellübersicht

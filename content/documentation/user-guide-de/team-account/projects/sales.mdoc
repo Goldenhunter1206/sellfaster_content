@@ -1,0 +1,203 @@
+---
+title: Kampagnen-Verkaufe
+description: >-
+  Verfolgen und verwalten Sie Verkaufe innerhalb einer bestimmten Kampagne. Sehen Sie Verkaufe ein, filtern Sie nach verschiedenen Kriterien und verwalten Sie Verkaufsstatus.
+order: 3
+language: de
+categories:
+  - user-guide
+tags:
+  - team-account
+status: published
+collapsible: false
+collapsed: false
+---
+Verfolgen und verwalten Sie Verkaufe innerhalb einer bestimmten Kampagne. Sehen Sie Verkaufe ein, filtern Sie nach verschiedenen Kriterien und verwalten Sie Verkaufsstatus.
+
+## Zugriff auf Kampagnen-Verkaufe
+
+1. Navigieren Sie zu Ihrer Kampagne
+1. Klicken Sie auf den **Verkaufe**-Tab
+1. Sehen Sie alle Verkaufe aus dieser Kampagne
+
+## Verkaufstabelle
+
+### Tabellenspalten
+
+Die Verkaufstabelle zeigt Kampagnen-Verkaufe mit:
+
+{% table %}
+- Spalte
+- Beschreibung
+---
+- **Bestellnr.**
+- Bestellnummer (oder "Einzelverkauf")
+---
+- **Verkaufsdatum**
+- Wann der Verkauf erfasst wurde
+---
+- **Adresse**
+- Standort des Verkaufs
+---
+- **Artikel**
+- Anzahl der Artikel in der Bestellung
+---
+- **Status**
+- Aktueller Verkaufsstatus
+---
+- **Verkaufer**
+- Wer den Verkauf getatigt hat
+{% /table %}
+
+### Zeilennavigation
+
+Klicken Sie auf eine beliebige Zeile, um die vollstandigen Verkaufsdetails anzuzeigen.
+
+## Verkaufe filtern
+
+### Verfugbare Filter
+
+{% table %}
+- Filter
+- Beschreibung
+---
+- **Suche**
+- Adressen oder Produkte suchen
+---
+- **Status**
+- Nach Verkaufsstatus filtern
+---
+- **Zone**
+- Nach Adresszone filtern
+{% /table %}
+
+### Filter verwenden
+
+1. Geben Sie Suchtext ein, um nach Adresse oder Produkt zu filtern
+1. Wahlen Sie einen Status aus dem Dropdown
+1. Wahlen Sie eine Zone, um nur Verkaufe aus dieser Zone zu sehen
+1. Klicken Sie auf **Filter zurucksetzen**, um zuruckzusetzen
+
+## Verkaufsdetails
+
+Klicken Sie auf einen Verkauf, um die Detailseite anzuzeigen:
+
+- Verkaufsnummer und Produkt
+- Preisinformationen
+- Verkaufsdatum und Status
+- Verkaufer
+- Provisionsbetrag und Bezahlstatus
+- Adressinformationen
+- Angewendete Aktionen (falls vorhanden)
+- Provisionseintrage
+- Statusverlauf
+
+Siehe [Team-Verkaufe](/docs/user-guide-de/team-account/sales) fur weitere Details zur Verkaufsverwaltung.
+
+## Verkaufe verwalten
+
+### Verkaufsstatus andern
+
+Aus der Verkaufstabelle konnen Sie Verkaufsstatus andern:
+
+1. Klicken Sie auf das Aktionsmenu in einer Verkaufszeile
+1. Wahlen Sie eine Ubergangsoption
+1. Der Status wird sofort aktualisiert
+
+### Massenstatusubergange
+
+Um mehrere Verkaufe gleichzeitig zu andern:
+
+1. Wenden Sie Filter an, um die zu andernden Verkaufe anzuzeigen
+1. Klicken Sie auf **Massenuberfuhrung**
+1. Wahlen Sie den Zielstatus
+1. Alle sichtbaren Verkaufe werden uberfuhrt
+
+> **Hinweis:** Nur Verkaufe mit gultigen Ubergangen werden aktualisiert.
+
+## Verkaufe erfassen
+
+Verkaufe werden typischerweise erfasst von:
+
+1. **Adress-Detailseite** - Bei der Interaktion mit einer bestimmten Adresse
+1. **Wahrend Interaktionen** - Als Teil der Erfassung einer Interaktion
+
+Siehe [Verkaufe erfassen](/docs/user-guide-de/how-to/recording-sales) fur vollstandige Anweisungen.
+
+## Provisionsverfolgung
+
+Kampagnen-Verkaufe tragen zu Provisionen bei:
+
+- Provision wird basierend auf Produktprovisionsbetragen berechnet
+- Auf der Verkaufsdetailseite sichtbar
+- In [Provision](/docs/user-guide-de/team-account/commission)-Berichten widergespiegelt
+
+## Bezug zu Bonuszielen
+
+Kampagnen-Verkaufe konnen beitragen zu:
+
+- Kampagnenbezogenen Bonuszielen
+- Verkaufer-Bonuszielen
+- Kontoweiten Bonuszielen
+
+Der Fortschritt wird automatisch aktualisiert, wenn Verkaufe qualifizierende Status erreichen.
+
+## Berechtigungen
+
+Die Verkaufsverwaltung erfordert entsprechende Berechtigungen:
+
+{% table %}
+- Aktion
+- Erforderliche Berechtigung
+---
+- Verkaufe anzeigen
+- Basis-Teammitglied-Zugriff
+---
+- Verkaufsstatus aktualisieren
+- `sales:update`-Berechtigung
+---
+- Massenuberfuhrung
+- `sales:update`-Berechtigung
+{% /table %}
+
+## Best Practices
+
+### Verkaufe erfassen
+
+1. **Zeitnah erfassen** - Verkaufe eingeben, wenn sie stattfinden
+1. **Notizen hinzufugen** - Kontext fur zukunftige Referenz hinzufugen
+1. **Details uberprufen** - Produkt, Preis und Adresse prufen
+
+### Fortschritt verfolgen
+
+1. **Filter verwenden** - Auf bestimmte Status oder Zonen konzentrieren
+1. **Regelmasig uberprufen** - Verkaufsstatus prufen
+1. **Provision uberwachen** - Verdienste aus Kampagnen-Verkaufen verfolgen
+
+## Fehlerbehebung
+
+### Verkauf wird nicht angezeigt
+
+Wenn ein Verkauf nicht erscheint:
+
+1. Prufen Sie den Statusfilter
+1. Prufen Sie den Zonenfilter
+1. Setzen Sie alle Filter zuruck
+1. Uberprufen Sie, ob der Verkauf mit dieser Kampagne verknupft ist
+1. Aktualisieren Sie die Seite
+
+### Statusubergang nicht verfugbar
+
+Wenn Sie einen Verkauf nicht andern konnen:
+
+1. Prufen Sie die Verkaufsstatusmodell-Konfiguration
+1. Uberprufen Sie, ob der Ubergang vom aktuellen Status erlaubt ist
+1. Stellen Sie sicher, dass Sie die `sales:update`-Berechtigung haben
+
+## Verwandte Themen
+
+- [Verkaufe erfassen](/docs/user-guide-de/how-to/recording-sales) - Wie man Verkaufe erfasst
+- [Team-Verkaufe](/docs/user-guide-de/team-account/sales) - Alle Team-Verkaufe
+- [Provision](/docs/user-guide-de/team-account/commission) - Verdienstverfolgung
+- [Kampagnen-Ubersicht](/docs/user-guide-de/team-account/projects) - Kampagnenverwaltung
+- [Verkaufsstatusmodelle](/docs/user-guide-de/team-administration/sale-models) - Workflow-Konfiguration

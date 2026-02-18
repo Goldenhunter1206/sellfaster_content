@@ -1,0 +1,242 @@
+---
+title: Team-Leads
+description: >-
+  Verwalten Sie alle Adressen in Ihrem Team. Dies bietet eine zentrale Ansicht jeder Adresse, die Ihr Team verfolgt, unabhangig davon, zu welcher Kampagne sie gehort.
+order: 1
+language: de
+categories:
+  - user-guide
+tags:
+  - team-account
+status: published
+collapsible: false
+collapsed: false
+---
+Verwalten Sie alle Adressen in Ihrem Team. Dies bietet eine zentrale Ansicht jeder Adresse, die Ihr Team verfolgt, unabhangig davon, zu welcher Kampagne sie gehort.
+
+## Zugriff auf Team-Leads
+
+1. Stellen Sie sicher, dass Sie sich in Ihrem Teamkonto befinden
+1. Klicken Sie auf **Leads** in der Seitenleiste
+1. Die URL ist `/home/[team]/addresses`
+
+## Lead-Liste
+
+### Was Sie sehen
+
+Die Team-Leads-Seite zeigt alle Adressen in Ihrem Konto:
+
+- Kampagnen zugeordnete Adressen
+- Adressen uber alle Zonen
+- Filterbare und durchsuchbare Liste
+
+### Tabellenspalten
+
+{% table %}
+- Spalte
+- Beschreibung
+---
+- **Adresse**
+- Strassenadresse und Einheitsinformationen
+---
+- **Stadt**
+- Stadtname
+---
+- **Bundesland**
+- Bundesland/Provinz
+---
+- **PLZ**
+- Postleitzahl
+---
+- **Kampagne**
+- Zugeordnete Kampagne (falls vorhanden)
+---
+- **Verifiziert**
+- Ob die Koordinaten verifiziert sind
+---
+- **Gebaudetyp**
+- Mehrfamilienhaus oder Einzeladresse
+{% /table %}
+
+## Adressen filtern
+
+### Verfugbare Filter
+
+{% table %}
+- Filter
+- Optionen
+---
+- **Suche**
+- Textsuche uber Adressfelder
+---
+- **Kampagne**
+- Nach bestimmter Kampagne filtern
+---
+- **Gebaudetyp**
+- Mehrfamilienhaus oder Einzeladresse
+---
+- **Verifiziert**
+- Verifiziert oder nicht verifiziert
+---
+- **Archiviert**
+- Archivierte Adressen anzeigen
+{% /table %}
+
+### Suche verwenden
+
+Uber Adressdaten suchen:
+
+- Strassenadresse
+- Stadt
+- Postleitzahl
+
+## Adressen hinzufugen
+
+### Neuen Lead erstellen
+
+1. Klicken Sie auf **Lead hinzufugen > Manuelle Eingabe**
+1. Fullen Sie die Adressdetails aus:
+   - Strassenadresse
+   - Stadt
+   - Bundesland
+   - Postleitzahl
+   - Land
+1. Setzen Sie optional den Adresstyp und andere Felder
+1. Speichern Sie die Adresse
+
+### Adressen importieren
+
+Mehrere Leads auf einmal importieren:
+
+1. Klicken Sie auf **Lead hinzufugen > CSV importieren**
+1. Laden Sie eine CSV-Datei hoch
+1. Ordnen Sie Spalten den Adressfeldern zu
+1. Uberprufen und importieren
+
+Der Import lauft im Hintergrund und zeigt den Fortschritt an. Detaillierte Informationen zu CSV-Format, Spaltenzuordnung und Fehlerbehebung finden Sie unter [CSV-Import](/docs/user-guide-de/team-account/csv-import).
+
+## Leads verwalten
+
+### Lead-Details anzeigen
+
+Klicken Sie auf einen Lead, um die Detailseite anzuzeigen mit:
+
+- Vollstandige Adressinformationen
+- Koordinaten und Verifizierungsstatus
+- Benutzerdefinierte Feldwerte
+- Interaktionsverlauf
+- Verkaufsverlauf
+
+### Leads bearbeiten
+
+1. Klicken Sie auf eine Lead-Zeile
+1. Klicken Sie auf **Bearbeiten**
+1. Andern Sie die Felder
+1. Speichern Sie die Anderungen
+
+### Leads archivieren
+
+Anstatt zu loschen, archivieren Sie Leads, die Sie nicht mehr benotigen:
+
+1. Offnen Sie das Menu fur den Lead
+1. Andern Sie den Status auf archiviert
+1. Verwenden Sie den Archivfilter, um archivierte Leads spater anzuzeigen
+
+## Duplikaterkennung
+
+### Duplikate finden
+
+Das System kann potenzielle doppelte Adressen erkennen:
+
+1. Klicken Sie auf **Duplikate erkennen**
+1. Uberprufen Sie vorgeschlagene Ubereinstimmungen
+1. Wahlen Sie fur jedes Duplikatpaar: zusammenfuhren oder ablehnen
+
+### Duplikate auflosen
+
+Wenn Duplikate gefunden werden:
+
+- Vergleichen Sie die Adressen
+- Wahlen Sie, welche als primar beibehalten werden soll
+- Zusammenfuhren oder ablehnen fur jede Ubereinstimmung
+
+## Benutzerdefinierte Felder
+
+Wenn benutzerdefinierte Felder fur Adressen konfiguriert sind:
+
+- Zusatzliche Felder erscheinen im Adressformular
+
+Siehe [Benutzerdefinierte Felder](/docs/user-guide-de/team-administration/custom-fields) fur die Konfiguration.
+
+## Koordinatenverifizierung
+
+### Verifiziert vs Nicht verifiziert
+
+- **Verifiziert**: Koordinaten wurden als genau bestatigt
+- **Nicht verifiziert**: Koordinaten sind geschatzt oder mussen bestatigt werden
+
+### Nach Verifizierung filtern
+
+Verwenden Sie den Verifizierungsfilter, um:
+
+- Nur verifizierte Adressen anzuzeigen
+- Nur nicht verifizierte Adressen anzuzeigen (zur Uberprufung)
+
+## Mehrfamilienhaus vs Einzeladressen
+
+Adressen konnen klassifiziert werden als:
+
+- **Mehrfamilienhaus**: Gebaude mit mehreren Einheiten und Unteradressen
+- **Einzeladresse**: Einzelne Adressen ohne Einheiten
+
+Filtern Sie nach Gebaudetyp, um sich auf bestimmte Adresstypen zu konzentrieren.
+
+## Best Practices
+
+### Organisation
+
+1. **Kampagnen zuweisen** - Adressen nach Kampagne organisiert halten
+1. **Koordinaten verifizieren** - Kartengenauigkeit sicherstellen
+1. **Benutzerdefinierte Felder verwenden** - Zusatzliche relevante Daten verfolgen
+1. **Regelmassig aufraumen** - Nicht mehr benotigte Adressen archivieren
+
+### Datenqualitat
+
+1. **Duplikate prufen** - Regelmasig Duplikaterkennung ausfuhren
+1. **Vollstandige Datensatze** - Alle relevanten Felder ausfullen
+1. **Regelmasig aktualisieren** - Informationen aktuell halten
+
+## Fehlerbehebung
+
+### Adresse wird nicht angezeigt
+
+Wenn eine Adresse nicht erscheint:
+
+1. Prufen Sie den Kampagnenfilter
+1. Prufen Sie den Archivfilter
+1. Suchen Sie nach dem Adresstext
+1. Uberprufen Sie, ob sie erfolgreich gespeichert wurde
+
+### Import-Probleme
+
+Wenn der Import fehlschlagt:
+
+1. Prufen Sie CSV-Format und Spaltenuberschriften
+1. Uberprufen Sie, ob erforderliche Felder vorhanden sind
+1. Prufen Sie auf ungultige Daten in Zeilen
+1. Uberprufen Sie Import-Fehlermeldungen
+
+### Falsche Koordinaten
+
+Wenn eine Adresse am falschen Ort erscheint:
+
+1. Bearbeiten Sie die Adresse
+1. Aktualisieren Sie die Koordinaten
+1. Markieren Sie als verifiziert nach Bestatigung
+
+## Verwandte Themen
+
+- [Kampagnen-Leads](/docs/user-guide-de/team-account/projects/addresses) - Kampagnenspezifische Adressansicht
+- [Interaktionen erfassen](/docs/user-guide-de/how-to/recording-interactions) - Kontakte protokollieren
+- [Interaktionsstatus](/docs/user-guide-de/team-administration/interaction-states) - Statuskonfiguration
+- [Benutzerdefinierte Felder](/docs/user-guide-de/team-administration/custom-fields) - Zusatzliche Felder

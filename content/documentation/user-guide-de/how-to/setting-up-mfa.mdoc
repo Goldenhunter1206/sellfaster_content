@@ -1,0 +1,301 @@
+---
+title: Multi-Faktor-Authentifizierung (MFA) einrichten
+description: >-
+  Diese Anleitung führt Sie durch die Aktivierung von MFA, um Ihrem Konto eine
+  zusätzliche Sicherheitsebene hinzuzufügen.
+order: 7
+language: de
+categories:
+  - user-guide
+tags:
+  - how-to
+status: published
+collapsible: false
+collapsed: false
+---
+Diese Anleitung führt Sie durch die Aktivierung von MFA, um Ihrem Konto eine zusätzliche Sicherheitsebene hinzuzufügen.
+
+## Was ist MFA?
+
+Multi-Faktor-Authentifizierung (auch Zwei-Faktor-Authentifizierung oder 2FA genannt) erhöht die Sicherheit, indem zwei Dinge zum Anmelden erforderlich sind:
+
+1. **Etwas, das Sie wissen** - Ihr Passwort
+1. **Etwas, das Sie haben** - Ein Code aus Ihrer Authentifizierungs-App
+
+Das bedeutet, selbst wenn jemand Ihr Passwort erhält, kann er ohne Ihr Telefon nicht auf Ihr Konto zugreifen.
+
+## Voraussetzungen
+
+Bevor Sie MFA einrichten:
+
+1. Installieren Sie eine Authentifizierungs-App auf Ihrem Telefon
+1. Halten Sie Ihr Telefon bereit
+1. Seien Sie in Ihrem Konto angemeldet
+
+### Empfohlene Authentifizierungs-Apps
+
+{% table %}
+- App
+- Plattform
+---
+- **Google Authenticator**
+- iOS, Android
+---
+- **Microsoft Authenticator**
+- iOS, Android
+---
+- **Authy**
+- iOS, Android, Desktop
+---
+- **1Password**
+- iOS, Android, Desktop
+{% /table %}
+
+## MFA einrichten
+
+### Schritt 1: Sicherheitseinstellungen aufrufen
+
+1. Klicken Sie auf Ihren Profil-Avatar
+1. Gehen Sie zu **Einstellungen**
+1. Navigieren Sie zum Abschnitt **Sicherheit** (scrollen Sie nach unten zu Multi-Faktor-Authentifizierung)
+
+*![](https://raw.githubusercontent.com/Goldenhunter1206/sellfaster_content/main/public/site/images/user-guide/how-to/setting-up-mfa/image-mfa-enrolled.png)*
+
+### Schritt 2: MFA-Einrichtung starten
+
+1. Finden Sie den Abschnitt **Multi-Faktor-Authentifizierung**
+1. Klicken Sie auf **MFA aktivieren** oder **Einrichten**
+1. Der Einrichtungsdialog öffnet sich
+
+### Schritt 3: Ihren Faktor benennen
+
+1. Geben Sie einen benutzerfreundlichen Namen für den Faktor ein
+1. Beispiel: "iPhone", "Arbeitstelefon", "Backup-Gerät"
+1. Dies hilft, den Faktor später zu identifizieren
+
+### Schritt 4: QR-Code scannen
+
+Ein QR-Code erscheint auf dem Bildschirm:
+
+1. Öffnen Sie Ihre Authentifizierungs-App
+1. Tippen Sie auf **+** oder **Konto hinzufügen**
+1. Wählen Sie **QR-Code scannen**
+1. Richten Sie Ihre Kamera auf den QR-Code
+1. Das Konto wird Ihrer App hinzugefügt
+
+Der QR-Code verwendet Ihren App-Namen als Aussteller zur einfachen Identifizierung.
+
+### Schritt 5: Verifizierungscode eingeben
+
+1. Schauen Sie in Ihrer Authentifizierungs-App nach
+1. Finden Sie den 6-stelligen Code für Sellfaster
+1. Geben Sie den Code im Verifizierungsfeld ein (6 Ziffern)
+1. Klicken Sie auf **Verifizieren**
+
+Das System erstellt eine Challenge und verifiziert Ihren Code.
+
+### Schritt 6: Bestätigung
+
+MFA ist jetzt aktiviert:
+
+- Sie sehen eine Erfolgsmeldung
+- MFA-Status zeigt "Aktiviert"
+- Der Faktor erscheint in Ihrer Faktorenliste
+- Bei der nächsten Anmeldung wird ein Code benötigt
+
+## Anmelden mit MFA
+
+### Normaler Anmeldevorgang
+
+1. Geben Sie Ihre E-Mail und Ihr Passwort ein
+1. Klicken Sie auf **Anmelden**
+1. Die MFA-Verifizierungsseite erscheint unter `/auth/verify`
+1. Wenn Sie mehrere Faktoren haben, wählen Sie den gewünschten aus
+1. Öffnen Sie Ihre Authentifizierungs-App
+1. Geben Sie den aktuellen 6-stelligen Code ein
+1. Klicken Sie auf **Verifizieren**
+1. Sie sind angemeldet!
+
+### Sicherheitsstufen
+
+Das System verwendet Sicherheitsstufen (AAL):
+
+- **AAL1**: Nur-Passwort-Authentifizierung
+- **AAL2**: Passwort + MFA-Verifizierung
+
+Bestimmte Aktionen können AAL2 (MFA-Verifizierung) erfordern.
+
+## MFA verwalten
+
+### MFA-Status anzeigen
+
+Ihre registrierten Faktoren prüfen:
+
+1. Gehen Sie zu **Einstellungen** > **Sicherheit**
+1. Sehen Sie die Liste der registrierten Faktoren
+1. Jeder zeigt: Benutzerfreundlichen Namen, Faktortyp (TOTP) und Status
+
+### Spalten der Faktorentabelle
+
+{% table %}
+- Spalte
+- Beschreibung
+---
+- **Name**
+- Ihr benutzerfreundlicher Name für den Faktor
+---
+- **Typ**
+- TOTP (Zeitbasiertes Einmalpasswort)
+---
+- **Status**
+- Verifiziert oder Nicht verifiziert
+---
+- **Aktionen**
+- Löschen/Abmelden
+{% /table %}
+
+### MFA deaktivieren (Abmelden)
+
+Um einen Faktor zu entfernen:
+
+1. Gehen Sie zu **Einstellungen** > **Sicherheit**
+1. Finden Sie den Faktor in der Liste
+1. Klicken Sie auf **Löschen** oder das Löschsymbol
+1. Bestätigen Sie die Löschung
+1. Der Faktor wird abgemeldet
+
+> **Hinweis:** Das Entfernen aller Faktoren deaktiviert MFA für Ihr Konto.
+
+## RLS und MFA-Anforderungen
+
+### Super-Admin-Zugang
+
+Super-Admins müssen MFA aktiviert haben:
+
+- Die Funktion `is_super_admin()` erfordert AAL2
+- Dies stellt sicher, dass privilegierte Operationen erhöhte Sicherheit haben
+
+### MFA-Compliance
+
+Das System hat eine `is_mfa_compliant()`-Funktion:
+
+- Wenn Sie verifizierte MFA-Faktoren haben, ist AAL2 erforderlich
+- Ohne MFA-Faktoren ist AAL1 ausreichend
+- Dies gilt für verschiedene sensible Operationen
+
+### Geschützte Tabellen
+
+MFA-Compliance-Richtlinien gelten für:
+
+- Konten
+- Kontomitgliedschaften
+- Abonnements
+- Abonnement-Positionen
+- Rollenberechtigungen
+- Einladungen
+- Bestellungen
+- Bestellpositionen
+- Benachrichtigungen
+
+## Fehlerbehebung
+
+### Code funktioniert nicht
+
+Wenn Ihr Code nicht akzeptiert wird:
+
+1. **Zeit prüfen** - Codes wechseln alle 30 Sekunden
+1. **Auf neuen Code warten** - Den nächsten versuchen
+1. **Richtiges Konto überprüfen** - Richtiger Eintrag in der App?
+1. **Telefonzeit prüfen** - Muss genau sein
+
+### Probleme mit der Telefonzeit
+
+TOTP-Codes hängen von einer genauen Zeit ab:
+
+1. Zeiteinstellungen Ihres Telefons prüfen
+1. Automatische Zeit aktivieren
+1. Authentifizierungs-App neu starten
+1. Erneut versuchen
+
+### Telefon verloren
+
+Wenn Sie Ihr Telefon verlieren:
+
+1. Sie müssen den Support zur Identitätsüberprüfung kontaktieren
+1. Nach der Überprüfung kann MFA zurückgesetzt werden
+1. MFA erneut mit einem neuen Gerät einrichten
+
+### Codes werden immer abgelehnt
+
+Wenn Codes nie funktionieren:
+
+1. Zeiteinstellungen Ihres Telefons prüfen (müssen genau sein)
+1. Automatische Zeitsynchronisation aktivieren
+1. MFA deaktivieren und erneut aktivieren (wenn Sie noch Zugriff haben)
+1. Eine andere Authentifizierungs-App versuchen
+
+### Faktor kann nicht gelöscht werden
+
+Wenn Sie einen Faktor nicht entfernen können:
+
+1. Überprüfen Sie, ob Sie authentifiziert sind
+1. Prüfen Sie auf Fehler in der Konsole
+1. Versuchen Sie, die Seite zu aktualisieren
+1. Kontaktieren Sie den Support, wenn das Problem weiterbesteht
+
+## MFA Best Practices
+
+### Sicherheitstipps
+
+1. **MFA immer aktivieren** - Zusätzlicher Schutz für Ihr Konto
+1. **Telefon sichern** - Sperrbildschirm, Biometrie
+1. **Authentifizierungs-App sichern** - Einige Apps unterstützen Cloud-Backup
+1. **Beschreibende Namen verwenden** - Erleichtert die Verwaltung mehrerer Faktoren
+
+### Was tun bei Telefonwechsel?
+
+Wenn Sie ein neues Telefon bekommen:
+
+1. **Bevor Sie das alte Telefon löschen:**
+   - Authentifizierungskonten übertragen, wenn die App es unterstützt
+   - Oder altes Telefon vorübergehend zugänglich halten
+1. **Nach dem Einrichten des neuen Telefons:**
+   - Authentifizierungs-App installieren
+   - Zu Sicherheitseinstellungen gehen
+   - Alten Faktor abmelden
+   - Neuen Faktor mit neuem Gerät registrieren
+
+### Mehrere Faktoren
+
+Erwägen Sie, mehrere Faktoren hinzuzufügen:
+
+- Primäres Telefon
+- Backup-Gerät
+- Verschiedene Authentifizierungs-Apps
+
+Wenn Sie mehrere Faktoren haben, können Sie bei der Anmeldung wählen, welchen Sie verwenden möchten.
+
+## Technische Details
+
+### TOTP-Standard
+
+Sellfaster verwendet TOTP (Zeitbasiertes Einmalpasswort):
+
+- Codes wechseln alle 30 Sekunden
+- 6-stellige Codes
+- Standardalgorithmus kompatibel mit den meisten Authentifizierungs-Apps
+
+### Authentifizierungsablauf
+
+1. Benutzer gibt Passwort ein (AAL1)
+1. Wenn MFA erforderlich, Weiterleitung zu `/auth/verify`
+1. Benutzer wählt Faktor (bei mehreren)
+1. Benutzer gibt TOTP-Code ein
+1. System verifiziert über `challengeAndVerify`
+1. Sitzung wird auf AAL2 hochgestuft
+
+## Verwandte Themen
+
+- [Sicherheitseinstellungen](/docs/user-guide-de/personal-account/security) - Vollständige Sicherheitsoptionen
+- [Anmelden](/docs/user-guide-de/getting-started/signing-in) - Authentifizierung
+- [Passwort zurücksetzen](/docs/user-guide-de/getting-started/password-reset) - Passwortwiederherstellung

@@ -1,0 +1,289 @@
+---
+title: Fehlerbehebung Datenprobleme
+description: Lösungen für Probleme mit Datenanzeige, Synchronisierung, Importen und Datenverwaltung.
+order: 2
+language: de
+categories:
+  - user-guide
+tags:
+  - troubleshooting
+status: published
+collapsible: false
+collapsed: false
+---
+Lösungen für Probleme mit Datenanzeige, Synchronisierung, Importen und Datenverwaltung.
+
+## Daten werden nicht angezeigt
+
+### Leere Listen
+
+**Symptom:** Listen zeigen keine Daten
+
+**Lösungen:**
+
+1. **Filter prüfen** - Alle Filter zurücksetzen
+1. **Datumsbereich prüfen** - Datumsauswahl erweitern
+1. **Konto prüfen** - Richtiges persönliches Konto/Teamkonto?
+1. **Seite aktualisieren** - Daten müssen möglicherweise neu geladen werden
+1. **Berechtigungen prüfen** - Möglicherweise kein Zugriff
+
+### Fehlende Daten
+
+**Symptom:** Erwartete Daten erscheinen nicht
+
+**Lösungen:**
+
+1. **Danach suchen** - Suchfunktion verwenden
+1. **Filter prüfen** - Möglicherweise durch Filter ausgeblendet
+1. **Andere Orte prüfen** - Andere Kampagne?
+1. **Speicherung überprüfen** - War das Speichern erfolgreich?
+1. **Mit anderen prüfen** - Hat jemand es gelöscht?
+
+### Veraltete Daten
+
+**Symptom:** Daten scheinen alt oder veraltet
+
+**Lösungen:**
+
+1. **Seite aktualisieren** - Neueste Daten abrufen
+1. **Cache leeren** - Browser kann alte Daten zwischenspeichern
+1. **Sync-Status prüfen** - Nach Synchronisierungsanzeigen suchen
+1. **Warten und erneut versuchen** - Synchronisierung ist möglicherweise in Bearbeitung
+
+## Synchronisierungsprobleme
+
+### Änderungen werden nicht gespeichert
+
+**Symptom:** Bearbeitungen bleiben nicht erhalten
+
+**Lösungen:**
+
+1. **Auf Fehler prüfen** - Nach Fehlermeldungen in der Benutzeroberfläche suchen
+1. **Internet überprüfen** - Verbindung zum Speichern erforderlich
+1. **Erneut versuchen** - Möglicherweise vorübergehendes Problem
+1. **Pflichtfelder** - Alle Pflichtfelder ausgefüllt?
+1. **Berechtigungen prüfen** - Ihre Rolle erlaubt möglicherweise nicht die Bearbeitung dieses Elements
+
+### Synchronisierungskonflikte
+
+**Symptom:** Datenkonflikte oder Überschreibungen
+
+**Lösungen:**
+
+1. **Aktualisieren und überprüfen** - Neueste Version abrufen
+1. **Änderungen erneut vornehmen** - Auf aktualisierten Daten
+1. **Mit dem Team abstimmen** - Gleichzeitige Bearbeitungen am selben Datensatz vermeiden
+
+### Echtzeit-Updates funktionieren nicht
+
+**Symptom:** Änderungen anderer werden nicht sofort angezeigt
+
+**Lösungen:**
+
+1. **Seite aktualisieren** - Manuelles Update, um neueste Änderungen zu sehen
+1. **Verbindung prüfen** - Internetprobleme können Echtzeit-Updates verhindern
+1. **Echtzeit-Verfügbarkeit** - Echtzeit-Updates werden für bestimmte Funktionen wie den Import-Job-Status verwendet; nicht alle Daten werden in Echtzeit aktualisiert
+1. **Fallback** - Wenn Echtzeit fehlschlägt, verwendet das System Polling als Fallback
+
+## Importprobleme
+
+### Import fehlgeschlagen
+
+**Symptom:** Importvorgang fehlgeschlagen
+
+**Lösungen:**
+
+1. **Dateiformat prüfen** - Nur CSV-Dateien werden unterstützt
+1. **Datei überprüfen** - Sicherstellen, dass Spalten dem erwarteten Format entsprechen
+1. **Dateigröße prüfen** - Sehr große Dateien können Probleme verursachen
+1. **Fehlerprotokoll überprüfen** - Import-Job-Status auf spezifische Fehlermeldungen prüfen
+
+### Falsche Daten importiert
+
+**Symptom:** Daten entsprechen nicht den Erwartungen
+
+**Lösungen:**
+
+1. **Spaltenzuordnung überprüfen** - Sicherstellen, dass Felder beim Import korrekt zugeordnet sind
+1. **Datenformat prüfen** - Datums- und Zahlenangaben müssen im richtigen Format sein
+1. **Erneut importieren** - Mit korrigierter Zuordnung
+
+### Duplikate erstellt
+
+**Symptom:** Import hat doppelte Datensätze erstellt
+
+**Lösungen:**
+
+Während des Imports werden Ihnen Optionen zur Duplikatauflösung angeboten:
+
+1. **Überspringen** - Den vorhandenen Lead ohne Änderungen verwenden
+1. **Zusammenführen** - Vorhandenen Lead mit neuen Daten aktualisieren (mit konfigurierbaren Zusammenführungsstrategien für benutzerdefinierte Felder)
+1. **Erstellen** - Einen neuen Lead trotz des Duplikats erstellen
+
+Für benutzerdefinierte Felder können Sie die Zusammenführungsmethode wählen:
+
+- **Bestehende beibehalten** - Alle vorhandenen Werte beibehalten
+- **Nicht-Null zusammenführen** - Leere Felder aus CSV füllen, vorhandene nicht-leere Werte beibehalten
+- **Nicht-Null überschreiben** - Vorhandene Werte mit neuen nicht-null CSV-Werten aktualisieren
+- **Überschreiben** - Alle Werte einschließlich Nullwerte ersetzen
+
+### Import hängt fest
+
+**Symptom:** Importfortschritt bewegt sich nicht
+
+**Lösungen:**
+
+1. **Länger warten** - Große Importe benötigen Zeit; Fortschrittsanzeige prüfen
+1. **Status prüfen** - Import-Jobs zeigen den Status an (ausstehend, laufend, abgeschlossen, fehlgeschlagen, abgebrochen)
+1. **Auf Benutzereingabe prüfen** - Duplikatauflösung wartet möglicherweise auf Ihre Entscheidung
+1. **Kleinere Charge versuchen** - Datei aufteilen und erneut versuchen
+1. **Support kontaktieren** - Falls dauerhaft hängengeblieben
+
+## Datenexport
+
+Die Anwendung unterstützt CSV-Export für Leads innerhalb von Kampagnen. CSV-Dateien beinhalten UTF-8-Kodierung für die korrekte Handhabung von Sonderzeichen und können in Excel oder anderen Tabellenkalkulationsanwendungen geöffnet werden.
+
+So exportieren Sie Leads:
+
+1. Navigieren Sie zur Lead-Liste Ihrer Kampagne
+1. Verwenden Sie die Exportoption, um Leads als CSV herunterzuladen
+
+**Hinweis:** Der Export ist derzeit nur für Leads verfügbar. Andere Datentypen verfügen nicht über eine Exportfunktion - wenden Sie sich an Ihren Administrator, wenn Sie andere Daten exportieren müssen.
+
+## Lead-Datenprobleme
+
+### Lead wird nicht geokodiert
+
+**Symptom:** Lead hat keinen Kartenstandort (nicht verifiziert)
+
+**Lösungen:**
+
+1. **Lead überprüfen** - Ist es ein gültiger, vollständiger Lead?
+1. **Korrekt formatieren** - Straße, Stadt, Bundesland, Postleitzahl angeben
+1. **Manuelle Korrektur** - Sie können Breiten- und Längengradkoordinaten manuell eingeben
+1. **Erneute Geokodierung auslösen** - Die Option zur erneuten Geokodierung verwenden, falls verfügbar
+
+**Hinweis:** Leads werden als "verifiziert" markiert, wenn sie gültige Koordinaten haben. Koordinaten müssen innerhalb gültiger Bereiche liegen (Längengrad: -180 bis 180, Breitengrad: -90 bis 90).
+
+### Falscher Kartenstandort
+
+**Symptom:** Lead befindet sich an falscher Stelle auf der Karte
+
+**Lösungen:**
+
+1. **Lead prüfen** - Tippfehler im Lead?
+1. **Koordinaten bearbeiten** - Breiten-/Längengrad manuell korrigieren
+1. **Lead-Format überprüfen** - Standard-Lead-Formatierung verwenden
+
+### Doppelte Leads
+
+**Symptom:** Derselbe Lead erscheint mehrfach
+
+**Lösungen:**
+
+Die Duplikaterkennung findet während des Imports statt. Beim Importieren von Leads:
+
+1. **Während des Imports** - Sie werden aufgefordert, mit Duplikaten umzugehen (überspringen, zusammenführen oder erstellen)
+1. **Für bestehende Duplikate** - Möglicherweise müssen Sie Duplikate manuell identifizieren und löschen
+1. **Vorbeugung** - Verwenden Sie die Zusammenführungsoption beim Import, um vorhandene Datensätze zu aktualisieren, anstatt Duplikate zu erstellen
+
+## Verkaufsdaten-Probleme
+
+### Verkauf wird nicht angezeigt
+
+**Symptom:** Erfasster Verkauf nicht in der Liste
+
+**Lösungen:**
+
+1. **Datumsfilter prüfen** - Verkauf innerhalb des Bereichs?
+1. **Kampagne prüfen** - Richtige Kampagne ausgewählt?
+1. **Status prüfen** - Möglicherweise in anderem Status
+1. **Speicherung überprüfen** - Auf Fehler beim Speichern prüfen
+
+### Falsche Provision
+
+**Symptom:** Provisionsberechnung inkorrekt
+
+**Lösungen:**
+
+1. **Verkaufsdetails prüfen** - Produkte, Beträge korrekt?
+1. **Verkaufsstatusmodell überprüfen** - Regeln haben sich möglicherweise geändert
+1. **Produktsätze prüfen** - Provision pro Produkt
+1. **Administrator kontaktieren** - Für Fragen zu Regeln
+
+## Leistungsprobleme
+
+### Langsames Laden
+
+**Symptom:** Daten brauchen lange zum Laden
+
+**Lösungen:**
+
+1. **Filter anwenden** - Datenvolumen reduzieren
+1. **Andere Tabs schließen** - Browser-Ressourcen freigeben
+1. **Internet prüfen** - Geschwindigkeitsprobleme?
+1. **Später versuchen** - Server ist möglicherweise ausgelastet
+
+### Zeitüberschreitungen
+
+**Symptom:** Anfragen laufen ab
+
+**Lösungen:**
+
+1. **Umfang reduzieren** - Kleinerer Datumsbereich, mehr Filter
+1. **Aktualisieren und erneut versuchen** - Vorübergehendes Problem
+1. **Andere Zeit versuchen** - Serverlast variiert
+
+## Datenintegrität
+
+### Datenbeschädigung
+
+**Symptom:** Daten sehen falsch oder verstümmelt aus
+
+**Lösungen:**
+
+1. **Seite aktualisieren** - Anzeigeproblem beheben
+1. **Cache leeren** - Zwischengespeicherte fehlerhafte Daten entfernen
+1. **Problem melden** - Möglicherweise ist Support-Hilfe erforderlich
+1. **Nicht bearbeiten** - Bis das Problem gelöst ist
+
+### Unerwartete Änderungen
+
+**Symptom:** Daten haben sich unerwartet geändert
+
+**Lösungen:**
+
+1. **Protokoll prüfen** - Teambesitzer können das Protokoll einsehen, um zu sehen, wer Änderungen vorgenommen hat, wann und was geändert wurde
+1. **Verlauf überprüfen** - Protokolle zeigen alte und neue Werte für überwachte Tabellen
+1. **Mit dem Team kommunizieren** - Die Änderung verstehen
+1. **Hinweis:** Protokolle werden 3 Jahre aufbewahrt
+
+**Überwachte Tabellen:** Kampagnen, Leads, Interaktionen, Verkäufe, Zonen, Zonenmitglieder, Bonusziele, Produkte, Produkt-Kampagnen-Zuordnungen, benutzerdefinierte Felddefinitionen, benutzerdefinierte Feldvorlagen, benutzerdefinierte Feldvorlagenfelder, benutzerdefinierte Feld-Kampagnen-Zuordnungen und benutzerdefinierte Feldwerte.
+
+## Hilfe erhalten
+
+### Zu sammelnde Informationen
+
+Vor der Kontaktaufnahme mit dem Support:
+
+1. Welche Daten betroffen sind
+1. Wann das Problem begann
+1. Fehlermeldungen (genauer Wortlaut)
+1. Schritte zur Reproduktion
+1. Was Sie bereits versucht haben
+
+### Wann den Support kontaktieren
+
+Kontaktieren Sie den Support, wenn:
+
+- Datenverlust vermutet wird
+- Unerklärliche Beschädigung vorliegt
+- Import Systemprobleme verursacht
+- Probleme mehrere Benutzer betreffen
+
+## Verwandte Themen
+
+- [Erweiterte Suche](/docs/user-guide-de/how-to/advanced-search) - Daten finden
+- [Kampagnen-Leads](/docs/user-guide-de/team-account/projects/addresses) - Importvorgang
+- [Leads verwalten](/docs/user-guide-de/personal-account/managing-addresses) - Lead-Verwaltung
+- [Team-Verkäufe](/docs/user-guide-de/team-account/sales) - Verkaufsdaten

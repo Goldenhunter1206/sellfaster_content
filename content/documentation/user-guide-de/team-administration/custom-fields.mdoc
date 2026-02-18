@@ -1,0 +1,396 @@
+---
+title: Benutzerdefinierte Felder
+description: >-
+  Definieren Sie zusätzliche Felder für Adressen, um Daten zu erfassen, die spezifisch für Ihre Geschäftsanforderungen sind.
+order: 4
+language: de
+categories:
+  - user-guide
+tags:
+  - team-administration
+status: published
+collapsible: false
+collapsed: false
+---
+Definieren Sie zusätzliche Felder für Leads, um Daten zu erfassen, die spezifisch für Ihre Geschäftsanforderungen sind.
+
+> **Hinweis:** Benutzerdefinierte Felder sind eine Premium-Funktion. Sie benötigen ein aktives Premium-Abonnement (nicht Starter-Plan), um auf diese Funktion zugreifen zu können.
+
+## Zugriff auf Benutzerdefinierte Felder
+
+1. Stellen Sie sicher, dass Sie sich in Ihrem Teamkonto befinden
+1. Klicken Sie auf **Benutzerdefinierte Felder** in der Seitenleiste
+1. Die URL lautet `https://sellfaster.eu/home/[team]/custom-fields`
+
+> **Hinweis:** Der Zugriff erfordert die Berechtigung `Manager` oder `Eigentümer` oder den Teameigentümer-Status.
+
+## Übersicht
+
+Die Seite für benutzerdefinierte Felder hat zwei Tabs:
+
+- **Felder** - Einzelne Felddefinitionen verwalten
+- **Vorlagen** - Felder in Vorlagen gruppieren und Kampagnen zuweisen
+
+## Feldtypen
+
+Benutzerdefinierte Felder unterstützen die folgenden Typen:
+
+### Textfelder
+
+{% table %}
+- Typ
+- Beschreibung
+- Beispiel
+---
+- **Text**
+- Einzeiliger Text mit optionalen Längenbegrenzungen und Mustervalidierung
+- "ABC Firma"
+---
+- **E-Mail**
+- E-Mail-Adresse mit integrierter Validierung
+- "user@example.com"
+---
+- **Telefon**
+- Telefonnummer mit Mustervalidierung
+- "+49 555-1234"
+---
+- **URL**
+- Webadresse mit URL-Validierung
+- "https://example.com"
+{% /table %}
+
+### Zahlenfelder
+
+{% table %}
+- Typ
+- Beschreibung
+- Beispiel
+---
+- **Zahl**
+- Numerischer Wert mit optionalem Min/Max und Dezimalstellen
+- 42 oder 99,99
+{% /table %}
+
+### Datum/Zeit-Felder
+
+{% table %}
+- Typ
+- Beschreibung
+- Beispiel
+---
+- **Datum**
+- Datumsauswahl mit optionalem Min/Max-Datumsbereich
+- 2024-01-15
+---
+- **DatumZeit**
+- Datum und Uhrzeit im ISO 8601-Format
+- 2024-01-15T14:30:00
+{% /table %}
+
+### Auswahlfelder
+
+{% table %}
+- Typ
+- Beschreibung
+- Beispiel
+---
+- **Dropdown**
+- Einzelauswahl aus vordefinierten Optionen
+- Eine Option wählen
+---
+- **Mehrfachauswahl**
+- Mehrere Auswahlen aus vordefinierten Optionen
+- Mehrere Optionen wählen
+{% /table %}
+
+### Weitere Felder
+
+{% table %}
+- Typ
+- Beschreibung
+---
+- **Boolean**
+- Ja/Nein-Kontrollkästchen
+{% /table %}
+
+## Benutzerdefinierte Felder erstellen
+
+![](https://raw.githubusercontent.com/Goldenhunter1206/sellfaster_content/main/public/site/images/user-guide/team-administration/custom-fields/image.png)
+
+### Neues Feld hinzufügen
+
+1. Gehen Sie zum Tab **Felder**
+1. Klicken Sie auf **Feld erstellen**
+1. Füllen Sie das Formular aus:
+   - **Name** (erforderlich) - Anzeigename (1-100 Zeichen)
+   - **Feldschlüssel** (erforderlich) - Eindeutiger Bezeichner (nur Kleinbuchstaben, Zahlen, Unterstriche)
+   - **Feldtyp** (erforderlich) - Aus verfügbaren Typen auswählen
+   - **Beschreibung** (optional) - Hilfetext für Benutzer
+   - **Erforderlich** - Ob das Feld ausgefüllt werden muss
+   - **Standardwert** (optional) - Platzhalterwert für neue Einträge
+   - **Optionen** - Für Dropdown/Mehrfachauswahl die verfügbaren Auswahlmöglichkeiten definieren
+   - **Validierungsregeln** - Typspezifische Validierung (siehe unten)
+1. Speichern
+
+### Feldeigenschaften
+
+{% table %}
+- Eigenschaft
+- Beschreibung
+---
+- **Name**
+- Anzeige-Label für Benutzer (1-100 Zeichen)
+---
+- **Feldschlüssel**
+- Interner Bezeichner, muss pro Konto einzigartig sein (1-50 Zeichen)
+---
+- **Beschreibung**
+- Hilfetext unterhalb des Feldes (bis zu 500 Zeichen)
+---
+- **Erforderlich**
+- Feld muss einen Wert haben
+---
+- **Benutzer bearbeitbar**
+- Ob Endbenutzer dieses Feld ändern können
+---
+- **In Tabelle anzeigen**
+- Feldwert in Lead-Tabellen-Ansichten (Desktop und Mobil) anzeigen
+---
+- **Sichtbarkeitsbedingung**
+- Wann das Feld erscheint: Alle Adressen, Nur Gebäude oder Nur Nicht-Gebäude
+{% /table %}
+
+### Validierungsregeln
+
+**Textfelder:**
+
+- Minimale Länge
+- Maximale Länge
+- Muster (Regex)
+
+**Zahlenfelder:**
+
+- Minimalwert
+- Maximalwert
+- Dezimalstellen
+
+**Datum/DatumZeit-Felder:**
+
+- Minimaldatum
+- Maximaldatum
+
+### Auswahloptionen
+
+Für Dropdown- und Mehrfachauswahl-Felder:
+
+1. Klicken Sie im Abschnitt Optionen auf **Option hinzufügen**
+1. Geben Sie **Wert** (interner Bezeichner) und **Label** (Anzeigetext) ein
+1. Fügen Sie nach Bedarf weitere Optionen hinzu
+1. Ordnen Sie durch Ziehen neu an
+
+## Felder bearbeiten
+
+### Feld ändern
+
+1. Klicken Sie auf das Aktionsmenü eines Feldes
+1. Wählen Sie **Bearbeiten**
+1. Aktualisieren Sie die Eigenschaften
+1. Speichern
+
+> **Hinweis:** Der Feldschlüssel kann nicht geändert werden, wenn das Feld bereits verwendet wird, um Datenintegrität zu gewährleisten.
+
+### Felder neu ordnen
+
+Felder können neu geordnet werden, um die Anzeigereihenfolge in Formularen zu steuern:
+
+1. Verwenden Sie die Auf/Ab-Pfeile im Aktionsmenü der Zeilen
+1. Die Reihenfolge wird automatisch gespeichert
+
+## Felder archivieren
+
+### Ein Feld archivieren
+
+Anstatt Felder dauerhaft zu löschen, archivieren Sie sie, um Daten zu bewahren:
+
+1. Klicken Sie auf das Aktionsmenü eines Feldes
+1. Wählen Sie **Archivieren**
+1. Bestätigen
+
+Wenn archiviert:
+
+- Feld erscheint nicht mehr in Formularen
+- Bestehende Daten bleiben erhalten
+- Kann später wiederhergestellt werden
+
+### Ein Feld wiederherstellen
+
+1. Aktivieren Sie **Archivierte anzeigen**, um archivierte Felder anzuzeigen
+1. Klicken Sie auf das Aktionsmenü des archivierten Feldes
+1. Wählen Sie **Wiederherstellen**
+
+## Vorlagen
+
+### Was sind Vorlagen?
+
+Vorlagen sind Sammlungen von Feldern, die Kampagnen zugewiesen werden können. Dies ermöglicht es verschiedenen Kampagnen, unterschiedliche Sets von benutzerdefinierten Feldern zu verwenden.
+
+### Vorlagen erstellen
+
+1. Gehen Sie zum Tab **Vorlagen**
+1. Klicken Sie auf **Vorlage erstellen**
+1. Geben Sie ein:
+   - **Name** (erforderlich)
+   - **Beschreibung** (optional)
+   - **Standard** - Als Standardvorlage für neue Kampagnen markieren
+1. Speichern
+
+### Felder zu Vorlagen hinzufügen
+
+1. Öffnen Sie eine Vorlage
+1. Klicken Sie auf **Feld hinzufügen**
+1. Wählen Sie die einzuschließenden Felder aus
+1. Überschreiben Sie optional die "Erforderlich"-Einstellung pro Vorlage
+1. Speichern
+
+### Vorlagenfelder neu ordnen
+
+Felder innerhalb einer Vorlage können neu geordnet werden:
+
+1. Verwenden Sie die Ziehgriffe
+1. Die Reihenfolge wird automatisch gespeichert
+
+### Vorlagen Kampagnen zuweisen
+
+1. Klicken Sie auf das Aktionsmenü einer Vorlage
+1. Wählen Sie **Kampagne zuweisen** oder **Allen Kampagnen zuweisen**
+1. Schalten Sie Kampagnen ein/aus
+1. Änderungen werden automatisch gespeichert
+
+> **Hinweis:** Jede Kampagne kann nur eine Vorlage zugewiesen bekommen. Das Zuweisen einer neuen Vorlage ersetzt die bestehende Zuweisung.
+
+### Standardvorlage
+
+Eine Vorlage kann als Standard markiert werden:
+
+- Wird automatisch beim Erstellen neuer Kampagnen zugewiesen
+- Im Vorlagen-Bearbeitungsformular oder über das Kontrollkästchen einstellbar
+
+## Benutzerdefinierte Felder verwenden
+
+### In Lead-Formularen
+
+Benutzerdefinierte Felder erscheinen automatisch wenn:
+
+- Ein neuer Lead erstellt wird
+- Ein bestehender Lead bearbeitet wird
+- Die Kampagne eine Vorlage mit zugewiesenen Feldern hat
+
+Felder werden basierend auf ihrem Typ mit entsprechenden Eingabesteuerelementen dargestellt.
+
+### In Lead-Tabellen
+
+Felder, die mit **In Tabelle anzeigen** markiert sind, erscheinen als zusätzliche Spalten in Lead-Listenansichten unter `https://sellfaster.eu/home`.
+
+### Filtern
+
+Filtern Sie Leads nach benutzerdefinierten Feldwerten in:
+
+- Lead-Listenansichten
+- Erweiterte Suche
+
+## Sichtbarkeitsbedingungen
+
+Steuern Sie, wann Felder basierend auf dem Adresstyp erscheinen:
+
+{% table %}
+- Bedingung
+- Beschreibung
+---
+- **Alle**
+- Feld wird für alle Leads angezeigt
+---
+- **Nur Gebäude**
+- Feld wird nur für Gebäude-Leads angezeigt
+---
+- **Nur Nicht-Gebäude**
+- Feld wird nur für Nicht-Gebäude-Leads angezeigt
+{% /table %}
+
+## Berechtigungen
+
+{% table %}
+- Aktion
+- Voraussetzung
+---
+- Seite für benutzerdefinierte Felder anzeigen
+- Jeder
+---
+- Felder erstellen/bearbeiten
+- Nur Rolle `Manager` und `Eigentümer`
+---
+- Felder archivieren/wiederherstellen
+- Nur Rolle `Manager` und `Eigentümer`
+---
+- Vorlagen erstellen/bearbeiten
+- Nur Rolle `Manager` und `Eigentümer`
+---
+- Vorlagen zuweisen
+- Nur Rolle `Manager` und `Eigentümer`
+{% /table %}
+
+Zusätzlich erfordern alle Operationen mit benutzerdefinierten Feldern ein aktives Premium-Abonnement.
+
+## Best Practices
+
+### Feldgestaltung
+
+1. **Vorausplanen** - Überlegen Sie, welche Daten Sie für Berichte benötigen
+1. **Klare Namen verwenden** - Machen Sie Feld-Labels selbsterklärend
+1. **Nicht zu viele erstellen** - Fügen Sie nur Felder hinzu, die Sie tatsächlich verwenden
+1. **Logisch gruppieren** - Verwenden Sie Vorlagen, um zusammengehörige Felder zu organisieren
+
+### Feldtypen
+
+1. **Passende Typen verwenden** - Wählen Sie den Typ entsprechend dem erwarteten Datenformat
+1. **Auswahlen für feste Optionen verwenden** - Verwenden Sie keinen Text, wenn die Auswahlmöglichkeiten begrenzt sind
+1. **Erforderlich sparsam verwenden** - Markieren Sie nur wirklich wesentliche Felder als erforderlich
+
+### Vorlagen
+
+1. **Zweckspezifische Vorlagen erstellen** - Verschiedene Kampagnentypen benötigen möglicherweise unterschiedliche Felder
+1. **Standard festlegen** - Machen Sie die gebräuchlichste Vorlage zur Standardvorlage
+1. **Zweck dokumentieren** - Verwenden Sie Beschreibungen, um die Vorlagenverwendung zu erklären
+
+## Fehlerbehebung
+
+### Feld erscheint nicht im Formular
+
+Wenn ein Feld nicht in einem Adressformular erscheint:
+
+1. Stellen Sie sicher, dass das Feld in einer Vorlage enthalten ist
+1. Prüfen Sie, ob die Vorlage der Kampagne zugewiesen ist
+1. Stellen Sie sicher, dass das Feld nicht archiviert ist
+1. Überprüfen Sie, ob die Sichtbarkeitsbedingung zum Adresstyp passt
+
+### Validierungsfehler
+
+Wenn Feldwerte nicht gespeichert werden:
+
+1. Prüfen Sie, ob das Feld als erforderlich markiert ist
+1. Stellen Sie sicher, dass der Wert dem erwarteten Format entspricht
+1. Überprüfen Sie Min/Max-Beschränkungen
+1. Stellen Sie bei Auswahlen sicher, dass der Wert eine gültige Option ist
+
+### Premium-Funktion nicht verfügbar
+
+Wenn Sie nicht auf benutzerdefinierte Felder zugreifen können:
+
+1. Überprüfen Sie Ihren Abonnement-Plan (erfordert Premium, nicht Starter)
+1. Prüfen Sie Ihren Abrechnungsstatus
+1. Kontaktieren Sie Ihren Teameigentümer bezüglich des Abonnements
+
+## Verwandte Themen
+
+- [Adressen verwalten](/docs/user-guide-de/personal-account/managing-addresses) - Benutzerdefinierte Felder bei Adressen verwenden
+- [Kampagnenkonfiguration](/docs/user-guide-de/team-account/projects/configuration) - Vorlagen Kampagnen zuweisen
+- [Erweiterte Suche](/docs/user-guide-de/how-to/advanced-search) - Nach benutzerdefinierten Feldern filtern

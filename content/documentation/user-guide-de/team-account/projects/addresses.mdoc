@@ -1,0 +1,276 @@
+---
+title: Kampagnen-Leads
+description: >-
+  Verwalten Sie die Leads innerhalb einer bestimmten Kampagne. Dies umfasst das Anzeigen, Hinzufugen, Importieren und Organisieren von Leads, die mit einem Kampagnengebiet verknupft sind.
+order: 1
+language: de
+categories:
+  - user-guide
+tags:
+  - team-account
+status: published
+collapsible: false
+collapsed: false
+---
+Verwalten Sie die Leads innerhalb einer bestimmten Kampagne. Dies umfasst das Anzeigen, Hinzufugen, Importieren und Organisieren von Leads, die mit einem Kampagnengebiet verknupft sind.
+
+## Zugriff auf Kampagnen-Leads
+
+1. Navigieren Sie zu Ihrer Kampagne
+1. Klicken Sie auf den **Leads**-Tab
+1. Sehen Sie die Liste der Leads in dieser Kampagne
+
+## Leads anzeigen
+
+### Tabellenansicht
+
+Die Lead-Tabelle zeigt Kampagnen-Leads mit erweiterbaren Zeilen fur Gebaude. Jeder Lead zeigt:
+
+- Strassenadresse und Einheitsinformationen
+- Aktueller Interaktionsstatus (farbcodiert)
+- Zonenzuordnung
+- Verifizierungsstatus
+- Aktionsmenu
+
+Gebaude (Multi-Unit-Leads) konnen erweitert werden, um einzelne Einheiten anzuzeigen.
+
+### Tabellenspalten
+
+{% table %}
+- Spalte
+- Beschreibung
+---
+- **Strasse**
+- Strassenadresse mit Erweiterungssteuerelementen fur Gebaude
+---
+- **Stadt**
+- Stadt des Leads
+---
+- **PLZ**
+- Spezifische Postleitzahl fur diesen Lead
+---
+- **Land**
+- Land des Leads, z.B. Deutschland
+---
+- **Verifiziert**
+- Koordinaten-Verifizierungsstatus
+---
+- **Kampagnen**
+- Kampagnen, denen dieser Lead zugeordnet ist
+---
+- **Aktionen**
+- Bearbeiten, Loschen und weitere Optionen
+{% /table %}
+
+## Filtern und Suchen
+
+### Verfugbare Filter
+
+{% table %}
+- Filter
+- Beschreibung
+---
+- **Suche**
+- Nach Lead-Text suchen
+---
+- **Verifiziert**
+- Nach Verifizierungsstatus filtern
+---
+- **Kampagne**
+- Nach Kampagne filtern
+---
+- **Gebaudetyp**
+- Nach Gebaudetyp filtern, z.B. Mehrfamilienhauser
+{% /table %}
+
+### Filter verwenden
+
+1. Geben Sie Text in das Suchfeld ein, um nach Lead zu filtern
+1. Wahlen Sie verifiziert/nicht verifiziert Status
+1. Wahlen Sie eine Kampagne
+1. Wahlen Sie einen Gebaudetyp
+1. Verwenden Sie **Filter zurucksetzen**, um alle Filter zuruckzusetzen
+
+Filter aktualisieren die URL und bleiben uber Seitenaktualisierungen hinweg erhalten.
+
+## Leads hinzufugen
+
+### Manuelle Eingabe
+
+Benutzer mit `leads:create`-Berechtigung konnen Leads hinzufugen:
+
+1. Klicken Sie auf **Lead hinzufugen**
+1. Geben Sie Lead-Details ein:
+
+- Strassenadresse
+- Stadt, Bundesland, Postleitzahl
+- Land
+
+3. Speichern Sie den Lead
+
+### Leads importieren
+
+Mehrere Leads auf einmal importieren:
+
+1. Klicken Sie auf die Schaltflache **Importieren**
+1. Laden Sie eine CSV-Datei hoch
+1. Ordnen Sie Spalten den Lead-Feldern zu
+1. Vorschau des Imports
+1. Bestatigen und Import starten
+
+Grosse Importe laufen im Hintergrund mit Fortschrittsverfolgung.
+
+### Import-Fortschritt
+
+Fur Hintergrund-Importe:
+
+- Fortschrittsdialog zeigt aktuellen Status
+- Benachrichtigungen bei Abschluss
+- Fehler oder Duplikate uberprufen
+
+### Duplikaterkennung
+
+Wahrend des Imports konnen Duplikate erkannt werden:
+
+1. Der Import pausiert, wenn Duplikate gefunden werden
+1. Uberprufen Sie jedes potenzielle Duplikat
+1. Wahlen Sie: zusammenfuhren, uberspringen oder trotzdem erstellen
+1. Fahren Sie mit den verbleibenden Leads fort
+
+## Leads verwalten
+
+### Lead-Details anzeigen
+
+Klicken Sie auf eine Lead-Zeile, um zur Detailseite zu navigieren mit:
+
+- Vollstandige Lead-Informationen
+- Interaktionsverlauf
+- Verkaufsverlauf
+- Benutzerdefinierte Feldwerte
+- Einheiten (fur Gebaude)
+
+### Leads bearbeiten
+
+Benutzer mit `leads:update`-Berechtigung:
+
+1. Klicken Sie auf das Lead-Zeilenmenu
+1. Wahlen Sie die Bearbeitungsaktion
+1. Andern Sie Felder
+1. Speichern Sie die Anderungen
+
+### Zonen zuweisen
+
+Leads konnen Zonen zugewiesen werden:
+
+1. Uber das Lead-Aktionsmenu
+1. Wahlen Sie eine Zone
+1. Oder verwenden Sie die Kartenansicht fur geografische Zuordnung
+
+### Massenoperationen
+
+Wahlen Sie mehrere Leads fur Massenaktionen:
+
+- **Massenentzuordnung** - Zonenzuordnungen entfernen
+
+## Leads exportieren
+
+### Export-Optionen
+
+1. Klicken Sie auf die Schaltflache **Exportieren**
+1. Wahlen Sie das Exportformat:
+
+- Sichtbare (gefilterte) Leads exportieren
+- Alle Leads exportieren
+
+### Exportformat
+
+Exporte erzeugen eine CSV-Datei mit:
+
+- Lead-Feldern
+- Zonenzuordnungen
+- Interaktionsstatus
+- Benutzerdefinierten Feldwerten
+
+Der Dateiname enthalt den Kampagnennamen und das Datum.
+
+## Lead-Status
+
+### Interaktionsstatus
+
+Jeder Lead zeigt seinen aktuellen Interaktionsstatus:
+
+- Farbcodierte Badges
+- Status in der Kampagnenkonfiguration definiert
+- Wird aktualisiert, wenn Interaktionen erfasst werden
+
+Siehe [Interaktionsstatus](/docs/user-guide-de/team-administration/interaction-states) fur die Konfiguration.
+
+## Berechtigungen
+
+### Erforderliche Berechtigungen
+
+{% table %}
+- Aktion
+- Erforderliche Berechtigung
+---
+- Lead erstellen
+- `leads:create` + aktive/Entwurf-Kampagne
+---
+- Lead aktualisieren
+- `leads:update` + aktive/Entwurf-Kampagne
+---
+- Lead entzuordnen
+- `leads:delete` + aktive/Entwurf-Kampagne
+{% /table %}
+
+## Best Practices
+
+### Datenqualitat
+
+1. **Koordinaten verifizieren** - Prufen Sie, ob Leads korrekt auf der Karte erscheinen
+1. **Zonen zuweisen** - Leads geografisch organisieren
+1. **Status aktuell halten** - Interaktionsstatus regelmasig aktualisieren
+
+### Importieren
+
+1. **Daten vor dem Import bereinigen** - Formatierungsprobleme zuerst beheben
+1. **Einheitliches Format verwenden** - Gleiches Adressformat uber alle Importe
+1. **Duplikate uberprufen** - Duplikate sorgfaltig zusammenfuhren oder uberspringen
+1. **Regelmasig exportieren** - Lead-Daten regelmasig sichern
+
+## Fehlerbehebung
+
+### Lead wird nicht angezeigt
+
+Wenn ein Lead nicht erscheint:
+
+1. Prufen Sie den Suchfilter
+1. Prufen Sie den Zonenfilter
+1. Prufen Sie den Statusfilter
+1. Setzen Sie alle Filter zuruck und versuchen Sie es erneut
+1. Aktualisieren Sie die Seite
+
+### Import-Probleme
+
+Wenn der Import fehlschlagt:
+
+1. Prufen Sie CSV-Format und Spaltenuberschriften
+1. Uberprufen Sie, ob erforderliche Felder vorhanden sind
+1. Uberprufen Sie Import-Fehlermeldungen
+1. Prufen Sie auf ungultige Daten in Zeilen
+
+### Duplikat-Dialog
+
+Wenn der Duplikat-Dialog erscheint:
+
+1. Uberprufen Sie jede potenzielle Ubereinstimmung sorgfaltig
+1. Vergleichen Sie Leads, um festzustellen, ob es echte Duplikate sind
+1. Zusammenfuhren bei gleicher Adresse, uberspringen bei verschiedenen
+1. Fahren Sie mit der Verarbeitung der verbleibenden Leads fort
+
+## Verwandte Themen
+
+- [Kartenansicht](/docs/user-guide-de/team-account/projects/map-view) - Geografische Visualisierung
+- [Kampagnen-Ubersicht](/docs/user-guide-de/team-account/projects/overview) - Kampagnenverwaltung
+- [Interaktionsstatus](/docs/user-guide-de/team-administration/interaction-states) - Statuskonfiguration
+- [Team-Leads](/docs/user-guide-de/team-account/leads) - Teamweite Lead-Ansicht

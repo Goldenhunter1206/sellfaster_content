@@ -1,0 +1,302 @@
+---
+title: Kampagnen-Ubersicht
+description: >-
+  Kampagnen helfen Ihnen, Adressen, Gebiete und Verkaufskampagnen zu organisieren. Jede Kampagne gruppiert zusammengehorige Adressen fur fokussierte Verwaltung und Verfolgung.
+order: 0
+language: de
+categories:
+  - user-guide
+tags:
+  - team-account
+status: published
+collapsible: false
+collapsed: false
+---
+Kampagnen helfen Ihnen, Adressen, Gebiete und Verkaufskampagnen zu organisieren. Jede Kampagne gruppiert zusammengehorige Adressen fur fokussierte Verwaltung und Verfolgung.
+
+## Was ist eine Kampagne?
+
+Eine Kampagne reprasentiert:
+
+- Ein **Gebiet** - Geografisches Gebiet, in dem Sie arbeiten
+- Eine **Kampagne** - Zeitlich begrenzte Vertriebsaktion
+- Einen **Kunden** - Adressen fur einen bestimmten Kunden
+- Eine **Produkteinfuhrung** - Adressen, die fur ein neues Produkt anvisiert werden
+
+## Zugriff auf Kampagnen
+
+1. Stellen Sie sicher, dass Sie sich in Ihrem Teamkonto befinden
+1. Klicken Sie auf Kampagnen in der Seitenleiste
+1. Die URL ist `/home/[team]/projects`
+
+## Kampagnenliste
+
+### Tabellenspalten
+
+Die Kampagnentabelle zeigt:
+
+{% table %}
+- Spalte
+- Beschreibung
+---
+- **Name**
+- Kampagnenname
+---
+- **Status**
+- Aktiv, Entwurf, Abgeschlossen oder Abgebrochen
+---
+- **Startdatum**
+- Kampagnen-Startdatum (falls gesetzt)
+---
+- **Enddatum**
+- Kampagnen-Enddatum (falls gesetzt)
+{% /table %}
+
+### Kampagnen filtern
+
+Die Liste filtern nach:
+
+- **Suche** - Nach Name, Status oder Beschreibung suchen
+- **Status** - Nach einem oder mehreren Status filtern (Aktiv, Entwurf, Abgeschlossen, Abgebrochen)
+
+Standardmasig werden nur aktive und Entwurf-Kampagnen angezeigt.
+
+## Kampagne erstellen
+
+### Neue Kampagne
+
+1. Klicken Sie auf die Schaltflache **Neue Kampagne**
+1. Geben Sie Kampagnendetails ein:
+   - **Name** - Kampagnentitel (erforderlich)
+   - **Beschreibung** - Zweck und Notizen
+   - **Startdatum** - Wann die Kampagne beginnt
+   - **Enddatum** - Wann die Kampagne endet
+   - **Verkaufern erlauben, Adressen zu erstellen** - Berechtigungseinstellung
+1. Klicken Sie auf **Kampagne erstellen**
+
+Nach der Erstellung werden Sie zur Kampagnenkonfigurationsseite weitergeleitet.
+
+### Kampagnenfelder
+
+{% table %}
+- Feld
+- Erforderlich
+- Beschreibung
+---
+- **Name**
+- Ja
+- Kampagnenbezeichnung
+---
+- **Beschreibung**
+- Nein
+- Details zur Kampagne
+---
+- **Startdatum**
+- Nein
+- Kampagnenstart
+---
+- **Enddatum**
+- Nein
+- Erwarteter Abschluss
+---
+- **Verkaufern erlauben, Adressen zu erstellen**
+- Nein
+- Mitgliedern erlauben, Adressen hinzuzufugen
+{% /table %}
+
+## Kampagnenstatus
+
+{% table %}
+- Status
+- Beschreibung
+---
+- **Aktiv**
+- Derzeit in Bearbeitung
+---
+- **Entwurf**
+- Noch nicht gestartet
+---
+- **Abgeschlossen**
+- Erfolgreich beendet
+---
+- **Abgebrochen**
+- Beendet
+{% /table %}
+
+## Kampagnendetails
+
+### Zugriff auf Kampagnendetails
+
+Klicken Sie auf eine Kampagnenzeile, um die Detailseite anzuzeigen.
+
+### Kampagnen-Tabs
+
+Jede Kampagne hat funf Tabs:
+
+{% table %}
+- Tab
+- Beschreibung
+---
+- **Ubersicht**
+- Kampagnenzusammenfassung (Standard-Tab)
+---
+- **Konfiguration**
+- Kampagneneinstellungen
+---
+- **Leads**
+- Liste der Kampagnen-Leads
+---
+- **Verkaufe**
+- Verkaufe aus dieser Kampagne
+---
+- **Karte**
+- Geografische Ansicht mit Zonen
+{% /table %}
+
+## Kampagnennavigation
+
+### Ubersicht-Tab
+
+Die Startseite einer Kampagne mit zusammenfassenden Informationen.
+
+### Konfiguration-Tab
+
+Kampagneneinstellungen einschliesslich:
+
+- Kampagnendetails bearbeiten
+- Zonenverwaltung
+- Produktzuordnungen
+- Verkaufsstatusmodell-Zuordnung
+- Kampagne loschen
+
+Siehe [Kampagnenkonfiguration](/docs/user-guide-de/team-account/projects/configuration) fur Details.
+
+### Leads-Tab
+
+Kampagnen-Leads anzeigen und verwalten:
+
+- Tabellenansicht aller Adressen
+- Filtern und suchen
+- Neue Adressen hinzufugen
+- Adressen aus CSV importieren
+- Massenaktionen
+
+Siehe [Kampagnen-Leads](/docs/user-guide-de/team-account/projects/addresses) fur Details.
+
+### Verkaufe-Tab
+
+Kampagnen-Verkaufe verfolgen:
+
+- Verkaufsliste mit Filtern
+- Statusverwaltung
+- Massenstatusubergange
+
+Siehe [Kampagnen-Verkaufe](/docs/user-guide-de/team-account/projects/sales) fur Details.
+
+### Karten-Tab
+
+Interaktive geografische Ansicht:
+
+- Adressmarkierungen
+- Zonen-Overlays
+- Zeichenwerkzeuge
+- Farbcodierte Interaktionsstatus
+
+Siehe [Kartenansicht](/docs/user-guide-de/team-account/projects/map-view) fur Details.
+
+## Kampagnen verwalten
+
+### Kampagne bearbeiten
+
+Benutzer mit `campaigns:update`-Berechtigung konnen bearbeiten:
+
+1. Navigieren Sie zur Kampagne
+1. Klicken Sie auf das Aktionsmenu (drei Punkte) in der Kampagnenliste
+1. Wahlen Sie **Kampagne bearbeiten**
+1. Aktualisieren Sie die Kampagnendetails im Dialog
+1. Speichern Sie die Anderungen
+
+Oder innerhalb der Kampagne:
+
+1. Gehen Sie zum Konfiguration-Tab
+1. Bearbeiten Sie die Kampagneneinstellungen
+
+### Kampagne abbrechen
+
+Um eine Kampagne abzubrechen:
+
+1. Klicken Sie auf das Aktionsmenu in der Kampagnenzeile
+1. Wahlen Sie **Abbrechen**
+1. Der Kampagnenstatus andert sich zu Abgebrochen
+
+Abgebrochene Kampagnen:
+
+- Konnen in der Kampagnenliste gefiltert und angezeigt werden
+- Konnen bei Bedarf reaktiviert werden
+
+### Kampagne reaktivieren
+
+Um eine abgebrochene Kampagne zu reaktivieren:
+
+1. Klicken Sie auf das Aktionsmenu der abgebrochenen Kampagne
+1. Wahlen Sie **Kampagne reaktivieren**
+1. Die Kampagne kehrt zu ihrem vorherigen Status zuruck
+
+### Protokollverlauf anzeigen
+
+Teameigentumer konnen den Kampagnen-Protokollverlauf einsehen:
+
+1. Klicken Sie auf das Aktionsmenu in der Kampagnenzeile
+1. Wahlen Sie **Protokollverlauf**
+1. Uberprufen Sie den Anderungsverlauf
+
+## Kampagnenzonen
+
+Zonen helfen, eine Kampagne geografisch zu unterteilen:
+
+- Zonen auf der Karte zeichnen
+- Adressen Zonen zuweisen
+- Fortschritt nach Zone verfolgen
+- Daten nach Zone filtern
+
+Siehe [Kartenansicht](/docs/user-guide-de/team-account/projects/map-view) fur die Zonenverwaltung.
+
+## Berechtigungen
+
+### Erforderliche Berechtigungen
+
+{% table %}
+- Aktion
+- Erforderliche Berechtigung
+---
+- Kampagne erstellen
+- `campaigns:create` + aktives Abonnement
+---
+- Kampagne aktualisieren
+- `campaigns:update` + aktives Abonnement
+---
+- Protokollverlauf anzeigen
+- Eigentumer-Rolle
+{% /table %}
+
+## Best Practices
+
+### Kampagnenorganisation
+
+1. **Beschreibende Namen verwenden** - Klare Kampagnenidentifikation
+1. **Zeitraume festlegen** - Kampagnenzeitplan definieren
+1. **Beschreibungen hinzufugen** - Kampagnenzweck dokumentieren
+1. **Status korrekt verwenden** - Kampagnenstatus aktuell halten
+
+### Datenverwaltung
+
+1. **Adressen fruh importieren** - Vor dem Start einrichten
+1. **Zonen definieren** - Geografisch organisieren
+1. **Verkaufsstatusmodell konfigurieren** - Workflow vor Verkaufsbeginn einrichten
+
+## Verwandte Themen
+
+- [Kampagnen-Leads](/docs/user-guide-de/team-account/projects/addresses) - Adressen verwalten
+- [Kartenansicht](/docs/user-guide-de/team-account/projects/map-view) - Geografische Visualisierung
+- [Kampagnen-Verkaufe](/docs/user-guide-de/team-account/projects/sales) - Verkaufsverfolgung
+- [Kampagnenkonfiguration](/docs/user-guide-de/team-account/projects/configuration) - Einstellungen

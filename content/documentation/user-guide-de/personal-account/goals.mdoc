@@ -1,0 +1,116 @@
+---
+title: Ziele (Bonusziele)
+description: >-
+  Verfolgen Sie Ihre persönlichen Verkaufsziele und Bonusvorgaben mit der Ziele-Funktion. Überwachen Sie Ihren Fortschritt bei den Ihnen von Ihrem Team zugewiesenen Bonuszielen.
+order: 3
+language: de
+categories:
+  - user-guide
+tags:
+  - personal-account
+status: published
+collapsible: false
+collapsed: false
+---
+Verfolgen Sie Ihre persönlichen Verkaufsziele und Bonusvorgaben mit der Ziele-Funktion. Überwachen Sie Ihren Fortschritt bei den Ihnen von Ihrem Team zugewiesenen Bonuszielen.
+
+## Zugriff auf Ziele
+
+1. Klicken Sie auf **Ziele** in der Seitenleiste
+2. Sehen Sie Ihre aktuellen Bonusziele und den Fortschritt
+3. Die URL ist `/home/goals`
+
+## Bonusziele verstehen
+
+Die Ziele-Seite zeigt Bonusziele, die Ihnen über die `bonus_targets_accounts`-Beziehung zugewiesen wurden. Jedes Ziel zeigt Ihren Fortschritt basierend auf den von Ihnen erfassten Verkäufen.
+
+## Bonusziel-Informationen
+
+Jede Bonusziel-Karte zeigt:
+
+| Feld | Beschreibung |
+|------|-------------|
+| **Zielname** | Name des Bonusziels |
+| **Beschreibung** | Optionale Beschreibung des Ziels |
+| **Zonenbonus** | Badge, das anzeigt, ob es sich um einen zonenspezifischen Bonus handelt |
+| **Zeitraum** | Start- und Enddatum des Zielzeitraums |
+| **Bonusbetrag** | Betrag, den Sie bei Zielerreichung verdienen (in EUR) |
+| **Zielmenge** | Anzahl der Verkäufe, die zum Erreichen des Bonus erforderlich sind |
+
+## Fortschrittsverfolgung
+
+Der Fortschritt wird als zweischichtiger Fortschrittsbalken angezeigt:
+
+### Bestätigte Verkäufe (Primärfarbe)
+Verkäufe, die bestätigt wurden und Provision auslösen. Diese zählen für Ihr endgültiges Ziel.
+
+### Vorgeschlagene Verkäufe (Blau)
+Verkäufe im anfänglichen/vorgeschlagenen Status. Diese warten auf Bestätigung, zeigen aber potenziellen Fortschritt.
+
+### Fortschrittsanzeige
+
+Der Fortschrittsbereich zeigt:
+- **Prozentsatz** - Wie nah Sie am Ziel sind
+- **Bestätigte Anzahl** - Anzahl der bestätigten Verkäufe
+- **Vorgeschlagene Anzahl** - Anzahl der vorgeschlagenen Verkäufe
+- **Verbleibend** - Wie viele weitere Verkäufe zum Erreichen des Ziels benötigt werden
+
+Ein Glitzer-Emoji erscheint, wenn Sie 100% des Ziels erreichen.
+
+## Zonenboni
+
+Einige Bonusziele sind zonenspezifisch, gekennzeichnet durch ein "Zonenbonus"-Badge mit einem Kartennadel-Symbol. Diese Ziele zählen nur Verkäufe, die innerhalb bestimmter Ihnen zugewiesener geografischer Zonen getätigt wurden.
+
+## Zeiträume
+
+Bonusziele haben definierte Zeiträume:
+- **Startdatum** - Wann der Zielzeitraum beginnt
+- **Enddatum** - Frist zum Erreichen des Ziels
+
+Nur aktive Ziele (deren Enddatum heute oder in der Zukunft liegt) werden angezeigt.
+
+## Leerer Zustand
+
+Wenn Sie keine aktiven Bonusziele zugewiesen haben, sehen Sie eine Nachricht:
+"Keine aktiven Bonusziele"
+
+Das bedeutet entweder:
+- Ihnen wurden keine Bonusziele zugewiesen
+- Alle Ihre zugewiesenen Ziele sind abgelaufen (Enddatum überschritten)
+
+Kontaktieren Sie Ihren Team-Administrator, um Bonuszielen zugewiesen zu werden.
+
+## Wie Verkäufe zu Zielen beitragen
+
+Verkäufe tragen basierend auf ihrem Verkaufsstatus zu Bonuszielen bei:
+
+1. **Bestätigte Verkäufe** - Verkäufe, bei denen der Verkaufsstatus `triggers_commission = true` hat
+2. **Vorgeschlagene Verkäufe** - Verkäufe, bei denen der Verkaufsstatus `is_initial = true` hat
+
+Die spezifischen Verkaufsstatus werden von Ihrem Team-Administrator konfiguriert.
+
+## Zielkonfiguration
+
+Bonusziele werden von Team-Administratoren erstellt und konfiguriert. Als Benutzer können Sie:
+
+- Ihre zugewiesenen Ziele einsehen
+- Ihren Fortschritt verfolgen
+- Ihre Verkaufsanzahl für jedes Ziel sehen
+
+Sie können keine Bonusziele von der persönlichen Ziele-Seite erstellen, bearbeiten oder löschen.
+
+Siehe [Bonusziele](/docs/user-guide-de/team-account/bonus-targets) für die Konfiguration auf Teamebene.
+
+## Tipps zum Erreichen von Zielen
+
+1. **Überprüfen Sie regelmäßig den Fortschritt** - Überwachen Sie Ihren Fortschritt auf der Ziele-Seite
+2. **Verstehen Sie den Zeitplan** - Wissen Sie, wann Ziele beginnen und enden
+3. **Konzentrieren Sie sich auf Bestätigungen** - Stellen Sie sicher, dass Verkäufe bestätigt werden, um vollständig zu zählen
+4. **Kennen Sie Ihre Zonen** - Konzentrieren Sie sich bei Zonenboni auf die richtigen Gebiete
+
+## Verwandte Themen
+
+- [Bonusziele](/docs/user-guide-de/team-account/bonus-targets) - Verwaltung von Team-Bonuszielen
+- [Provision](/docs/user-guide-de/team-account/commission) - Einnahmen und Gehaltsabrechnungen
+- [Verkäufe erfassen](/docs/user-guide-de/how-to/recording-sales) - Zu Zielen beitragen
+- [Dashboard](/docs/user-guide-de/personal-account/dashboard) - Schnellübersicht

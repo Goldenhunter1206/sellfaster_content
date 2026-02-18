@@ -1,0 +1,369 @@
+---
+title: Fehlerbehebung Teamzugang
+description: >-
+  Lösungen für Probleme beim Zugriff auf Teamkonten, Berechtigungen und teambezogene
+  Funktionen.
+order: 1
+language: de
+categories:
+  - user-guide
+tags:
+  - troubleshooting
+status: published
+collapsible: false
+collapsed: false
+---
+Lösungen für Probleme beim Zugriff auf Teamkonten, Berechtigungen und teambezogene Funktionen.
+
+## Kein Zugriff auf das Team
+
+### Team wird nicht angezeigt
+
+**Symptom:** Team erscheint nicht im Kontowechsler
+
+**Lösungen:**
+
+1. **Einladung prüfen** - Haben Sie die Einladung angenommen?
+1. **E-Mail überprüfen** - Dieselbe E-Mail wie bei der Einladung verwendet?
+1. **Seite aktualisieren** - Neuladen könnte erforderlich sein
+1. **Ab- und wieder anmelden** - Sitzung zurücksetzen
+1. **Team-Administrator kontaktieren** - Mitgliedschaft bestätigen
+
+### Einladung nicht erhalten
+
+**Symptom:** Keine Team-Einladungs-E-Mail erhalten
+
+**Lösungen:**
+
+1. **Spam-Ordner prüfen** - Wird häufig dorthin gefiltert
+1. **E-Mail-Adresse überprüfen** - Beim Einladenden bestätigen
+1. **Erneuten Versand anfordern** - Administrator bitten, erneut zu senden
+1. **Firmen-E-Mail prüfen** - Könnte an die Arbeits-E-Mail gesendet worden sein
+
+### Einladung kann nicht angenommen werden
+
+**Symptom:** Einladungslink funktioniert nicht
+
+**Lösungen:**
+
+1. **Ablauf prüfen** - Einladungen laufen ab
+1. **Bereits angenommen** - Möglicherweise bereits Mitglied
+1. **Richtiges Konto** - Die eingeladene E-Mail-Adresse verwenden
+1. **Neue Einladung anfordern** - Falls der Link abgelaufen ist
+
+### Aus dem Team entfernt
+
+**Symptom:** Hatte Zugriff, jetzt nicht mehr
+
+**Mögliche Ursachen:**
+
+1. **Vom Administrator entfernt** - Beim Teambesitzer nachfragen
+1. **Kontoproblem** - Ihr Konto hat möglicherweise Probleme
+1. **Team gelöscht** - Team existiert möglicherweise nicht mehr
+
+**Lösung:** Teambesitzer oder Administrator kontaktieren
+
+## Berechtigungsprobleme
+
+### "Zugriff verweigert"-Fehler
+
+**Symptom:** Zugriff auf eine Funktion nicht mehr möglich, die zuvor verfügbar war
+
+**Lösungen:**
+
+1. **Rolle prüfen** - Rolle hat sich möglicherweise geändert
+1. **Funktion eingeschränkt** - Höhere Rolle möglicherweise erforderlich
+1. **Administrator kontaktieren** - Entsprechenden Zugriff anfordern
+
+### Aktion kann nicht ausgeführt werden
+
+**Symptom:** Schaltfläche deaktiviert oder Aktion blockiert
+
+**Lösungen:**
+
+1. **Berechtigungen überprüfen** - Ihre Rolle prüfen
+1. **Eigentümerschaft prüfen** - Einige Aktionen erfordern die Eigentümer-Rolle
+1. **Anforderungen überprüfen** - Aktion hat möglicherweise Voraussetzungen
+
+### Rolle unerwartet geändert
+
+**Symptom:** Rolle anders als erwartet
+
+**Lösungen:**
+
+1. **Beim Administrator nachfragen** - Die Änderung verstehen
+1. **Rollenänderung anfordern** - Falls Sie anderen Zugriff benötigen
+
+## Häufige Berechtigungsprobleme
+
+### Mitglieder können nicht eingeladen werden
+
+**Symptom:** Team-Einladungen können nicht gesendet werden
+
+**Ursache:** Nur Benutzer mit der Berechtigung `invites.manage` können Einladungen senden. Zusätzlich können Sie Benutzer nur zu Rollen auf Ihrer Ebene oder darunter einladen.
+
+**Lösung:**
+
+- Überprüfen Sie Ihre Rolle (Eigentümer, Manager und Mitglied haben standardmäßig `invites.manage`)
+- Wenn Sie zu einer höheren Rolle einladen möchten, bitten Sie jemanden mit dieser Rolle, die Einladung zu senden
+- Kontaktieren Sie Ihren Teambesitzer, wenn Sie erweiterte Berechtigungen benötigen
+
+### Kein Zugriff auf Einstellungen
+
+**Symptom:** Teameinstellungen können nicht angezeigt oder geändert werden
+
+**Ursache:** Einstellungen erfordern die Berechtigung `settings.manage`
+
+**Lösung:**
+
+- Teambesitzer oder Manager kontaktieren
+- Bei Bedarf entsprechende Rolle anfordern
+
+### Abrechnung nicht sichtbar
+
+**Symptom:** Abrechnungsoption nicht sichtbar oder zugänglich
+
+**Ursache:** Abrechnung erfordert die Berechtigung `billing.manage`, die standardmäßig nur der Eigentümer-Rolle gewährt wird. Manager haben keinen Abrechnungszugriff.
+
+**Lösung:** Kontaktieren Sie den Teambesitzer für Abrechnungsangelegenheiten
+
+### Protokoll nicht sichtbar
+
+**Symptom:** Protokolloption nicht sichtbar
+
+**Ursache:** Protokolle sind nur für Benutzer mit der Eigentümer-Rolle zugänglich
+
+**Lösung:** Nur Eigentümer können Protokolle einsehen - kontaktieren Sie den Teambesitzer
+
+## Probleme beim Kampagnenzugriff
+
+### Kein Zugriff auf Kampagne
+
+**Symptom:** Kampagne nicht sichtbar oder zugänglich
+
+**Lösungen:**
+
+1. **Rolle prüfen** - Kampagnenzugriff basiert auf Ihrer Teamrolle, nicht auf einer projektbezogenen Zuweisung
+1. **Teammitgliedschaft überprüfen** - Stellen Sie sicher, dass Sie Mitglied des Teams sind, dem die Kampagne gehört
+1. **Teambesitzer oder Manager kontaktieren** - Entsprechenden Rollenzugriff anfordern
+
+### Bearbeitung in Kampagne nicht möglich
+
+**Symptom:** Anzeige möglich, aber keine Bearbeitung
+
+**Lösungen:**
+
+1. **Teamrolle prüfen** - Mitglieder haben eingeschränkte Bearbeitungsrechte
+1. **Rollenupgrade anfordern** - Teambesitzer oder Manager für die Manager-Rolle kontaktieren, wenn Sie Bearbeitungszugriff benötigen
+
+## Probleme mit der Datensichtbarkeit
+
+### Nicht alle Adressen sichtbar
+
+**Symptom:** Weniger Adressen als erwartet
+
+**Mögliche Ursachen:**
+
+1. **Filter aktiv** - Filter prüfen und zurücksetzen
+1. **Zuweisung** - Möglicherweise nur zugewiesene Adressen sichtbar
+1. **Kampagnenbereich** - Falsche Kampagne angezeigt
+
+**Lösungen:**
+
+1. Alle Filter zurücksetzen
+1. Zuweisungsfilter prüfen
+1. Kampagne wechseln
+
+### Daten von Teammitgliedern nicht sichtbar
+
+**Symptom:** Arbeit anderer kann nicht eingesehen werden
+
+**Ursache:** Möglicherweise rollenbasierte Einschränkung
+
+**Lösung:** Administrator kontaktieren, um die Zugriffsrichtlinie zu verstehen
+
+## Beitrittsprobleme
+
+### Team kann nicht beigetreten werden
+
+**Symptom:** Beitrittsprozess kann nicht abgeschlossen werden
+
+**Lösungen:**
+
+1. **Einladung überprüfen** - Gültig und nicht abgelaufen
+1. **Richtige E-Mail** - Eingeladene E-Mail-Adresse verwenden
+1. **Kontoprobleme** - Ihr Konto hat möglicherweise Einschränkungen
+1. **Administrator kontaktieren** - Für manuelle Lösung
+
+### Fehler "Bereits Mitglied"
+
+**Symptom:** Meldung, dass Sie bereits Mitglied sind, aber kein Zugriff möglich
+
+**Lösungen:**
+
+1. **Browser aktualisieren** - Möglicherweise zwischengespeicherter Status
+1. **Kontowechsler prüfen** - Team könnte dort sein
+1. **Ab- und wieder anmelden** - Sitzung zurücksetzen
+1. **Administrator kontaktieren** - Zur Untersuchung
+
+## Probleme beim Verlassen des Teams
+
+### Team kann nicht verlassen werden
+
+**Symptom:** Keine Option zum Verlassen
+
+**Mögliche Ursachen:**
+
+1. **Haupteigentümer kann nicht verlassen** - Der Haupteigentümer (Kontoersteller) muss zuerst die Eigentümerschaft übertragen oder das Team löschen
+1. **In den Einstellungen suchen** - Option befindet sich möglicherweise in den Teameinstellungen
+
+### Versehentlich Team verlassen
+
+**Symptom:** Team aus Versehen verlassen
+
+**Lösung:**
+
+1. Teambesitzer oder Manager kontaktieren
+1. Neue Einladung anfordern
+1. Annehmen und wieder beitreten
+
+## Rollen- und Berechtigungsreferenz
+
+### Rollen verstehen
+
+Das System verwendet drei Rollen mit einer Hierarchie (höher = mehr Zugriff):
+
+{% table %}
+- Rolle
+- Hierarchie
+- Allgemeiner Zugriff
+---
+- **Eigentümer**
+- 1 (höchste)
+- Vollständiger Zugriff auf alles einschließlich Abrechnung und Protokolle
+---
+- **Manager**
+- 2
+- Team, Mitglieder, Einstellungen und Inhalte verwalten - aber KEIN Abrechnungszugriff
+---
+- **Mitglied**
+- 3 (niedrigste)
+- Eingeschränkte Berechtigungen - kann Einstellungen und Einladungen verwalten
+{% /table %}
+
+### Berechtigungsmatrix
+
+{% table %}
+- Berechtigung
+- Eigentümer
+- Manager
+- Mitglied
+---
+- `roles.manage`
+- ✓
+- ✓
+- ✗
+---
+- `billing.manage`
+- ✓
+- ✗
+- ✗
+---
+- `settings.manage`
+- ✓
+- ✓
+- ✓
+---
+- `members.manage`
+- ✓
+- ✓
+- ✗
+---
+- `invites.manage`
+- ✓
+- ✓
+- ✓
+---
+- `customfields.manage`
+- ✓
+- ✓
+- ✗
+---
+- Entitätsberechtigungen (Kampagnen, Verkäufe, Adressen usw.)
+- ✓
+- ✓
+- ✗
+{% /table %}
+
+### Aktionsmatrix
+
+{% table %}
+- Aktion
+- Eigentümer
+- Manager
+- Mitglied
+---
+- Inhalte anzeigen
+- ✓
+- ✓
+- ✓
+---
+- Inhalte erstellen/bearbeiten
+- ✓
+- ✓
+- Eingeschränkt
+---
+- Mitglieder einladen
+- ✓
+- ✓
+- ✓
+---
+- Einstellungen
+- ✓
+- ✓
+- ✓
+---
+- Abrechnung
+- ✓
+- ✗
+- ✗
+---
+- Protokolle
+- ✓
+- ✗
+- ✗
+---
+- Team löschen
+- Nur Haupteigentümer
+- ✗
+- ✗
+{% /table %}
+
+**Hinweis:** Nur der **Haupteigentümer** (der Benutzer, der das Konto erstellt hat) kann das Team löschen. Dies erfordert eine OTP-Verifizierung.
+
+## Hilfe erhalten
+
+### Vor der Kontaktaufnahme mit dem Administrator
+
+Dokumentieren Sie:
+
+1. Worauf Sie zugreifen möchten
+1. Fehlermeldung (falls vorhanden)
+1. Ihre Rolle im Team
+1. Was sich kürzlich geändert hat
+
+### Support kontaktieren
+
+Wenn der Team-Administrator nicht helfen kann:
+
+1. Kontodetails zusammenstellen
+1. Das Problem dokumentieren
+1. Support kontaktieren
+1. Teamnamen und Ihre E-Mail-Adresse angeben
+
+## Verwandte Themen
+
+- [Team-Übersicht](/docs/user-guide-de/team-account) - Team-Grundlagen
+- [Mitgliederverwaltung](/docs/user-guide-de/team-administration/member-management) - Rollenverwaltung
+- [Einstellungen](/docs/user-guide-de/team-administration/team-settings) - Konfiguration
+- [Kontozugang](/docs/user-guide-de/troubleshooting/account-access) - Anmeldeprobleme

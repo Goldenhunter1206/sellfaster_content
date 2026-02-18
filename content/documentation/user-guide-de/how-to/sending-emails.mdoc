@@ -1,0 +1,278 @@
+---
+title: E-Mails senden
+description: >-
+  Diese Anleitung führt Sie durch das Einrichten und Senden von E-Mails an Leads
+  direkt aus Sellfaster, einschließlich SMTP/IMAP-Konfiguration, E-Mail-Feld-Setup
+  und Antwortverfolgung.
+order: 1
+language: de
+categories:
+  - user-guide
+tags:
+  - how-to
+status: published
+collapsible: false
+collapsed: false
+---
+Diese Anleitung führt Sie durch das Einrichten und Senden von E-Mails an Leads direkt aus Sellfaster, einschließlich SMTP/IMAP-Konfiguration, E-Mail-Feld-Setup und Antwortverfolgung.
+
+## Was ist die E-Mail-Funktion?
+
+Sellfaster ermöglicht es Ihnen, E-Mails direkt an Leads zu senden, ohne die App zu verlassen. Wenn Sie eine E-Mail senden:
+
+- Die E-Mail wird über den konfigurierten SMTP-Server Ihres Teams zugestellt
+- Eine Interaktion wird automatisch beim Lead erfasst
+- Die E-Mail wird für Threading gespeichert, damit Antworten nachverfolgt werden können
+- Wenn IMAP konfiguriert ist, werden eingehende Antworten automatisch erfasst
+
+So bleibt die gesamte Kommunikationshistorie an einem Ort zusammen mit Besuchen, Anrufen und anderen Interaktionen.
+
+## Voraussetzungen
+
+Bevor Sie E-Mails senden können, muss Folgendes eingerichtet sein:
+
+1. **E-Mail-Einstellungen konfiguriert** - Ihr Teamadministrator muss SMTP (und optional IMAP) in den [Einstellungen](/docs/user-guide-de/team-administration/team-settings) einrichten
+1. **Ein benutzerdefiniertes E-Mail-Feld** - Ihre Vorlage muss ein benutzerdefiniertes Feld vom Typ `email` enthalten (siehe [Benutzerdefinierte Felder](/docs/user-guide-de/team-administration/custom-fields))
+1. **Ein Lead mit E-Mail-Adresse** - Das E-Mail-Feld muss beim Lead ausgefüllt sein, den Sie kontaktieren möchten
+1. **Berechtigung** - Sie benötigen die Berechtigung `interactions:create`
+
+## Schritt 1: E-Mail-Einstellungen konfigurieren
+
+Ihr Teamadministrator konfiguriert E-Mail in den Teameinstellungen.
+
+1. Navigieren Sie zu `/home/[team]/settings`
+1. Scrollen Sie zum Abschnitt **E-Mail-Konfiguration**
+1. Füllen Sie die erforderlichen Felder aus
+
+### SMTP-Einstellungen (Ausgehende E-Mail)
+
+{% table %}
+- Feld
+- Standard
+- Beschreibung
+---
+- **Host**
+- —
+- SMTP-Server-Hostname (erforderlich)
+---
+- **Port**
+- 587
+- SMTP-Server-Port (erforderlich)
+---
+- **TLS verwenden**
+- Aus
+- TLS-Verschlüsselung aktivieren
+---
+- **Benutzername**
+- —
+- SMTP-Authentifizierungsbenutzername
+---
+- **Passwort**
+- —
+- SMTP-Authentifizierungspasswort
+{% /table %}
+
+### IMAP-Einstellungen (Eingehende E-Mail / Antwortverfolgung)
+
+{% table %}
+- Feld
+- Standard
+- Beschreibung
+---
+- **Host**
+- —
+- IMAP-Server-Hostname (erforderlich)
+---
+- **Port**
+- 993
+- IMAP-Server-Port (erforderlich)
+---
+- **TLS verwenden**
+- An
+- TLS-Verschlüsselung aktivieren
+---
+- **Benutzername**
+- —
+- IMAP-Authentifizierungsbenutzername
+---
+- **Passwort**
+- —
+- IMAP-Authentifizierungspasswort
+{% /table %}
+
+### Allgemeine E-Mail-Einstellungen
+
+{% table %}
+- Feld
+- Beschreibung
+---
+- **Absender-E-Mail**
+- E-Mail-Adresse, die als Absender verwendet wird (erforderlich)
+---
+- **Absendername**
+- Anzeigename für ausgehende E-Mails (optional)
+---
+- **E-Mail-Signatur**
+- Signatur, die an alle ausgehenden E-Mails angehängt wird (optional)
+{% /table %}
+
+Beim Aktualisieren der E-Mail-Einstellungen können Sie Passwortfelder leer lassen, um das bestehende Passwort beizubehalten. Ein Platzhalter zeigt an, ob bereits ein Passwort gesetzt ist.
+
+## Schritt 2: Ein benutzerdefiniertes E-Mail-Feld erstellen
+
+Um E-Mails an Leads senden zu können, benötigt Ihre Vorlage ein Feld, das die E-Mail-Adresse des Leads speichert.
+
+1. Navigieren Sie zu `/home/[team]/custom-fields`
+1. Klicken Sie auf **Feld erstellen**
+1. Setzen Sie den Feldtyp auf **E-Mail**
+1. Geben Sie einen Namen (z.B. "E-Mail-Adresse") und einen Feldschlüssel (z.B. `email_address`) ein
+1. Konfigurieren Sie Validierung und Sichtbarkeit nach Bedarf
+1. Fügen Sie das Feld einer Vorlage hinzu
+1. Weisen Sie die Vorlage Ihrer Kampagne zu
+
+Der Feldtyp `email` enthält eine eingebaute E-Mail-Validierung, die sicherstellt, dass nur gültige E-Mail-Adressen akzeptiert werden.
+
+Detaillierte Anweisungen finden Sie unter [Benutzerdefinierte Felder](/docs/user-guide-de/team-administration/custom-fields).
+
+## Schritt 3: Eine E-Mail-Adresse zu einem Lead hinzufügen
+
+Sobald die Vorlage zugewiesen ist:
+
+1. Navigieren Sie zur Detailseite des Leads: `/home/[team]/projects/[campaign]/addresses/[address]`
+1. Finden Sie das benutzerdefinierte E-Mail-Feld in den Lead-Details
+1. Geben Sie die E-Mail-Adresse des Leads ein
+1. Änderungen speichern
+
+## Eine E-Mail senden
+
+Mit abgeschlossener Einrichtung können Sie jetzt E-Mails senden:
+
+1. Zum Lead navigieren
+   - Gehen Sie zur Detailseite des Leads
+   - Oder finden Sie den Lead über die Adressliste Ihrer Kampagne
+1. Das Interaktionsformular öffnen
+   - Klicken Sie auf die Schaltfläche **Interaktion hinzufügen**
+1. Die E-Mail-Option auswählen
+   - Klicken Sie auf die E-Mail-Aktion, um zum E-Mail-Verfassungsformular zu wechseln
+1. Ihre E-Mail verfassen
+   - Das **An**-Feld wird automatisch aus dem benutzerdefinierten E-Mail-Feld des Leads ausgefüllt
+   - Geben Sie eine **Betreffzeile** ein
+   - Schreiben Sie den **Text** Ihrer E-Mail
+   - Ihre konfigurierte E-Mail-Signatur wird automatisch angehängt
+1. Einen Interaktionsstatus auswählen
+   - Wählen Sie den passenden Status für diese Interaktion
+1. Eine Nachverfolgung festlegen (optional)
+   - Wenn der gewählte Status die Nachverfolgung aktiviert hat, legen Sie ein Erinnerungsdatum fest
+1. Senden
+   - Klicken Sie auf Senden, um die E-Mail zuzustellen und die Interaktion zu erfassen
+
+### Felder des E-Mail-Formulars
+
+{% table %}
+- Feld
+- Typ
+- Beschreibung
+---
+- **An**
+- vorausgefüllt
+- Empfänger-E-Mail-Adresse aus dem E-Mail-Feld des Leads
+---
+- **Betreff**
+- erforderlich
+- E-Mail-Betreffzeile
+---
+- **Text**
+- erforderlich
+- E-Mail-Nachrichteninhalt
+---
+- **Interaktionsstatus**
+- erforderlich
+- Auswahl aus konfigurierten Status der Kampagne
+---
+- **Nachverfolgungsdatum**
+- bedingt & optional
+- Erscheint nur, wenn der gewählte Status `follow_up: true` konfiguriert hat
+{% /table %}
+
+## Was beim Senden passiert
+
+Wenn Sie auf Senden klicken:
+
+1. **E-Mail wird zugestellt** - Gesendet über den SMTP-Server Ihres Teams an die E-Mail-Adresse des Leads
+1. **Interaktion wird protokolliert** - Eine Interaktion wird automatisch beim Lead mit dem gewählten Status erstellt
+1. **E-Mail wird gespeichert** - Der E-Mail-Inhalt wird gespeichert und über eine Transaktions-ID für Threading verknüpft
+1. **KI-Zusammenfassung wird aktualisiert** - Die KI-generierte Zusammenfassung des Leads kann aktualisiert werden, um die neue Interaktion widerzuspiegeln
+
+## E-Mail-Antwortverfolgung
+
+Wenn Ihr Team IMAP konfiguriert hat, kann Sellfaster automatisch E-Mail-Antworten erfassen:
+
+- Eingehende Antworten werden über Threading mit der Original-E-Mail abgeglichen
+- Abgeglichene Antworten werden als Interaktionen beim Lead protokolliert
+- Ihr Team kann spezifische Interaktionsstatus haben, die als `is_email_reply` für diese automatischen Einträge markiert sind
+- Antwortinhalte werden zur Referenz in der Interaktionshistorie gespeichert
+
+Das bedeutet, Sie können die vollständige E-Mail-Konversationshistorie direkt auf der Detailseite des Leads sehen.
+
+## Best Practices
+
+### E-Mail-Inhalt
+
+1. **Kurz und prägnant** - Kurze, klare E-Mails erhalten bessere Antworten
+1. **Personalisieren** - Auf vorherige Interaktionen oder spezifische Details verweisen
+1. **Klare Handlungsaufforderung** - Dem Empfänger mitteilen, was Sie von ihm brauchen
+1. **Professioneller Ton** - Denken Sie daran, dass E-Mails Ihr Team repräsentieren
+
+### Nachverfolgungen
+
+1. **Erinnerungen setzen** - Nachverfolgungsdaten für E-Mails verwenden, die eine Antwort benötigen
+1. **Antworten nachverfolgen** - Interaktionshistorie des Leads auf eingehende Antworten prüfen
+1. **Zeitnah antworten** - Auf Antworten reagieren, solange der Kontext frisch ist
+
+### Signaturen
+
+1. **Einmal konfigurieren** - E-Mail-Signatur in den Teameinstellungen festlegen für Konsistenz
+1. **Kontaktinformationen einschließen** - Es dem Empfänger leicht machen, Sie über andere Wege zu erreichen
+
+## Fehlerbehebung
+
+### E-Mail wird nicht gesendet
+
+Wenn E-Mails nicht gesendet werden:
+
+1. SMTP-Einstellungen in den Teameinstellungen überprüfen
+1. SMTP-Host, Port und Anmeldedaten prüfen
+1. Sicherstellen, dass die TLS-Einstellungen den Anforderungen Ihres E-Mail-Providers entsprechen
+1. Ihren Teamadministrator kontaktieren, um die Konfiguration zu überprüfen
+
+### Keine E-Mail-Option verfügbar
+
+Wenn Sie die E-Mail-Aktion bei einem Lead nicht sehen:
+
+1. Bestätigen Sie, dass Ihre Vorlage ein benutzerdefiniertes Feld vom Typ `email` enthält
+1. Überprüfen Sie, ob die Vorlage der Kampagne zugewiesen ist
+1. Prüfen Sie, ob der Lead eine E-Mail-Adresse eingetragen hat
+
+### Senden-Schaltfläche nicht sichtbar
+
+Wenn die E-Mail-Sendeoption nicht sichtbar ist:
+
+1. Überprüfen Sie, ob Sie die Berechtigung `interactions:create` haben
+1. Kontaktieren Sie Ihren Teamadministrator, um Ihre Rolle zu prüfen
+
+### Antworten werden nicht angezeigt
+
+Wenn E-Mail-Antworten nicht verfolgt werden:
+
+1. Bestätigen Sie, dass IMAP-Einstellungen in den Teameinstellungen konfiguriert sind
+1. IMAP-Host, Port und Anmeldedaten prüfen
+1. Sicherstellen, dass die TLS-Einstellungen für Ihren E-Mail-Provider korrekt sind
+1. Überprüfen, ob Ihr Team Interaktionsstatus mit `is_email_reply` konfiguriert hat
+
+## Verwandte Themen
+
+- [Interaktionen erfassen](/docs/user-guide-de/how-to/recording-interactions) - Besuche, Anrufe und andere Kontakte protokollieren
+- [Nachverfolgungserinnerungen](/docs/user-guide-de/how-to/follow-up-reminders) - Nachverfolgungserinnerungen planen
+- [Benutzerdefinierte Felder](/docs/user-guide-de/team-administration/custom-fields) - Benutzerdefinierte Felder und Vorlagen verwalten
+- [Interaktionsstatus](/docs/user-guide-de/team-administration/interaction-states) - Interaktionsstatus konfigurieren
+- [Einstellungen](/docs/user-guide-de/team-administration/team-settings) - E-Mail- und Kontokonfiguration

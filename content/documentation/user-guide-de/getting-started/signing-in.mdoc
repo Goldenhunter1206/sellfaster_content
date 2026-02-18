@@ -1,0 +1,103 @@
+---
+title: Anmelden
+description: Diese Anleitung behandelt alle Möglichkeiten, sich bei Ihrem Sellfaster-Konto anzumelden.
+order: 2
+language: de
+categories:
+  - user-guide
+tags:
+  - getting-started
+status: published
+collapsible: false
+collapsed: false
+---
+Diese Anleitung behandelt alle Möglichkeiten, sich bei Ihrem Sellfaster-Konto anzumelden.
+
+## Authentifizierungsmethoden
+
+![](https://raw.githubusercontent.com/Goldenhunter1206/sellfaster_content/main/public/site/images/user-guide/getting-started/signing-in/2026-02-09_15-23-44.png)
+
+### E-Mail und Passwort
+
+1. Navigieren Sie zur Anmeldeseite unter `https://sellfaster.eu/auth/sign-in`
+1. Geben Sie Ihre registrierte E-Mail-Adresse ein
+1. Geben Sie Ihr Passwort ein
+1. Klicken Sie auf **Sign In**
+
+### Google-Anmeldung (OAuth)
+
+1. Navigieren Sie zur Anmeldeseite
+1. Klicken Sie auf **Continue with Google**
+1. Wählen Sie Ihr Google-Konto aus
+1. Sie werden automatisch angemeldet
+
+## Multi-Faktor-Authentifizierung (MFA)
+
+![](https://raw.githubusercontent.com/Goldenhunter1206/sellfaster_content/main/public/site/images/user-guide/getting-started/signing-in/Screenshot%202026-02-09%20at%2015.27.40.png)
+
+Wenn MFA für Ihr Konto aktiviert ist, werden Sie nach der Eingabe Ihrer primären Zugangsdaten zu einem zusätzlichen Verifizierungsschritt aufgefordert:
+
+1. Geben Sie Ihre E-Mail und Ihr Passwort ein (oder verwenden Sie OAuth)
+1. Geben Sie bei Aufforderung den Code aus Ihrer Authenticator-App ein
+1. Klicken Sie auf **Verify**
+
+Siehe [MFA einrichten](/docs/user-guide-de/how-to/setting-up-mfa), um die Multi-Faktor-Authentifizierung zu aktivieren.
+
+## Sitzungsverwaltung
+
+Ihre Sitzung läuft nach einer Zeit der Inaktivität automatisch ab. In diesem Fall:
+
+1. Sie werden zur Anmeldeseite weitergeleitet
+1. Melden Sie sich erneut an, um weiterzuarbeiten
+1. Nicht gespeicherte Arbeit kann verloren gehen
+
+## Abmelden
+
+![](https://raw.githubusercontent.com/Goldenhunter1206/sellfaster_content/main/public/site/images/user-guide/getting-started/signing-in/Screenshot%202026-02-09%20at%2015.28.21.png)
+
+So melden Sie sich von Ihrem Konto ab:
+
+1. Klicken Sie auf Ihren Profil-Avatar in der Seitenleiste
+1. Wählen Sie **Sign Out**
+1. Sie werden zur Anmeldeseite weitergeleitet
+
+## Fehlerbehebung
+
+### Ungültige Zugangsdaten
+
+Wenn der Fehler "Invalid credentials" erscheint:
+
+1. Überprüfen Sie Ihre E-Mail-Adresse
+1. Stellen Sie sicher, dass die FESTSTELLTASTE nicht aktiviert ist
+1. Versuchen Sie, Ihr [Passwort zurückzusetzen](/docs/user-guide-de/getting-started/password-reset)
+
+### Konto nicht gefunden
+
+Wenn Ihr Konto nicht gefunden wird:
+
+1. Überprüfen Sie, ob Sie die richtige E-Mail verwenden
+1. Prüfen Sie, ob Sie sich mit einer anderen Methode registriert haben (Google vs. E-Mail)
+1. [Erstellen Sie ein neues Konto](/docs/user-guide-de/getting-started/creating-account), falls nötig
+
+### OAuth-Anmeldung fehlgeschlagen
+
+Wenn die Google-Anmeldung fehlschlägt:
+
+1. Stellen Sie sicher, dass Pop-ups nicht blockiert sind
+1. Versuchen Sie, Ihren Browser-Cache zu leeren
+1. Verwenden Sie ein Inkognito-/Privatfenster
+1. Kontaktieren Sie den Support, wenn das Problem bestehen bleibt
+
+### Zu viele fehlgeschlagene Versuche
+
+Aus Sicherheitsgründen können Konten nach mehreren fehlgeschlagenen Anmeldeversuchen vorübergehend gesperrt werden:
+
+1. Warten Sie 15-30 Minuten, bevor Sie es erneut versuchen
+1. Nutzen Sie die [Passwort-Zurücksetzung](/docs/user-guide-de/getting-started/password-reset), um ein neues Passwort festzulegen
+1. Kontaktieren Sie den Support, wenn Sie weiterhin gesperrt sind
+
+## Verwandte Themen
+
+- [Passwort zurücksetzen](/docs/user-guide-de/getting-started/password-reset) - Ihr Passwort wiederherstellen
+- [MFA einrichten](/docs/user-guide-de/how-to/setting-up-mfa) - Zwei-Faktor-Authentifizierung aktivieren
+- [Sicherheit](/docs/user-guide-de/personal-account/security) - Authentifizierungsoptionen verwalten

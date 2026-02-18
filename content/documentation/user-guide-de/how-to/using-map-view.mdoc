@@ -1,0 +1,330 @@
+---
+title: Kartenansicht verwenden
+description: >-
+  Diese Anleitung beschreibt, wie Sie die Kartenansicht effektiv nutzen, um Leads
+  zu visualisieren und mit Gebieten zu arbeiten.
+order: 3
+language: de
+categories:
+  - user-guide
+tags:
+  - how-to
+status: published
+collapsible: false
+collapsed: false
+---
+Diese Anleitung beschreibt, wie Sie die Kartenansicht effektiv nutzen, um Leads zu visualisieren und mit Gebieten zu arbeiten.
+
+## Kartentechnologie
+
+Sellfaster verwendet MapLibre GL mit OpenFreemap-Kacheln, um Leads geografisch darzustellen. Die Karte bietet:
+
+- Interaktives Schwenken und Zoomen
+- Lead-Markierungen mit Statusanzeigen
+- Zonenüberlagerungen
+- Clustering für große Datensätze
+
+## Auf die Kartenansicht zugreifen
+
+### Kampagnenkarte
+
+1. Navigieren Sie zu einer Kampagne
+1. Gehen Sie zu `/home/[team]/projects/[campaign]/map`
+1. Alle Kampagnen-Leads auf der Karte anzeigen
+
+*![](https://raw.githubusercontent.com/Goldenhunter1206/sellfaster_content/main/public/site/images/user-guide/how-to/using-map-view/image-map-overview-lead-markers.png)*
+
+### Persönliche Lead-Karte
+
+1. Navigieren Sie zu `/home`
+1. Finden Sie die Kartenansicht für Ihre persönlichen Leads über alle Kampagnen
+
+## Grundlegende Navigation
+
+### Schwenken
+
+Auf der Karte bewegen:
+
+{% table %}
+- Aktion
+- Wie
+---
+- **Maus ziehen**
+- Klicken und ziehen zum Schwenken
+---
+- **Touch**
+- Auf Mobilgeräten wischen
+{% /table %}
+
+### Zoomen
+
+Die Ansicht anpassen:
+
+{% table %}
+- Aktion
+- Wie
+---
+- **Scrollrad**
+- Hoch/runter scrollen zum Zoomen
+---
+- **Zoom-Schaltflächen**
+- +/- Steuerung klicken
+---
+- **Doppelklick**
+- Doppelklicken zum Hineinzoomen
+---
+- **Pinch**
+- Pinch-Geste auf Mobilgeräten
+{% /table %}
+
+## Markierungen verstehen
+
+### Markierungsfarben
+
+Markierungen sind nach Interaktionsstatus farbcodiert:
+
+{% table %}
+- Farbe
+- Status
+---
+- **Rot** (#ef4444)
+- Geschlossen - Lead hat `keep_open: false`
+---
+- **Gelb** (#eab308)
+- Termin ausstehend - hat `follow_up: true`
+---
+- **Grün** (#22c55e)
+- Offen - hat `keep_open: true`
+---
+- **Grau** (#6b7280)
+- Keine Interaktion erfasst
+{% /table %}
+
+### Mehrfamilienhaus-Markierungen
+
+Gebäude mit mehreren Einheiten werden unterschiedlich dargestellt:
+
+- Donut-Diagramm-Visualisierung zeigt Einheitenverteilung
+- Segmente zeigen: Verkauft, Geschlossen, Nachverfolgung, Andere Einheiten
+- Einheitenanzahl wird in der Mitte angezeigt
+- Klicken Sie für die vollständige Einheitenaufschlüsselung
+
+### Markierungs-Clustering
+
+Beim Herauszoomen oder bei vielen Leads:
+
+- Nahegelegene Markierungen werden zusammengefasst
+- Cluster zeigt die Gesamtanzahl
+- Klick auf Cluster zoomt hinein (Zoom +2 Stufen)
+- Clusterfarben zeigen die Dichte:
+  - Blau: < 10 Punkte
+  - Gelb: 10-100 Punkte
+  - Pink: > 100 Punkte
+- Clustering wird automatisch bei 50+ sichtbaren Leads aktiviert
+- Cluster erscheinen bei Zoomstufen < 15
+
+## Mit Leads interagieren
+
+### Lead-Informationen anzeigen
+
+Klicken Sie auf eine Markierung, um ein Popup zu sehen mit:
+
+- Straße des Leads
+- Kampagnenname
+- Zonenname (mit "Automatisch zugewiesen"-Badge falls zutreffend)
+- Einheitenaufschlüsselung für Gebäude
+- Interaktionsstatus-Badge
+- "Details anzeigen"-Schaltfläche
+
+### Hover-Verhalten
+
+- Hover über Markierungen zeigt Tooltip
+- Hover über Zonengrenzen hebt diese hervor
+- Zonendeckkraft erhöht sich auf 0,5 bei Hover
+
+### Navigation
+
+Klicken Sie auf "Details anzeigen", um zur vollständigen Lead-Seite zu gelangen: `/home/[account]/projects/[campaign]/addresses/[lead]`
+
+## Die Karte filtern
+
+### Filterbereich
+
+Die Kampagnenkarte enthält einen Filterbereich mit Tabs:
+
+1. **Zonenfilter** - Bestimmte Zonen ein-/ausblenden
+1. **Interaktionsfilter** - Nach Interaktionsstatus filtern
+1. **Verkaufsfilter** - Nach Produkt und Verkaufsstatus filtern
+
+### Verfügbare Filter
+
+{% table %}
+- Filter
+- Beschreibung
+---
+- **Zone**
+- Checkbox-Auswahl mehrerer Zonen
+---
+- **Interaktionsstatus**
+- Nach konfigurierten Status filtern
+---
+- **Produkt**
+- Verkäufe nach Produkt filtern
+---
+- **Verkaufsstatus**
+- Nach Verkaufsstatus filtern
+---
+- **Datumsbereich**
+- Start- und Enddatumsauswahl
+{% /table %}
+
+### Sichtbarkeitsumschalter
+
+Anzeige umschalten von:
+
+- Zonen (Zonenüberlagerungen ein-/ausblenden)
+- Interaktionen (Interaktionsmarkierungen filtern)
+- Verkäufe (Verkaufsmarkierungen filtern)
+
+### Lead-Quelle
+
+Wechseln zwischen:
+
+- Nur Kampagnen-Leads
+- Alle Konto-Leads
+
+## Mit Zonen arbeiten
+
+### Zonen anzeigen
+
+Zonen werden als farbige Polygonüberlagerungen angezeigt:
+
+- Jede Zone hat eine eigene Füllfarbe
+- Zonengrenzen werden bei Hover mit erhöhter Deckkraft angezeigt
+- Zonenumrisse sind 2px (3px bei Hover)
+
+*![](https://raw.githubusercontent.com/Goldenhunter1206/sellfaster_content/main/public/site/images/user-guide/how-to/using-map-view/image-indiv-markers-with-zone.png)*
+
+### Zoneninformationen
+
+Klicken Sie auf eine Zone, um zu sehen:
+
+- Zonenname
+- Zonenfarbe
+- Anzahl der Leads in der Zone
+
+### Zonendarstellung
+
+Zonen werden als GeoJSON-Features gerendert und unterstützen:
+
+- Polygon-Formen
+- MultiPolygon-Formen
+
+## Viewport-basiertes Laden
+
+Die Karte verwendet intelligentes Laden für optimale Leistung:
+
+- Leads werden basierend auf sichtbaren Kartengrenzen geladen
+- 500ms Debounce verhindert übermäßiges Laden
+- Daten werden beim Schwenken zusammengeführt (nicht alles neu geladen)
+- Aktivitätsindikatoren zeigen Leads mit Interaktionen/Verkäufen
+
+## Kartenlegende
+
+Die Legende zeigt:
+
+- Bedeutung der Markierungsfarben (Geschlossen, Termin, Offen, Keine Interaktion)
+- Mehrfamilienhaus-Indikator
+- Kann ein-/ausgeschaltet werden
+
+## Kartenstatistiken
+
+Die Karte zeigt:
+
+- Angezeigte Leads gesamt
+- Angezeigte Cluster (bei aktiviertem Clustering)
+- Gesamtdatenpunkte
+
+## Tipps für effektive Kartennutzung
+
+### Visuelle Planung
+
+1. **Farben scannen** - Status schnell anhand der Farbe identifizieren
+1. **Cluster-Bewusstsein** - In dichte Bereiche hineinzoomen für Details
+1. **Zonenorganisation** - In zugewiesenen Zonen arbeiten
+1. **Filter nutzen** - Nur relevante Leads anzeigen
+
+### Leistung
+
+Für bessere Leistung:
+
+1. Filter verwenden, um sichtbare Leads zu reduzieren
+1. In Ihren Arbeitsbereich hineinzoomen
+1. Nach Zone filtern, um Daten zu begrenzen
+1. Clustering hilft bei großen Datensätzen
+
+### Täglicher Workflow
+
+1. **Morgenüberprüfung** - Ihr Gebiet betrachten
+1. **Ziele identifizieren** - Leads nach Status/Farbe finden
+1. **Gebietsweise arbeiten** - Auf eine Zone zur Zeit konzentrieren
+1. **Fortschritt verfolgen** - Farbänderungen bei der Arbeit beobachten
+
+## Fehlerbehebung
+
+### Leads werden nicht angezeigt
+
+Wenn Markierungen nicht erscheinen:
+
+1. Aktive Filter prüfen
+1. Herauszoomen, um alle Markierungen zu sehen
+1. Überprüfen, ob Leads Koordinaten haben (Breiten-/Längengrad)
+1. Seite aktualisieren
+
+### Karte wird nicht geladen
+
+Wenn die Karte nicht geladen wird:
+
+1. Internetverbindung prüfen
+1. Browser-Cache leeren
+1. Die Karte hat Wiederholungslogik (bis zu 10 Versuche)
+1. Einen anderen Browser versuchen
+
+### Falscher Standort
+
+Wenn Leads falsch platziert sind:
+
+1. Den ursprünglichen Lead-Eintrag prüfen
+1. Lead benötigt möglicherweise eine Geokodierungskorrektur
+1. Koordinaten auf Genauigkeit überprüfen
+
+### Langsame Leistung
+
+Wenn die Karte langsam ist:
+
+1. Filter anwenden, um sichtbare Leads zu reduzieren
+1. In einen kleineren Bereich hineinzoomen
+1. Clustering sollte automatisch aktiviert werden
+1. Andere Browser-Tabs schließen
+
+## Technische Details
+
+### Kartenkonfiguration
+
+- **Kachelanbieter**: OpenFreemap (Liberty-Stil)
+- **Bibliothek**: MapLibre GL über react-map-gl
+- **Datenformat**: GeoJSON für Zonen und Clustering
+- **Clustering-Schwelle**: 50+ Leads
+- **Cluster-Zoom-Schwelle**: < Zoomstufe 15
+
+### Viewport-Laden
+
+- **Debounce**: 500ms bei Viewport-Änderungen
+- **Datenzusammenführung**: Erhält bestehende Daten beim Schwenken
+- **Bereinigung**: Ordnungsgemäße Unmount-Behandlung
+
+## Verwandte Themen
+
+- [Kartenansicht](/docs/user-guide-de/team-account/projects/map-view) - Kampagnenkarten-Funktionen
+- [Interaktionen erfassen](/docs/user-guide-de/how-to/recording-interactions) - Vom Lead-Detail
+- [Kampagnen-Leads](/docs/user-guide-de/team-account/projects/addresses) - Lead-Verwaltung

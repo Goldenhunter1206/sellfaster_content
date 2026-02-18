@@ -1,0 +1,335 @@
+---
+title: Interaktionsstatus
+description: >-
+  Definieren und verwalten Sie die Status, in denen sich Adressen befinden können. Status helfen Ihrem Team, den Fortschritt der Interaktionen mit jeder Adresse zu verfolgen.
+order: 2
+language: de
+categories:
+  - user-guide
+tags:
+  - team-administration
+status: published
+collapsible: false
+collapsed: false
+---
+Definieren und verwalten Sie die Status, in denen sich Leads befinden können. Status helfen Ihrem Team, den Fortschritt der Interaktionen mit jedem Lead zu verfolgen.
+
+## Zugriff auf Interaktionsstatus
+
+1. Stellen Sie sicher, dass Sie sich in Ihrem Teamkonto befinden
+1. Klicken Sie auf **Interaktionsstatus** in der Seitenleiste
+1. Die URL lautet `https://sellfaster.eu/home/[team]/states`
+
+## Was sind **Interaktionsstatus**?
+
+![](https://raw.githubusercontent.com/Goldenhunter1206/sellfaster_content/main/public/site/images/user-guide/team-administration/interaction-states/image1.png)
+
+Status repräsentieren den aktuellen Zustand einer Adresse in Ihrem Verkaufsprozess. Sie helfen Ihrem Team:
+
+- Den Fortschritt jedes Leads zu verfolgen
+- Leads nach Status zu filtern
+- Kartenmarkierungen farblich zu kennzeichnen
+- Nachverfolgungsaktivitäten zu koordinieren
+
+### Standard-Interaktionsstatus
+
+Wenn ein neues Team erstellt wird, werden automatisch drei Standardstatus hinzugefügt:
+
+{% table %}
+- Status
+- Offen halten
+- Nachverfolgung
+- Farbe
+---
+- **Kein Interesse**
+- Nein
+- Nein
+- Grau
+---
+- **Keine Antwort**
+- Ja
+- Nein
+- Bernstein
+---
+- **Termin angefragt**
+- Ja
+- Ja
+- Grün
+{% /table %}
+
+## Status anzeigen
+
+### Status-Tabelle
+
+Die Status-Tabelle zeigt:
+
+{% table %}
+- Spalte
+- Beschreibung
+---
+- **Name**
+- Statusname mit farbigem Indikator. Zeigt "Standard"-Badge wenn Standard, "Archiviert" wenn archiviert
+---
+- **Beschreibung**
+- Statusbeschreibung (optional)
+---
+- **Offen halten**
+- Badge mit Ja/Nein
+---
+- **Nachverfolgung**
+- Badge mit Ja/Nein
+---
+- **Kampagnen**
+- Kampagnen, die diesen Status verwenden (zeigt die ersten 2 mit Anzahl weiterer)
+{% /table %}
+
+### Status filtern
+
+Standardmäßig werden archivierte Status ausgeblendet. Schalten Sie **Archivierte anzeigen** um, um sie anzuzeigen.
+
+## Status erstellen
+
+![](https://raw.githubusercontent.com/Goldenhunter1206/sellfaster_content/main/public/site/images/user-guide/team-administration/interaction-states/image2.png)
+
+### Neuen Status hinzufügen
+
+1. Klicken Sie auf **Status erstellen**
+1. Füllen Sie das Formular aus:
+
+- **Name** (erforderlich) - Kurzer, klarer Name
+- **Beschreibung** (optional) - Was dieser Status bedeutet
+- **Offen halten** - Lead bleibt offen für zukünftige Interaktionen
+- **Nachverfolgung** - Erfordert die Planung eines Nachverfolgungsdatums (nur verfügbar, wenn Offen halten aktiviert ist)
+- **Farbe** - Wählen Sie aus voreingestellten Farben oder geben Sie einen benutzerdefinierten Hex-Code ein
+- **Standard** - Diesen Status automatisch neuen Kampagnen zuweisen
+
+3. Klicken Sie auf **Speichern**
+
+> **Hinweis:** Das Erstellen von Status erfordert die Rolle `Manager` oder `Eigentümer`.
+
+### Statusfelder
+
+{% table %}
+- Feld
+- Erforderlich
+- Beschreibung
+---
+- **Name**
+- Ja
+- Statusbezeichnung (max. 255 Zeichen)
+---
+- **Beschreibung**
+- Nein
+- Erklärung des Status
+---
+- **Farbe**
+- Nein
+- Hex-Farbcode (z. B. #3B82F6). Wird automatisch bestimmt, wenn nicht gesetzt
+---
+- **Offen halten**
+- Nein
+- Standard: Ja. Wenn aktiviert, bleibt der Lead aktiv
+---
+- **Nachverfolgung**
+- Nein
+- Standard: Nein. Wenn aktiviert, erfordert Nachverfolgungsdatum (erfordert Offen halten)
+---
+- **Standard**
+- Nein
+- Wenn aktiviert, wird automatisch neuen Kampagnen zugewiesen
+{% /table %}
+
+### Statusverhalten
+
+**Offen halten:**
+
+- Wenn aktiviert: Lead bleibt in der aktiven Pipeline
+- Wenn deaktiviert: Lead gilt als geschlossen/abgeschlossen
+
+**Nachverfolgung:**
+
+- Kann nur aktiviert werden, wenn Offen halten ebenfalls aktiviert ist
+- Wenn aktiviert: System fordert zur Eingabe eines Nachverfolgungsdatums auf, wenn dieser Status ausgewählt wird
+- Nützlich für Status wie "Rückruf angefragt" oder "Termin geplant"
+
+### Farbauswahl
+
+Farben helfen bei der visuellen Identifizierung von Status auf:
+
+- Kartenmarkierungen
+- Tabellen-Badges
+
+Eine vordefinierte Farbpalette ist verfügbar, oder Sie können eine benutzerdefinierte Hex-Farbe eingeben. Wenn keine Farbe ausgewählt wird, wird automatisch eine basierend auf den Einstellungen für Offen halten und Nachverfolgung bestimmt.
+
+## Status bearbeiten
+
+### Status ändern
+
+1. Klicken Sie auf das Aktionsmenü (drei Punkte) in der Statuszeile
+1. Wählen Sie **Bearbeiten**
+1. Aktualisieren Sie die Felder
+1. Speichern Sie die Änderungen
+
+> **Hinweis:** Das Bearbeiten von Status erfordert die Rolle `Manager` oder `Eigentümer`.
+
+## Kampagnenzuweisungen
+
+Status werden Kampagnen zugewiesen, um sie bei der Erfassung von Interaktionen verfügbar zu machen.
+
+### Kampagnen zuweisen
+
+1. Klicken Sie auf das Aktionsmenü eines Status
+1. Wählen Sie **Kampagnen zuweisen**
+1. Schalten Sie Kampagnen ein/aus, um sie zuzuweisen/abzuwählen
+1. Änderungen werden automatisch gespeichert
+
+Der Dialog zeigt:
+
+- Alle aktiven und Entwurfs-Kampagnen
+- Kampagnenstatus-Badge
+- Aktuellen Zuweisungsstatus
+
+> **Hinweis:** Archivierte Status können nicht Kampagnen zugewiesen werden.
+
+## Status archivieren
+
+### Einen Status archivieren
+
+Anstatt Status dauerhaft zu löschen, können Sie sie archivieren, um historische Daten zu bewahren:
+
+1. Klicken Sie auf das Aktionsmenü des Status
+1. Wählen Sie **Archivieren**
+1. Lesen Sie die Warnung (zeigt, wie viele Kampagnen diesen Status verwenden)
+1. Bestätigen
+
+Wenn archiviert:
+
+- Status wird aus allen Kampagnenzuweisungen entfernt
+- Bestehende Interaktionen, die diesen Status verwenden, bleiben erhalten
+- Status erscheint nicht mehr in Dropdown-Menüs
+- Status kann später wiederhergestellt werden
+
+> **Hinweis:** Das Archivieren von Status erfordert die Rolle `Manager` oder `Eigentümer`.
+
+### Einen Status wiederherstellen
+
+1. Aktivieren Sie **Archivierte anzeigen**, um archivierte Status anzuzeigen
+1. Klicken Sie auf das Aktionsmenü des archivierten Status
+1. Wählen Sie **Dearchivieren**
+1. Der Status wird wieder aktiv
+
+Nach der Wiederherstellung müssen Sie den Status erneut Kampagnen zuweisen.
+
+## Audit-Protokoll
+
+Teameigentümer können die Änderungshistorie für jeden Status einsehen:
+
+1. Klicken Sie auf das Aktionsmenü eines Status
+1. Wählen Sie **Audit-Protokoll anzeigen**
+1. Sehen Sie alle Änderungen am Status und seinen Kampagnenzuweisungen
+
+## Berechtigungen
+
+{% table %}
+- Aktion
+- Erforderliche Berechtigung
+---
+- Status anzeigen
+- Jedes Teammitglied sieht Status, die in seinen Kampagnen relevant sind
+---
+- Status erstellen
+- Rolle `Manager` oder `Eigentümer`
+---
+- Status bearbeiten
+- Rolle `Manager` oder `Eigentümer`
+---
+- Status archivieren/wiederherstellen
+- Rolle `Manager` oder `Eigentümer`
+---
+- Kampagnen zuweisen
+- Rolle `Manager` oder `Eigentümer`
+---
+- Audit-Protokoll anzeigen
+- Nur Teameigentümer
+{% /table %}
+
+## Best Practices
+
+### Status gestalten
+
+1. **Einfach halten** - Beginnen Sie mit wenigen wesentlichen Status
+1. **Klare Namen** - Verwenden Sie leicht verständliche Namen
+1. **Unterschiedliche Farben** - Verwenden Sie verschiedene Farben für einfache visuelle Identifizierung
+1. **Logischer Ablauf** - Ordnen Sie Status passend zu Ihrem Verkaufsprozess
+
+### Gängige Status-Sets
+
+**Basis-Set:**
+
+- Keine Antwort (Offen halten)
+- Interessiert (Offen halten + Nachverfolgung)
+- Nicht interessiert (Geschlossen)
+
+**Erweitertes Set:**
+
+- Neu (Offen halten)
+- Nicht zu Hause (Offen halten)
+- Kontaktiert (Offen halten)
+- Interessiert (Offen halten + Nachverfolgung)
+- Termin vereinbart (Offen halten + Nachverfolgung)
+- Nicht interessiert (Geschlossen)
+- Nicht kontaktieren (Geschlossen)
+
+## Integration mit anderen Funktionen
+
+### Kartenfarben
+
+Status bestimmen die Markierungsfarben auf Karten und ermöglichen eine schnelle visuelle Identifizierung des Adressstatus.
+
+### Filtern
+
+Filtern Sie Adressen nach Status in:
+
+- Adresslisten
+- Kampagnenansichten
+- Dashboard-Widgets
+
+### Berichte
+
+Status erscheinen in Berichten, die zeigen:
+
+- Verteilung nach Status
+- Konversionsraten
+- Teamleistung
+
+## Fehlerbehebung
+
+### Status erscheint nicht im Dropdown
+
+Wenn ein Status bei der Erfassung einer Interaktion nicht angezeigt wird:
+
+1. Stellen Sie sicher, dass der Status der Kampagne zugewiesen ist
+1. Prüfen Sie, ob der Status nicht archiviert ist
+1. Aktualisieren Sie die Seite
+
+### Falsche Farbe auf der Karte
+
+Wenn die Karte eine falsche Farbe anzeigt:
+
+1. Überprüfen Sie die Farbeinstellung des Status
+1. Leeren Sie den Browser-Cache
+1. Aktualisieren Sie die Karte
+
+### Status kann nicht archiviert werden
+
+Wenn Sie einen Status nicht archivieren können:
+
+1. Stellen Sie sicher, dass Sie die Rolle `Manager` oder `Eigentümer` haben
+1. Prüfen Sie, ob Sie der Teameigentümer sind oder eine ausreichende Rollenhierarchie haben
+
+## Verwandte Themen
+
+- [Verkaufsstatusmodelle](/docs/user-guide-de/team-administration/sale-models) - Konfiguration des Verkaufs-Workflows
+- [Adressen verwalten](/docs/user-guide-de/personal-account/managing-addresses) - Status mit Adressen verwenden
+- [Interaktionen erfassen](/docs/user-guide-de/how-to/recording-interactions) - Adressstatus ändern
+- [Teamübersicht](/docs/user-guide-de/team-account) - Team-Funktionen

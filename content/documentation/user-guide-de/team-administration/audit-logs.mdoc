@@ -1,0 +1,259 @@
+---
+title: Audit-Protokolle
+description: >-
+  Überprüfen Sie die Aktivitätshistorie und verfolgen Sie Änderungen in Ihrem Team. Audit-Protokolle bieten Transparenz und Nachvollziehbarkeit für alle Teamaktionen.
+order: 5
+language: de
+categories:
+  - user-guide
+tags:
+  - team-administration
+status: published
+collapsible: false
+collapsed: false
+---
+Überprüfen Sie die Aktivitätshistorie und verfolgen Sie Änderungen in Ihrem Team. Audit-Protokolle bieten Transparenz und Nachvollziehbarkeit für alle Teamaktionen.
+
+## Zugriff auf Audit-Protokolle
+
+1. Stellen Sie sicher, dass Sie sich in Ihrem Teamkonto befinden
+1. Klicken Sie auf **Protokoll** in der Seitenleiste
+1. Die URL lautet `https://sellfaster.eu/home/[team]/audit`
+
+> **Hinweis:** Audit-Protokolle sind nur für Teameigentümer zugänglich.
+
+## Was wird protokolliert?
+
+Audit-Protokolle verfolgen automatisch INSERT-, UPDATE- und DELETE-Operationen auf den folgenden Tabellen:
+
+**Kerndaten:**
+
+- Kampagnen
+- Adressen
+- Interaktionen
+- Verkäufe
+- Zonen
+- Zonenmitglieder
+
+**Unterstützungsdaten:**
+
+- Bonusziele
+- Produkte
+- Produkt-Kampagnen-Zuweisungen
+
+**Benutzerdefinierte Felder:**
+
+- Definitionen benutzerdefinierter Felder
+- Vorlagen benutzerdefinierter Felder
+- Vorlagen-Felder benutzerdefinierter Felder
+- Kampagnenzuweisungen benutzerdefinierter Felder
+- Werte benutzerdefinierter Felder
+
+**Dashboards:**
+
+- Dashboards
+- Dashboard-Widgets
+- Dashboard-Berechtigungen
+
+## Audit-Protokolle anzeigen
+
+![](https://raw.githubusercontent.com/Goldenhunter1206/sellfaster_content/main/public/site/images/user-guide/team-administration/audit-logs/image.png)
+
+### Protokolltabelle
+
+Die Audit-Protokoll-Tabelle zeigt:
+
+{% table %}
+- Spalte
+- Beschreibung
+---
+- **Zeitstempel**
+- Wann die Änderung erfolgte (mit relativer Zeit)
+---
+- **Benutzer**
+- Wer die Änderung vorgenommen hat (oder "System" für automatisierte Aktionen)
+---
+- **Aktion**
+- Erstellt (grün), Aktualisiert (grau) oder Gelöscht (rot)
+---
+- **Kategorie**
+- Die Tabelle/Entität, die geändert wurde
+---
+- **Beschreibung**
+- Menschenlesbare Zusammenfassung der Änderung
+---
+- **Details**
+- Augensymbol zum Anzeigen vollständiger Änderungsdetails
+{% /table %}
+
+### Details anzeigen
+
+![](https://raw.githubusercontent.com/Goldenhunter1206/sellfaster_content/main/public/site/images/user-guide/team-administration/audit-logs/image.png)
+
+Klicken Sie auf das Augensymbol eines Protokolleintrags, um zu sehen:
+
+**Für erstellte Einträge:**
+
+- Vollständiges JSON des erstellten Datensatzes
+
+**Für gelöschte Einträge:**
+
+- Vollständiges JSON des gelöschten Datensatzes
+
+**Für aktualisierte Einträge:**
+
+- Feld-für-Feld-Vergleich mit:
+  - Feldname
+  - Vorheriger Wert (rot hervorgehoben)
+  - Neuer Wert (grün hervorgehoben)
+
+## Protokolle filtern
+
+### Verfügbare Filter
+
+{% table %}
+- Filter
+- Beschreibung
+---
+- **Datumsbereich**
+- Start- und Enddatum
+---
+- **Benutzer**
+- Nach bestimmtem Teammitglied filtern
+---
+- **Kategorie**
+- Nach Tabellenname filtern (Kampagnen, Adressen usw.)
+---
+- **Aktion**
+- Nach Erstellt, Aktualisiert oder Gelöscht filtern
+{% /table %}
+
+### Filter verwenden
+
+1. Verwenden Sie die Filter-Dropdowns am oberen Rand der Tabelle
+1. Wählen Sie Filterkriterien aus
+1. Ergebnisse werden automatisch mit Debouncing aktualisiert
+1. Klicken Sie auf **Filter zurücksetzen**, um alle Filter zurückzusetzen
+
+Filter werden in der URL abgebildet, sodass Sie gefilterte Ansichten als Lesezeichen speichern oder teilen können.
+
+## Paginierung
+
+- 20 Einträge werden pro Seite angezeigt
+- Die Gesamtanzahl wird in der Tabellenfußzeile angezeigt
+- Verwenden Sie Paginierungssteuerelemente zum Navigieren durch die Ergebnisse
+
+## Datensatzspezifische Historie
+
+In der gesamten App können Sie die Audit-Historie für bestimmte Datensätze einsehen:
+
+1. Navigieren Sie zu einer beliebigen auditierten Entität (Kampagne, Adresse, Verkauf usw.)
+1. Klicken Sie auf das Aktionsmenü
+1. Wählen Sie **Audit-Protokoll anzeigen**
+1. Sehen Sie nur Änderungen, die sich auf diesen spezifischen Datensatz beziehen
+
+Diese Funktion ist verfügbar bei:
+
+- Verkaufsdetailansichten
+- Kampagnenliste
+- Bonusziel-Konfiguration
+- Zuweisungen benutzerdefinierter Felder
+
+## Datenaufbewahrung
+
+Audit-Protokolle werden **3 Jahre** lang aufbewahrt. Ältere Protokolle werden automatisch gelöscht, um die Systemleistung aufrechtzuerhalten.
+
+## Einschränkungen
+
+### Keine Exportfunktion
+
+Die aktuelle Implementierung enthält keine Exportfunktionalität. Audit-Protokolle können nur innerhalb der Browseroberfläche eingesehen werden.
+
+### Nur Eigentümer-Zugriff
+
+Nur Teameigentümer können auf die Seite mit den Audit-Protokollen zugreifen. Andere Teammitglieder, einschließlich Administratoren, können keine Audit-Protokolle einsehen.
+
+## Anwendungsfälle
+
+### Compliance
+
+Verwenden Sie Audit-Protokolle für:
+
+- Regulatorische Compliance-Anforderungen
+- Interne Richtlinienprüfung
+- Sicherheitsüberprüfungen
+
+### Fehlerbehebung
+
+Untersuchen Sie Probleme durch:
+
+- Herausfinden, wann ein Problem begann
+- Identifizieren, was sich geändert hat
+- Sehen, wer die Änderung vorgenommen hat
+
+### Nachvollziehbarkeit
+
+Verfolgen Sie Teamaktivitäten:
+
+- Wer wichtige Datensätze geändert hat
+- Wann Änderungen auftraten
+- Was genau geändert wurde
+
+### Sicherheit
+
+Überwachen Sie:
+
+- Ungewöhnliche Aktivitätsmuster
+- Unerlaubte Änderungen
+- Unerwartete Löschungen
+
+## Best Practices
+
+### Regelmäßige Überprüfung
+
+1. **Periodische Kontrollen** - Überprüfen Sie Audit-Protokolle regelmäßig auf ungewöhnliche Aktivitäten
+1. **Anomalien untersuchen** - Verfolgen Sie unerwartete Änderungen nach
+1. **Ergebnisse dokumentieren** - Notieren Sie Muster oder Bedenken
+
+### Untersuchungsprozess
+
+Bei der Untersuchung eines Problems:
+
+1. Beginnen Sie mit der betroffenen Entität über die datensatzspezifische Historie
+1. Filtern Sie nach Datumsbereich um den Vorfall herum
+1. Arbeiten Sie sich rückwärts durch die Zeitleiste
+1. Überprüfen Sie verwandte Entitäten für Kontext
+1. Dokumentieren Sie Ihre Ergebnisse
+
+## Fehlerbehebung
+
+### Fehlende Einträge
+
+Wenn erwartete Protokolle nicht erscheinen:
+
+1. Überprüfen Sie Ihren Datumsbereichsfilter
+1. Überprüfen Sie den Aktionstyp-Filter
+1. Einige Systemaktionen lösen möglicherweise keine Audit-Protokolle aus
+1. Einträge, die älter als 3 Jahre sind, werden automatisch entfernt
+
+### Unvollständige Details
+
+Wenn Details unvollständig erscheinen:
+
+1. Einige Änderungen können zusammengefasst sein
+1. Sehr alte Protokolle haben möglicherweise weniger Details
+1. Versuchen Sie stattdessen, die Historie des spezifischen Datensatzes anzuzeigen
+
+### Seite lädt langsam
+
+Wenn die Audit-Protokoll-Seite langsam ist:
+
+1. Schränken Sie Ihren Datumsbereich ein
+1. Wenden Sie spezifischere Filter an
+1. Filtern Sie nach Kategorie oder Benutzer, um die Ergebnisse zu reduzieren
+
+## Verwandte Themen
+
+- [Teameinstellungen](/docs/user-guide-de/team-administration/team-settings) - Konfigurationsänderungen
+- [Mitgliederverwaltung](/docs/user-guide-de/team-administration/member-management) - Mitgliederaktivitäten
+- [Sicherheit](/docs/user-guide-de/personal-account/security) - Kontosicherheit

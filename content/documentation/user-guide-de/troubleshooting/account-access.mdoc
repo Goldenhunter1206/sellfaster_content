@@ -1,0 +1,257 @@
+---
+title: Fehlerbehebung Kontozugang
+description: >-
+  Lösungen für häufige Probleme beim Anmelden und beim Zugriff auf Ihr Konto.
+order: 0
+language: de
+categories:
+  - user-guide
+tags:
+  - troubleshooting
+status: published
+collapsible: false
+collapsed: false
+---
+Lösungen für häufige Probleme beim Anmelden und beim Zugriff auf Ihr Konto.
+
+## Anmeldung nicht möglich
+
+### Falsches Passwort
+
+**Symptom:** Fehlermeldung "Ungültige Anmeldedaten" oder "Falsches Passwort"
+
+**Lösungen:**
+
+1. **Feststelltaste prüfen** - Passwörter unterscheiden zwischen Groß- und Kleinschreibung
+2. **Erneut versuchen** - Passwort langsam und sorgfältig eingeben
+3. **Passwort zurücksetzen** - Verwenden Sie die [Passwort-zurücksetzen-Funktion](/docs/user-guide-de/getting-started/password-reset)
+
+### Konto nicht gefunden
+
+**Symptom:** Fehlermeldung "Konto nicht gefunden" oder "Benutzer existiert nicht"
+
+**Lösungen:**
+
+1. **E-Mail-Adresse prüfen** - Stellen Sie sicher, dass keine Tippfehler vorhanden sind
+2. **Andere E-Mail-Adresse versuchen** - Möglicherweise haben Sie eine andere verwendet
+3. **Anmeldemethode prüfen** - Haben Sie stattdessen Google OAuth verwendet?
+4. **Neues Konto erstellen** - Falls Sie sich noch nie registriert haben
+
+### Konto gesperrt
+
+**Symptom:** Anmeldung nicht möglich, obwohl zuvor Zugang bestand
+
+**Hinweis:** Kontosperrungen werden von Super-Administratoren vorgenommen. Wenn Ihr Konto gesperrt wurde:
+
+1. **Support kontaktieren** - Um den Grund zu erfahren und eine Überprüfung anzufordern
+2. **Auf Lösung warten** - Sperrungen können nur von Administratoren aufgehoben werden
+
+### OAuth/Google-Anmeldung fehlgeschlagen
+
+**Symptom:** Google-Anmeldung funktioniert nicht
+
+**Lösungen:**
+
+1. **Popups zulassen** - Der Browser blockiert möglicherweise das OAuth-Fenster
+2. **Cookies löschen** - Für die Google-Domain
+3. **Inkognito-Modus versuchen** - In einem privaten Fenster testen
+4. **Google-Konto prüfen** - Sicherstellen, dass es funktioniert
+5. **Anderen Browser versuchen** - Browserspezifische Probleme
+6. **OAuth-Konfiguration prüfen** - Google OAuth muss vom Anwendungsadministrator eingerichtet werden
+
+## Passwortprobleme
+
+### Passwort vergessen
+
+**Symptom:** Passwort kann nicht erinnert werden
+
+**Lösung:**
+
+1. Zur Anmeldeseite gehen
+2. Auf **Passwort vergessen** klicken
+3. E-Mail-Adresse eingeben
+4. E-Mail auf Zurücksetzungslink prüfen
+5. Neues Passwort erstellen
+
+Siehe [Passwort zurücksetzen](/docs/user-guide-de/getting-started/password-reset) für die vollständige Anleitung.
+
+### Zurücksetzungs-E-Mail nicht erhalten
+
+**Symptom:** Keine E-Mail zum Zurücksetzen des Passworts erhalten
+
+**Lösungen:**
+
+1. **Spam-Ordner prüfen** - Wird häufig dorthin gefiltert
+2. **Einige Minuten warten** - E-Mail-Zustellung kann verzögert sein
+3. **E-Mail-Adresse überprüfen** - Sicherstellen, dass sie korrekt ist
+4. **Erneut anfordern** - Einen neuen Zurücksetzungsantrag stellen
+5. **Beim Administrator nachfragen** - E-Mail könnte blockiert sein
+
+### Passwort-Zurücksetzungslink abgelaufen
+
+**Symptom:** "Link abgelaufen" oder "otp_expired" beim Klicken auf den Zurücksetzungslink
+
+**Lösung:**
+
+1. Zur Anmeldeseite zurückkehren
+2. Einen neuen Zurücksetzungslink anfordern
+3. Zeitnah verwenden (die Linkgültigkeit wird vom Authentifizierungssystem verwaltet)
+
+### Neues Passwort abgelehnt
+
+**Symptom:** Passwort erfüllt die Anforderungen nicht
+
+**Lösung:**
+
+Die Passwortanforderungen hängen von der Konfiguration Ihrer Anwendung ab. Die Standardanforderungen sind:
+- Mindestens 8 Zeichen (maximal 99 Zeichen)
+
+Zusätzliche Anforderungen können aktiviert sein:
+- Großbuchstabe (A-Z) - falls konfiguriert
+- Zahl (0-9) - falls konfiguriert
+- Sonderzeichen (!@#$%^&*(),.?":{}|<>) - falls konfiguriert
+
+Wenden Sie sich an Ihren Administrator, wenn Sie sich über die Passwortanforderungen unsicher sind.
+
+## MFA-Probleme
+
+Diese Anwendung verwendet TOTP (Time-based One-Time Password) für die Multi-Faktor-Authentifizierung, kompatibel mit Authenticator-Apps wie Google Authenticator, Authy oder 1Password.
+
+### Zugang zur Authenticator-App verloren
+
+**Symptom:** Kein Zugriff auf die Authenticator-App
+
+**Lösungen:**
+
+1. **Backup-Gerät versuchen** - Falls Ihre Authenticator-App geräteübergreifend synchronisiert
+2. **Support kontaktieren** - Eine Identitätsprüfung ist erforderlich, um MFA von Ihrem Konto zu entfernen
+
+**Wichtig:** Diese Anwendung unterstützt keine Wiederherstellungscodes. Wenn Sie den Zugang zu Ihrer Authenticator-App ohne Backup verlieren, müssen Sie den Support für eine Kontowiederherstellung kontaktieren, die eine Identitätsprüfung erfordert. Stellen Sie immer sicher, dass Ihre Authenticator-App auf mehreren Geräten synchronisiert wird, oder erstellen Sie ein Backup Ihrer TOTP-Einrichtung.
+
+### MFA-Code funktioniert nicht
+
+**Symptom:** 6-stelliger Code wird wiederholt abgelehnt
+
+**Lösungen:**
+
+1. **Auf neuen Code warten** - Codes wechseln alle 30 Sekunden
+2. **Gerätezeit prüfen** - Die Uhr Ihres Geräts muss genau sein, damit TOTP funktioniert
+3. **Richtiges Konto überprüfen** - Stellen Sie sicher, dass Sie den richtigen Eintrag in Ihrer Authenticator-App verwenden
+4. **App neu synchronisieren** - Einige Authenticator-Apps haben eine Zeitsynchronisierungsoption
+
+## Sitzungsprobleme
+
+### Unerwartet abgemeldet
+
+**Symptom:** Plötzlich abgemeldet
+
+**Mögliche Ursachen:**
+
+1. **Sitzung abgelaufen** - Sitzungen laufen nach einer Inaktivitätsperiode ab (vom Authentifizierungssystem verwaltet)
+2. **Browser hat Daten gelöscht** - Cookies entfernt
+3. **Anderes Gerät** - Sitzungen gelten pro Gerät
+4. **Sicherheitsereignis** - Passwort geändert oder Konto gesperrt
+
+**Lösung:** Melden Sie sich einfach erneut an.
+
+### Anmeldung hält nicht
+
+**Symptom:** Häufige Neuanmeldung erforderlich
+
+**Lösungen:**
+
+1. **Browsereinstellungen prüfen** - Stellen Sie sicher, dass Cookies für diese Website erlaubt sind
+2. **Cookie-Löschung deaktivieren** - Cookies nicht beim Schließen des Browsers löschen
+3. **Sicherheitssoftware prüfen** - Datenschutzerweiterungen oder Antivirenprogramme können Cookies blockieren
+
+### Angemeldet aber kein Zugriff
+
+**Symptom:** Angemeldet, aber "Zugriff verweigert"-Meldung
+
+**Lösungen:**
+
+1. **Konto prüfen** - Sehen Sie das richtige persönliche Konto/Teamkonto?
+2. **Berechtigungen überprüfen** - Ihre Rolle hat möglicherweise keinen Zugriff auf diese Funktion
+3. **Administrator kontaktieren** - Wenn Sie Zugriff haben sollten, fragen Sie Ihren Teambesitzer oder Manager
+4. **Seite aktualisieren** - Könnte ein vorübergehendes Problem sein
+
+## Browserprobleme
+
+### Browser nicht unterstützt
+
+**Symptom:** Anwendung funktioniert nicht richtig
+
+**Lösungen:**
+
+1. **Browser aktualisieren** - Neueste Version verwenden
+2. **Browser wechseln** - Chrome, Firefox, Edge, Safari versuchen
+3. **Erweiterungen deaktivieren** - Können Störungen verursachen
+
+### Cookies deaktiviert
+
+**Symptom:** Anmeldung oder dauerhafte Anmeldung nicht möglich
+
+**Lösungen:**
+
+1. **Cookies aktivieren** - In den Browsereinstellungen
+2. **Für diese Website zulassen** - Gezielt aktivieren
+3. **Erweiterungen prüfen** - Cookie-Blocker?
+
+### Cache-Probleme
+
+**Symptom:** Alte Daten, Seiten laden nicht
+
+**Lösungen:**
+
+1. **Harten Refresh durchführen** - Strg+Umschalt+R / Cmd+Umschalt+R
+2. **Cache leeren** - In den Browsereinstellungen
+3. **Inkognito-Modus versuchen** - Frische Sitzung
+
+## Kontostatus-Probleme
+
+### Konto gelöscht
+
+**Symptom:** Anmeldung nicht möglich, Konto nicht gefunden
+
+**Hinweis:** Wenn Ihr Konto gelöscht wurde:
+- Daten können nicht wiederhergestellt werden
+- Erstellen Sie ein neues Konto
+- Kontaktieren Sie den Support, falls unerwartet
+
+## Hilfe erhalten
+
+### Vor der Kontaktaufnahme mit dem Support
+
+Sammeln Sie folgende Informationen:
+
+1. Verwendete E-Mail-Adresse
+2. Fehlermeldung (genauer Wortlaut)
+3. Wann das Problem begann
+4. Was Sie bereits versucht haben
+5. Browser- und Geräteinformationen
+
+### Support kontaktieren
+
+Wenn Sie das Problem nicht lösen können:
+
+1. Dokumentieren Sie das Problem
+2. Fügen Sie wenn möglich Screenshots bei
+3. Kontaktieren Sie den Support über die entsprechenden Kanäle
+4. Haben Sie Geduld - die Verifizierung kann Zeit in Anspruch nehmen
+
+## Vorbeugung
+
+### Zugriffsprobleme vermeiden
+
+1. **Starkes, einprägsames Passwort verwenden** - Oder einen Passwort-Manager nutzen
+2. **MFA aktivieren** - Zusätzliche Sicherheitsebene mit einer Authenticator-App
+3. **Authenticator-App sichern** - Stellen Sie sicher, dass Sie von mehreren Geräten auf Ihre TOTP-Codes zugreifen können oder ein Backup haben
+4. **E-Mail aktuell halten** - Für die Kontowiederherstellung
+5. **Vertrauenswürdige Geräte verwenden** - Sichere Computer
+
+## Verwandte Themen
+
+- [Anmelden](/docs/user-guide-de/getting-started/signing-in) - Authentifizierungsmethoden
+- [Passwort zurücksetzen](/docs/user-guide-de/getting-started/password-reset) - Wiederherstellungsprozess
+- [Sicherheitseinstellungen](/docs/user-guide-de/personal-account/security) - Kontosicherheit
+- [MFA einrichten](/docs/user-guide-de/how-to/setting-up-mfa) - MFA-Konfiguration

@@ -1,0 +1,177 @@
+---
+title: CSV-Import
+description: >-
+  Importieren Sie Adressen in grosser Menge mithilfe von CSV-Dateien. Erfahren Sie mehr uber das erwartete Format, die Spaltenzuordnung und den Umgang mit Duplikaten beim Import.
+order: 2
+language: de
+categories:
+  - user-guide
+tags:
+  - team-account
+status: published
+collapsible: false
+collapsed: false
+---
+Importieren Sie Adressen in grosser Menge mithilfe von CSV-Dateien. Dies ist der schnellste Weg, um eine grosse Anzahl von Leads auf einmal zu Ihrem Konto hinzuzufugen.
+
+## Zugriff auf CSV-Import
+
+Sie konnen einen CSV-Import von zwei Stellen aus starten:
+
+- **Von Leads** - Klicken Sie auf **Lead hinzufugen > CSV importieren**
+- **Von Kampagnen-Leads** - Verwenden Sie die Import-Option innerhalb einer Kampagne
+
+## CSV-Dateianforderungen
+
+Ihre CSV-Datei muss folgende Anforderungen erfullen:
+
+{% table %}
+- Anforderung
+- Details
+---
+- **Dateityp**
+- `.csv`
+---
+- **Kodierung**
+- UTF-8 oder ANSI (automatisch erkannt)
+---
+- **Trennzeichen**
+- Komma (`,`) oder Semikolon (`;`) - automatisch erkannt
+---
+- **Kopfzeilen**
+- Die erste Zeile sollte Spaltennamen enthalten
+---
+- **Anfuhrungszeichen**
+- Werte mit Kommas oder Sonderzeichen sollten in doppelte Anfuhrungszeichen (`"`) eingeschlossen werden
+---
+- **Leere Zeilen**
+- Leere Zeilen werden automatisch ubersprungen
+{% /table %}
+
+## Erwartete CSV-Spalten
+
+{% table %}
+- Spalte
+- Erforderlich
+- Beschreibung
+---
+- `street_address`
+- Ja
+- Die Strassenadresse
+---
+- `city`
+- Ja
+- Stadtname
+---
+- `country`
+- Ja
+- Landername oder -code
+---
+- `state`
+- Nein
+- Bundesland oder Provinz
+---
+- `postal_code`
+- Nein
+- PLZ oder Postleitzahl
+---
+- `name`
+- Nein
+- Kontakt- oder Gebaude-Name
+---
+- `building_units`
+- Nein
+- Anzahl der Einheiten (fur Mehrfamilienhauser)
+---
+- **Benutzerdefinierte Felder**
+- Nein
+- Alle fur Ihr Team konfigurierten benutzerdefinierten Felder - werden uber die UI wahrend des Imports zugeordnet
+{% /table %}
+
+## Beispiel-CSV
+
+```
+street_address,city,country,state,postal_code,name
+"123 Main St",Springfield,US,IL,62701,"John Doe"
+"456 Oak Ave",Springfield,US,IL,62702,"Jane Smith"
+"789 Pine Rd",Chicago,US,IL,60601,""
+```
+
+## Import-Schritte
+
+Der Import folgt einem 3-Schritte-Assistenten:
+
+### Schritt 1: Hochladen
+
+1. Wahlen Sie Ihre CSV-Datei
+1. Das Trennzeichen wird automatisch aus dem Dateiinhalt erkannt
+1. Aktivieren Sie optional **KI-Zuordnungsvorschlage**, um Spalten automatisch zuzuordnen
+
+### Schritt 2: Zuordnung
+
+![](https://raw.githubusercontent.com/Goldenhunter1206/sellfaster_content/main/public/site/images/user-guide/team-account/csv-import/image.png)
+
+1. Ordnen Sie jede CSV-Spalte einem Adressfeld zu
+1. Kombinieren Sie Spalten bei Bedarf (z.B. separate Vorname- und Nachname-Spalten zu einem einzelnen Namensfeld)
+1. Ordnen Sie alle fur Ihr Team konfigurierten benutzerdefinierten Felder zu
+1. Nicht zugeordnete Spalten werden beim Import ignoriert
+
+### Schritt 3: Standardwerte
+
+1. Setzen Sie Standardwerte fur optionale Felder, die nicht zugeordnet sind
+1. Diese Standardwerte gelten fur alle importierten Zeilen, in denen das Feld leer oder nicht zugeordnet ist
+
+## KI-gestutzte Zuordnung
+
+Wenn aktiviert, analysiert das System Ihre CSV-Spaltenuberschriften und schlagt automatisch Zuordnungen vor. Dies ist besonders nutzlich, wenn Ihre CSV nicht standardmassige oder lokalisierte Spaltennamen verwendet. Sie konnen die Vorschlage uberprufen und anpassen, bevor Sie fortfahren.
+
+## Duplikatbehandlung
+
+Wahrend des Imports pruft das System auf doppelte Adressen. Fur jedes erkannte Duplikat konnen Sie wahlen:
+
+- **Uberspringen** - Die doppelte Zeile nicht importieren
+- **Zusammenfuhren** - Die neuen Daten mit der bestehenden Adresse kombinieren
+- **Erstellen** - Trotzdem als neue Adresse importieren
+
+## Import-Fortschritt
+
+Der Import lauft im Hintergrund. Ein Fortschrittsindikator zeigt:
+
+- Gesamtzahl der zu verarbeitenden Zeilen
+- Erfolgreich importierte Anzahl
+- Fehler oder ubersprungene Zeilen
+
+Sie konnen Sellfaster weiter verwenden, wahrend der Import abgeschlossen wird.
+
+## Fehlerbehebung
+
+### Import startet nicht
+
+1. Uberprufen Sie, ob die Datei eine gultige `.csv`-Datei ist
+1. Prufen Sie, ob die Datei nicht leer ist
+1. Stellen Sie sicher, dass die Dateigrosse innerhalb der Grenzen liegt
+
+### Zeilen werden nicht importiert
+
+1. Uberprufen Sie, ob die erforderlichen Spalten (`street_address`, `city`, `country`) zugeordnet sind
+1. Prufen Sie auf fehlende Werte in erforderlichen Feldern
+1. Uberprufen Sie Fehlermeldungen fur bestimmte Zeilen
+
+### Falsche Daten in Feldern
+
+1. Uberprufen Sie Ihre Spaltenzuordnung in Schritt 2
+1. Prufen Sie, ob das CSV-Trennzeichen zum Dateiinhalt passt
+1. Stellen Sie sicher, dass Werte in Anfuhrungszeichen korrekt geschlossen sind
+
+### Kodierungsprobleme
+
+Wenn Sie verstummelte Zeichen sehen:
+
+1. Speichern Sie Ihre CSV erneut als UTF-8-kodiert
+1. Die meisten Tabellenkalkulationsanwendungen bieten UTF-8 als Exportoption an
+
+## Verwandte Themen
+
+- [Team-Leads](/docs/user-guide-de/team-account/leads) - Alle Team-Adressen verwalten
+- [Kampagnen-Leads](/docs/user-guide-de/team-account/projects/addresses) - Kampagnenspezifische Adressverwaltung
+- [Benutzerdefinierte Felder](/docs/user-guide-de/team-administration/custom-fields) - Zusatzliche Felder fur Adressen konfigurieren

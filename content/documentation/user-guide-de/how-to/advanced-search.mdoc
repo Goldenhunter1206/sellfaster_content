@@ -1,0 +1,469 @@
+---
+title: Suche und Filter verwenden
+description: >-
+  Diese Anleitung beschreibt, wie Sie Leads, Verkäufe und andere Daten mithilfe von
+  Such- und Filterfunktionen finden.
+order: 4
+language: de
+categories:
+  - user-guide
+tags:
+  - how-to
+status: published
+collapsible: false
+collapsed: false
+---
+Diese Anleitung beschreibt, wie Sie Leads, Verkäufe und andere Daten mithilfe von Such- und Filterfunktionen finden.
+
+## Suchmodi
+
+Sellfaster bietet drei Suchmodi:
+
+{% table %}
+- Modus
+- Beschreibung
+---
+- **Einfach**
+- Einfache Textsuche (ILIKE) - Standard
+---
+- **Strukturiert**
+- JQL-ähnliche Abfragesyntax für präzises Filtern
+---
+- **KI**
+- Natürlichsprachliche Suche, die in Filter übersetzt wird
+{% /table %}
+
+### Suchmodi wechseln
+
+Verwenden Sie die Suchmodusauswahl, um zwischen den Modi zu wechseln.
+
+*![](https://raw.githubusercontent.com/Goldenhunter1206/sellfaster_content/main/public/site/images/user-guide/how-to/advanced-search/image-search-query-ai.png)*
+
+## Einfache Suche
+
+Der einfachste Weg, etwas zu finden:
+
+1. Klicken Sie auf die Suchleiste
+1. Geben Sie Ihren Suchbegriff ein
+1. Ergebnisse werden in Echtzeit gefiltert
+
+![](https://raw.githubusercontent.com/Goldenhunter1206/sellfaster_content/main/public/site/images/user-guide/how-to/advanced-search/image-simple-search.png)
+
+### Was Sie suchen können
+
+Die einfache Suche funktioniert über mehrere Felder, abhängig vom Datentyp:
+
+{% table %}
+- Datentyp
+- Durchsuchbare Felder
+---
+- **Leads**
+- Straße, Stadt, Kontaktname
+---
+- **Verkäufe**
+- Kundenname, Notizen
+---
+- **Produkte**
+- Name
+---
+- **Mitglieder**
+- Name, E-Mail
+{% /table %}
+
+## Strukturierte Abfragesuche
+
+Für präzises Filtern verwenden Sie die strukturierte Abfragesyntax (JQL-ähnlich):
+
+### Abfrageformat
+
+```
+Feld OPERATOR "Wert" [AND|OR] Feld OPERATOR "Wert"
+```
+
+### Verfügbare Felder
+
+{% table %}
+- Feld
+- Beschreibung
+---
+- **city**
+- Stadtname
+---
+- **street**
+- Straßenadresse
+---
+- **campaign**
+- Kampagnenname
+---
+- **status**
+- Lead-Status
+---
+- **name**
+- Kontaktname
+---
+- **latest\_state**
+- Letzter Interaktionsstatus
+---
+- **cf:field\_key**
+- Benutzerdefiniertes Feld (Präfix `cf:`)
+{% /table %}
+
+### Operatoren
+
+{% table %}
+- Operator
+- Bedeutung
+- Beispiel
+---
+- **=**
+- Exakte Übereinstimmung (Groß-/Kleinschreibung ignoriert)
+- `city = "Berlin"`
+---
+- **!=**
+- Ungleich
+- `status != "inactive"`
+---
+- **\~**
+- Enthält (ILIKE)
+- `city ~ "Ber"`
+---
+- **!\~**
+- Enthält nicht
+- `street !~ "Main"`
+---
+- **>**
+- Größer als
+- `cf:age > "30"`
+---
+- **<**
+- Kleiner als
+- `cf:score < "50"`
+{% /table %}
+
+### Verknüpfungen
+
+Kombinieren Sie Bedingungen mit AND oder OR:
+
+```
+city = "Berlin" AND project = "Test"
+status = "active" OR status = "pending"
+```
+
+**Hinweis:** Sie können AND und OR nicht in einer einzelnen Abfrage mischen.
+
+### Benutzerdefinierte Felder
+
+Filtern Sie nach benutzerdefinierten Feldern mit dem Präfix `cf:`:
+
+```
+cf:phone ~ "+49"
+cf:property_type = "Single Family"
+```
+
+### Beispiele
+
+```
+city = "Berlin"
+city ~ "Ber" AND project = "Downtown"
+latest_state ~ "Interested"
+cf:roof_age > "10"
+```
+
+## KI-Suche
+
+Natürlichsprachliche Suche mit KI:
+
+1. Wechseln Sie in den KI-Modus
+1. Geben Sie Ihre Anfrage in natürlicher Sprache ein
+1. Die KI übersetzt in strukturierte Filter
+1. Ergebnisse werden automatisch angezeigt
+
+### Funktionen
+
+- Verwendet die Mistral API zur Übersetzung
+- 15-minütiges sitzungsbezogenes Caching
+- Automatischer Fallback auf einfache Suche bei Fehlern
+- 10-Sekunden-Timeout für API-Anfragen
+
+### Beispielanfragen
+
+- "Zeige mir Leads in Berlin, die interessiert sind"
+- "Finde alle aktiven Kontakte in der Downtown-Kampagne"
+
+## Filterbereich
+
+### Auf Filter zugreifen
+
+1. Suchen Sie die Schaltfläche **Filter**
+1. Klicken Sie, um den Filterbereich zu öffnen
+1. Konfigurieren Sie Ihre Kriterien
+
+### Lead-Filter
+
+{% table %}
+- Filter
+- Beschreibung
+---
+- **Stadt**
+- Nach Stadt filtern
+---
+- **Kampagne**
+- Nach Kampagnenname filtern
+---
+- **Lead-Status**
+- Nach aktiv/inaktiv filtern
+---
+- **Letzter Status**
+- Nach Interaktionsstatus filtern
+---
+- **Benutzerdefinierte Felder**
+- Nach benutzerdefinierten Feldwerten filtern
+{% /table %}
+
+### Verkaufsfilter
+
+{% table %}
+- Filter
+- Beschreibung
+---
+- **Datumsbereich**
+- Verkaufsdatum (Start/Ende)
+---
+- **Status**
+- Verkaufsstatus
+---
+- **Produkt**
+- Verkaufte Produkte
+---
+- **Kampagne**
+- Zugehörige Kampagne
+---
+- **Verkäufer**
+- Wer den Verkauf getätigt hat
+{% /table %}
+
+### Spaltenfilter
+
+Individuelle Spaltenfilterung:
+
+- Klicken Sie auf das Filtersymbol in der Spaltenüberschrift
+- Wählen Sie die einzuschließenden Werte aus
+- Einzelne Filter mit der X-Schaltfläche löschen
+
+*![](https://raw.githubusercontent.com/Goldenhunter1206/sellfaster_content/main/public/site/images/user-guide/how-to/advanced-search/image-filter-city.png)*
+
+### Mobile Filter
+
+Auf mobilen Geräten:
+
+- Drei Hauptfilter: Stadt, Kampagne, Letzter Status
+- Responsiver Filterbereich
+- X-Schaltfläche zum Löschen einzelner Filter
+
+## Ansichten
+
+### Eine Ansicht erstellen
+
+Falls unterstützt:
+
+1. Konfigurieren Sie Ihre Filter
+1. Klicken Sie auf **Ansicht speichern**
+1. Benennen Sie die Ansicht
+1. Später mit einem Klick verwenden
+
+### Inhalt gespeicherter Ansichten
+
+Ansichten speichern:
+
+- Stadtfilter
+- Kampagnennamenfilter
+- Lead-Statusfilter
+- Letzter-Status-Filter
+- Sortiereinstellung (Lead oder Entfernung)
+- Suchtext und Modus
+- Strukturierte Abfragefilter
+- Benutzerdefinierte Feldfilter
+- Spaltensichtbarkeitseinstellungen
+- Seitengröße
+
+### Ansichten verwalten
+
+- Ansichten per Drag-and-Drop neu ordnen
+- Nicht mehr benötigte Ansichten löschen
+- Gespeicherte Ansicht verlassen, um zur Standardansicht zurückzukehren
+
+## Filter löschen
+
+### Alle zurücksetzen
+
+Alle Filter auf einmal löschen:
+
+1. Klicken Sie auf **Zurücksetzen** oder **Filter löschen**
+1. Alle Filter werden entfernt
+1. Vollständige Liste wird angezeigt
+
+### Einzeln löschen
+
+Einen Filter entfernen:
+
+1. Klicken Sie auf das X am Filter-Chip
+1. Oder deaktivieren Sie die Option
+1. Andere Filter bleiben bestehen
+
+## Gefilterte Ergebnisse exportieren
+
+### CSV-Export
+
+Gefilterte Leads als CSV exportieren:
+
+1. Wenden Sie Ihre Filter an
+1. Klicken Sie auf **Exportieren**
+1. Nur übereinstimmende Einträge werden exportiert
+1. CSV enthält UTF-8 BOM für Excel-Kompatibilität
+
+### Exportierte Felder
+
+{% table %}
+- Feld
+- Beschreibung
+---
+- Straßenadresse
+- Vollständige Straße des Leads
+---
+- Name
+- Kontaktname
+---
+- Stadt
+- Stadt
+---
+- Bundesland
+- Bundesland/Provinz
+---
+- Postleitzahl
+- PLZ
+---
+- Land
+- Land
+---
+- Zone
+- Zugewiesene Zone
+---
+- Status
+- Aktiv/Inaktiv
+---
+- Verifiziert
+- Ja/Nein
+{% /table %}
+
+## Suchtipps
+
+### Effektiv suchen
+
+1. **Breit beginnen** - Verwenden Sie zuerst einfache Begriffe
+1. **Schrittweise verfeinern** - Fügen Sie bei Bedarf Filter hinzu
+1. **Rechtschreibung prüfen** - Tippfehler beeinflussen die Ergebnisse
+1. **Strukturierte Abfragen verwenden** - Für präzises Filtern
+
+### Leistung
+
+- Filter werden serverseitig für Effizienz angewendet
+- Paginierung reduziert die Datenlast
+- Gespeicherte Ansichten cachen Filterkonfigurationen
+
+## Häufige Suchszenarien
+
+### Leads zum Besuchen finden
+
+**Ziel:** Neue Leads in Ihrer Gegend finden
+
+1. Letzten Status filtern = "Neu" oder bestimmte Status
+1. Nach Kampagne oder Stadt filtern
+1. Ergebnis: Ihre Arbeitsliste
+
+### Heiße Leads finden
+
+**Ziel:** Interessierte Interessenten finden
+
+1. Letzten Status filtern = "Interessiert"
+1. Optional nach aktuellem Datum filtern
+1. Ergebnis: Aktive Möglichkeiten
+
+### Nach benutzerdefiniertem Feld suchen
+
+**Ziel:** Leads mit bestimmten Attributen finden
+
+1. Strukturierte Abfrage verwenden: `cf:property_type = "Commercial"`
+1. Oder kombinieren: `city = "Berlin" AND cf:size > "1000"`
+1. Ergebnis: Gefilterte Liste
+
+## Tabellensteuerung
+
+### Spaltensichtbarkeit
+
+Anzeige der Spalten umschalten:
+
+1. Klicken Sie auf das Menü **Spalten**
+1. Spalten zum Anzeigen an-/abwählen
+1. Benutzerdefinierte Feldspalten verfügbar
+
+### Einheiten ein-/ausblenden
+
+Für Gebäude mit mehreren Einheiten:
+
+- Einheitenanzeige ein-/ausschalten
+
+### Sortierung
+
+Sortieroptionen:
+
+- Nach Lead (alphabetisch)
+- Nach Entfernung (erfordert Standortzugriff)
+
+### Seitengröße
+
+Einträge pro Seite steuern:
+
+- Optionen: 10-100 Einträge
+
+## Fehlerbehebung
+
+### Keine Ergebnisse gefunden
+
+Wenn die Suche nichts zurückgibt:
+
+1. Rechtschreibung prüfen
+1. Filter erweitern
+1. Alle Filter löschen, um zu überprüfen, ob Daten vorhanden sind
+1. Andere Suchbegriffe versuchen
+1. Suchmodus prüfen (einfach vs. strukturiert)
+
+### Zu viele Ergebnisse
+
+Wenn die Ergebnisse überwältigend sind:
+
+1. Weitere Filter hinzufügen
+1. Spezifischere Suchbegriffe verwenden
+1. Strukturierte Abfrage für Präzision verwenden
+
+### Fehler bei strukturierten Abfragen
+
+Wenn die Abfrage Fehler enthält:
+
+1. Syntax prüfen (Feld OPERATOR "Wert")
+1. Feldnamen überprüfen
+1. Werte korrekt in Anführungszeichen setzen
+1. AND/OR nicht mischen
+
+### KI-Suche funktioniert nicht
+
+Wenn die KI-Suche fehlschlägt:
+
+1. Das System fällt automatisch auf die einfache Suche zurück
+1. Versuchen Sie stattdessen eine strukturierte Abfrage
+1. Netzwerkverbindung prüfen
+
+## Verwandte Themen
+
+- [Dashboard](/docs/user-guide-de/personal-account/dashboard) - Filtern im Dashboard
+- [Kampagnen-Leads](/docs/user-guide-de/team-account/projects/addresses) - Kampagnenfilterung
+- [Benutzerdefinierte Felder](/docs/user-guide-de/team-administration/custom-fields) - Feldkonfiguration

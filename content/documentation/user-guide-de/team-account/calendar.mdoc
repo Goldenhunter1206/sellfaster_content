@@ -1,0 +1,161 @@
+---
+title: Teamkalender
+description: >-
+  Der Teamkalender zeigt geplante Nachverfolgungen aus Interaktionen an und hilft Ihnen, Besuche zu koordinieren und anstehende Aufgaben im Team zu verfolgen.
+order: 6
+language: de
+categories:
+  - user-guide
+tags:
+  - team-account
+status: published
+collapsible: false
+collapsed: false
+---
+Der Teamkalender zeigt geplante Nachverfolgungen aus Interaktionen an und hilft Ihnen, Besuche zu koordinieren und anstehende Aufgaben im Team zu verfolgen.
+
+## Zugriff auf den Teamkalender
+
+1. Stellen Sie sicher, dass Sie sich in Ihrem Teamkonto befinden
+1. Klicken Sie auf **Kalender** in der Seitenleiste
+1. Die URL ist `/home/[team]/calendar`
+
+## Was der Kalender anzeigt
+
+Der Teamkalender ist ein **Nachverfolgungs-Kalender**, der anzeigt:
+
+- Nachverfolgungen, die aus Interaktionen mit Adressen geplant wurden
+- Alle Nachverfolgungen im Team (nicht nur Ihre eigenen)
+- Nur zukunftige Nachverfolgungen (vergangene werden nicht angezeigt)
+
+> **Hinweis:** Dies ist kein allgemeiner Kalender zum Erstellen beliebiger Termine. Nachverfolgungen werden erstellt, wenn Interaktionen mit Adressen erfasst werden.
+
+## Kalenderansicht
+
+![](https://raw.githubusercontent.com/Goldenhunter1206/sellfaster_content/main/public/site/images/user-guide/team-account/calendar/image.png)
+
+### Wochenansicht
+
+Der Kalender zeigt einen Wochenplan:
+
+- Zeitfenster von 6:00 bis 22:00 Uhr
+- Wochen beginnen am Montag
+- Jede Nachverfolgung wird als Ereignisblock angezeigt
+
+### Ereignisanzeige
+
+Jedes Nachverfolgungs-Ereignis zeigt:
+
+- **Strassenadresse** (mit Einheit, falls zutreffend)
+- **Interaktionsstatus** als Untertitel
+- **Kampagnenfarbe** zur visuellen Gruppierung
+
+## Ereignisdetails
+
+### Uber Ereignisse hovern
+
+Bewegen Sie den Mauszeiger uber ein Ereignis, um einen Tooltip zu sehen mit:
+
+- Kampagnenname
+- Zonenname (falls zugewiesen)
+- Vollstandige Adressdetails
+- Adresstyp
+- Adressstatus
+
+### Auf Ereignisse klicken
+
+Klicken Sie auf ein Ereignis, um direkt zur Adress-Detailseite zu navigieren, wo Sie:
+
+- Die vollstandigen Adressinformationen einsehen
+- Eine neue Interaktion erfassen
+- Den Adressstatus aktualisieren
+- Eine neue Nachverfolgung planen konnen
+
+## Wie Nachverfolgungen erscheinen
+
+Nachverfolgungen werden erstellt, wenn:
+
+1. Eine Interaktion mit einer Adresse erfasst wird
+1. Ein Nachverfolgungsdatum fur diese Interaktion gesetzt wird
+1. Die Nachverfolgung automatisch im Kalender erscheint
+
+### Dauer der Nachverfolgung
+
+Alle Nachverfolgungen werden als 1-Stunden-Blocke im Kalender angezeigt, beginnend zur geplanten Zeit.
+
+## Filterung
+
+Der Kalender zeigt alle Nachverfolgungen fur das Konto. Ereignisse sind farblich nach Kampagne kodiert, um verschiedene Kampagnen visuell zu unterscheiden.
+
+### Kampagnenfarben
+
+Kampagnen erhalten automatisch konsistente Farben:
+
+- Jede Kampagne erhalt eine eindeutige Farbe
+- Farben sind sitzungsubergreifend konsistent
+- Erleichtert die Zuordnung von Nachverfolgungen zu Kampagnen
+
+## Navigation
+
+### Zwischen Wochen wechseln
+
+Verwenden Sie die Kalender-Steuerelemente, um:
+
+- Zur vorherigen/nachsten Woche zu navigieren
+- Zur aktuellen Woche zuruckzukehren
+
+### Bestimmte Daten anzeigen
+
+Der Kalender ist standardmasig auf das aktuelle Datum zentriert, kann aber zu vergangenen oder zukunftigen Wochen navigiert werden.
+
+## Nachverfolgungen erstellen
+
+Um eine Nachverfolgung zum Kalender hinzuzufugen:
+
+1. Navigieren Sie zu einer Adress-Detailseite
+1. Erfassen Sie eine Interaktion
+1. Setzen Sie ein Nachverfolgungsdatum und eine Uhrzeit wahrend der Interaktion
+1. Speichern Sie die Interaktion
+1. Die Nachverfolgung erscheint im Kalender
+
+Siehe [Interaktionen erfassen](/docs/user-guide-de/how-to/recording-interactions) fur detaillierte Anweisungen.
+
+## Best Practices
+
+### Nachverfolgungen verwalten
+
+1. **Taglich prufen** - Uberprufen Sie anstehende Nachverfolgungen jeden Tag
+1. **Zeitnah erledigen** - Bearbeiten Sie Nachverfolgungen am geplanten Datum
+1. **Status aktualisieren** - Erfassen Sie nach Abschluss einer Nachverfolgung die Interaktion, um den Adressstatus zu aktualisieren
+1. **Bei Bedarf verschieben** - Wenn Sie eine Nachverfolgung nicht erledigen konnen, erfassen Sie eine Interaktion und setzen Sie ein neues Nachverfolgungsdatum
+
+### Teamkoordination
+
+1. **Teamplan uberprufen** - Sehen Sie, welche Nachverfolgungen im Team geplant sind
+1. **Konflikte vermeiden** - Prufen Sie den Kalender, bevor Sie Nachverfolgungen im selben Gebiet planen
+1. **Abdeckung koordinieren** - Stellen Sie sicher, dass Nachverfolgungen angemessen verteilt sind
+
+## Fehlerbehebung
+
+### Nachverfolgungen werden nicht angezeigt
+
+Wenn Nachverfolgungen nicht im Kalender erscheinen:
+
+1. Uberprufen Sie, ob das Nachverfolgungsdatum beim Erfassen der Interaktion gesetzt wurde
+1. Stellen Sie sicher, dass die Nachverfolgung in der Zukunft liegt (vergangene werden nicht angezeigt)
+1. Aktualisieren Sie die Seite
+1. Stellen Sie sicher, dass Sie im richtigen Teamkonto sind
+
+### Falsche Zeiten angezeigt
+
+Wenn Zeiten falsch erscheinen:
+
+1. Prufen Sie die Zeitzoneneinstellungen Ihres Browsers
+1. Uberprufen Sie, ob die Nachverfolgungszeit korrekt gesetzt wurde
+
+## Verwandte Themen
+
+- [Personlicher Kalender](/docs/user-guide-de/personal-account/calendar) - Ihre personliche Kalenderansicht
+- [Nachverfolgungen](/docs/user-guide-de/personal-account/follow-ups) - Nachverfolgungen verwalten
+- [Interaktionen erfassen](/docs/user-guide-de/how-to/recording-interactions) - Nachverfolgungen erstellen
+- [Teamubersicht](/docs/user-guide-de/team-account) - Ubersicht der Team-Funktionen

@@ -1,0 +1,235 @@
+---
+title: Interaktionen erfassen
+description: >-
+  Diese Anleitung bietet Schritt-für-Schritt-Anleitungen zum Erfassen von Interaktionen
+  mit Leads - die Kernaktivität in Sellfaster.
+order: 0
+language: de
+categories:
+  - user-guide
+tags:
+  - how-to
+status: published
+collapsible: false
+collapsed: false
+---
+Diese Anleitung bietet Schritt-für-Schritt-Anleitungen zum Erfassen von Interaktionen mit Leads - die Kernaktivität in Sellfaster.
+
+## Was ist eine Interaktion?
+
+Eine Interaktion ist eine Aufzeichnung eines Kontakts oder einer Aktivität mit einem Lead. Im Gegensatz zu einigen CRM-Systemen mit festen Typen wie "Besuch" oder "Anruf" verwendet Sellfaster **konfigurierbare Interaktionsstatus**, die Ihr Teamadministrator definiert. Dies ermöglicht vollständige Flexibilität bei der Kategorisierung von Interaktionen durch Ihr Team.
+
+Häufige Interaktionsstatus, die Teams konfigurieren könnten:
+
+- Kontakt hergestellt
+- Nicht angetroffen
+- Termin vereinbart
+- Nachverfolgung erforderlich
+- E-Mail gesendet
+
+Ihre verfügbaren Status hängen von der Konfiguration Ihres Teams ab und können je nach Kampagne variieren.
+
+## Voraussetzungen
+
+Bevor Sie Interaktionen erfassen:
+
+1. Sie müssen angemeldet sein
+1. Der Lead muss innerhalb einer Kampagne existieren
+1. Sie benötigen die Berechtigung `interactions:create`
+
+## Vom Lead-Detail erfassen
+
+Der primäre Weg, eine Interaktion zu erfassen:
+
+1. Zum Lead navigieren
+   - Gehen Sie zu Ihrer Kampagne: `/home/[team]/projects/[campaign]/addresses/[address]`
+   - Oder finden Sie den Lead über die Lead-Liste Ihrer Kampagne
+
+*![](https://raw.githubusercontent.com/Goldenhunter1206/sellfaster_content/main/public/site/images/user-guide/how-to/recording-interactions/image-address-info-page.png)*
+
+2. Das Interaktionsformular öffnen
+   - Klicken Sie auf die Schaltfläche "Interaktion hinzufügen" auf der Lead-Detailseite
+   - Der Interaktionsdialog wird geöffnet
+
+*![](https://raw.githubusercontent.com/Goldenhunter1206/sellfaster_content/main/public/site/images/user-guide/how-to/recording-interactions/image-create-interaction.png)*
+
+3. Einen Interaktionsstatus auswählen
+   - Wählen Sie aus den verfügbaren Status für diese Kampagne
+   - Status werden von Ihrem Teamadministrator konfiguriert
+   - Der gewählte Status bestimmt, was als Nächstes passiert
+1. Notizen hinzufügen (optional)
+   - Geben Sie relevante Details im Kommentarfeld ein
+   - Notizen helfen, Kontext für zukünftige Referenz zu liefern
+1. Nachverfolgungsdatum festlegen (bedingt)
+   - Wenn der gewählte Status die Nachverfolgung aktiviert hat, erscheint eine Datumsauswahl
+   - Wählen Sie, wann Sie nachverfolgen möchten
+   - Uhrzeitauswahl eingeschlossen
+   - Vergangene Daten können nicht gewählt werden
+1. Speichern
+   - Übermitteln Sie die Interaktion
+   - Die Interaktion wird sofort erfasst
+
+## Felder des Interaktionsformulars
+
+{% table %}
+- Feld
+- Typ
+- Beschreibung
+---
+- **Interaktionsstatus**
+- erforderlich
+- Auswahl aus konfigurierten Status der Kampagne
+---
+- **Kommentar**
+- optional
+- Notizen zur Interaktion
+---
+- **Nachverfolgungsdatum**
+- bedingt & optional
+- Erscheint nur, wenn der gewählte Status `follow_up: true` konfiguriert hat
+{% /table %}
+
+## Interaktionsstatus verstehen
+
+### Status-Eigenschaften
+
+Jeder Interaktionsstatus kann spezielle Verhaltensweisen konfiguriert haben:
+
+{% table %}
+- Eigenschaft
+- Auswirkung
+---
+- **follow\_up**
+- Bei `true` wird die Nachverfolgungsdatumsauswahl angezeigt
+---
+- **keep\_open**
+- Bestimmt, ob der Lead für weiteren Kontakt offen bleibt
+---
+- **is\_email\_reply**
+- Markiert den Status als E-Mail-Antwort-Typ
+---
+- **color**
+- Visueller Indikator in der Benutzeroberfläche
+{% /table %}
+
+### Wie Status funktionieren
+
+- Status werden auf Kontoebene definiert
+- Status können bestimmten Kampagnen zugewiesen werden
+- Die verfügbaren Status hängen von Ihrer aktuellen Kampagne ab
+- Die Auswahl eines Status kann das Nachverfolgungsdatumsfeld auslösen
+
+## E-Mail-Interaktionen
+
+Sellfaster kann E-Mail-Interaktionen automatisch erfassen:
+
+1. **E-Mails aus der App senden**
+   - Wenn Sie eine E-Mail über die Plattform senden, wird automatisch eine Interaktion erstellt
+   - Die Interaktion enthält den E-Mail-Betreff und die Textreferenz
+   - Verknüpft über `email_transaction_id` für Threading
+1. **E-Mail-Interaktionsstatus**
+   - Ihr Team kann spezifische Status haben, die als `is_email_reply` markiert sind
+   - Diese werden verwendet, wenn das System E-Mail-Aktivitäten protokolliert
+
+## Notizen hinzufügen
+
+### Was einzubeziehen ist
+
+Gute Interaktionsnotizen erfassen:
+
+- **Was besprochen wurde** - Themen, Fragen, Bedenken
+- **Wer anwesend war** - Namen wenn bekannt
+- **Ergebnis** - Resultat des Gesprächs
+- **Nächste Schritte** - Was als Nächstes passiert
+- **Kontext** - Alles Relevante für zukünftige Besuche
+
+### Beispielnotizen
+
+```
+Mit Frau Müller über Solaranlagen-Optionen gesprochen.
+Sie ist interessiert, möchte aber mit ihrem Mann besprechen.
+Mann arbeitet bis 18 Uhr. Morgen Abend zurückrufen.
+```
+
+```
+Nicht angetroffen. Auto in der Einfahrt. Broschüre in der Tür gelassen.
+Am Wochenende erneut versuchen.
+```
+
+## Nachverfolgungen festlegen
+
+### Wann die Nachverfolgung erscheint
+
+Das Nachverfolgungsdatumsfeld erscheint nur, wenn:
+
+- Der gewählte Interaktionsstatus `follow_up: true` konfiguriert hat
+- Dies wird durch die Statuskonfiguration Ihres Teams bestimmt
+
+### So planen Sie
+
+1. Wählen Sie einen Interaktionsstatus, der Nachverfolgungen aktiviert
+1. Die Datumsauswahl erscheint automatisch
+1. Wählen Sie Datum und Uhrzeit
+1. Mindestdatum ist heute (kein Rückdatieren möglich)
+1. Uhrzeitauswahl ist eingeschlossen
+
+Siehe [Nachverfolgungserinnerungen](/docs/user-guide-de/how-to/follow-up-reminders) für die Verwaltung Ihrer Nachverfolgungen.
+
+## Nach der Erfassung
+
+Wenn Sie eine Interaktion speichern:
+
+1. **Interaktion wird gespeichert** - Verknüpft mit dem Lead, der Kampagne und dem Konto
+1. **KI-Zusammenfassung wird aktualisiert** - Das System kann die Lead-Zusammenfassung neu generieren
+1. **Verlauf wird aktualisiert** - Erscheint im Interaktionsverlauf des Leads
+1. **Nachverfolgung wird erstellt** - Wenn Sie ein Nachverfolgungsdatum festgelegt haben, erscheint es in Ihrem Kalender
+
+## Best Practices
+
+### Interaktionen erfassen
+
+1. **Sofort erfassen** - Nicht warten, Details verblassen
+1. **Spezifisch sein** - Nützliche Details in Notizen aufnehmen
+1. **Richtigen Status verwenden** - Genaue Kategorisierung ist wichtig
+1. **Nachverfolgungen planen** - Wenn der Status es erlaubt und es angebracht ist
+
+### Qualität der Notizen
+
+1. **Namen wenn möglich** - Mit wem haben Sie gesprochen?
+1. **Spezifische Zeiten** - "Nach 17 Uhr anrufen" statt "später anrufen"
+1. **Aktionspunkte** - Was muss als Nächstes passieren?
+1. **Kontext** - Warum ist das wichtig?
+
+## Fehlerbehebung
+
+### Interaktion kann nicht erfasst werden
+
+Wenn Sie nicht erfassen können:
+
+1. Prüfen Sie, ob Sie angemeldet sind
+1. Überprüfen Sie, ob Sie die Berechtigung `interactions:create` haben
+1. Stellen Sie sicher, dass sich der Lead in einer aktiven Kampagne befindet
+1. Versuchen Sie, die Seite zu aktualisieren
+
+### Interaktion wird nicht gespeichert
+
+Wenn das Speichern fehlschlägt:
+
+1. Internetverbindung prüfen
+1. Überprüfen, ob ein Interaktionsstatus ausgewählt wurde (erforderlich)
+1. Nach Fehlermeldungen suchen
+1. Erneut versuchen
+
+### Nachverfolgungsdatum wird nicht angezeigt
+
+Wenn das Nachverfolgungsfeld nicht erscheint:
+
+1. Der gewählte Status hat möglicherweise keine Nachverfolgung aktiviert
+1. Versuchen Sie einen anderen Status auszuwählen
+1. Kontaktieren Sie Ihren Administrator, um die Statuskonfiguration zu prüfen
+
+## Verwandte Themen
+
+- [Leads verwalten](/docs/user-guide-de/personal-account/managing-addresses) - Lead-Verwaltung
+- [Nachverfolgungserinnerungen](/docs/user-guide-de/how-to/follow-up-reminders) - Nachverfolgungen planen
+- [Interaktionsstatus](/docs/user-guide-de/team-administration/interaction-states) - Statuskonfiguration

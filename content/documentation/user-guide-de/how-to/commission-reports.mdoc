@@ -1,0 +1,320 @@
+---
+title: Provisionsübersicht und Gehaltsabrechnungen anzeigen
+description: >-
+  Diese Anleitung zeigt Ihnen, wie Sie Provisionsdaten einsehen und Gehaltsabrechnungen
+  zur Nachverfolgung Ihrer Einnahmen verwalten.
+order: 5
+language: de
+categories:
+  - user-guide
+tags:
+  - how-to
+status: published
+collapsible: false
+collapsed: false
+---
+Diese Anleitung zeigt Ihnen, wie Sie Provisionsdaten einsehen und Gehaltsabrechnungen zur Nachverfolgung Ihrer Einnahmen verwalten.
+
+## Auf Provisionen zugreifen
+
+### Provisionsseite
+
+Navigieren Sie zum Provisionsbereich:
+
+1. Gehen Sie zu Ihrem Teamkonto
+1. Navigieren Sie zu `/home/[team]/commission`
+1. Provisionen und Gehaltsabrechnungen als Tabs anzeigen
+
+## Tabs der Provisionsseite
+
+Die Provisionsseite hat zwei Haupttabs:
+
+### Tab Gehaltsabrechnungen
+
+Gehaltsabrechnungen (Zahlungsbelege) anzeigen und verwalten:
+
+- Liste aller erstellten Gehaltsabrechnungen
+- Suche nach Beschreibung
+- Datumsbereichsfilter
+- Vorschau- und Download-Optionen
+- Stapel-Download-Funktion
+
+### Tab Provisionsprotokoll
+
+Detaillierte Provisionseinträge anzeigen:
+
+- Alle Provisionsdatensätze
+- Nach Typ, Status und Datum filtern
+- Einzelne Provisionsbeträge einsehen
+
+## Gehaltsabrechnungen anzeigen
+
+### Gehaltsabrechnungstabelle
+
+*![](https://raw.githubusercontent.com/Goldenhunter1206/sellfaster_content/main/public/site/images/user-guide/how-to/commission-reports/image-payslips-tab.png)*
+
+Die Gehaltsabrechnungstabelle zeigt:
+
+{% table %}
+- Spalte
+- Beschreibung
+---
+- **Datum**
+- Datum der Gehaltsabrechnung
+---
+- **Betrag**
+- Gesamtbetrag der Gehaltsabrechnung
+---
+- **Beschreibung**
+- Inhaltsbeschreibung
+{% /table %}
+
+### Aktionen für Gehaltsabrechnungen
+
+{% table %}
+- Aktion
+- Beschreibung
+---
+- **Vorschau**
+- Gehaltsabrechnung in einem Modal mit PDF-Iframe anzeigen
+---
+- **Download**
+- Einzelne Gehaltsabrechnung als PDF herunterladen
+---
+- **Stapel-Download**
+- Ausgewählte Gehaltsabrechnungen als ZIP herunterladen
+{% /table %}
+
+### PDF-Inhalt der Gehaltsabrechnung
+
+Jede Gehaltsabrechnung als PDF enthält:
+
+**Kopfzeile:**
+
+- Titel
+- Mitarbeitername
+- Datum der Gehaltsabrechnung
+
+**Provisionsabschnitt:**
+
+- Tabelle mit: Verkaufsdatum, Typ (Verdient/Zurückgefordert), Betrag, Adresse
+- Hinweis bei Aktions-betroffenen Verkäufen
+- Provisionszwischensumme
+
+**Bonusziele-Abschnitt:**
+
+- Tabelle mit: Bonuszielname, Beschreibung, Bonusbetrag
+- Bonuszwischensumme
+
+**Gesamt:**
+
+- Summe aus Provisionen und Boni
+
+## Provisionsprotokoll anzeigen
+
+### Provisionstabelle
+
+*![](https://raw.githubusercontent.com/Goldenhunter1206/sellfaster_content/main/public/site/images/user-guide/how-to/commission-reports/image-commission-log.png)*
+
+Das Provisionsprotokoll zeigt:
+
+{% table %}
+- Spalte
+- Beschreibung
+---
+- **Verkäufer**
+- Teammitglied, das die Provision verdient hat
+---
+- **Produkt**
+- Verkauftes Produkt
+---
+- **Adresse**
+- Kundenadresse
+---
+- **Betrag**
+- Provisionsbetrag
+---
+- **Typ**
+- Verdient oder Zurückgefordert
+---
+- **Status**
+- Bezahlt oder Ausstehend
+---
+- **Datum**
+- Wann die Provision erstellt wurde
+{% /table %}
+
+### Provisionstypen
+
+{% table %}
+- Typ
+- Beschreibung
+---
+- **Verdient**
+- Positive Provision aus Verkäufen
+---
+- **Zurückgefordert**
+- Negative Provision (storniert)
+{% /table %}
+
+### Provisionsfilter
+
+Das Provisionsprotokoll filtern nach:
+
+{% table %}
+- Filter
+- Optionen
+---
+- **Provisionstyp**
+- Verdient, Zurückgefordert, Alle
+---
+- **Zahlungsstatus**
+- Bezahlt, Unbezahlt, Alle
+---
+- **Aktionseinfluss**
+- Betroffen, Nicht betroffen, Alle
+---
+- **Datumsbereich**
+- Benutzerdefinierte Von/Bis-Daten
+{% /table %}
+
+### Aktionsindikator
+
+Produkte, die von Aktionen betroffen sind, zeigen einen Tag-Indikator in der Tabelle.
+
+## Gehaltsabrechnungen erstellen
+
+### Voraussetzungen
+
+Um Gehaltsabrechnungen zu erstellen:
+
+- Sie benötigen die Berechtigung `payslips:create`
+- Ein aktives oder Probe-Abonnement ist erforderlich
+
+### Prozess zur Erstellung einer Gehaltsabrechnung
+
+1. Klicken Sie auf die Schaltfläche **Gehaltsabrechnung erstellen** (wenn Sie die Berechtigung haben)
+1. Teammitglieder auswählen (Mehrfachauswahl oder "alle")
+1. Datum der Gehaltsabrechnung festlegen (kann nicht in der Zukunft liegen)
+1. Absenden
+
+### Was bei der Erstellung passiert
+
+1. System ruft unbezahlte Provisionen für ausgewählte Benutzer ab
+1. Ruft unbezahlte erreichte Bonusziele ab
+1. Berechnet Gesamtbetrag: Provisionen + Boni
+1. Erstellt Gehaltsabrechnung mit Inhalts-Arrays
+1. Markiert enthaltene Provisionen als bezahlt
+1. Markiert Bonusziele als bezahlt
+1. Sendet Benachrichtigung an das Teammitglied
+
+## Daten filtern
+
+### Datumsbereichsfilter
+
+Gehaltsabrechnungen und Provisionen nach Datum filtern:
+
+1. Startdatum (von) festlegen
+1. Enddatum (bis) festlegen
+1. Format: ISO-Datumszeichenketten
+
+### Paginierung
+
+Beide Tabellen unterstützen Paginierung:
+
+- Gehaltsabrechnungen: 10 Einträge pro Seite
+- Provisionen: 20 Einträge pro Seite
+
+### Suche
+
+Gehaltsabrechnungen unterstützen die Suche nach Beschreibung (Groß-/Kleinschreibung ignoriert).
+
+## Provisionsberechnung
+
+### Wie Provisionen generiert werden
+
+Provisionen werden automatisch erstellt:
+
+1. **Bei Änderung des Verkaufsstatus**: Wenn ein Verkauf einen Status mit `triggers_commission: true` erreicht
+1. **Bei Provisionsrückforderung**: Wenn ein Verkauf einen Status mit `reclaims_commission: true` erreicht
+1. **Bei neuem Verkauf**: Wenn der Anfangsstatus eine Provision auslöst
+
+### Provisionsbetrag
+
+Das System verwendet:
+
+1. `sale.commission_amount` falls gesetzt (einschließlich Aktionsanpassungen)
+1. Andernfalls Fallback auf `product.commission` (Basisbetrag)
+
+### Nachverfolgung
+
+- Jede Provision ist mit einem Verkauf, einem Benutzer und optional einem Bonusziel verknüpft
+- Eindeutigkeitsbeschränkung: eine Provision pro Verkauf pro Typ
+- Bezahlte Provisionen sind mit einer Gehaltsabrechnung verknüpft
+
+## Best Practices
+
+### Regelmäßige Überprüfung
+
+1. **Provisionsprotokoll prüfen** - Überprüfen, ob Verkäufe Provisionen generieren
+1. **Vor der Gehaltsabrechnung überprüfen** - Beträge bestätigen
+1. **Bezahlt vs. unbezahlt nachverfolgen** - Wissen, was ausgezahlt wurde
+
+### Aufbewahrung
+
+1. Gehaltsabrechnungen für Ihre Unterlagen herunterladen
+1. Stapel-Download für mehrere Gehaltsabrechnungen verwenden
+1. Aufzeichnungen für steuerliche Zwecke aufbewahren
+
+### Überprüfung
+
+Bevor Sie sich auf die Daten verlassen:
+
+1. Überprüfen Sie, ob die Verkaufsanzahl den Erwartungen entspricht
+1. Provisionssätze der Produkte prüfen
+1. Aktionsanpassungen überprüfen
+1. Unstimmigkeiten an Ihren Administrator melden
+
+## Fehlerbehebung
+
+### Provision wird nicht angezeigt
+
+Wenn eine Provision fehlt:
+
+1. Verkaufsstatus prüfen - muss ein provisionsauslösender Status sein
+1. Überprüfen, ob das Produkt eine Provision konfiguriert hat
+1. Datumsbereichsfilter prüfen
+1. Verkaufsstatusmodell-Konfiguration überprüfen
+
+### Falscher Betrag
+
+Wenn die Beträge falsch erscheinen:
+
+1. Verkaufsdetails überprüfen
+1. Provisionssatz des Produkts prüfen
+1. Nach Aktionsanpassungen suchen (`affected_by_promotion`-Flag)
+1. Mit Verkaufsstatusmodell-Regeln vergleichen
+
+### Gehaltsabrechnung kann nicht erstellt werden
+
+Wenn Sie keine Gehaltsabrechnungen erstellen können:
+
+1. Überprüfen Sie, ob Sie die Berechtigung `payslips:create` haben
+1. Abonnementstatus prüfen (muss aktiv oder Probe sein)
+1. Kontaktieren Sie Ihren Administrator
+
+### Download der Gehaltsabrechnung fehlgeschlagen
+
+Wenn der Download fehlschlägt:
+
+1. Einen kleineren Datumsbereich versuchen
+1. Browser-Cache leeren
+1. Einen anderen Browser versuchen
+1. Popup-Blocker prüfen
+
+## Verwandte Themen
+
+- [Provision](/docs/user-guide-de/team-account/commission) - Provisionsübersicht
+- [Verkaufsstatusmodelle](/docs/user-guide-de/team-administration/sale-models) - Provisionsregeln
+- [Verkäufe erfassen](/docs/user-guide-de/how-to/recording-sales) - Verkäufe erstellen
+- [Team-Verkäufe](/docs/user-guide-de/team-account/sales) - Verkaufsverwaltung

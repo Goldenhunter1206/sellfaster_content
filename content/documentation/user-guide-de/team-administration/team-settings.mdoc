@@ -1,0 +1,218 @@
+---
+title: Teameinstellungen
+description: Konfigurieren Sie die grundlegenden Informationen Ihres Teams und verwalten Sie den Team-Lebenszyklus.
+order: 0
+language: de
+categories:
+  - user-guide
+tags:
+  - team-administration
+status: published
+collapsible: false
+collapsed: false
+---
+Konfigurieren Sie die grundlegenden Informationen Ihres Teams und verwalten Sie den Team-Lebenszyklus.
+
+## Zugriff auf Teameinstellungen
+
+1. Stellen Sie sicher, dass Sie sich in Ihrem Teamkonto befinden
+1. Klicken Sie auf **Einstellungen** in der Seitenleiste
+1. Die URL lautet `https://sellfaster.eu/home/[team]/settings`
+
+> **Hinweis:** Der Zugriff auf Teameinstellungen erfordert die Berechtigung `settings.manage`, die Teameigentümern gewährt wird.
+
+## Teaminformationen
+
+![](https://raw.githubusercontent.com/Goldenhunter1206/sellfaster_content/main/public/site/images/user-guide/team-administration/team-settings/image.png)
+
+### Team-Logo
+
+Laden Sie das Logo Ihres Teams hoch oder ändern Sie es:
+
+1. Klicken Sie auf das aktuelle Logo/den Platzhalter
+1. Klicken Sie auf **Hochladen**
+1. Wählen Sie eine Bilddatei aus
+1. Speichern
+
+Das Logo wird im Supabase-Speicher gespeichert und erscheint im Kontowechsler und auf den Teamseiten.
+
+### Teamname
+
+Aktualisieren Sie den Namen Ihres Teams:
+
+1. Finden Sie das Feld **Teamname**
+1. Geben Sie den neuen Namen ein
+1. Klicken Sie auf **Speichern**
+
+Der Teamname erscheint:
+
+- Im Kontowechsler
+- Auf Teamseiten
+- In Benachrichtigungen
+
+## Team-E-Mail-Einstellungen
+
+Konfigurieren Sie die Team-E-Mail für ausgehende Kommunikation:
+
+### Grundlegende E-Mail-Einstellungen
+
+{% table %}
+- Feld
+- Beschreibung
+---
+- **Absender-E-Mail**
+- E-Mail-Adresse, die als Absender verwendet wird (erforderlich)
+---
+- **Absendername**
+- Anzeigename für ausgehende E-Mails (optional)
+---
+- **E-Mail-Signatur**
+- Signatur, die an E-Mails angehängt wird (optional)
+{% /table %}
+
+### SMTP-Konfiguration
+
+Konfigurieren Sie Ihren ausgehenden E-Mail-Server:
+
+{% table %}
+- Feld
+- Standard
+- Beschreibung
+---
+- **Host**
+- -
+- SMTP-Server-Hostname (erforderlich)
+---
+- **Port**
+- 587
+- SMTP-Port (erforderlich)
+---
+- **TLS verwenden**
+- Aus
+- TLS-Verschlüsselung aktivieren
+---
+- **Benutzername**
+- -
+- SMTP-Authentifizierungsbenutzername
+---
+- **Passwort**
+- -
+- SMTP-Authentifizierungspasswort
+{% /table %}
+
+### IMAP-Konfiguration
+
+Konfigurieren Sie Ihren eingehenden E-Mail-Server:
+
+{% table %}
+- Feld
+- Standard
+- Beschreibung
+---
+- **Host**
+- -
+- IMAP-Server-Hostname (erforderlich)
+---
+- **Port**
+- 993
+- IMAP-Port (erforderlich)
+---
+- **TLS verwenden**
+- An
+- TLS-Verschlüsselung aktivieren
+---
+- **Benutzername**
+- -
+- IMAP-Authentifizierungsbenutzername
+---
+- **Passwort**
+- -
+- IMAP-Authentifizierungspasswort
+{% /table %}
+
+> **Hinweis:** Beim Aktualisieren der E-Mail-Einstellungen können Sie Passwortfelder leer lassen, um das bestehende Passwort beizubehalten. Ein Platzhalter zeigt an, ob bereits ein Passwort gesetzt ist.
+
+## Gefahrenzone
+
+### Team verlassen
+
+Nicht-Eigentümer-Mitglieder können das Team verlassen:
+
+1. Navigieren Sie zum Abschnitt Gefahrenzone
+1. Klicken Sie auf **Team verlassen**
+1. Geben Sie "LEAVE" in das Bestätigungsfeld ein
+1. Klicken Sie auf **Bestätigen**
+
+Nach dem Verlassen:
+
+- Sie verlieren sofort den Zugriff auf das Team
+- Ihre Inhalte verbleiben beim Team
+- Sie können später erneut eingeladen werden
+
+> **Hinweis:** Primäre Eigentümer können ein Team nicht verlassen. Übertragen Sie zuerst die Eigentümerschaft, wenn Sie das Team verlassen müssen.
+
+### Team löschen
+
+Primäre Eigentümer können das gesamte Team löschen:
+
+1. Navigieren Sie zur Gefahrenzone
+1. Klicken Sie auf **Team löschen**
+1. Lesen Sie die Warnung
+1. Schließen Sie die OTP-Verifizierung ab (ein 6-stelliger Code wird an Ihre E-Mail gesendet)
+1. Geben Sie den Code ein und bestätigen Sie die Löschung
+
+> **Warnung:** Das Löschen eines Teams entfernt dauerhaft alle Daten, einschließlich:
+>
+> - Alle Teammitglieder
+
+- Alle Kampagnen
+- Alle Leads und Interaktionen
+- Alle Verkäufe und Provisionsdaten
+- Alle Konfigurationen
+
+Diese Aktion kann nicht rückgängig gemacht werden.
+
+## Änderungen speichern
+
+Änderungen an den Teameinstellungen werden gespeichert, wenn Sie auf die Schaltfläche **Team aktualisieren** klicken. Sie erhalten eine Bestätigungsbenachrichtigung, wenn die Änderungen erfolgreich gespeichert wurden.
+
+## Fehlerbehebung
+
+### Kein Zugriff auf Einstellungen
+
+Wenn Sie nicht auf die Einstellungen zugreifen können:
+
+1. Überprüfen Sie Ihre Rolle auf der Mitgliederseite
+1. Kontaktieren Sie Ihren Teameigentümer
+
+### Änderungen werden nicht gespeichert
+
+Wenn Änderungen nicht gespeichert werden:
+
+1. Überprüfen Sie die Validierungsfehlermeldungen
+1. Stellen Sie sicher, dass alle erforderlichen Felder ausgefüllt sind
+1. Überprüfen Sie Ihre Internetverbindung
+1. Versuchen Sie, die Seite zu aktualisieren
+
+### Logo lässt sich nicht hochladen
+
+Wenn der Logo-Upload fehlschlägt:
+
+1. Überprüfen Sie die Dateigröße (muss unter dem Limit liegen)
+1. Überprüfen Sie das Dateiformat (JPG, PNG werden unterstützt)
+1. Versuchen Sie ein anderes Bild
+1. Leeren Sie den Browser-Cache
+
+### Team kann nicht gelöscht werden
+
+Wenn Sie das Team nicht löschen können:
+
+1. Stellen Sie sicher, dass Sie der primäre Eigentümer sind
+1. Prüfen Sie, ob die Funktion für Ihre Organisation aktiviert ist
+1. Schließen Sie die OTP-Verifizierung korrekt ab
+
+## Verwandte Themen
+
+- [Mitgliederverwaltung](/docs/user-guide-de/team-administration/member-management) - Verwaltung von Teammitgliedern
+- [Abrechnung](/docs/user-guide-de/team-administration/billing) - Team-Abonnement
+- [Teamübersicht](/docs/user-guide-de/team-account) - Team-Grundlagen

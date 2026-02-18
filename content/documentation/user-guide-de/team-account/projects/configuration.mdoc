@@ -1,0 +1,217 @@
+---
+title: Kampagnenkonfiguration
+description: >-
+  Konfigurieren Sie kampagnenspezifische Einstellungen einschliesslich Produkte, Interaktionsstatus, Verkaufsstatusmodelle, benutzerdefinierte Felder und Bonusziele.
+order: 4
+language: de
+categories:
+  - user-guide
+tags:
+  - team-account
+status: published
+collapsible: false
+collapsed: false
+---
+Konfigurieren Sie kampagnenspezifische Einstellungen einschliesslich Produkte, Interaktionsstatus, Verkaufsstatusmodelle, benutzerdefinierte Felder und Bonusziele.
+
+## Zugriff auf die Konfiguration
+
+1. Navigieren Sie zu Ihrer Kampagne
+1. Klicken Sie auf den **Konfiguration**-Tab
+1. Zeigen Sie die Kampagneneinstellungen an und bearbeiten Sie sie
+
+## Konfigurationsbereiche
+
+Die Konfigurationsseite enthalt funf Hauptbereiche:
+
+{% table %}
+- Bereich
+- Beschreibung
+---
+- **Produkte**
+- In dieser Kampagne verfugbare Produkte
+---
+- **Interaktionsstatus**
+- Status fur Adressinteraktionen
+---
+- **Verkaufsstatusmodell**
+- Zuordnung des Verkaufs-Workflows
+---
+- **Benutzerdefinierte Felder-Vorlage**
+- Benutzerdefinierte Felder fur Adressen
+---
+- **Bonusziele**
+- Kampagnenspezifische Bonusziele
+{% /table %}
+
+## Produkte
+
+### Zugeordnete Produkte
+
+Die Produktkarte zeigt Produkte, die fur Verkaufe in dieser Kampagne verfugbar sind:
+
+- Produktname
+- Preis
+- Provisionsbetrag
+- Status (aktiv/archiviert)
+
+### Produkte zuordnen
+
+Um Produkte zur Kampagne hinzuzufugen:
+
+1. Klicken Sie auf **Produkte zuordnen**
+1. Wahlen Sie Produkte aus dem Kontoinventar
+1. Bestatigen Sie die Zuordnung
+
+Produkte mussen zuerst im Team-[Inventar](/docs/user-guide-de/team-account/inventory) vorhanden sein, bevor sie einer Kampagne zugeordnet werden konnen.
+
+### Produkte entfernen
+
+Um ein Produkt aus der Kampagne zu entfernen:
+
+1. Klicken Sie auf das Produktmenu
+1. Wahlen Sie **Aus Kampagne entfernen**
+
+Dies entfernt das Produkt nur aus dieser Kampagne; es bleibt im Teaminventar erhalten.
+
+## Interaktionsstatus
+
+### Kampagnen-Interaktionsstatus
+
+Interaktionsstatus definieren die moglichen Status fur Adressinteraktionen innerhalb dieser Kampagne. Status werden angezeigt mit:
+
+- Name
+- Farbe
+- Ob es ein Standardstatus ist
+- Ob es ein Endstatus ist
+
+### Status zuordnen
+
+Um Status zur Kampagne hinzuzufugen:
+
+1. Klicken Sie auf **Status zuordnen**
+1. Wahlen Sie aus nicht zugeordneten Status
+1. Bestatigen Sie die Zuordnung
+
+Status werden auf Teamebene in [Interaktionsstatus](/docs/user-guide-de/team-administration/interaction-states) konfiguriert.
+
+### Status verwalten
+
+Fur jeden zugeordneten Status konnen Sie:
+
+- **Bearbeiten** - Statuseigenschaften aktualisieren
+- **Loschen** - Aus der Kampagne entfernen
+
+## Verkaufsstatusmodell-Zuordnung
+
+### Was ist ein Verkaufsstatusmodell?
+
+Ein Verkaufsstatusmodell definiert den Workflow fur Verkaufe in dieser Kampagne, einschliesslich:
+
+- Verkaufsstatus und deren Ubergange
+- Provisionsberechnungsregeln
+- Statusbasierte Ausloser
+
+### Verkaufsstatusmodell zuordnen
+
+1. Sehen Sie die verfugbaren Verkaufsstatusmodelle im Dropdown
+1. Wahlen Sie das Modell fur diese Kampagne
+1. Das Modell wird sofort zugeordnet
+
+### Verkaufsstatusmodell andern
+
+Sie konnen das zugeordnete Verkaufsstatusmodell jederzeit andern. Die Status und Ubergange des neuen Modells gelten fur neue Verkaufe.
+
+Siehe [Verkaufsstatusmodelle](/docs/user-guide-de/team-administration/sale-models) fur die Modellkonfiguration.
+
+## Benutzerdefinierte Felder-Vorlage
+
+### Vorlagenzuordnung
+
+Benutzerdefinierte Felder-Vorlagen definieren zusatzliche Datenfelder fur Adressen in dieser Kampagne.
+
+Die Karte zeigt:
+
+- Aktuell zugeordnete Vorlage (falls vorhanden)
+- Verfugbare Vorlagen
+
+### Vorlage zuordnen
+
+1. Wahlen Sie eine Vorlage aus dem Dropdown
+1. Die Vorlage wird auf Kampagnen-Adressen angewendet
+
+Siehe [Benutzerdefinierte Felder](/docs/user-guide-de/team-administration/custom-fields) fur die Vorlagenkonfiguration.
+
+## Bonusziele
+
+### Kampagnen-Bonusziele
+
+Bonusziele anzeigen, die fur diese Kampagne gelten:
+
+- Zielname
+- Zielbetrag
+- Bonusbetrag
+- Zeitraum
+- Aktueller Fortschritt
+
+### Bonusziele erstellen
+
+Kampagnen-Bonusziele werden auf der [Bonusziele](/docs/user-guide-de/team-account/bonus-targets)-Seite mit dem Kampagnenbereich erstellt.
+
+### Bonusziele verwalten
+
+Von dieser Karte aus konnen Sie:
+
+- Zieldetails anzeigen
+- Ziele archivieren
+- Zieleinstellungen aktualisieren
+
+## Best Practices
+
+### Ersteinrichtung
+
+1. **Zuerst Produkte zuordnen** - Verfugbare Produkte fur Verkaufe einrichten
+1. **Status konfigurieren** - Fur die Verfolgung benotigte Interaktionsstatus zuordnen
+1. **Verkaufsstatusmodell festlegen** - Workflow wahlen, bevor Verkaufe erfasst werden
+1. **Benutzerdefinierte Felder anwenden** - Kampagnenspezifische Datenfelder hinzufugen
+
+### Laufende Verwaltung
+
+1. **Regelmasig uberprufen** - Konfiguration auf aktuelle Bedurfnisse prufen
+1. **Bei Bedarf anpassen** - Produkte und Status anpassen, wenn sich die Kampagne entwickelt
+1. **Ziele uberwachen** - Bonusziel-Fortschritt verfolgen
+
+## Fehlerbehebung
+
+### Produkte werden nicht angezeigt
+
+Wenn Produkte nicht erscheinen:
+
+1. Uberprufen Sie, ob Produkte im Teaminventar vorhanden sind
+1. Prufen Sie, ob Produkte aktiv sind (nicht archiviert)
+1. Aktualisieren Sie die Seite
+
+### Status nicht verfugbar
+
+Wenn Interaktionsstatus fehlen:
+
+1. Prufen Sie, ob Status auf Teamebene konfiguriert sind
+1. Uberprufen Sie, ob Status nicht bereits der Kampagne zugeordnet sind
+1. Schauen Sie im Dropdown fur nicht zugeordnete Status
+
+### Verkaufsstatusmodell-Probleme
+
+Wenn das Verkaufsstatusmodell nicht wie erwartet funktioniert:
+
+1. Uberprufen Sie, ob das Modell korrekt zugeordnet ist
+1. Prufen Sie die Statusubergange des Modells
+1. Uberprufen Sie die Provisionsberechnungsregeln
+
+## Verwandte Themen
+
+- [Kampagnen-Ubersicht](/docs/user-guide-de/team-account/projects) - Kampagnen-Grundlagen
+- [Inventar](/docs/user-guide-de/team-account/inventory) - Produktverwaltung
+- [Interaktionsstatus](/docs/user-guide-de/team-administration/interaction-states) - Statuskonfiguration
+- [Verkaufsstatusmodelle](/docs/user-guide-de/team-administration/sale-models) - Workflow-Konfiguration
+- [Benutzerdefinierte Felder](/docs/user-guide-de/team-administration/custom-fields) - Felddefinitionen
+- [Bonusziele](/docs/user-guide-de/team-account/bonus-targets) - Zielverfolgung

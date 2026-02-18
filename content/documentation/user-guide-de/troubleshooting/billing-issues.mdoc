@@ -1,0 +1,311 @@
+---
+title: Fehlerbehebung Abrechnungsprobleme
+description: >-
+  Lösungen für Probleme mit Zahlungen, Abonnements und Abrechnung.
+order: 3
+language: de
+categories:
+  - user-guide
+tags:
+  - troubleshooting
+status: published
+collapsible: false
+collapsed: false
+---
+Lösungen für Probleme mit Zahlungen, Abonnements und Abrechnung.
+
+## Zahlungsprobleme
+
+### Zahlung abgelehnt
+
+**Symptom:** Zahlungsmethode wurde abgelehnt
+
+**Lösungen:**
+
+1. **Kartendaten prüfen** - Nummer, Ablaufdatum, CVV korrekt?
+2. **Ausreichend Guthaben** - Kontostand verfügbar?
+3. **Bank kontaktieren** - Möglicherweise muss die Zahlung autorisiert werden
+4. **Andere Karte versuchen** - Eine andere Zahlungsmethode verwenden
+5. **Rechnungsadresse** - Stimmt mit der Kartenabrechnung überein?
+
+### Fehler bei der Zahlungsabwicklung
+
+**Symptom:** Fehler während der Zahlungsabwicklung
+
+**Lösungen:**
+
+1. **Warten und erneut versuchen** - Vorübergehendes Problem
+2. **Seite aktualisieren** - Dann erneut versuchen
+3. **Anderen Browser verwenden** - Browserspezifisches Problem
+4. **Support kontaktieren** - Falls das Problem bestehen bleibt
+
+### Zahlungsmethode kann nicht hinzugefügt werden
+
+**Symptom:** Neue Karte kann nicht gespeichert werden
+
+**Lösungen:**
+
+1. **Kartendaten überprüfen** - Alle Felder korrekt
+2. **Kartenstatus prüfen** - Karte aktiv?
+3. **Andere Karte versuchen** - Karte wird möglicherweise nicht unterstützt
+4. **Browsereinstellungen** - Popups erlaubt?
+
+### Zahlungsmethode kann nicht entfernt werden
+
+**Symptom:** Zahlungsmethode kann nicht gelöscht werden
+
+**Ursache:** Die einzige Zahlungsmethode kann bei aktivem Abonnement nicht entfernt werden
+
+**Lösung:**
+1. Zuerst eine neue Zahlungsmethode hinzufügen
+2. Neue Methode als Standard festlegen
+3. Dann die alte Methode entfernen
+
+## Abonnementprobleme
+
+Tarife können mit monatlichen oder jährlichen Abrechnungsintervallen verfügbar sein. Einige Tarife können eine kostenlose Testphase beinhalten.
+
+### Upgrade nicht möglich
+
+**Symptom:** Wechsel zu einem höheren Tarif nicht möglich
+
+**Lösungen:**
+
+1. **Zahlungsmethode prüfen** - Gültige Karte hinterlegt?
+2. **Berechtigungen prüfen** - Nur Benutzer mit Abrechnungszugriff können Tarife ändern
+3. **Support kontaktieren** - Möglicherweise ist manuelle Unterstützung erforderlich
+
+### Downgrade nicht möglich
+
+**Symptom:** Wechsel zu einem niedrigeren Tarif nicht möglich
+
+**Mögliche Ursachen:**
+
+1. **Pro-Platz-Abrechnung** - Bei Pro-Platz-Abrechnung müssen Sie möglicherweise zuerst Teammitglieder reduzieren
+2. **Support kontaktieren** - Für Unterstützung bei Tarifänderungen
+
+**Lösungen:**
+1. Teamgröße reduzieren bei Pro-Platz-Abrechnung
+2. Support für Unterstützung kontaktieren
+
+### Abonnement wird nicht aktiviert
+
+**Symptom:** Bezahlt, aber Abonnement nicht aktiv
+
+**Lösungen:**
+
+1. **Einige Minuten warten** - Verarbeitungszeit für Zahlungs-Webhooks
+2. **Seite aktualisieren** - Neuladen könnte erforderlich sein
+3. **Ab- und wieder anmelden** - Sitzung zurücksetzen
+4. **Zahlung prüfen** - War sie im Abrechnungsportal erfolgreich?
+5. **Support kontaktieren** - Mit Zahlungsbestätigung
+
+### Abonnement unerwartet gekündigt
+
+**Symptom:** Abonnement ohne Anfrage gekündigt
+
+**Mögliche Ursachen:**
+
+1. **Zahlung fehlgeschlagen** - Zahlungsmethode prüfen
+2. **Karte abgelaufen** - Zahlungsmethode aktualisieren
+3. **Manuelle Kündigung** - Hat jemand mit Abrechnungszugriff gekündigt?
+
+**Lösungen:**
+1. Zahlungsmethode aktualisieren
+2. Abonnement über das Abrechnungsportal reaktivieren
+3. Support kontaktieren, wenn unklar
+
+## Rechnungsprobleme
+
+### Rechnung nicht erhalten
+
+**Symptom:** Keine Rechnungs-E-Mail erhalten
+
+**Lösungen:**
+
+1. **Spam-Ordner prüfen** - Wird häufig gefiltert
+2. **Rechnungs-E-Mail überprüfen** - Korrekte Adresse?
+3. **Aus dem Portal herunterladen** - Im Abrechnungsverlauf abrufen
+4. **Support kontaktieren** - Erneuten Versand anfordern
+
+### Falscher Betrag berechnet
+
+**Symptom:** Unerwarteter Rechnungsbetrag
+
+**Mögliche Ursachen:**
+
+1. **Anteilige Berechnung** - Upgrade mitten im Abrechnungszeitraum
+2. **Steuern hinzugefügt** - Variiert je nach Standort
+3. **Tarifänderung** - Andere Preisgestaltung
+4. **Zusätzliche Gebühren** - Überschreitungsgebühren
+
+**Lösungen:**
+1. Rechnungsdetails überprüfen
+2. Auf anteilige Berechnung prüfen
+3. Aktuellen Tarif überprüfen
+4. Support kontaktieren, wenn unklar
+
+### Fehlende Rechnung
+
+**Symptom:** Rechnung nicht im Abrechnungsverlauf
+
+**Lösungen:**
+
+1. **Datumsbereich prüfen** - Rechnung in einem anderen Zeitraum?
+2. **Abrechnungsportal aufrufen** - Vollständigerer Verlauf
+3. **Support kontaktieren** - Kopie anfordern
+
+## Probleme mit dem Abrechnungsportal
+
+Das Abrechnungsportal wird von Ihrem Zahlungsanbieter (Stripe, Lemon Squeezy oder Paddle) bereitgestellt und ermöglicht die Verwaltung von Abonnements, das Anzeigen von Rechnungen und das Aktualisieren von Zahlungsmethoden.
+
+### Abrechnungsportal nicht erreichbar
+
+**Symptom:** Abrechnungsportal öffnet sich nicht
+
+**Lösungen:**
+
+1. **Berechtigungen prüfen** - Nur Benutzer mit der Berechtigung `billing.manage` (Eigentümer-Rolle für Teams, Kontoinhaber für persönliche Konten) können auf die Abrechnung zugreifen
+2. **Popups zulassen** - Portal öffnet sich möglicherweise in einem neuen Fenster
+3. **Anderen Browser versuchen** - Browser-Kompatibilitätsprobleme
+4. **Cache leeren** - Alte Sitzungen entfernen
+5. **Support kontaktieren** - Falls weiterhin nicht erreichbar
+
+### Portal zeigt falsche Informationen
+
+**Symptom:** Informationen stimmen nicht überein
+
+**Lösungen:**
+
+1. **Portal aktualisieren** - Neueste Daten abrufen
+2. **Synchronisierung prüfen** - Aktualisierung nach kürzlichen Änderungen kann Zeit benötigen
+3. **Support kontaktieren** - Bei Abweichungen
+
+## Erstattungsanfragen
+
+### Eine Erstattung anfordern
+
+**Vorgehensweise:**
+
+1. Support kontaktieren
+2. Die Situation erklären
+3. Relevante Details angeben
+4. Auf Überprüfung warten
+5. Erstattung wird bei Genehmigung verarbeitet
+
+### Erstattung nicht erhalten
+
+**Symptom:** Genehmigte Erstattung erscheint nicht
+
+**Lösungen:**
+
+1. **Bearbeitungszeit abwarten** - Typischerweise 5-10 Werktage
+2. **Ursprüngliche Zahlungsmethode prüfen** - Erstattung wird dorthin gesendet
+3. **Support kontaktieren** - Mit Erstattungsbestätigung
+
+## Kontostatus-Probleme
+
+### Konto wegen Nichtzahlung gesperrt
+
+**Symptom:** Zugriff aufgrund von Abrechnungsproblemen eingeschränkt
+
+**Lösungen:**
+
+1. **Zahlungsmethode aktualisieren** - Gültige Karte hinzufügen
+2. **Ausstehenden Betrag bezahlen** - Überfällige Beträge begleichen
+3. **Support kontaktieren** - Falls Sie einen Fehler vermuten
+4. **Zugriff wiederhergestellt** - Nach Zahlungsbestätigung
+
+### Kostenlose Testphase beendet
+
+**Symptom:** Zugriff nach Testphase verloren
+
+**Hinweis:** Einige Tarife beinhalten eine kostenlose Testphase. Start- und Enddatum der Testphase werden in Ihrem Abonnement erfasst.
+
+**Lösungen:**
+
+1. **Kostenpflichtigen Tarif abonnieren** - Den Dienst weiter nutzen
+2. **Support kontaktieren** - Optionen besprechen
+3. **Testphasenstatus prüfen** - Ihr Testphasen-Enddatum ist in den Abrechnungseinstellungen sichtbar
+
+## Steuerliche Fragen
+
+Die Steuerbehandlung wird vom Zahlungsanbieter (Stripe, Lemon Squeezy oder Paddle) verwaltet. Steuersätze werden vom Abrechnungsanbieter basierend auf Ihrem Standort bestimmt.
+
+### Steuern nicht korrekt
+
+**Symptom:** Falscher Steuersatz angewendet
+
+**Lösungen:**
+
+1. **Standort überprüfen** - Ihre Rechnungsadresse bestimmt den Steuersatz
+2. **Rechnungsadresse aktualisieren** - Falls falsch, im Abrechnungsportal aktualisieren
+3. **Support kontaktieren** - Für Korrekturen oder Fragen zu Steuersätzen
+
+### Steuerrechnung benötigt
+
+**Symptom:** Rechnung mit Steuerdetails benötigt
+
+**Lösungen:**
+
+1. **Abrechnungsportal aufrufen** - Rechnungen sind im Kundenportal verfügbar
+2. **Support kontaktieren** - Für besondere Dokumentationsanforderungen
+
+## Enterprise/Individuelle Abrechnung
+
+### Vertragsfragen
+
+Für Enterprise-Verträge:
+
+1. Ihren Account-Manager kontaktieren
+2. Vertragsbedingungen überprüfen
+3. Änderungen über den vorgesehenen Kanal anfordern
+
+### Individuelle Preisgestaltung
+
+Für Anfragen zur individuellen Preisgestaltung:
+
+1. Vertriebsteam kontaktieren
+2. Ihre Anforderungen besprechen
+3. Individuelles Angebot erhalten
+
+## Vorbeugung
+
+### Abrechnungsprobleme vermeiden
+
+1. **Zahlungsinformationen aktuell halten** - Vor Ablauf aktualisieren
+2. **Abrechnungs-E-Mails überwachen** - Benachrichtigungen nicht ignorieren
+3. **Rechnungen prüfen** - Probleme frühzeitig erkennen
+4. **Ihren Tarif kennen** - Limits verstehen
+
+### Benachrichtigungen einrichten
+
+Konfigurieren Sie Benachrichtigungen für:
+- Zahlungsfehler
+- Bevorstehende Verlängerung
+- Tarifänderungen
+
+## Hilfe erhalten
+
+### Vor der Kontaktaufnahme mit dem Support
+
+Sammeln Sie:
+1. Konto-E-Mail
+2. Rechnungsnummer (falls zutreffend)
+3. Fehlermeldung
+4. Screenshot des Problems
+5. Zahlungsbestätigung (falls zutreffend)
+
+### Support kontaktieren
+
+Bei Abrechnungsproblemen:
+1. Nutzen Sie den abrechnungsspezifischen Support-Kanal
+2. Geben Sie Kontoinformationen an
+3. Beschreiben Sie das Problem klar
+4. Fügen Sie relevante Dokumente bei
+
+## Verwandte Themen
+
+- [Persönliche Abrechnung](/docs/user-guide-de/personal-account/billing) - Individuelle Abrechnung
+- [Team-Abrechnung](/docs/user-guide-de/team-administration/billing) - Team-Abrechnung
+- [Kontozugang](/docs/user-guide-de/troubleshooting/account-access) - Zugangsprobleme

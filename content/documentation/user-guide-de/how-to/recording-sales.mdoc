@@ -1,0 +1,311 @@
+---
+title: Verkäufe erfassen
+description: >-
+  Diese Anleitung bietet Schritt-für-Schritt-Anleitungen zum Erfassen von Verkäufen
+  in Sellfaster.
+order: 1
+language: de
+categories:
+  - user-guide
+tags:
+  - how-to
+status: published
+collapsible: false
+collapsed: false
+---
+Diese Anleitung bietet Schritt-für-Schritt-Anleitungen zum Erfassen von Verkäufen in Sellfaster.
+
+## Was ist ein Verkauf?
+
+Ein Verkauf erfasst eine abgeschlossene Transaktion, die Folgendes verknüpft:
+
+- Ein Produkt aus Ihrem Inventar
+- Eine Adresse (Kunde)
+- Einen Verkäufer
+- Den Kampagnenkontext
+
+Verkäufe werden mit konfigurierbaren Status nachverfolgt und können Provisionsberechnungen auslösen.
+
+## Voraussetzungen
+
+Bevor Sie Verkäufe erfassen:
+
+1. Produkte müssen in Ihrer Kampagne konfiguriert sein
+1. Sie benötigen Zugriff auf ein Teamkonto mit Verkaufsberechtigungen
+1. Der Lead sollte in einer Kampagne existieren
+
+## Verkaufsstruktur verstehen
+
+### Verkäufe und Verkaufsaufträge
+
+Sellfaster verwendet zwei verwandte Konzepte:
+
+- **Verkauf**: Ein einzelnes verkauftes Produkt (ein Verkauf pro Produkt)
+- **Verkaufsauftrag**: Gruppiert mehrere Verkäufe zusammen (z.B. Kunde kauft 3 Produkte = 1 Auftrag mit 3 Verkäufen)
+
+Jeder Verkauf erhält eine eindeutige Nummer wie `SALE-A1B2C3D4-000001`, und Aufträge erhalten Nummern wie `ORD-A1B2C3D4-000001`.
+
+## Einen Verkauf erfassen
+
+### Von der Kampagnen-Verkaufsseite
+
+1. **Zu Verkäufen navigieren**
+   - Gehen Sie zu `/home/[team]/projects/[campaign]/sales`
+   - Oder klicken Sie auf **Verkäufe** in der Kampagnennavigation
+
+![](https://raw.githubusercontent.com/Goldenhunter1206/sellfaster_content/main/public/site/images/user-guide/how-to/recording-sales/image-campaign-sales-page.png)
+
+2. **Option zur Verkaufserfassung finden**
+
+   - Suchen Sie die Option, einen neuen Verkauf zu erfassen
+
+1. **Den Lead auswählen**
+
+   - Wählen Sie den Kunden-Lead für den Verkauf
+   - Der Lead muss in der Kampagne existieren
+
+1. **Das Produkt auswählen**
+
+   - Wählen Sie aus den für die Kampagne konfigurierten Produkten
+   - Produkte definieren den Provisionsbetrag
+
+1. **Das Verkaufsdatum festlegen**
+
+   - Wählen Sie, wann der Verkauf stattfand
+
+1. **Notizen hinzufügen (Optional)**
+
+   - Fügen Sie relevante Details hinzu
+
+1. **Speichern**
+
+   - Der Verkauf wird mit einer automatisch generierten Verkaufsnummer erstellt
+   - Der anfängliche Verkaufsstatus wird je nach Ihrem Verkaufsstatusmodell automatisch angewendet
+
+### Mehrfach-Einheiten-Produkte
+
+Einige Produkte sind so konfiguriert, dass mehrere Verkäufe pro Lead möglich sind:
+
+- Wenn `allow_multiple_per_unit` bei einem Produkt aktiviert ist
+- Können Sie mehrere Einheiten an denselben Lead verkaufen
+- Beispiel: Mobilfunkverträge (einer pro Haushaltsmitglied)
+
+## Felder des Verkaufsformulars
+
+### Pflichtfelder
+
+{% table %}
+- Feld
+- Beschreibung
+---
+- **Lead**
+- Kunden-Lead für den Verkauf
+---
+- **Produkt**
+- Verkauftes Produkt
+---
+- **Verkaufsdatum**
+- Datum des Verkaufs
+{% /table %}
+
+### Optionale Felder
+
+{% table %}
+- Feld
+- Beschreibung
+---
+- **Notizen**
+- Zusätzliche Informationen zum Verkauf
+{% /table %}
+
+### Automatisch generierte Felder
+
+{% table %}
+- Feld
+- Beschreibung
+---
+- **Verkaufsnummer**
+- Eindeutige Kennung (automatisch generiert)
+---
+- **Verkaufsstatus**
+- Anfangsstatus basierend auf dem Verkaufsstatusmodell
+---
+- **Benutzer**
+- Verkäufer (typischerweise aktueller Benutzer)
+{% /table %}
+
+*![](https://raw.githubusercontent.com/Goldenhunter1206/sellfaster_content/main/public/site/images/user-guide/how-to/recording-sales/image-team-sales-page-table.png)*
+
+## Verkaufsstatus
+
+### Konfigurierbares Statussystem
+
+Sellfaster verwendet ein konfigurierbares Statussystem für Verkäufe:
+
+1. **Verkaufsstatusmodelle** - Vorlagen, die den Workflow definieren
+1. **Verkaufsstatus** - Einzelne Status innerhalb eines Modells
+1. **Statusübergänge** - Erlaubte Wechsel zwischen Status
+
+### Status-Eigenschaften
+
+Jeder Verkaufsstatus kann diese Eigenschaften haben:
+
+{% table %}
+- Eigenschaft
+- Auswirkung
+---
+- **is\_initial**
+- Anfangsstatus für neue Verkäufe
+---
+- **is\_terminal**
+- Keine weiteren Übergänge erlaubt
+---
+- **triggers\_commission**
+- Erstellt Provision beim Erreichen dieses Status
+---
+- **reclaims\_commission**
+- Storniert Provision beim Erreichen dieses Status
+---
+- **cancels\_lead**
+- Markiert den Lead als verkauft
+---
+- **color**
+- Visueller Indikator in der Benutzeroberfläche
+---
+- **position**
+- Reihenfolge im Workflow
+{% /table %}
+
+### Typische Status-Workflows
+
+Beispielstatus, die Ihr Team konfigurieren könnte:
+
+{% table %}
+- Status
+- Typischer Zweck
+---
+- **Ausstehend**
+- Anfangsstatus, wartet auf Bearbeitung
+---
+- **Bestätigt**
+- Verkauf überprüft und abgeschlossen
+---
+- **Storniert**
+- Verkauf wurde storniert
+{% /table %}
+
+Statusübergänge werden validiert - Sie können sich nur zwischen Status bewegen, die als gültige Übergänge konfiguriert sind.
+
+## Provision
+
+### Wie die Provision funktioniert
+
+Die Provision wird automatisch berechnet basierend auf:
+
+1. **Provisionsbetrag des Produkts** - In der Produktkonfiguration festgelegt
+1. **Verkaufsstatus-Auslöser** - Status, die mit `triggers_commission: true` konfiguriert sind
+1. **Aktionen** - Können den Provisionsbetrag anpassen
+
+### Provisionsnachverfolgung
+
+- **Verdiente Provision**: Wird erstellt, wenn ein Verkauf einen auslösenden Status erreicht
+- **Zurückgeforderte Provision**: Wird (als negativ) erstellt, wenn ein Verkauf einen Rückforderungsstatus erreicht
+- **Provisionsbetrag**: Verwendet `sale.commission_amount` falls gesetzt (aktionsangepasst), andernfalls die Basisprovision des Produkts
+
+### Provision anzeigen
+
+Nach der Erfassung eines Verkaufs:
+
+- Die Provision erscheint im Bereich [Provision](/docs/user-guide-de/team-account/commission)
+- Verknüpft mit dem Verkäufer
+- Wird bis zur Auszahlung per Gehaltsabrechnung nachverfolgt
+
+## Einen Verkauf bearbeiten
+
+### Was bearbeitet werden kann
+
+Nach der Erstellung können Sie aktualisieren:
+
+- Notizen
+
+### Was nicht geändert werden kann
+
+Je nach Konfiguration:
+
+- Verkaufsstatus (muss Statusübergänge verwenden)
+- Produkt
+- Adresse
+- Ursprüngliches Verkaufsdatum (in einigen Fällen)
+
+### Verkaufsstatus wechseln
+
+Um den Status eines Verkaufs zu ändern:
+
+1. Verkaufsdetail öffnen
+1. Die Optionen für den Statusübergang finden
+1. Einen gültigen nächsten Status auswählen
+1. Den Übergang bestätigen
+
+Dies kann je nach Statuskonfiguration Provisionsänderungen auslösen.
+
+## Inventarintegration
+
+### Produktbestandsbewegungen
+
+Verkäufe können Bestandsbewegungen auslösen:
+
+- **Bewegungstyp**: 'ein' (erhalten) oder 'aus' (gesendet)
+- **Menge**: Bewegte Menge
+- **Mit Verkauf verknüpft**: Bewegung referenziert den Verkauf
+
+Bestandsbewegungen sind nach der Erstellung unveränderlich.
+
+## Best Practices
+
+### Verkäufe erfassen
+
+1. **Zeitnah erfassen** - Wenn der Verkauf stattfindet
+1. **Mit korrekter Adresse verknüpfen** - Gewährleistet ordnungsgemäße Nachverfolgung
+1. **Produkt überprüfen** - Korrektes Produkt für die Provision
+1. **Nützliche Notizen hinzufügen** - Kontext für zukünftige Referenz
+
+### Statusverwaltung
+
+1. **Ihren Workflow verstehen** - Gültige Übergänge kennen
+1. **Korrekte Status verwenden** - Beeinflusst die Provisionsberechnung
+1. **Status nicht überspringen** - Dem konfigurierten Workflow folgen
+
+## Fehlerbehebung
+
+### Verkauf kann nicht erstellt werden
+
+Wenn Sie keinen Verkauf erstellen können:
+
+1. Überprüfen Sie, ob Sie Verkaufsberechtigungen haben
+1. Prüfen Sie, ob die Adresse existiert und zugänglich ist
+1. Überprüfen Sie, ob Produkte für die Kampagne konfiguriert sind
+1. Nach Validierungsfehlern suchen
+
+### Provision wird nicht angezeigt
+
+Wenn die Provision nicht erscheint:
+
+1. Verkaufsstatus prüfen - muss ein provisionsauslösender Status sein
+1. Überprüfen, ob das Produkt eine Provision konfiguriert hat
+1. Verkaufsstatusmodell-Konfiguration prüfen
+1. Provision kann nach Statusübergang erscheinen
+
+### Statusübergang nicht möglich
+
+Wenn Sie den Verkaufsstatus nicht ändern können:
+
+1. Prüfen Sie, ob der aktuelle Status terminal ist (keine Übergänge erlaubt)
+1. Überprüfen Sie, ob der Zielstatus ein gültiger Übergang ist
+1. Ihre Berechtigungen prüfen
+
+## Verwandte Themen
+
+- [Team-Verkäufe](/docs/user-guide-de/team-account/sales) - Verkaufsverwaltung
+- [Provision](/docs/user-guide-de/team-account/commission) - Einnahmennachverfolgung
+- [Inventar](/docs/user-guide-de/team-account/inventory) - Produktverwaltung
+- [Verkaufsstatusmodelle](/docs/user-guide-de/team-administration/sale-models) - Konfiguration
