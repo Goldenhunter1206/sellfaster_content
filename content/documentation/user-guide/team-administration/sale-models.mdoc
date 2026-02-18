@@ -4,6 +4,7 @@ description: >-
   Configure how sales flow through your system, including states, transitions,
   and commission rules.
 order: 3
+language: en
 categories:
   - user-guide
 tags:
@@ -73,7 +74,7 @@ By default, archived models are hidden. Toggle **Show archived** to view them.
 1. Define transitions between states
 1. Save
 
-> **Note:** Creating models requires the `salestatemodels:create` permission.
+> **Note:** Creating models requires the you to have the role `manager` or `owner`.
 
 ### Default States
 
@@ -86,10 +87,10 @@ New models come with three pre-configured states:
 ---
 - **Proposal**
 - Initial
-- -
+- 
 ---
 - **Confirmed**
-- -
+- 
 - Triggers commission
 ---
 - **Cancelled**
@@ -175,6 +176,8 @@ Each state within a model has:
 
 ## Transitions
 
+![](https://raw.githubusercontent.com/Goldenhunter1206/sellfaster_content/main/public/site/images/user-guide/team-administration/sale-models/image.png)
+
 ### What are Transitions?
 
 Transitions define which state changes are allowed. For example:
@@ -224,7 +227,7 @@ Set a number of days after which a sale automatically moves to the next state. U
 View an interactive diagram of your model:
 
 1. Click the actions menu on a model
-1. Select **Visualize**
+1. Select **Visualize Flow**
 1. See the state flow diagram
 
 The diagram shows:
@@ -233,21 +236,19 @@ The diagram shows:
 - State properties (Initial, Terminal, Commission flags)
 - Arrows showing transitions
 - Auto-transition days labeled on edges
-- Drag to reposition, scroll to zoom
-- Mini-map for navigation
 
-## Project Assignments
+## Campaign Assignments
 
-### Assign to Projects
+### Assign to Campaigns
 
 1. Click the actions menu on a model
-1. Select **Assign to Projects**
-1. Toggle projects on/off
+1. Select **Assign to Campaigns**
+1. Toggle campaigns on/off
 1. Changes save automatically
 
-> **Note:** Each project can only have one sale model assigned. Assigning a new model replaces the existing assignment.
+> **Note:** Each campaign can only have one sale model assigned. Assigning a new model replaces the existing assignment.
 
-> **Note:** Archived models cannot be assigned to projects.
+> **Note:** Archived models cannot be assigned to campaigns.
 
 ## Setting Default Model
 
@@ -269,12 +270,12 @@ The default model is automatically suggested when creating sales. Only one model
 
 When archived:
 
-- Model is unassigned from all projects
+- Model is unassigned from all campaigns
 - Cannot be used for new sales
 - Existing sales using the model's states are preserved
 - Can be restored later
 
-> **Note:** Models with active sales referencing their states can be archived but not deleted.
+> **Note:** Models with active sales referencing their states can be archived.
 
 ### Restore a Model
 
@@ -282,15 +283,7 @@ When archived:
 1. Click the actions menu on the archived model
 1. Select **Unarchive**
 
-After restoring, reassign the model to projects as needed.
-
-## Deleting Models
-
-Models can only be permanently deleted if no sales reference their states:
-
-1. Archive the model first
-1. If no sales use it, the **Delete** option appears
-1. Confirm permanent deletion
+After restoring, reassign the model to campaigns as needed.
 
 ## Audit History
 
@@ -307,22 +300,19 @@ Team owners can view change history:
 - Permission Required
 ---
 - View models
-- `salestatemodels:select`
+- everyone
 ---
 - Create models
-- `salestatemodels:create`
+- `manager` and `owner` role only
 ---
 - Edit models
-- `salestatemodels:update`
+- `manager` and `owner` role only
 ---
 - Assign to projects
-- `salestatemodels:update`
+- `manager` and `owner` role only
 ---
 - Archive/Restore
-- `salestatemodels:delete`
----
-- Delete models
-- `salestatemodels:delete`
+- `manager` and `owner` role only
 ---
 - View audit history
 - Team owner only
@@ -335,7 +325,7 @@ Team owners can view change history:
 1. **Start simple** - Begin with basic states (Proposal, Confirmed, Cancelled)
 1. **Clear names** - Use descriptive state names
 1. **Document rules** - Add descriptions explaining when to use each state
-1. **Test first** - Verify transitions before assigning to active projects
+1. **Test first** - Verify transitions before assigning to active campaigns
 
 ### Commission Configuration
 
@@ -352,13 +342,6 @@ Team owners can view change history:
 
 ## Troubleshooting
 
-### Can't Delete State
-
-If you can't delete a state:
-
-- Sales may reference this state
-- Archive the state instead if possible
-
 ### Commission Not Calculated
 
 If commission isn't showing:
@@ -366,14 +349,6 @@ If commission isn't showing:
 1. Verify the sale reached a state with "Triggers Commission" enabled
 1. Check the sale is using the correct model
 1. Verify commission rules are configured
-
-### Wrong Model Applied
-
-To change a sale's model:
-
-1. Edit the sale
-1. Change the model selection
-1. The new model's rules will apply
 
 ## Related Topics
 
