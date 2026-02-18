@@ -1,8 +1,10 @@
 ---
 title: Custom Fields
 description: >-
-  Define additional fields for addresses to capture data specific to your business needs.
+  Define additional fields for addresses to capture data specific to your
+  business needs.
 order: 4
+language: en
 categories:
   - user-guide
 tags:
@@ -11,23 +13,24 @@ status: published
 collapsible: false
 collapsed: false
 ---
-Define additional fields for addresses to capture data specific to your business needs.
+Define additional fields for leads to capture data specific to your business needs.
 
 > **Note:** Custom fields are a premium feature. You need an active premium subscription (not Starter plan) to access this feature.
 
 ## Accessing Custom Fields
 
 1. Ensure you're in your team account
-2. Click **Custom Fields** in the sidebar
-3. The URL is `/home/[team]/custom-fields`
+1. Click **Custom Fields** in the sidebar
+1. The URL is `https://sellfaster.eu/home/[team]/custom-fields`
 
-> **Note:** Access requires the `customfields.manage` permission or team owner status.
+> **Note:** Access requires the `manager` or `owner` permission or team owner status.
 
 ## Overview
 
 The custom fields page has two tabs:
+
 - **Fields** - Manage individual field definitions
-- **Templates** - Group fields into templates and assign them to projects
+- **Templates** - Group fields into templates and assign them to campaigns
 
 ## Field Types
 
@@ -35,81 +38,145 @@ Custom fields support the following types:
 
 ### Text Fields
 
-| Type | Description | Example |
-|------|-------------|---------|
-| **Text** | Single line text with optional length limits and pattern validation | "ABC Company" |
-| **Email** | Email address with built-in validation | "user@example.com" |
-| **Phone** | Phone number with pattern validation | "+1 555-1234" |
-| **URL** | Web address with URL validation | "https://example.com" |
+{% table %}
+- Type
+- Description
+- Example
+---
+- **Text**
+- Single line text with optional length limits and pattern validation
+- "ABC Company"
+---
+- **Email**
+- Email address with built-in validation
+- "user@example.com"
+---
+- **Phone**
+- Phone number with pattern validation
+- "+1 555-1234"
+---
+- **URL**
+- Web address with URL validation
+- "https://example.com"
+{% /table %}
 
 ### Number Fields
 
-| Type | Description | Example |
-|------|-------------|---------|
-| **Number** | Numeric value with optional min/max and decimal places | 42 or 99.99 |
+{% table %}
+- Type
+- Description
+- Example
+---
+- **Number**
+- Numeric value with optional min/max and decimal places
+- 42 or 99.99
+{% /table %}
 
 ### Date/Time Fields
 
-| Type | Description | Example |
-|------|-------------|---------|
-| **Date** | Date picker with optional min/max date range | 2024-01-15 |
-| **DateTime** | Date and time in ISO 8601 format | 2024-01-15T14:30:00 |
+{% table %}
+- Type
+- Description
+- Example
+---
+- **Date**
+- Date picker with optional min/max date range
+- 2024-01-15
+---
+- **DateTime**
+- Date and time in ISO 8601 format
+- 2024-01-15T14:30:00
+{% /table %}
 
 ### Selection Fields
 
-| Type | Description | Example |
-|------|-------------|---------|
-| **Dropdown** | Single selection from predefined options | Choose one option |
-| **Multi-select** | Multiple selections from predefined options | Choose multiple options |
+{% table %}
+- Type
+- Description
+- Example
+---
+- **Dropdown**
+- Single selection from predefined options
+- Choose one option
+---
+- **Multi-select**
+- Multiple selections from predefined options
+- Choose multiple options
+{% /table %}
 
 ### Other Fields
 
-| Type | Description |
-|------|-------------|
-| **Boolean** | Yes/No checkbox |
+{% table %}
+- Type
+- Description
+---
+- **Boolean**
+- Yes/No checkbox
+{% /table %}
 
 ## Creating Custom Fields
+
+![](https://raw.githubusercontent.com/Goldenhunter1206/sellfaster_content/main/public/site/images/user-guide/team-administration/custom-fields/image.png)
 
 ### Add New Field
 
 1. Go to the **Fields** tab
-2. Click **Create Field**
-3. Fill in the form:
+1. Click **Create Field**
+1. Fill in the form:
    - **Name** (required) - Display name (1-100 characters)
    - **Field Key** (required) - Unique identifier (lowercase letters, numbers, underscores only)
    - **Field Type** (required) - Select from available types
    - **Description** (optional) - Help text for users
    - **Required** - Whether the field must be filled
-   - **Default Value** (optional) - Pre-filled value for new entries
+   - **Default Value** (optional) - Placeholder value for new entries
    - **Options** - For dropdown/multi-select, define the available choices
    - **Validation Rules** - Type-specific validation (see below)
-4. Save
+1. Save
 
 ### Field Properties
 
-| Property | Description |
-|----------|-------------|
-| **Name** | Display label shown to users (1-100 characters) |
-| **Field Key** | Internal identifier, must be unique per account (1-50 characters) |
-| **Description** | Help text shown below the field (up to 500 characters) |
-| **Required** | Field must have a value |
-| **User Editable** | Whether end users can modify this field |
-| **Show in Table** | Display field value in address table views |
-| **Visibility Condition** | When field appears: All addresses, Buildings only, or Non-buildings only |
+{% table %}
+- Property
+- Description
+---
+- **Name**
+- Display label shown to users (1-100 characters)
+---
+- **Field Key**
+- Internal identifier, must be unique per account (1-50 characters)
+---
+- **Description**
+- Help text shown below the field (up to 500 characters)
+---
+- **Required**
+- Field must have a value
+---
+- **User Editable**
+- Whether end users can modify this field
+---
+- **Show in Table**
+- Display field value in lead table (desktop and mobile) views
+---
+- **Visibility Condition**
+- When field appears: All addresses, Buildings only, or Non-buildings only
+{% /table %}
 
 ### Validation Rules
 
 **Text fields:**
+
 - Minimum length
 - Maximum length
 - Pattern (regex)
 
 **Number fields:**
+
 - Minimum value
 - Maximum value
 - Decimal places
 
 **Date/DateTime fields:**
+
 - Minimum date
 - Maximum date
 
@@ -118,18 +185,18 @@ Custom fields support the following types:
 For dropdown and multi-select fields:
 
 1. In the Options section, click **Add Option**
-2. Enter **Value** (internal identifier) and **Label** (display text)
-3. Add more options as needed
-4. Reorder by dragging
+1. Enter **Value** (internal identifier) and **Label** (display text)
+1. Add more options as needed
+1. Reorder by dragging
 
 ## Editing Fields
 
 ### Modify Field
 
 1. Click the actions menu on a field
-2. Select **Edit**
-3. Update properties
-4. Save
+1. Select **Edit**
+1. Update properties
+1. Save
 
 > **Note:** The field key cannot be changed if the field is already in use to prevent data integrity issues.
 
@@ -137,8 +204,8 @@ For dropdown and multi-select fields:
 
 Fields can be reordered to control display order on forms:
 
-1. Use the up/down arrows on field rows
-2. Order saves automatically
+1. Use the up/down arrows in the action menu of the rows
+1. Order saves automatically
 
 ## Archiving Fields
 
@@ -147,10 +214,11 @@ Fields can be reordered to control display order on forms:
 Instead of permanently deleting, archive fields to preserve data:
 
 1. Click the actions menu on a field
-2. Select **Archive**
-3. Confirm
+1. Select **Archive**
+1. Confirm
 
 When archived:
+
 - Field no longer appears on forms
 - Existing data is preserved
 - Can be restored later
@@ -158,95 +226,118 @@ When archived:
 ### Restore a Field
 
 1. Enable **Show archived** to view archived fields
-2. Click the actions menu on the archived field
-3. Select **Restore**
+1. Click the actions menu on the archived field
+1. Select **Restore**
 
 ## Templates
 
 ### What are Templates?
 
-Templates are collections of fields that can be assigned to projects. This allows different projects to use different sets of custom fields.
+Templates are collections of fields that can be assigned to campaigns. This allows different projects to use different sets of custom fields.
 
 ### Creating Templates
 
 1. Go to the **Templates** tab
-2. Click **Create Template**
-3. Enter:
+1. Click **Create Template**
+1. Enter:
    - **Name** (required)
    - **Description** (optional)
    - **Default** - Mark as default template for new projects
-4. Save
+1. Save
 
 ### Adding Fields to Templates
 
 1. Open a template
-2. Click **Add Field**
-3. Select fields to include
-4. Optionally override the "Required" setting per template
-5. Save
+1. Click **Add Field**
+1. Select fields to include
+1. Optionally override the "Required" setting per template
+1. Save
 
 ### Reordering Template Fields
 
 Fields within a template can be reordered:
-1. Use drag handles or up/down arrows
-2. Order saves automatically
+
+1. Use drag handles
+1. Order saves automatically
 
 ### Assigning Templates to Projects
 
 1. Click the actions menu on a template
-2. Select **Assign to Projects**
-3. Toggle projects on/off
-4. Changes save automatically
+1. Select **Assign Campaign** or **Assign to All Campaigns**
+1. Toggle projects on/off
+1. Changes save automatically
 
-> **Note:** Each project can only have one template assigned. Assigning a new template replaces the existing assignment.
+> **Note:** Each campaign can only have one template assigned. Assigning a new template replaces the existing assignment.
 
 ### Default Template
 
 One template can be marked as default:
-- Automatically suggested when creating new projects
+
+- Automatically assigned when creating new campaigns
 - Set in template edit form or via the checkbox
 
 ## Using Custom Fields
 
-### On Address Forms
+### On Lead Forms
 
 Custom fields appear automatically when:
-- Creating a new address
-- Editing an existing address
-- The project has a template with fields assigned
+
+- Creating a new lead
+- Editing an existing lead
+- The campaign has a template with fields assigned
 
 Fields are rendered based on their type with appropriate input controls.
 
-### In Address Tables
+### In Lead Tables
 
-Fields marked with **Show in Table** appear as additional columns in address list views.
+Fields marked with **Show in Table** appear as additional columns in lead list views under `https://sellfaster.eu/home`.
 
 ### Filtering
 
-Filter addresses by custom field values in:
-- Address list views
-- Project views
+Filter leads by custom field values in:
+
+- Lead list views
 - Advanced search
 
 ## Visibility Conditions
 
 Control when fields appear based on address type:
 
-| Condition | Description |
-|-----------|-------------|
-| **All** | Field shows for all addresses |
-| **Buildings Only** | Field only shows for building-type addresses |
-| **Non-buildings Only** | Field only shows for non-building addresses |
+{% table %}
+- Condition
+- Description
+---
+- **All**
+- Field shows for all leads
+---
+- **Buildings Only**
+- Field only shows for building-type leads
+---
+- **Non-buildings Only**
+- Field only shows for non-building leads
+{% /table %}
 
 ## Permissions
 
-| Action | Requirement |
-|--------|-------------|
-| View custom fields page | `customfields.manage` permission or team owner |
-| Create/Edit fields | `customfields.manage` permission or team owner |
-| Archive/Restore fields | `customfields.manage` permission or team owner |
-| Create/Edit templates | `customfields.manage` permission or team owner |
-| Assign templates | `customfields.manage` permission or team owner |
+{% table %}
+- Action
+- Requirement
+---
+- View custom fields page
+- `customfields.manage` permission or team owner
+---
+- Create/Edit fields
+- `customfields.manage` permission or team owner
+---
+- Archive/Restore fields
+- `customfields.manage` permission or team owner
+---
+- Create/Edit templates
+- `customfields.manage` permission or team owner
+---
+- Assign templates
+- `customfields.manage` permission or team owner
+{% /table %}
 
 Additionally, all custom fields operations require an active premium subscription.
 
@@ -255,46 +346,49 @@ Additionally, all custom fields operations require an active premium subscriptio
 ### Field Design
 
 1. **Plan ahead** - Think about what data you'll need for reporting
-2. **Use clear names** - Make field labels self-explanatory
-3. **Don't over-create** - Only add fields you'll actually use
-4. **Group logically** - Use templates to organize related fields
+1. **Use clear names** - Make field labels self-explanatory
+1. **Don't over-create** - Only add fields you'll actually use
+1. **Group logically** - Use templates to organize related fields
 
 ### Field Types
 
 1. **Use appropriate types** - Match the type to the expected data format
-2. **Use selections for fixed options** - Don't use text when choices are limited
-3. **Use required sparingly** - Only mark truly essential fields as required
+1. **Use selections for fixed options** - Don't use text when choices are limited
+1. **Use required sparingly** - Only mark truly essential fields as required
 
 ### Templates
 
-1. **Create purpose-specific templates** - Different project types may need different fields
-2. **Set a default** - Make the most common template the default
-3. **Document purpose** - Use descriptions to explain template usage
+1. **Create purpose-specific templates** - Different campaign types may need different fields
+1. **Set a default** - Make the most common template the default
+1. **Document purpose** - Use descriptions to explain template usage
 
 ## Troubleshooting
 
 ### Field Not Appearing on Form
 
 If a field doesn't show on an address form:
+
 1. Verify the field is included in a template
-2. Check the template is assigned to the project
-3. Verify the field is not archived
-4. Check the visibility condition matches the address type
+1. Check the template is assigned to the campaign
+1. Verify the field is not archived
+1. Check the visibility condition matches the address type
 
 ### Validation Errors
 
 If field values won't save:
+
 1. Check if the field is marked as required
-2. Verify the value matches the expected format
-3. Check min/max constraints
-4. For selections, ensure the value is a valid option
+1. Verify the value matches the expected format
+1. Check min/max constraints
+1. For selections, ensure the value is a valid option
 
 ### Premium Feature Unavailable
 
 If you can't access custom fields:
+
 1. Verify your subscription plan (requires Premium, not Starter)
-2. Check your billing status
-3. Contact your team owner about subscription
+1. Check your billing status
+1. Contact your team owner about subscription
 
 ## Related Topics
 
