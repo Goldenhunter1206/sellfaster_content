@@ -35,7 +35,7 @@ The map has been completely rebuilt. Leads are displayed as color-coded markers 
 
 ### Lead Generation Based on Zones
 
-Campaigns now support geographic zones. Draw your territories directly on the map, assign leads to zones, and create zone-specific bonus targets. This makes it straightforward to split a city between reps, track performance by territory, and run zone-level incentives.
+Draw a zone polygon directly on the map and Sellfaster will automatically extract all addresses and businesses from OpenStreetMap data within that boundary as ready-to-work leads. No CSV import, no manual entry — just draw and go. Zones can be colour-coded, assigned to specific reps, and used as the scope for bonus targets, giving you a complete territory management workflow out of the box.
 
 ---
 
@@ -61,11 +61,19 @@ Configure your lead list with filters, search mode, column visibility, sort orde
 
 ---
 
+## Email
+
+Send and receive emails with leads directly inside Sellfaster — no switching between tools. Add a custom field of type `email` to your lead template, connect your own SMTP server (and optionally an IMAP server for reply tracking), and a compose button appears on every lead that has an email address on file. Sent emails are automatically logged as interactions on the lead, replies are captured and threaded when IMAP is configured, and the full conversation history sits alongside visits, calls, and notes in one place. Your team's sender name, from address, and signature are configured once in team settings and apply to every outgoing message.
+
+[SCREENSHOT: Lead detail page showing the email compose form and threaded reply history in the interaction timeline]
+
+---
+
 ## Sales & Inventory
 
 ### Inventory System
 
-Products are now managed in a central inventory. Each product has a name, description, price, per-unit commission amount, and optional quantity tracking. Products can be assigned to specific campaigns to control availability, and stock movements (shipments in and out) are logged for full traceability.
+Products are now managed in a central inventory. Each product has a name, description, price, per-unit commission amount, and optional quantity tracking. Products can be assigned to specific campaigns to control availability, and stock movements (shipments in and out) are logged for full traceability. On top of that, you can run **promotions** on any product — set a date range and a promotional price or commission override, and the system applies it automatically during that period. Promotions are tracked on every affected sale and commission entry so the numbers always add up correctly.
 
 [SCREENSHOT: Inventory page showing product list with quantity and commission columns]
 
@@ -97,7 +105,7 @@ Create bonus targets scoped to the entire team, a specific salesperson, or a spe
 
 ### Dynamic Dashboard System
 
-Build fully custom dashboards from a library of widget types: metric cards, KPI cards with target comparison, bar, line, area, pie, and doughnut charts, data tables, and link widgets. Dashboards can be private or shared with granular view/edit permissions per user or role. Each widget auto-refreshes every 60 seconds and can pull from any data source — sales, commissions, interactions, leads, zones, bonus targets, inventory, and more.
+Build fully custom dashboards from a library of widget types: metric cards, KPI cards with target comparison, bar, line, area, pie, and doughnut charts, data tables, and link widgets. Not sure where to start? Pick from a growing collection of pre-built widget templates — one click adds a ready-made widget that you can customise from there. Dashboards can be private or shared with granular view/edit permissions per user or role. Each widget auto-refreshes every 60 seconds and can pull from any data source — sales, commissions, interactions, leads, zones, bonus targets, inventory, and more.
 
 [SCREENSHOT: Example dashboard with KPI cards, a bar chart, and a data table side by side]
 
