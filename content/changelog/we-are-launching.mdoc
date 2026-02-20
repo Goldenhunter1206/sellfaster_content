@@ -1,29 +1,134 @@
 ---
-title: 'We are launching! '
-description: |-
-  Expect those updates from the Beta:
-
-  - Dynamic dashboard system
-  - Inventory system for products with quantiy tracking, timed promotions etc.
-  - Interaction states are team wide
-  - Custom fields for leads
-  - Projects have been renamed to campaigns, addresses to leads
-  - Configurable sale models
-  - Full German translation
-  - Documentation
-  - Audit log
-  - Order which combine several sales on to the same customer
-  - Custom comission report templates
-  - Account wide and person specific bonus targets
-  - Revamped map system
-  - Save custom views 
-  - Advanced AI supported search system
-  - User profiles with KPIs
-  - Lead generation based on zones including businesses
-  - Many more performance and UI adaptations
-  - Daily welcome message to quickly communicate current KPIs to salesreps
-categories: []
-tags: []
+title: 'We are launching!'
+description: >-
+  Sellfaster is officially out of beta. Meet the full platform: campaigns,
+  leads, a revamped map, dynamic dashboards, inventory, custom commissions, and
+  much more.
+publishedAt: '2026-02-20'
+categories:
+  - product
+tags:
+  - launch
+  - new-feature
 language: en
-status: draft
+status: published
 ---
+
+After months of development and beta testing, Sellfaster is officially live. This release brings a complete platform rebuild — everything your door-to-door sales team needs to canvass smarter, close faster, and get paid accurately. Here is everything that is new.
+
+## Terminology Updates
+
+We have refined the language of the platform to better reflect how sales teams actually work.
+
+- **Projects → Campaigns.** The units of work your team is organized around are now called campaigns. This better reflects that each canvassing effort has a defined scope, territory, and timeline.
+- **Addresses → Leads.** Every location your team tracks is now called a lead, aligning the platform with standard sales terminology and making it easier to onboard new reps.
+
+---
+
+## Map & Territory
+
+### Revamped Map View
+
+The map has been completely rebuilt. Leads are displayed as color-coded markers that cluster at higher zoom levels, zones are rendered as colored polygon overlays, and you can overlay interaction and sale markers to see exactly what is happening in each territory. Toggle layers on and off, filter by zone, interaction state, product, sale state, or date range — all without leaving the map.
+
+[SCREENSHOT: Campaign map with zone overlays, clustered lead markers, and interaction markers visible]
+
+### Lead Generation Based on Zones
+
+Campaigns now support geographic zones. Draw your territories directly on the map, assign leads to zones, and create zone-specific bonus targets. This makes it straightforward to split a city between reps, track performance by territory, and run zone-level incentives.
+
+---
+
+## Leads & Data
+
+### Custom Fields for Leads
+
+Teams can define their own fields on lead records — text, numbers, dates, or dropdowns. Custom fields appear in the lead form, the leads table as optional columns, and are fully searchable and filterable. They work in structured queries (`cf:field_key = "value"`) and in saved views.
+
+### Team-Wide Interaction States
+
+Interaction states — the stages a lead moves through in your sales process (e.g., No Answer, Interested, Appointment Requested) — are now managed at the team level and assigned to campaigns. States can be configured with colors, follow-up requirements, and campaign assignments, giving every manager a consistent view across all territories.
+
+[SCREENSHOT: Interaction states configuration screen with color-coded state badges]
+
+### AI-Assisted Search
+
+The lead search now supports three modes: simple text search, a structured JQL-like query language, and a new AI mode. In AI mode, you type a plain-language query ("show me leads in Berlin that are interested") and the system translates it into precise filters automatically. Structured queries support custom fields, multiple operators, and AND/OR logic.
+
+### Saved Views
+
+Configure your lead list with filters, search mode, column visibility, sort order, and page size — then save the entire configuration as a named view. Load any saved view in one click from your personal account menu. Views can be reordered, renamed, and given custom icons.
+
+---
+
+## Sales & Inventory
+
+### Inventory System
+
+Products are now managed in a central inventory. Each product has a name, description, price, per-unit commission amount, and optional quantity tracking. Products can be assigned to specific campaigns to control availability, and stock movements (shipments in and out) are logged for full traceability.
+
+[SCREENSHOT: Inventory page showing product list with quantity and commission columns]
+
+### Configurable Sale Models
+
+Sale models define the entire lifecycle of a sale: which states it can be in (e.g., Proposal, Confirmed, Cancelled), which transitions are allowed, when commission is earned, and when it is reclaimed. Teams can create multiple models, assign them per campaign, and configure auto-transitions that advance a sale after a set number of days — for example, auto-confirming a proposal after a 14-day cooling-off period.
+
+### Orders
+
+Orders group multiple sales to the same customer into a single record, making it easier to track multi-product deals and generate accurate commission summaries for complex transactions.
+
+---
+
+## Commission & Payouts
+
+### Custom Commission Report Templates
+
+Upload a `.docx` template with placeholders and every generated payslip will match your company's branded layout. Templates support individual commission line items, bonus target entries, totals, and all key payslip metadata. The template is validated on upload and an example is provided to get you started.
+
+[SCREENSHOT: Commission page showing payslip list and the Templates tab]
+
+### Account-Wide and Person-Specific Bonus Targets
+
+Create bonus targets scoped to the entire team, a specific salesperson, or a specific campaign (with optional zone-level focus). Each target has a monetary goal, a bonus payout amount, a date range, and optionally a product filter. Progress is tracked in real time and contributing sales are listed in the target detail view.
+
+---
+
+## Dashboard & Reporting
+
+### Dynamic Dashboard System
+
+Build fully custom dashboards from a library of widget types: metric cards, KPI cards with target comparison, bar, line, area, pie, and doughnut charts, data tables, and link widgets. Dashboards can be private or shared with granular view/edit permissions per user or role. Each widget auto-refreshes every 60 seconds and can pull from any data source — sales, commissions, interactions, leads, zones, bonus targets, inventory, and more.
+
+[SCREENSHOT: Example dashboard with KPI cards, a bar chart, and a data table side by side]
+
+### User Profiles with KPIs
+
+Every team member now has a profile page with their personal KPIs: sales count, commission earned, targets hit, and activity over time. Managers can review individual performance without building a custom dashboard for each rep.
+
+### Daily Welcome Message
+
+When sales reps open the app at the start of their day, they are greeted with a personalised welcome message showing their current KPIs — sales today, open leads, upcoming follow-ups. It is a lightweight way for managers to keep everyone aligned without sending separate briefings.
+
+---
+
+## Platform & Operations
+
+### Full German Translation
+
+The entire Sellfaster interface is now available in German. Language is set per user account and all labels, error messages, and documentation pages are fully localised. We are launching with English and German; more languages are on the roadmap.
+
+### Documentation
+
+A full user guide is now live at [sellfaster.eu/docs](https://sellfaster.eu/docs), covering every feature in both English and German. Each section includes step-by-step instructions, tables, and annotated screenshots.
+
+### Audit Log
+
+Team owners can review a change history for key records — dashboards, interaction states, sale models — showing who made what change and when. This makes it straightforward to investigate unexpected configuration changes and maintain accountability across large teams.
+
+### Performance Improvements
+
+This release includes significant under-the-hood improvements to page load times, map rendering, and list pagination. Large datasets that previously felt sluggish should be noticeably faster.
+
+---
+
+We are excited to have you on board. If you have questions, explore the [documentation](https://sellfaster.eu/docs) or reach out through the in-app support link. More updates are already in progress — stay tuned.
