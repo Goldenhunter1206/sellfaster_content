@@ -1,0 +1,70 @@
+---
+title: CSV-Export, PDF-Export, Verkaufsmodell-Validierung & Kalenderabonnement
+description: >-
+  Leads, Interaktionen und Verkäufe als CSV von der persönlichen Startseite und
+  Kampagnenansichten exportieren; Team-Dashboards als PDF exportieren; verbesserte
+  Validierungsmeldungen bei der Konfiguration von Verkaufsmodellen; und persönliche
+  oder Team-Kalender in beliebigen externen Kalender-Apps abonnieren.
+categories:
+  - product
+tags:
+  - new-feature
+publishedAt: 2026-02-23
+language: de
+status: draft
+---
+Heute werden vier Verbesserungen veröffentlicht: mehr Möglichkeiten, Ihre Daten aus Sellfaster zu exportieren, klareres Feedback bei der Konfiguration von Verkaufsmodellen und die Möglichkeit, Ihre Nachverfolgungen in der Kalender-App Ihrer Wahl zu verfolgen.
+
+## CSV-Export
+
+Sie können jetzt Lead-, Interaktions- und Verkaufsdaten als CSV-Dateien direkt von Ihrer persönlichen Startseite und aus der Leads-Ansicht jeder Kampagne exportieren.
+
+### Was Sie exportieren können
+
+- **Leads** – alle Adressen mit ihrem aktuellen Status und Metadaten
+- **Interaktionen** – alle erfassten Interaktionen innerhalb des ausgewählten Datumsbereichs
+- **Verkäufe** – alle erfassten Verkäufe innerhalb des ausgewählten Datumsbereichs
+
+### So exportieren Sie
+
+1. Klicken Sie auf die Schaltfläche **CSV exportieren** in der Symbolleiste Ihrer persönlichen Startseite oder der Leads-Ansicht der Kampagne
+2. Wählen Sie den Datentyp: Leads, Interaktionen oder Verkäufe
+3. Legen Sie einen **Datumsbereich** fest, um die Ergebnisse einzugrenzen (erforderlich für Interaktionen und Verkäufe)
+4. Aktivieren Sie optional **Benutzerdefinierte Attribute einbeziehen**, um benutzerdefinierte Felder in den Export aufzunehmen
+5. Klicken Sie auf **Exportieren** – Ihr Browser lädt die CSV-Datei sofort herunter
+
+Benutzerdefinierte Attribute werden als zusätzliche Spalten am Ende jeder Zeile eingefügt. Wenn ein Datensatz keinen Wert für ein benutzerdefiniertes Attribut hat, bleibt die Zelle leer.
+
+## Dashboard PDF-Export
+
+Team-Dashboards können jetzt als mehrseitiges PDF-Dokument exportiert werden.
+
+Klicken Sie auf die Schaltfläche **PDF exportieren** in der Dashboard-Symbolleiste. Sellfaster erfasst jedes Widget mit 2-facher Auflösung über html2canvas, stellt dann die Seiten mit jsPDF zusammen und lädt die resultierende A4-PDF-Datei herunter. Alle zum Zeitpunkt des Exports im Dashboard sichtbaren Widgets sind enthalten.
+
+Dies ist nützlich, um Dashboard-Snapshots in Berichten oder Präsentationen zu teilen, ohne Empfängern Zugriff auf Sellfaster gewähren zu müssen.
+
+## Verkaufsmodell-Validierung
+
+Die Konfiguration von Verkaufsstatusmodellen zeigt jetzt klarere, spezifischere Validierungsmeldungen, wenn die Konfiguration unvollständig oder inkonsistent ist. Fehler und Warnungen werden inline neben den betreffenden Feldern angezeigt, sodass Sie genau sehen können, was behoben werden muss, bevor Sie speichern.
+
+## Kalenderabonnement
+
+Ihr Sellfaster-Nachverfolgungs-Kalender kann jetzt aus jeder externen Kalenderanwendung abonniert werden — Google Kalender, Apple Kalender, Outlook oder jede App, die das iCalendar-Format (ICS) unterstützt.
+
+### Persönlicher Kalender
+
+1. Öffnen Sie Ihren persönlichen Kalender in Sellfaster
+2. Klicken Sie auf die Schaltfläche **Abonnieren** in der Kalender-Kopfzeile
+3. Ein Dialog öffnet sich mit Ihrer eindeutigen Abonnement-URL
+4. Kopieren Sie die URL und fügen Sie sie als neuen Kalender in Ihrer externen App hinzu (verwenden Sie „Von URL abonnieren" oder „Internetkalender hinzufügen")
+5. Ihre Nachverfolgungen erscheinen in der externen App und bleiben synchronisiert
+
+Die persönliche Abonnement-URL enthält nur **Ihre eigenen Nachverfolgungen**.
+
+### Team-Kalender
+
+Die gleiche Abonnieren-Schaltfläche ist im Team-Kalender verfügbar. Die Team-Abonnement-URL enthält **alle Nachverfolgungen im Team**, nicht nur Ihre eigenen.
+
+### Token erneuern
+
+Wenn Sie den Zugriff auf eine Abonnement-URL widerrufen müssen (zum Beispiel, wenn sie unbeabsichtigt geteilt wurde), klicken Sie im Abonnement-Dialog auf **Token erneuern**. Die alte URL funktioniert sofort nicht mehr und eine neue wird ausgestellt. Alle, die die alte URL verwenden, müssen sich mit der neuen erneut anmelden.

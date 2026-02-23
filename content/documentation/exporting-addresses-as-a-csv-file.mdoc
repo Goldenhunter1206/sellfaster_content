@@ -25,3 +25,49 @@ When you click it, you will get a CSV file with the project name and the current
 When you look closely, apartments in the same building share the same address. This way, you can easily see where you need to go next and how many distinct parties are in each apartment building.
 
 Single family homes on the other hand have no entries in the unit or address type fields. That way you can be sure to have a single family home with only one party to handle.
+
+---
+
+## Exporting campaign leads
+
+The [Campaign Leads page](/docs/user-guide/team-account/projects/addresses) has its own export button that lets you download the leads for a specific campaign as a CSV file.
+
+#### How to export
+
+1. Navigate to your campaign and open the **Leads** tab
+2. Optionally apply filters to narrow the results (search text, verification status, project, building type)
+3. Click the **Export** button
+4. Choose whether to export **visible leads** (current filter result) or **all leads** in the campaign
+5. The CSV file downloads immediately
+
+#### What the file contains
+
+The export includes all lead fields together with:
+
+- Zone assignment
+- Current interaction state
+- Custom field values
+
+The filename includes the campaign name and the current date, for example: `Wodancom 256 Gbit glass fiber_leads_2026-02-23.csv`.
+
+---
+
+## Exporting leads, interactions, and sales from your home page
+
+Your personal home page offers a separate export that covers activity data across all your campaigns — not just addresses, but interactions and sales too.
+
+#### How to export
+
+1. Go to your personal home page (`https://sellfaster.eu/home`)
+2. Click the **Export CSV** button in the toolbar
+3. Choose the data type:
+   - **Leads** – all addresses with their current status and metadata
+   - **Interactions** – all recorded interactions within the selected date range
+   - **Sales** – all recorded sales within the selected date range
+4. Set a **date range** to filter results (required for Interactions and Sales)
+5. Optionally enable **Include custom attributes** to add any custom fields as extra columns
+6. Click **Export** — the CSV file downloads immediately
+
+#### Custom attributes
+
+When the custom attributes option is enabled, each custom field appears as an additional column at the end of each row. If a record has no value for a given attribute, the cell is left empty.
