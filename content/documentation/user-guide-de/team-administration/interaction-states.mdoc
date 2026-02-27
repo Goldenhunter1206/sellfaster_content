@@ -137,6 +137,18 @@ Standardmäßig werden archivierte Status ausgeblendet. Schalten Sie **Archivier
 - **Standard**
 - Nein
 - Wenn aktiviert, wird automatisch neuen Kampagnen zugewiesen
+---
+- **Kontakt bearbeiten erlauben**
+- Nein
+- Wenn aktiviert, können Benutzer die Kontaktdaten des Leads beim Erfassen einer Interaktion in diesem Status bearbeiten
+---
+- **Daten anonymisieren**
+- Nein
+- Wenn aktiviert, werden beim Wechsel in diesen Status die Lead-Daten sofort anonymisiert (Name gelöscht, DSGVO-relevante Feldwerte entfernt, KI-Zusammenfassung geschwärzt; alle außer einer Interaktion/einem Verkauf werden bereinigt)
+---
+- **Maximale Aufbewahrung (Tage)**
+- Nein
+- Nach dieser Anzahl Tage trennt das System automatisch die Adresse und löscht Kommentare/Notizen für Interaktionen in diesem Status
 {% /table %}
 
 ### Statusverhalten
@@ -151,6 +163,18 @@ Standardmäßig werden archivierte Status ausgeblendet. Schalten Sie **Archivier
 - Kann nur aktiviert werden, wenn Offen halten ebenfalls aktiviert ist
 - Wenn aktiviert: System fordert zur Eingabe eines Nachverfolgungsdatums auf, wenn dieser Status ausgewählt wird
 - Nützlich für Status wie "Rückruf angefragt" oder "Termin geplant"
+
+### DSGVO-Eigenschaften
+
+Drei optionale Felder an jedem Interaktionsstatus steuern, wie Sellfaster mit personenbezogenen Daten für Leads in diesem Status umgeht.
+
+**Kontakt bearbeiten erlauben** ermöglicht es Mitarbeitern, die Kontaktdaten eines Leads (Name, Adresse, Telefon, E-Mail) direkt im Interaktionserfassungsdialog zu ändern. Die Kontaktbearbeitung ist standardmäßig für alle Status deaktiviert, um nicht nachverfolgbare Änderungen an personenbezogenen Daten zu verhindern. Aktivieren Sie diese Option nur für Status, für die Ihr Team eine dokumentierte Rechtsgrundlage für die Aktualisierung von Kontaktdaten hat.
+
+**Daten anonymisieren** löst bei Aktivierung eine sofortige Anonymisierung aus, sobald ein Lead in diesen Status verschoben wird. Der Name des Leads wird auf null gesetzt, alle als DSGVO-relevant markierten benutzerdefinierten Feldwerte werden gelöscht, die KI-generierte Zusammenfassung wird geschwärzt, und alle außer einer Interaktion und einem Verkaufsdatensatz werden dauerhaft entfernt (die jeweils neuesten Datensätze werden für Geschäftskontextzwecke aufbewahrt). Verwenden Sie dies für Terminalstatus wie "Nicht kontaktieren" oder "Gelöscht".
+
+**Maximale Aufbewahrung (Tage)** legt eine zeitliche Begrenzung fest, wie lange personenbezogene Daten von Interaktionen in diesem Status aufbewahrt werden. Nach der konfigurierten Anzahl von Tagen trennt das System automatisch die verknüpfte Adresse und löscht alle Kommentare und Notizen zu diesen Interaktionen. Dies ist unabhängig von der globalen Einstellung zur Aufbewahrung verwaister Daten in den Teameinstellungen.
+
+Eine vollständige Übersicht aller DSGVO-Steuerungen finden Sie unter [DSGVO-Einstellungen & Datenschutz](/docs/user-guide-de/team-administration/gdpr-settings).
 
 ### Farbauswahl
 
@@ -333,3 +357,4 @@ Wenn Sie einen Status nicht archivieren können:
 - [Adressen verwalten](/docs/user-guide-de/personal-account/managing-addresses) - Status mit Adressen verwenden
 - [Interaktionen erfassen](/docs/user-guide-de/how-to/recording-interactions) - Adressstatus ändern
 - [Teamübersicht](/docs/user-guide-de/team-account) - Team-Funktionen
+- [DSGVO-Einstellungen & Datenschutz](/docs/user-guide-de/team-administration/gdpr-settings) - Datenhaltung konfigurieren und Betroffenenanfragen bearbeiten

@@ -124,7 +124,21 @@ Each state within a model has:
 ---
 - **Is Terminal**
 - Marks an end state (sale workflow complete)
+---
+- **Allow Editing Contact**
+- If enabled, users can edit lead contact info when recording a sale in this state
+---
+- **Max Retention (days)**
+- After this many days the system automatically disconnects the address and clears comments/notes for sales in this state
 {% /table %}
+
+### GDPR Properties
+
+Two optional GDPR controls can be configured on each sale state.
+
+**Allow Editing Contact** lets agents modify a lead's contact details while recording or updating a sale in this state. This is disabled by default; only enable it for states where your team has a legal basis for editing personal data.
+
+**Max Retention (days)** defines how long personal data linked to sales in this state is retained. After the configured period, the system disconnects the linked address and clears comments and notes on those sales. For a complete description of all data-protection settings, see [GDPR Settings & Data Protection](/docs/user-guide/team-administration/gdpr-settings).
 
 ### Commission Properties
 
@@ -356,3 +370,4 @@ If commission isn't showing:
 - [Recording Sales](/docs/user-guide/how-to/recording-sales) - Creating sales
 - [Interaction States](/docs/user-guide/team-administration/interaction-states) - Address interaction states
 - [Team Sales](/docs/user-guide/team-account/sales) - Sales management
+- [GDPR Settings & Data Protection](/docs/user-guide/team-administration/gdpr-settings) - Configure data retention and handle subject requests

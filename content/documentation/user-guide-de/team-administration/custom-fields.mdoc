@@ -158,6 +158,9 @@ Benutzerdefinierte Felder unterstützen die folgenden Typen:
 ---
 - **Sichtbarkeitsbedingung**
 - Wann das Feld erscheint: Alle Adressen, Nur Gebäude oder Nur Nicht-Gebäude
+---
+- **DSGVO-Relevant**
+- Wenn aktiviert, wird der Feldwert aus KI-generierten Zusammenfassungen ausgeschlossen und dauerhaft gelöscht, wenn der Lead durch "Daten anonymisieren" oder eine DSGVO-Löschanfrage anonymisiert wird
 {% /table %}
 
 ### Validierungsregeln
@@ -348,6 +351,7 @@ Zusätzlich erfordern alle Operationen mit benutzerdefinierten Feldern ein aktiv
 1. **Klare Namen verwenden** - Machen Sie Feld-Labels selbsterklärend
 1. **Nicht zu viele erstellen** - Fügen Sie nur Felder hinzu, die Sie tatsächlich verwenden
 1. **Logisch gruppieren** - Verwenden Sie Vorlagen, um zusammengehörige Felder zu organisieren
+1. **PII-Felder als DSGVO-relevant markieren** - Felder, die persönliche Kennungen erfassen (Namen, E-Mails, Telefonnummern, Ausweisnummern), sollten DSGVO-relevant aktiviert haben, damit diese Werte aus der KI-Verarbeitung ausgeschlossen und automatisch gelöscht werden, wenn eine DSGVO-Löschung durchgeführt wird
 
 ### Feldtypen
 
@@ -394,3 +398,4 @@ Wenn Sie nicht auf benutzerdefinierte Felder zugreifen können:
 - [Adressen verwalten](/docs/user-guide-de/personal-account/managing-addresses) - Benutzerdefinierte Felder bei Adressen verwenden
 - [Kampagnenkonfiguration](/docs/user-guide-de/team-account/projects/configuration) - Vorlagen Kampagnen zuweisen
 - [Erweiterte Suche](/docs/user-guide-de/how-to/advanced-search) - Nach benutzerdefinierten Feldern filtern
+- [DSGVO-Einstellungen & Datenschutz](/docs/user-guide-de/team-administration/gdpr-settings) - Datenhaltungs- und Löschungssteuerungen

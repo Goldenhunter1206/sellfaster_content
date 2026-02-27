@@ -159,6 +159,9 @@ Custom fields support the following types:
 ---
 - **Visibility Condition**
 - When field appears: All addresses, Buildings only, or Non-buildings only
+---
+- **GDPR Relevant**
+- If enabled, the field's value is excluded from AI-generated summaries and is permanently deleted when the lead is anonymized via Scramble Data or a GDPR erasure request
 {% /table %}
 
 ### Validation Rules
@@ -349,6 +352,7 @@ Additionally, all custom fields operations require an active premium subscriptio
 1. **Use clear names** - Make field labels self-explanatory
 1. **Don't over-create** - Only add fields you'll actually use
 1. **Group logically** - Use templates to organize related fields
+1. **Mark PII fields as GDPR Relevant** - Any field capturing personal identifiers (names, emails, phone numbers, national IDs) should have GDPR Relevant enabled so those values are excluded from AI processing and are automatically erased when a GDPR erasure is performed
 
 ### Field Types
 
@@ -395,3 +399,4 @@ If you can't access custom fields:
 - [Managing Addresses](/docs/user-guide/personal-account/managing-addresses) - Using custom fields on addresses
 - [Project Configuration](/docs/user-guide/team-account/projects/configuration) - Assigning templates to projects
 - [Advanced Search](/docs/user-guide/how-to/advanced-search) - Filtering by custom fields
+- [GDPR Settings & Data Protection](/docs/user-guide/team-administration/gdpr-settings) - Data retention and erasure controls

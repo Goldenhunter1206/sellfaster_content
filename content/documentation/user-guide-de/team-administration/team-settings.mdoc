@@ -132,6 +132,42 @@ Konfigurieren Sie Ihren eingehenden E-Mail-Server:
 
 > **Hinweis:** Beim Aktualisieren der E-Mail-Einstellungen können Sie Passwortfelder leer lassen, um das bestehende Passwort beizubehalten. Ein Platzhalter zeigt an, ob bereits ein Passwort gesetzt ist.
 
+## DSGVO-Einstellungen
+
+> **Hinweis:** Die DSGVO-Einstellungen sind nur für den Teameigentümer zugänglich.
+
+Navigieren Sie zu **Einstellungen → DSGVO-Einstellungen** (URL: `https://sellfaster.eu/home/[team]/settings/gdpr`), um Datenhaltungsregeln zu konfigurieren und Betroffenenanfragen zu bearbeiten.
+
+### Aufbewahrung verwaister Daten
+
+Ein **verwaister Lead** ist ein Lead ohne verknüpften Verkauf oder Interaktion. Verwaiste Leads häufen sich im Laufe der Zeit an, wenn alte Datensätze nie mehr kontaktiert werden.
+
+{% table %}
+- Einstellung
+- Standard
+- Beschreibung
+---
+- **Maximale Aufbewahrungszeit DSGVO-relevanter Daten ohne Verkauf/Interaktion (Tage)**
+- 180
+- Nach dieser Anzahl Tage ohne Interaktion oder Verkauf trennt das System automatisch die Adresse des Leads und löscht alle Kommentare und Notizen. Maximalwert: 36.500 Tage (100 Jahre).
+{% /table %}
+
+Eine niedrigere Einstellung reduziert den Datenhaltungs-Footprint für inaktive Leads und hilft, die Einhaltung des Grundsatzes der Speicherbegrenzung gemäß DSGVO nachzuweisen.
+
+### DSGVO-Kundenanfragen
+
+> **Hinweis:** Dieser Abschnitt ist nur für den Teameigentümer sichtbar.
+
+Verwenden Sie diese Werkzeuge, um formale Betroffenenanfragen (DSARs) zu bearbeiten, ohne direkten Datenbankzugriff zu benötigen.
+
+**Suche** — Finden Sie einen Kunden durch Eingabe von Name und/oder Straßenadresse. Die Ergebnisse zeigen die Anzahl aller mit dem übereinstimmenden Lead verknüpften Daten (Interaktionen, Verkäufe, benutzerdefinierte Feldwerte, E-Mail-Transaktionen).
+
+**Export (Auskunftsanfrage)** — Laden Sie einen vollständigen JSON-Export aller mit einem Lead verknüpften Daten herunter. Teilen Sie diesen mit der betroffenen Person zur Erfüllung einer Auskunftsanfrage (SAR).
+
+**Löschen (Löschanfrage)** — Anonymisiert dauerhaft den Lead und alle zugehörigen Datensätze. Nach der Auswahl eines Leads müssen Sie die Aktion über ein Einmalpasswort (OTP) bestätigen, das an Ihre E-Mail gesendet wird. Diese Aktion ist unwiderruflich.
+
+Vollständige Schritt-für-Schritt-Anleitungen und Details zu allen DSGVO-Steuerungen finden Sie unter [DSGVO-Einstellungen & Datenschutz](/docs/user-guide-de/team-administration/gdpr-settings).
+
 ## Gefahrenzone
 
 ### Team verlassen
@@ -216,3 +252,4 @@ Wenn Sie das Team nicht löschen können:
 - [Mitgliederverwaltung](/docs/user-guide-de/team-administration/member-management) - Verwaltung von Teammitgliedern
 - [Abrechnung](/docs/user-guide-de/team-administration/billing) - Team-Abonnement
 - [Teamübersicht](/docs/user-guide-de/team-account) - Team-Grundlagen
+- [DSGVO-Einstellungen & Datenschutz](/docs/user-guide-de/team-administration/gdpr-settings) - Vollständiger DSGVO-Konfigurationsleitfaden

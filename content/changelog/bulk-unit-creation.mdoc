@@ -1,9 +1,8 @@
 ---
-title: Bulk Unit Creation with Doorbell Panel Scanning
+title: Bulk Unit Creation
 description: >-
-  Add up to 99 units to an apartment building in a single step, and let AI
-  vision read the doorbell panel photo to pre-fill all resident names
-  automatically.
+  Add up to 99 units to an apartment building in a single step, with
+  sensible default names that are fully editable before saving.
 categories:
   - product
 tags:
@@ -12,7 +11,7 @@ publishedAt: 2026-02-22
 language: en
 status: published
 ---
-Door-to-door reps working apartment buildings know the pain: a single building can mean dozens of individual units to enter one by one, and tracking down resident names from a doorbell panel by hand takes time you could be spending at the door. Two new features fix both problems — you can now create up to 99 units in a single action, and optionally let the AI read the doorbell panel for you.
+Door-to-door reps working apartment buildings know the pain: a single building can mean dozens of individual units to enter one by one. A new feature fixes this — you can now create up to 99 units in a single action.
 
 ## Apartment Buildings & Units
 
@@ -22,14 +21,8 @@ When you open the unit creation dialog on any building lead, you can now specify
 
 Once saved, the new units automatically inherit all campaign assignments from the parent building. If the building is already part of an active canvassing campaign, every unit is immediately included — no manual reassignment needed.
 
-### Doorbell Panel Scanning
+## Fix
 
-![](https://raw.githubusercontent.com/Goldenhunter1206/sellfaster_content/main/public/site/images/bulk-unit-creation/Screenshot%202026-02-22%20at%2012.15.05.png)
+### Anonymized Units Now Visible
 
-After specifying the unit count, you can optionally upload a photo of the building's doorbell panel. On mobile, this opens the camera directly so you can snap a picture on the spot. On desktop, you can select a file from your computer or drag and drop an image into the upload area.
-
-Sellfaster sends the image to an AI vision model, which reads the panel and extracts all the resident names it can identify. Those names are used to pre-fill the unit name fields — one name per unit, in order. No manual typing required. If the AI misreads a name or you want to adjust anything, every field remains fully editable before you confirm.
-
----
-
-The combination of bulk creation and panel scanning turns what used to be a multi-minute data entry task into a matter of seconds — letting reps focus on the conversations that actually move deals forward.
+Units whose name was anonymized (e.g. after a GDPR scramble or erasure) now appear correctly in unit lists and building views. Previously, units with a blank name could be hidden from these views; they are now always shown regardless of whether a name is set.

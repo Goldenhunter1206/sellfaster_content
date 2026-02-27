@@ -138,6 +138,18 @@ By default, archived states are hidden. Toggle **Show archived** to view them.
 - **Default**
 - No
 - If enabled, automatically assigned to new campaigns
+---
+- **Allow Editing Contact**
+- No
+- If enabled, users can edit the lead's contact info when recording an interaction in this state
+---
+- **Scramble Data**
+- No
+- If enabled, moving a lead to this state immediately anonymizes it (name, GDPR-relevant custom field values deleted, AI summary redacted; all but one interaction/sale scrubbed for context)
+---
+- **Max Retention (days)**
+- No
+- After this many days the system automatically disconnects the address and clears comments/notes for interactions in this state
 {% /table %}
 
 ### State Behavior
@@ -152,6 +164,18 @@ By default, archived states are hidden. Toggle **Show archived** to view them.
 - Can only be enabled if Keep Open is also enabled
 - When enabled: System prompts for a follow-up date when this state is selected
 - Useful for states like "Callback Requested" or "Meeting Scheduled"
+
+### GDPR Properties
+
+Three optional fields on each interaction state control how Sellfaster handles personal data for leads in that state.
+
+**Allow Editing Contact** permits agents to modify a lead's contact details (name, address, phone, email) directly inside the interaction recording dialog. Contact editing is disabled by default across all states to prevent untracked changes to personally identifiable information; enable this only for states where your team has a documented legal basis for updating contact data.
+
+**Scramble Data**, when enabled, triggers immediate anonymization the moment a lead is moved into this state. The lead's name is set to null, all custom field values marked as GDPR Relevant are deleted, the AI-generated summary is redacted, and all but one interaction and one sale record are permanently removed (the most recent records of each type are retained for business-context purposes). Use this for terminal states such as "Do Not Contact" or "Erased".
+
+**Max Retention (days)** sets a time limit on how long personal data associated with interactions in this state is kept. After the configured number of days, the system automatically disconnects the linked address and clears all comments and notes on those interactions. This is independent of the global orphan data retention setting in Team Settings.
+
+For a full overview of all GDPR controls, see [GDPR Settings & Data Protection](/docs/user-guide/team-administration/gdpr-settings).
 
 ### Color Selection
 
@@ -334,3 +358,4 @@ If you can't archive a state:
 - [Managing Addresses](/docs/user-guide/personal-account/managing-addresses) - Using states with addresses
 - [Recording Interactions](/docs/user-guide/how-to/recording-interactions) - Changing address states
 - [Team Overview](/docs/user-guide/team-account) - Team features
+- [GDPR Settings & Data Protection](/docs/user-guide/team-administration/gdpr-settings) - Configure data retention and handle subject requests

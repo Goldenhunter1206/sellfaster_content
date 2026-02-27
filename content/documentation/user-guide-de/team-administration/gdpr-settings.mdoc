@@ -1,0 +1,304 @@
+---
+title: DSGVO-Einstellungen & Datenschutz
+description: >-
+  Datenhaltungsregeln konfigurieren, DSGVO-Betroffenenanfragen bearbeiten und
+  verstehen, wie automatische Bereinigungsjobs personenbezogene Daten schützen.
+order: 8
+language: de
+categories:
+  - user-guide
+tags:
+  - team-administration
+status: published
+collapsible: false
+collapsed: false
+---
+Konfigurieren Sie Datenhaltungsregeln, bearbeiten Sie Betroffenenanfragen und erfahren Sie, wie die automatischen Bereinigungsjobs von Sellfaster Ihre Teamdaten innerhalb gesetzlich konformer Grenzen halten.
+
+## Übersicht
+
+Sellfaster bietet eine Reihe von DSGVO-Compliance-Werkzeugen, die direkt in die Plattform integriert sind:
+
+- **Statusbasierte Datenhaltung** — legen Sie eine maximale Lebensdauer für personenbezogene Daten fest, die mit Interaktionen oder Verkäufen in einem bestimmten Status verknüpft sind
+- **Daten anonymisieren** — Lead beim Wechsel in einen bestimmten Status sofort anonymisieren
+- **Globale Aufbewahrung verwaister Daten** — Leads ohne Aktivität innerhalb eines konfigurierbaren Zeitfensters automatisch bereinigen
+- **DSGVO-Kundenanfragen** — Datensätze von Betroffenen ohne Datenbankzugriff suchen, exportieren und löschen
+- **Automatische Bereinigungsjobs** — geplante Hintergrundaufgaben, die die obigen Regeln durchsetzen
+
+Diese Seite behandelt alle diese Funktionen im Detail.
+
+## Zugriff auf DSGVO-Einstellungen
+
+1. Stellen Sie sicher, dass Sie sich in Ihrem Teamkonto befinden und Teameigentümer sind
+1. Klicken Sie auf **Einstellungen** in der Seitenleiste
+1. Wählen Sie den Tab **DSGVO-Einstellungen**
+1. Die URL lautet `https://sellfaster.eu/home/[team]/settings/gdpr`
+
+> **Hinweis:** Alle DSGVO-Einstellungen und Kundenanfrage-Werkzeuge sind ausschließlich für den Teameigentümer zugänglich. Nur der primäre Teameigentümer kann diese Einstellungen anzeigen oder ändern.
+
+## Aufbewahrung verwaister Daten
+
+### Was sind verwaiste Daten?
+
+Ein Lead gilt als **verwaist**, wenn er keine verknüpfte Interaktion und keinen verknüpften Verkauf hat. Verwaiste Leads häufen sich im Laufe der Zeit natürlich an: Adressen, die einmal besucht, aber nie nachverfolgt wurden, importierte Kontakte, die nie angesprochen wurden, oder einfach vergessene Leads.
+
+### Die globale Aufbewahrungseinstellung
+
+{% table %}
+- Einstellung
+- Standard
+- Maximum
+- Beschreibung
+---
+- **Maximale Aufbewahrungszeit DSGVO-relevanter Daten ohne Verkauf/Interaktion (Tage)**
+- 180
+- 36.500 (100 Jahre)
+- Nach dieser Anzahl Tage ohne Interaktion oder Verkauf trennt der Bereinigungsjob die Adresse des Leads und löscht alle Kommentare und Notizen zum Lead
+{% /table %}
+
+### Was passiert, wenn der Zeitraum abläuft
+
+Wenn ein Lead länger als den konfigurierten Zeitraum keine Interaktion oder keinen Verkauf hatte:
+
+1. Die verknüpfte Straßenadresse wird vom Lead-Datensatz getrennt
+1. Alle mit dem Lead verknüpften Kommentare und Notizen werden dauerhaft gelöscht
+1. Der Lead-Datensatz selbst bleibt erhalten (zu Prüfzwecken), enthält aber keine personenbezogenen Daten mehr
+
+Eine Einstellung, die Ihren gesetzlichen Aufbewahrungspflichten entspricht (üblicherweise 90–365 Tage je nach Rechtsordnung und Anwendungsfall), hilft Ihnen dabei, die Einhaltung des Grundsatzes der Speicherbegrenzung gemäß DSGVO nachzuweisen.
+
+## Statusbasierte Aufbewahrung (Interaktions- & Verkaufsstatus)
+
+### Funktionsweise
+
+Zusätzlich zur globalen Einstellung für verwaiste Daten kann jeder **Interaktionsstatus** und jeder **Verkaufsstatus** seinen eigenen Wert für `Maximale Aufbewahrung (Tage)` haben. Wenn dieser gesetzt ist, führt der statusbasierte Aufbewahrungsjob folgende Schritte aus:
+
+1. Er findet alle Interaktionen (oder Verkäufe), die sich länger als die konfigurierte Anzahl von Tagen in diesem Status befinden
+1. Er trennt die verknüpfte Adresse von diesen Datensätzen
+1. Er löscht alle Kommentare und Notizen zu diesen Datensätzen
+
+### Beziehung zur globalen Einstellung für verwaiste Daten
+
+Die statusbasierte Aufbewahrung und die globale Aufbewahrung verwaister Daten sind **unabhängig voneinander** — beide können auf denselben Lead angewendet werden. Ein Lead könnte zunächst durch eine statusbasierte Aufbewahrungsregel bereinigt werden (weil die Interaktion seit 90 Tagen im Status "Kein Interesse" ist) und später durch die globale Aufbewahrungsregel für verwaiste Daten weiter bereinigt werden.
+
+### Wann statusbasierte vs. globale Aufbewahrung verwenden
+
+{% table %}
+- Szenario
+- Empfohlener Ansatz
+---
+- Alle inaktiven Leads unabhängig vom Status bereinigen
+- Globale Aufbewahrung verwaister Daten
+---
+- Kürzeres Aufbewahrungsfenster für geschlossene/terminale Status anwenden
+- Statusbasierte Aufbewahrung für diese Status
+---
+- Kürzere Pflicht für bestimmte Datenkategorien einhalten
+- Statusbasierte Aufbewahrung für relevante Status
+{% /table %}
+
+## Daten anonymisieren (Interaktionsstatus)
+
+### Was die Anonymisierung bewirkt
+
+Wenn bei einem Interaktionsstatus **Daten anonymisieren** aktiviert ist, löst das Verschieben eines Leads in diesen Status eine sofortige, unwiderrufliche Anonymisierung aus:
+
+1. Der **Name** des Leads wird auf `null` gesetzt
+1. Alle **als DSGVO-relevant markierten benutzerdefinierten Feldwerte** werden dauerhaft gelöscht
+1. Die **KI-generierte Zusammenfassung** wird geschwärzt
+1. Alle außer **einer Interaktion** und **einem Verkauf** werden dauerhaft gelöscht (der jeweils neueste Datensatz wird für Geschäftskontextzwecke aufbewahrt)
+
+### Wann sie ausgelöst wird
+
+Die Anonymisierung wird **sofort** ausgelöst, wenn ein Benutzer eine Interaktion erfasst, die den Lead in einen Anonymisierungs-aktivierten Status verschiebt. Es handelt sich nicht um einen geplanten Job — es gibt keine Verzögerung.
+
+### Anwendungsfälle
+
+- Ein **"Nicht kontaktieren"**-Terminalstatus: Sobald ein Mitarbeiter dieses Ergebnis erfasst, werden die personenbezogenen Daten des Leads gelöscht
+- Ein **"DSGVO Gelöscht"**-Terminalstatus: Wird speziell für die Bearbeitung formaler Löschanfragen verwendet, bevor auch der DSGVO-Kundenanfragen-Löschvorgang ausgeführt wird
+
+> **Warnung:** Die Anonymisierung ist unwiderruflich. Durch die Anonymisierungsaktion gelöschte Daten können nicht wiederhergestellt werden.
+
+## Kontakt bearbeiten erlauben (Interaktions- & Verkaufsstatus)
+
+### Warum die freie Kontaktbearbeitung eingeschränkt wurde
+
+Vor der DSGVO-Compliance-Version konnten Benutzer die Kontaktdaten eines Leads (Name, Adresse, Telefon, E-Mail) jederzeit ohne Einschränkungen bearbeiten. Gemäß DSGVO ist die uneingeschränkte Bearbeitung personenbezogener Daten ohne dokumentierte Rechtsgrundlage ein Compliance-Risiko: Änderungen werden keinem spezifischen geschäftlichen Grund zugeordnet, und der Änderungsverlauf im Prüfprotokoll reicht möglicherweise nicht aus, um eine rechtmäßige Verarbeitung nachzuweisen.
+
+### Funktionsweise der Steuerung
+
+**Kontakt bearbeiten erlauben** ist eine statusbezogene Einstellung (verfügbar sowohl für Interaktionsstatus als auch für Verkaufsstatus), die **standardmäßig deaktiviert** ist. Wenn deaktiviert, sind die Kontaktdetailfelder in den Interaktions- und Verkaufserfassungsdialogen schreibgeschützt.
+
+Um die Kontaktbearbeitung für einen bestimmten Status zu aktivieren:
+
+1. Gehen Sie zu **Interaktionsstatus** oder **Verkaufsstatus**
+1. Bearbeiten Sie den relevanten Status
+1. Aktivieren Sie **Kontakt bearbeiten erlauben**
+1. Speichern
+
+Aktivieren Sie dies nur für Status, für die Ihr Team eine klare und dokumentierte Rechtsgrundlage für die Aktualisierung von Kontaktdaten hat (zum Beispiel ein Status, der verwendet wird, wenn Daten auf ausdrücklichen Wunsch des Kunden korrigiert werden).
+
+## Benutzerdefinierte Felder: DSGVO-Relevant-Markierung
+
+Jedes benutzerdefinierte Feld hat einen Schalter **DSGVO-Relevant**. Wenn aktiviert:
+
+- Der Feldwert wird aus **KI-generierten Lead-Zusammenfassungen ausgeschlossen** (die KI verarbeitet den Rohwert nie)
+- Der Wert wird **dauerhaft gelöscht**, wenn der Lead durch "Daten anonymisieren" oder eine DSGVO-Kundenanfragen-Löschung anonymisiert wird
+
+### Welche Felder als DSGVO-relevant markiert werden sollten
+
+Markieren Sie alle Felder, die personenbezogene Daten erfassen:
+
+- Vollständiger Name, Vorname, Nachname
+- E-Mail-Adresse
+- Telefonnummer
+- Wohnadresse, Postleitzahl
+- Nationale Identifikationsnummern, Passnummern
+- Geburtsdatum
+- Alle anderen Daten, die eine bestimmte Person identifizieren könnten
+
+Anleitungen zum Erstellen und Bearbeiten von benutzerdefinierten Feldern finden Sie unter [Benutzerdefinierte Felder](/docs/user-guide-de/team-administration/custom-fields).
+
+## DSGVO-Kundenanfragen
+
+> **Hinweis:** DSGVO-Kundenanfragen sind nur für den Teameigentümer zugänglich.
+
+Diese Werkzeuge ermöglichen es Ihnen, auf formale **Betroffenenanfragen** (DSARs) zu reagieren — Anfragen von Personen, zu erfahren, welche Daten Sie über sie haben, oder diese Daten löschen zu lassen — ohne Datenbankzugriff zu benötigen.
+
+### Suche
+
+1. Navigieren Sie zu **Einstellungen → DSGVO-Einstellungen**
+1. Geben Sie im Abschnitt **DSGVO-Kundenanfragen** den **Namen** und/oder die **Straßenadresse** des Kunden ein
+1. Klicken Sie auf **Suchen**
+1. Überprüfen Sie die übereinstimmenden Leads und die Anzahl der zugehörigen Datensätze (Interaktionen, Verkäufe, benutzerdefinierte Feldwerte, E-Mail-Transaktionen)
+
+Verwenden Sie die Suchergebnisse, um zu bestätigen, dass Sie die richtige Person gefunden haben, bevor Sie mit einem Export oder einer Löschung fortfahren.
+
+### Export (Auskunftsanfrage)
+
+Um eine **Auskunftsanfrage (SAR)** zu erfüllen:
+
+1. Suchen und identifizieren Sie den richtigen Lead
+1. Klicken Sie auf **Exportieren**
+1. Eine JSON-Datei mit allen zugehörigen Daten wird sofort heruntergeladen
+1. Stellen Sie diese Datei der betroffenen Person zur Verfügung
+
+Der Export enthält: Lead-Details, alle Interaktionen, alle Verkäufe, alle benutzerdefinierten Feldwerte, alle E-Mail-Transaktionen und Bestelldatensätze.
+
+### Löschen (Löschanfrage)
+
+Um ein **Recht auf Löschung (Recht auf Vergessenwerden)**-Anfrage zu erfüllen:
+
+1. Suchen und identifizieren Sie den richtigen Lead
+1. Klicken Sie auf **Löschen**
+1. Lesen Sie die Warnung — diese Aktion ist **dauerhaft und unwiderruflich**
+1. Geben Sie das OTP (Einmalpasswort) ein, das an Ihre E-Mail gesendet wurde, um zu bestätigen
+1. Der Lead und alle zugehörigen Datensätze werden sofort anonymisiert
+
+Nach der Löschung:
+- Name, Adressverknüpfung und DSGVO-relevante benutzerdefinierte Feldwerte des Leads werden gelöscht
+- Alle mit dem Lead verknüpften Interaktionen und Verkäufe werden anonymisiert (Adresse getrennt, Kommentare gelöscht)
+- Die KI-Zusammenfassung wird gelöscht
+- Ein Datensatz des Löschereignisses wird zu Compliance-Zwecken im Prüfprotokoll aufbewahrt
+
+## Automatische Bereinigungsjobs
+
+Sellfaster führt mehrere Hintergrundjobs aus, um Datenhaltungsregeln automatisch durchzusetzen.
+
+{% table %}
+- Job
+- Was er anonymisiert / löscht
+- Auslöser
+- Konfigurierbar?
+---
+- **Prüfprotokoll-Bereinigung**
+- Prüfprotokolleinträge, die älter als 180 Tage sind
+- Täglich um 02:30 UTC
+- Nein
+---
+- **Aufbewahrung verwaister Daten**
+- Adressverknüpfung + Kommentare/Notizen für Leads ohne Interaktion oder Verkauf innerhalb des globalen Aufbewahrungsfensters
+- Geplant (täglich)
+- Ja — über globale Einstellung für verwaiste Daten
+---
+- **Statusbasierte Aufbewahrung**
+- Adressverknüpfung + Kommentare/Notizen für Interaktionen/Verkäufe, die sich länger als den konfigurierten Wert in einem Status mit max_retention_days befinden
+- Geplant (täglich)
+- Ja — pro Interaktions-/Verkaufsstatus
+---
+- **Anonymisierung bei Statuswechsel**
+- Name, DSGVO-relevante benutzerdefinierte Feldwerte, KI-Zusammenfassung, überschüssige Interaktionen/Verkäufe
+- Sofort beim Wechsel in einen Anonymisierungs-aktivierten Status
+- Ja — durch Aktivieren von "Daten anonymisieren" bei einem Status
+{% /table %}
+
+### Prüfprotokoll-Bereinigung
+
+Läuft täglich um **02:30 UTC**. Löscht Prüfprotokolleinträge in Stapeln, um Auswirkungen auf die Performance zu vermeiden. Die 180-tägige Aufbewahrung für Prüfprotokolle ist fest und kann nicht über die Benutzeroberfläche geändert werden.
+
+### Aufbewahrungsjob für verwaiste Daten
+
+Läuft nach einem täglichen Zeitplan. Liest die globale Einstellung **Maximale Aufbewahrungstage** aus den Teameinstellungen und identifiziert Leads ohne Interaktion oder Verkauf, der jünger als diese Anzahl von Tagen ist. Für jeden übereinstimmenden Lead trennt er die Adresse und löscht Kommentare und Notizen.
+
+### Statusbasierter Aufbewahrungsjob
+
+Läuft nach einem täglichen Zeitplan. Für jeden Interaktions- oder Verkaufsstatus, der `Maximale Aufbewahrung (Tage)` konfiguriert hat, findet der Job alle Datensätze, die sich länger als den konfigurierten Zeitraum in diesem Status befinden, und bereinigt die Adressverknüpfung und Notizen.
+
+### Anonymisierung bei Statuswechsel
+
+Kein geplanter Job. Wird **synchron** ausgelöst, wenn ein Benutzer eine Interaktion speichert, die den Status eines Leads in einen Anonymisierungs-aktivierten Status ändert. Die Anonymisierung ist abgeschlossen, bevor die Antwort an den Benutzer zurückgegeben wird.
+
+## Datenverarbeitungsvertrag (DVV/DPA)
+
+Ein **Datenverarbeitungsvertrag** (DVV, englisch: Data Processing Agreement, DPA) ist ein rechtlich bindender Vertrag, der gemäß DSGVO Artikel 28 erforderlich ist, wenn ein Verantwortlicher (Ihre Organisation) einen Auftragsverarbeiter (Sellfaster) zur Verarbeitung personenbezogener Daten einsetzt.
+
+Sellfasters DVV ist unter [sellfaster.eu/dpa](/dpa) verfügbar und im Footer der Website unter **Rechtliches** verlinkt. Wenn Ihre Organisation einen unterzeichneten DVV benötigt, laden Sie ihn von dieser Seite herunter oder wenden Sie sich an den Support.
+
+## Berechtigungen
+
+{% table %}
+- Aktion
+- Erforderliche Berechtigung
+---
+- DSGVO-Einstellungsseite anzeigen
+- Nur Teameigentümer
+---
+- Einstellung für verwaiste Daten ändern
+- Nur Teameigentümer
+---
+- DSGVO-Kundenanfragen suchen
+- Nur Teameigentümer
+---
+- Kundendaten exportieren
+- Nur Teameigentümer
+---
+- Kundendaten löschen
+- Nur Teameigentümer
+---
+- Statusbasierte Aufbewahrung konfigurieren (bei Status)
+- Rolle `Manager` oder `Eigentümer`
+---
+- Daten anonymisieren konfigurieren (bei Status)
+- Rolle `Manager` oder `Eigentümer`
+---
+- Kontakt bearbeiten erlauben konfigurieren (bei Status)
+- Rolle `Manager` oder `Eigentümer`
+---
+- DSGVO-Relevant bei benutzerdefinierten Feldern konfigurieren
+- Rolle `Manager` oder `Eigentümer`
+{% /table %}
+
+## Best Practices
+
+1. **Globale Aufbewahrungsfrist für verwaiste Daten festlegen**, die Ihren gesetzlichen Aufbewahrungspflichten entspricht — ein üblicher Ausgangspunkt für Canvassing-Daten sind 180 Tage
+1. **Statusbasierte Aufbewahrung für Terminalstatus verwenden** — setzen Sie beispielsweise "Kein Interesse"-Interaktionen auf Ablauf nach 90 Tagen, damit geschlossene Leads zeitnah bereinigt werden
+1. **Daten anonymisieren für einen dedizierten Terminalstatus aktivieren** (z. B. "Nicht kontaktieren" oder "DSGVO Gelöscht"), damit formale Löschanfragen sofort und konsistent bearbeitet werden
+1. **Alle PII-benutzerdefinierten Felder als DSGVO-relevant markieren** — jedes Feld, das Namen, Kontaktdaten oder Kennungen erfasst, sollte markiert sein, damit es aus der KI-Verarbeitung ausgeschlossen und automatisch gelöscht wird
+1. **DSGVO-Kundenanfragen zur Bearbeitung von DSARs verwenden** — versuchen Sie nicht, Datensätze manuell zu suchen und zu löschen; die integrierten Werkzeuge gewährleisten Vollständigkeit und erstellen einen Prüfpfad
+
+## Verwandte Themen
+
+- [Interaktionsstatus](/docs/user-guide-de/team-administration/interaction-states) - Statusbezogene DSGVO-Steuerungen konfigurieren
+- [Verkaufsstatusmodelle](/docs/user-guide-de/team-administration/sale-models) - Statusbasierte Aufbewahrung für Verkaufsstatus konfigurieren
+- [Benutzerdefinierte Felder](/docs/user-guide-de/team-administration/custom-fields) - Felder als DSGVO-relevant markieren
+- [Prüfprotokoll](/docs/user-guide-de/team-administration/audit-logs) - Prüfpfad für DSGVO-Aktionen anzeigen
+- [Interaktionen erfassen](/docs/user-guide-de/how-to/recording-interactions) - Funktionsweise der Kontaktbearbeitung in der Praxis

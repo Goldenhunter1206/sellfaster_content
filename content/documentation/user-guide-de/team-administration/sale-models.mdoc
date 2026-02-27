@@ -123,7 +123,21 @@ Jeder Status innerhalb eines Modells hat:
 ---
 - **Ist Terminal**
 - Markiert einen Endstatus (Verkaufs-Workflow abgeschlossen)
+---
+- **Kontakt bearbeiten erlauben**
+- Wenn aktiviert, können Benutzer die Lead-Kontaktdaten beim Erfassen eines Verkaufs in diesem Status bearbeiten
+---
+- **Maximale Aufbewahrung (Tage)**
+- Nach dieser Anzahl Tage trennt das System automatisch die Adresse und löscht Kommentare/Notizen für Verkäufe in diesem Status
 {% /table %}
+
+### DSGVO-Eigenschaften
+
+Für jeden Verkaufsstatus können zwei optionale DSGVO-Steuerungen konfiguriert werden.
+
+**Kontakt bearbeiten erlauben** ermöglicht es Mitarbeitern, die Kontaktdaten eines Leads beim Erfassen oder Aktualisieren eines Verkaufs in diesem Status zu ändern. Diese Option ist standardmäßig deaktiviert; aktivieren Sie sie nur für Status, für die Ihr Team eine Rechtsgrundlage für die Bearbeitung personenbezogener Daten hat.
+
+**Maximale Aufbewahrung (Tage)** legt fest, wie lange personenbezogene Daten, die mit Verkäufen in diesem Status verknüpft sind, aufbewahrt werden. Nach dem konfigurierten Zeitraum trennt das System die verknüpfte Adresse und löscht Kommentare und Notizen zu diesen Verkäufen. Eine vollständige Beschreibung aller Datenschutzeinstellungen finden Sie unter [DSGVO-Einstellungen & Datenschutz](/docs/user-guide-de/team-administration/gdpr-settings).
 
 ### Provisionseigenschaften
 
@@ -355,3 +369,4 @@ Wenn die Provision nicht angezeigt wird:
 - [Verkäufe erfassen](/docs/user-guide-de/how-to/recording-sales) - Verkäufe erstellen
 - [Interaktionsstatus](/docs/user-guide-de/team-administration/interaction-states) - Adress-Interaktionsstatus
 - [Teamverkäufe](/docs/user-guide-de/team-account/sales) - Verkaufsverwaltung
+- [DSGVO-Einstellungen & Datenschutz](/docs/user-guide-de/team-administration/gdpr-settings) - Datenhaltung konfigurieren und Betroffenenanfragen bearbeiten

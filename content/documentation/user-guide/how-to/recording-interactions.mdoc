@@ -87,6 +87,10 @@ The primary way to record an interaction:
 - **Follow-Up Date**
 - conditional & optional
 - Only appears if the selected state has `follow_up: true` configured
+---
+- **Contact Details**
+- conditional
+- Only visible when the selected state has Allow Editing Contact enabled. Allows editing the lead's name, address, phone, and email directly in the interaction form.
 {% /table %}
 
 ## Understanding Interaction States
@@ -118,6 +122,7 @@ Each interaction state can have special behaviors configured:
 - States can be assigned to specific campaigns
 - The available states you see depend on your current campaign
 - Selecting a state may trigger the follow-up date field to appear
+- The selected state controls whether contact details are editable and whether the AI summary is regenerated after saving
 
 ## Email Interactions
 
@@ -180,7 +185,7 @@ See [Follow-Up Reminders](/docs/user-guide/how-to/follow-up-reminders) for manag
 When you save an interaction:
 
 1. **Interaction is stored** - Linked to the lead, campaign, and account
-1. **AI Summary updates** - The system may regenerate the lead summary
+1. **AI Summary updates** - The system may regenerate the lead summary. Note: the AI summary is NOT updated if the lead's current state has Scramble Data enabled.
 1. **History updated** - Appears in the lead's interaction history
 1. **Follow-up created** - If you set a follow-up date, it appears in your calendar
 

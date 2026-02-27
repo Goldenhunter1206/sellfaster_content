@@ -87,6 +87,10 @@ Der primäre Weg, eine Interaktion zu erfassen:
 - **Nachverfolgungsdatum**
 - bedingt & optional
 - Erscheint nur, wenn der gewählte Status `follow_up: true` konfiguriert hat
+---
+- **Kontaktdaten**
+- bedingt
+- Nur sichtbar, wenn der gewählte Status "Kontakt bearbeiten erlauben" aktiviert hat. Ermöglicht das Bearbeiten von Name, Adresse, Telefon und E-Mail des Leads direkt im Interaktionsformular.
 {% /table %}
 
 ## Interaktionsstatus verstehen
@@ -118,6 +122,7 @@ Jeder Interaktionsstatus kann spezielle Verhaltensweisen konfiguriert haben:
 - Status können bestimmten Kampagnen zugewiesen werden
 - Die verfügbaren Status hängen von Ihrer aktuellen Kampagne ab
 - Die Auswahl eines Status kann das Nachverfolgungsdatumsfeld auslösen
+- Der gewählte Status steuert, ob Kontaktdaten bearbeitbar sind und ob die KI-Zusammenfassung nach dem Speichern neu generiert wird
 
 ## E-Mail-Interaktionen
 
@@ -180,7 +185,7 @@ Siehe [Nachverfolgungserinnerungen](/docs/user-guide-de/how-to/follow-up-reminde
 Wenn Sie eine Interaktion speichern:
 
 1. **Interaktion wird gespeichert** - Verknüpft mit dem Lead, der Kampagne und dem Konto
-1. **KI-Zusammenfassung wird aktualisiert** - Das System kann die Lead-Zusammenfassung neu generieren
+1. **KI-Zusammenfassung wird aktualisiert** - Das System kann die Lead-Zusammenfassung neu generieren. Hinweis: Die KI-Zusammenfassung wird NICHT aktualisiert, wenn der aktuelle Status des Leads "Daten anonymisieren" aktiviert hat.
 1. **Verlauf wird aktualisiert** - Erscheint im Interaktionsverlauf des Leads
 1. **Nachverfolgung wird erstellt** - Wenn Sie ein Nachverfolgungsdatum festgelegt haben, erscheint es in Ihrem Kalender
 

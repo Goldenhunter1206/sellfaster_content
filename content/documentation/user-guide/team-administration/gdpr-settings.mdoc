@@ -1,0 +1,304 @@
+---
+title: GDPR Settings & Data Protection
+description: >-
+  Configure data retention rules, handle GDPR data subject requests, and
+  understand how automatic cleanup jobs protect personal data.
+order: 8
+language: en
+categories:
+  - user-guide
+tags:
+  - team-administration
+status: published
+collapsible: false
+collapsed: false
+---
+Configure data-retention rules, respond to data subject requests, and learn how Sellfaster's automatic jobs keep your team's data within legally compliant boundaries.
+
+## Overview
+
+Sellfaster provides a suite of GDPR compliance tools built directly into the platform:
+
+- **Per-state data retention** — set a maximum lifetime for personal data linked to interactions or sales in a given state
+- **Scramble Data** — immediately anonymize a lead on transition to a specific state
+- **Global orphan data retention** — auto-clean leads with no activity within a configurable window
+- **GDPR Customer Requests** — search, export, and erase data subject records without database access
+- **Automatic cleanup jobs** — scheduled background tasks that enforce the rules above
+
+This page covers all of these features in detail.
+
+## Accessing GDPR Settings
+
+1. Ensure you are in your team account and are the team owner
+1. Click **Settings** in the sidebar
+1. Select the **GDPR Settings** tab
+1. The URL is `https://sellfaster.eu/home/[team]/settings/gdpr`
+
+> **Note:** All GDPR settings and customer request tools are owner-only. Only the primary team owner can view or change these settings.
+
+## Orphan Data Retention
+
+### What is Orphan Data?
+
+A lead is considered **orphan** when it has no linked interaction and no linked sale. Orphan leads accumulate naturally over time: addresses that were visited once but never followed up on, imported contacts who were never contacted, or leads that were simply forgotten.
+
+### The Global Retention Setting
+
+{% table %}
+- Setting
+- Default
+- Maximum
+- Description
+---
+- **Max retention time of GDPR-relevant data without sale/interaction (days)**
+- 180
+- 36 500 (100 years)
+- After this many days without any interaction or sale, the cleanup job disconnects the lead's address and clears all comments and notes on the lead
+{% /table %}
+
+### What Happens When the Period Expires
+
+When a lead has had no interaction or sale for longer than the configured period:
+
+1. The linked street address is disconnected from the lead record
+1. All comments and notes associated with the lead are permanently deleted
+1. The lead record itself remains (for audit purposes) but contains no personal data
+
+Setting this to a value that matches your legal retention obligations (commonly 90–365 days depending on jurisdiction and use case) helps you demonstrate compliance with the GDPR's storage-limitation principle.
+
+## Per-State Retention (Interaction & Sale States)
+
+### How It Works
+
+In addition to the global orphan setting, each **interaction state** and each **sale state** can have its own `Max Retention (days)` value. When set, the per-state retention job:
+
+1. Finds all interactions (or sales) that have been in that state for longer than the configured number of days
+1. Disconnects the linked address from those records
+1. Clears all comments and notes on those records
+
+### Relationship to Global Orphan Setting
+
+The per-state retention and the global orphan retention are **independent** — both can run on the same lead. A lead might first have its personal data removed by a per-state retention rule (because the interaction has been in a "No Interest" state for 90 days), and later be further cleaned by the orphan retention rule.
+
+### When to Use Per-State vs. Global Retention
+
+{% table %}
+- Scenario
+- Recommended approach
+---
+- Clean up all inactive leads regardless of state
+- Global orphan retention
+---
+- Apply a shorter retention window to closed/terminal states
+- Per-state retention on those states
+---
+- Comply with a shorter obligation for specific data categories
+- Per-state retention on relevant states
+{% /table %}
+
+## Scramble Data (Interaction States)
+
+### What Scramble Does
+
+When an interaction state has **Scramble Data** enabled, moving a lead into that state triggers immediate, irreversible anonymization:
+
+1. The lead's **name** is set to `null`
+1. All **custom field values marked as GDPR Relevant** are permanently deleted
+1. The **AI-generated summary** is redacted
+1. All but **one interaction** and **one sale** are permanently deleted (the most recent record of each type is kept for business-context purposes)
+
+### When It Triggers
+
+Scramble fires **immediately** when a user records an interaction that moves the lead into a scramble-enabled state. It is not a scheduled job — there is no delay.
+
+### Use Cases
+
+- A **"Do Not Contact"** terminal state: the moment a rep records this outcome, the lead's personal data is wiped
+- A **"GDPR Erased"** terminal state: used specifically to process formal erasure requests before also running the GDPR Customer Requests → Erase flow
+
+> **Warning:** Scramble is irreversible. Data deleted by the scramble action cannot be recovered.
+
+## Allow Editing Contact (Interaction & Sale States)
+
+### Why Free Contact Editing Was Restricted
+
+Prior to the GDPR compliance release, users could edit a lead's contact details (name, address, phone, email) at any time with no restrictions. Under GDPR, unrestricted editing of personally identifiable information without a documented legal basis is a compliance risk: changes are not attributed to a specific business reason, and the edit trail in the audit log may not be sufficient to demonstrate lawful processing.
+
+### How the Control Works
+
+**Allow Editing Contact** is a per-state setting (available on both interaction states and sale states) that is **disabled by default**. When disabled, the contact detail fields in the interaction and sale recording dialogs are read-only.
+
+To enable contact editing for a specific state:
+
+1. Go to **Interaction States** or **Sale States**
+1. Edit the relevant state
+1. Enable **Allow Editing Contact**
+1. Save
+
+Only enable this for states where your team has a clear and documented legal basis for updating contact data (for example, a state used when correcting data at the customer's explicit request).
+
+## Custom Fields: GDPR Relevant Flag
+
+Each custom field has a **GDPR Relevant** toggle. When enabled:
+
+- The field's value is **excluded from AI-generated lead summaries** (the AI never processes the raw value)
+- The value is **permanently deleted** when the lead is anonymized via Scramble Data or a GDPR Customer Requests erasure
+
+### Which Fields Should Be Marked GDPR Relevant
+
+Mark any field that captures personally identifiable information:
+
+- Full name, first name, last name
+- Email address
+- Phone number
+- Home address, postal code
+- National identification numbers, passport numbers
+- Date of birth
+- Any other data that could identify a specific individual
+
+For instructions on creating and editing custom fields, see [Custom Fields](/docs/user-guide/team-administration/custom-fields).
+
+## GDPR Customer Requests
+
+> **Note:** GDPR Customer Requests are only accessible to the team owner.
+
+These tools let you respond to formal **data subject requests** (DSARs) — requests from individuals to know what data you hold about them, or to have that data deleted — without requiring direct database access.
+
+### Search
+
+1. Navigate to **Settings → GDPR Settings**
+1. In the **GDPR Customer Requests** section, enter the customer's **name** and/or **street address**
+1. Click **Search**
+1. Review the matching leads and the count of associated records (interactions, sales, custom field values, email transactions)
+
+Use the search results to confirm you have found the correct individual before proceeding with an export or erasure.
+
+### Export (Subject Access Request)
+
+To fulfill a **Subject Access Request (SAR)**:
+
+1. Search for and identify the correct lead
+1. Click **Export**
+1. A JSON file containing all associated data is downloaded immediately
+1. Provide this file to the data subject
+
+The export includes: lead details, all interactions, all sales, all custom field values, all email transactions, and order records.
+
+### Erase (Erasure Request)
+
+To fulfill a **right-to-erasure (right to be forgotten)** request:
+
+1. Search for and identify the correct lead
+1. Click **Erase**
+1. Review the warning — this action is **permanent and irreversible**
+1. Enter the OTP (one-time password) sent to your email to confirm
+1. The lead and all related records are immediately anonymized
+
+After erasure:
+- The lead's name, address link, and GDPR-relevant custom field values are deleted
+- All interactions and sales linked to the lead are anonymized (address disconnected, comments cleared)
+- The AI summary is deleted
+- A record of the erasure event is retained in the audit log for compliance purposes
+
+## Automatic Cleanup Jobs
+
+Sellfaster runs several background jobs to enforce data-retention rules automatically.
+
+{% table %}
+- Job
+- What it anonymizes / deletes
+- Trigger
+- Configurable?
+---
+- **Audit log cleanup**
+- Audit log entries older than 180 days
+- Daily at 02:30 UTC
+- No
+---
+- **Orphan data retention**
+- Address link + comments/notes for leads with no interaction or sale within the global retention window
+- Scheduled (daily)
+- Yes — via global orphan retention setting
+---
+- **Per-state retention**
+- Address link + comments/notes for interactions/sales that have been in a state with max_retention_days set for longer than that value
+- Scheduled (daily)
+- Yes — per interaction/sale state
+---
+- **Scramble on transition**
+- Name, GDPR-relevant custom field values, AI summary, excess interactions/sales
+- Immediately on transition to a scramble-enabled state
+- Yes — by enabling Scramble Data on a state
+{% /table %}
+
+### Audit Log Cleanup
+
+Runs daily at **02:30 UTC**. Deletes audit log entries in batches to avoid performance impact. The 180-day retention for audit logs is fixed and cannot be changed via the UI.
+
+### Orphan Data Retention Job
+
+Runs on a daily schedule. Reads the global **Max retention days** setting from Team Settings and identifies leads with no interaction or sale more recent than that many days. For each matching lead, it disconnects the address and clears comments and notes.
+
+### Per-State Retention Job
+
+Runs on a daily schedule. For each interaction state or sale state that has `Max Retention (days)` configured, the job finds all records that have been in that state for longer than the configured period and scrubs the address link and notes.
+
+### Scramble on Transition
+
+Not a scheduled job. Fires **synchronously** when a user saves an interaction that changes the lead's state to a scramble-enabled state. The anonymization completes before the response is returned to the user.
+
+## Data Processing Agreement (DPA)
+
+A **Data Processing Agreement** (DPA) is a legally binding contract required under GDPR Article 28 when a data controller (your organization) uses a data processor (Sellfaster) to handle personal data on their behalf.
+
+Sellfaster's DPA is available at [sellfaster.eu/dpa](/dpa) and is linked in the site footer under **Legal**. If your organization requires a signed DPA, download it from that page or contact support.
+
+## Permissions
+
+{% table %}
+- Action
+- Permission Required
+---
+- View GDPR Settings page
+- Team owner only
+---
+- Change orphan retention setting
+- Team owner only
+---
+- Search GDPR customer requests
+- Team owner only
+---
+- Export customer data
+- Team owner only
+---
+- Erase customer data
+- Team owner only
+---
+- Configure per-state retention (on states)
+- Role `manager` or `owner`
+---
+- Configure Scramble Data (on states)
+- Role `manager` or `owner`
+---
+- Configure Allow Editing Contact (on states)
+- Role `manager` or `owner`
+---
+- Configure GDPR Relevant on custom fields
+- Role `manager` or `owner`
+{% /table %}
+
+## Best Practices
+
+1. **Set a global orphan retention period** that matches your legal retention obligations — a common starting point is 180 days for canvassing data
+1. **Use per-state retention for terminal states** — for example, set "No Interest" interactions to expire after 90 days so closed leads are cleaned up promptly
+1. **Enable Scramble Data on a dedicated terminal state** (e.g. "Do Not Contact" or "GDPR Erased") so that formal erasure requests are handled immediately and consistently
+1. **Mark all PII custom fields as GDPR Relevant** — any field capturing names, contact details, or identifiers should be tagged so it is excluded from AI processing and automatically erased
+1. **Use GDPR Customer Requests to respond to DSARs** — do not attempt to manually locate and delete records; the built-in tools ensure completeness and create an audit trail
+
+## Related Topics
+
+- [Interaction States](/docs/user-guide/team-administration/interaction-states) - Configure per-state GDPR controls
+- [Sale Models](/docs/user-guide/team-administration/sale-models) - Configure per-state retention on sale states
+- [Custom Fields](/docs/user-guide/team-administration/custom-fields) - Mark fields as GDPR Relevant
+- [Audit Logs](/docs/user-guide/team-administration/audit-logs) - View the audit trail for GDPR actions
+- [Recording Interactions](/docs/user-guide/how-to/recording-interactions) - How contact editing works in practice

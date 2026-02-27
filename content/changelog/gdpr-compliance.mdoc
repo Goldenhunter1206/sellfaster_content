@@ -1,0 +1,71 @@
+---
+title: "GDPR Compliance: Data Retention, Customer Requests & Privacy Controls"
+description: >-
+  Configurable data retention per interaction and sale state, owner-level
+  customer data search and erasure, a GDPR-relevant flag for custom fields,
+  automatic cleanup jobs, and a Data Processing Agreement page.
+categories:
+  - product
+tags:
+  - new-feature
+publishedAt: 2026-02-27
+language: en
+status: published
+---
+Sellfaster now ships a comprehensive set of GDPR compliance tools — from per-state data retention and immediate lead anonymization to owner-level data subject request handling and a published Data Processing Agreement. Here is everything that is new.
+
+## GDPR Settings
+
+A new **GDPR Settings** section has been added to Team Settings (owner-only). It contains two areas:
+
+**Orphan Data Retention** — Set the maximum number of days a lead can exist without any linked interaction or sale before the system automatically disconnects its address and clears its comments and notes. The default is 180 days; the maximum is 36 500 days.
+
+**GDPR Customer Requests** — Three tools to respond to formal data subject requests:
+
+- **Search** — Find a customer by name and/or street address; see counts of all associated data
+- **Export** — Download a complete JSON export of all data associated with a lead for Subject Access Requests
+- **Erase** — Permanently and irreversibly anonymize a lead and all related records after OTP confirmation
+
+## Interaction State GDPR Controls
+
+Three new optional fields have been added to each interaction state:
+
+**Allow Editing Contact** — When enabled, agents can edit a lead's contact details (name, address, phone, email) from within the interaction recording dialog. Disabled by default to prevent unattributed changes to personal data.
+
+**Scramble Data** — When enabled, transitioning a lead into this state immediately triggers full anonymization: the lead name is cleared, all GDPR-relevant custom field values are deleted, the AI summary is redacted, and all but one interaction and one sale are permanently removed. Fires synchronously — no delay.
+
+**Max Retention (days)** — After the configured number of days, the system automatically disconnects the linked address and clears comments and notes for all interactions in this state.
+
+## Sale State GDPR Controls
+
+Two new optional fields have been added to each sale state:
+
+**Allow Editing Contact** — Same behavior as on interaction states: enables contact editing during sale creation or updates.
+
+**Max Retention (days)** — After the configured number of days, the system automatically disconnects the linked address and clears comments and notes for all sales in this state.
+
+## Custom Fields: GDPR Relevant Flag
+
+Each custom field now has a **GDPR Relevant** toggle. When enabled:
+
+- The field value is excluded from all AI-generated lead summaries
+- The value is permanently deleted when the lead is anonymized via Scramble Data or a GDPR erasure request
+
+Mark any field that captures personally identifiable information (names, emails, phone numbers, addresses, national IDs) as GDPR Relevant.
+
+## Automatic Cleanup
+
+Two new scheduled background jobs enforce the retention rules set above:
+
+- **Orphan data retention job** — runs daily; applies the global Max Retention Days setting to clean up leads with no recent activity
+- **Per-state retention job** — runs daily; applies the `Max Retention (days)` value configured on individual interaction and sale states
+
+Additionally, the existing **audit log cleanup job** (runs daily at 02:30 UTC, deletes entries older than 180 days) is now documented in the GDPR Settings page.
+
+## Data Processing Agreement
+
+A Data Processing Agreement (DPA) is now available at [sellfaster.eu/dpa](/dpa) and is linked in the site footer under Legal. Download it if your organization requires a signed DPA as required by GDPR Article 28.
+
+## Contact Editing in Interactions & Sales
+
+The ability to freely edit a lead's contact details from the interaction and sale recording dialogs has been removed. Contact details are now **read-only by default** in these dialogs. To allow editing in a specific state, enable the **Allow Editing Contact** flag on that state. This change prevents untracked modifications to personally identifiable information and helps maintain a clear audit trail.

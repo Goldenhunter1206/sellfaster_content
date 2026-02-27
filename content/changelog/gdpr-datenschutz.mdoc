@@ -1,0 +1,72 @@
+---
+title: "DSGVO-Konformität: Datenhaltung, Kundenanfragen & Datenschutzsteuerung"
+description: >-
+  Konfigurierbare Datenhaltung pro Interaktions- und Verkaufsstatus, Suche und
+  Löschung von Kundendaten für Eigentümer, ein DSGVO-Relevant-Flag für
+  benutzerdefinierte Felder, automatische Bereinigungsjobs und eine
+  Datenverarbeitungsvertragsseite.
+categories:
+  - product
+tags:
+  - new-feature
+publishedAt: 2026-02-27
+language: de
+status: published
+---
+Sellfaster verfügt jetzt über ein umfassendes Set an DSGVO-Compliance-Werkzeugen — von statusbasierter Datenhaltung und sofortiger Lead-Anonymisierung bis hin zur Bearbeitung von Betroffenenanfragen durch Eigentümer und einem veröffentlichten Datenverarbeitungsvertrag. Hier ist alles, was neu ist.
+
+## DSGVO-Einstellungen
+
+Den Teameinstellungen wurde ein neuer Bereich **DSGVO-Einstellungen** hinzugefügt (nur für Eigentümer). Er enthält zwei Bereiche:
+
+**Aufbewahrung verwaister Daten** — Legen Sie die maximale Anzahl von Tagen fest, die ein Lead ohne verknüpfte Interaktion oder Verkauf existieren kann, bevor das System automatisch die Adresse trennt und Kommentare und Notizen löscht. Der Standard sind 180 Tage; das Maximum sind 36.500 Tage.
+
+**DSGVO-Kundenanfragen** — Drei Werkzeuge zur Bearbeitung formaler Betroffenenanfragen:
+
+- **Suche** — Kunden nach Name und/oder Straßenadresse finden; Anzahl aller zugehörigen Daten anzeigen
+- **Export** — Vollständigen JSON-Export aller mit einem Lead verknüpften Daten für Auskunftsanfragen herunterladen
+- **Löschen** — Lead und alle zugehörigen Datensätze nach OTP-Bestätigung dauerhaft und unwiderruflich anonymisieren
+
+## DSGVO-Steuerungen für Interaktionsstatus
+
+Jedem Interaktionsstatus wurden drei neue optionale Felder hinzugefügt:
+
+**Kontakt bearbeiten erlauben** — Wenn aktiviert, können Mitarbeiter die Kontaktdaten eines Leads (Name, Adresse, Telefon, E-Mail) direkt im Interaktionserfassungsdialog bearbeiten. Standardmäßig deaktiviert, um nicht zugeordnete Änderungen an personenbezogenen Daten zu verhindern.
+
+**Daten anonymisieren** — Wenn aktiviert, löst der Wechsel eines Leads in diesen Status sofort eine vollständige Anonymisierung aus: Der Lead-Name wird gelöscht, alle DSGVO-relevanten benutzerdefinierten Feldwerte werden gelöscht, die KI-Zusammenfassung wird geschwärzt, und alle außer einer Interaktion und einem Verkauf werden dauerhaft entfernt. Wird synchron ausgeführt — keine Verzögerung.
+
+**Maximale Aufbewahrung (Tage)** — Nach der konfigurierten Anzahl von Tagen trennt das System automatisch die verknüpfte Adresse und löscht Kommentare und Notizen für alle Interaktionen in diesem Status.
+
+## DSGVO-Steuerungen für Verkaufsstatus
+
+Jedem Verkaufsstatus wurden zwei neue optionale Felder hinzugefügt:
+
+**Kontakt bearbeiten erlauben** — Gleiches Verhalten wie bei Interaktionsstatus: Ermöglicht die Kontaktbearbeitung bei der Erstellung oder Aktualisierung von Verkäufen.
+
+**Maximale Aufbewahrung (Tage)** — Nach der konfigurierten Anzahl von Tagen trennt das System automatisch die verknüpfte Adresse und löscht Kommentare und Notizen für alle Verkäufe in diesem Status.
+
+## Benutzerdefinierte Felder: DSGVO-Relevant-Flag
+
+Jedes benutzerdefinierte Feld hat jetzt einen Schalter **DSGVO-Relevant**. Wenn aktiviert:
+
+- Der Feldwert wird aus allen KI-generierten Lead-Zusammenfassungen ausgeschlossen
+- Der Wert wird dauerhaft gelöscht, wenn der Lead durch "Daten anonymisieren" oder eine DSGVO-Löschanfrage anonymisiert wird
+
+Markieren Sie alle Felder, die personenbezogene Daten erfassen (Namen, E-Mails, Telefonnummern, Adressen, Ausweisnummern), als DSGVO-relevant.
+
+## Automatische Bereinigung
+
+Zwei neue geplante Hintergrundjobs setzen die oben konfigurierten Aufbewahrungsregeln durch:
+
+- **Aufbewahrungsjob für verwaiste Daten** — läuft täglich; wendet die globale Einstellung "Maximale Aufbewahrungstage" an, um Leads ohne aktuelle Aktivität zu bereinigen
+- **Statusbasierter Aufbewahrungsjob** — läuft täglich; wendet den Wert `Maximale Aufbewahrung (Tage)` an, der für einzelne Interaktions- und Verkaufsstatus konfiguriert ist
+
+Zusätzlich wird der bestehende **Prüfprotokoll-Bereinigungsjob** (läuft täglich um 02:30 UTC, löscht Einträge, die älter als 180 Tage sind) jetzt auf der DSGVO-Einstellungsseite dokumentiert.
+
+## Datenverarbeitungsvertrag
+
+Ein Datenverarbeitungsvertrag (DVV) ist jetzt unter [sellfaster.eu/dpa](/dpa) verfügbar und im Footer der Website unter Rechtliches verlinkt. Laden Sie ihn herunter, wenn Ihre Organisation einen unterzeichneten DVV gemäß DSGVO Artikel 28 benötigt.
+
+## Kontaktbearbeitung in Interaktionen & Verkäufen
+
+Die Möglichkeit, die Kontaktdaten eines Leads frei aus den Interaktions- und Verkaufserfassungsdialogen zu bearbeiten, wurde entfernt. Kontaktdaten sind jetzt **standardmäßig schreibgeschützt** in diesen Dialogen. Um die Bearbeitung in einem bestimmten Status zu ermöglichen, aktivieren Sie das Flag **Kontakt bearbeiten erlauben** für diesen Status. Diese Änderung verhindert nicht nachverfolgbare Änderungen an personenbezogenen Daten und hilft dabei, einen klaren Prüfpfad zu erhalten.

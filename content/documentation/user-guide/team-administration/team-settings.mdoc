@@ -132,6 +132,42 @@ Configure your incoming email server:
 
 > **Note:** When updating email settings, you can leave password fields blank to keep the existing password. A placeholder will indicate if a password is already set.
 
+## GDPR Settings
+
+> **Note:** GDPR Settings are only accessible to the team owner.
+
+Navigate to **Settings → GDPR Settings** (URL: `https://sellfaster.eu/home/[team]/settings/gdpr`) to configure data-retention rules and handle data subject requests.
+
+### Orphan Data Retention
+
+An **orphan lead** is a lead that has no linked sale or interaction. Orphan leads accumulate over time as old records are never contacted again.
+
+{% table %}
+- Setting
+- Default
+- Description
+---
+- **Max retention time of GDPR-relevant data without sale/interaction (days)**
+- 180
+- After this many days without any interaction or sale, the system automatically disconnects the lead's address and clears all comments and notes. Maximum value: 36 500 days (100 years).
+{% /table %}
+
+Setting this to a lower value reduces your data-retention footprint for inactive leads and helps demonstrate compliance with storage-limitation principles under the GDPR.
+
+### GDPR Customer Requests
+
+> **Note:** This section is only visible to the team owner.
+
+Use these tools to respond to formal data subject requests (DSARs) without needing direct database access.
+
+**Search** — Find a customer by entering their name and/or street address. The results show counts of all data associated with the matching lead (interactions, sales, custom field values, email transactions).
+
+**Export (Access Request)** — Download a complete JSON export of all data associated with a lead. Share this with the data subject to fulfill a Subject Access Request (SAR).
+
+**Erase (Erasure Request)** — Permanently anonymize the lead and all related records. After selecting a lead, you must confirm the action via a one-time password (OTP) sent to your email. This action is irreversible.
+
+For full step-by-step instructions and details on all GDPR controls, see [GDPR Settings & Data Protection](/docs/user-guide/team-administration/gdpr-settings).
+
 ## Danger Zone
 
 ### Leaving the Team
@@ -216,3 +252,4 @@ If you can't delete the team:
 - [Member Management](/docs/user-guide/team-administration/member-management) - Managing team members
 - [Billing](/docs/user-guide/team-administration/billing) - Team subscription
 - [Team Overview](/docs/user-guide/team-account) - Team basics
+- [GDPR Settings & Data Protection](/docs/user-guide/team-administration/gdpr-settings) - Full GDPR configuration guide
