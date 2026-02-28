@@ -105,7 +105,7 @@ When an interaction state has **Scramble Data** enabled, moving a lead into that
 1. The lead's **name** is set to `null`
 1. All **custom field values marked as GDPR Relevant** are permanently deleted
 1. The **AI-generated summary** is redacted
-1. All but **one interaction** and **one sale** are permanently deleted (the most recent record of each type is kept for business-context purposes)
+1. All but **one interaction** (the latest, which caused the scramble) are permanently anonymized (the most recent record is kept for business-context purposes)
 
 ### When It Triggers
 
@@ -195,6 +195,7 @@ To fulfill a **right-to-erasure (right to be forgotten)** request:
 1. The lead and all related records are immediately anonymized
 
 After erasure:
+
 - The lead's name, address link, and GDPR-relevant custom field values are deleted
 - All interactions and sales linked to the lead are anonymized (address disconnected, comments cleared)
 - The AI summary is deleted
@@ -251,7 +252,7 @@ Not a scheduled job. Fires **synchronously** when a user saves an interaction th
 
 A **Data Processing Agreement** (DPA) is a legally binding contract required under GDPR Article 28 when a data controller (your organization) uses a data processor (Sellfaster) to handle personal data on their behalf.
 
-Sellfaster's DPA is available at [sellfaster.eu/dpa](/dpa) and is linked in the site footer under **Legal**. If your organization requires a signed DPA, download it from that page or contact support.
+Sellfaster's DPA is available at [sellfaster.eu/dpa](/dpa) and is linked in the site footer under **Legal**. If your organization requires a signed DPA, request it via your team account settings.
 
 ## Permissions
 
