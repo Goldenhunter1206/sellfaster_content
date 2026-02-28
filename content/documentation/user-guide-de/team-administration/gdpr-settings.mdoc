@@ -105,7 +105,7 @@ Wenn bei einem Interaktionsstatus **Daten anonymisieren** aktiviert ist, löst d
 1. Der **Name** des Leads wird auf `null` gesetzt
 1. Alle **als DSGVO-relevant markierten benutzerdefinierten Feldwerte** werden dauerhaft gelöscht
 1. Die **KI-generierte Zusammenfassung** wird geschwärzt
-1. Alle außer **einer Interaktion** und **einem Verkauf** werden dauerhaft gelöscht (der jeweils neueste Datensatz wird für Geschäftskontextzwecke aufbewahrt)
+1. Alle außer **der letzten Interaktion** (welche das Scramble verursacht hat) werden dauerhaft unkenntlich gemacht (der neueste Datensatz wird für Geschäftskontextzwecke aufbewahrt)
 
 ### Wann sie ausgelöst wird
 
@@ -195,6 +195,7 @@ Um ein **Recht auf Löschung (Recht auf Vergessenwerden)**-Anfrage zu erfüllen:
 1. Der Lead und alle zugehörigen Datensätze werden sofort anonymisiert
 
 Nach der Löschung:
+
 - Name, Adressverknüpfung und DSGVO-relevante benutzerdefinierte Feldwerte des Leads werden gelöscht
 - Alle mit dem Lead verknüpften Interaktionen und Verkäufe werden anonymisiert (Adresse getrennt, Kommentare gelöscht)
 - Die KI-Zusammenfassung wird gelöscht
@@ -251,7 +252,7 @@ Kein geplanter Job. Wird **synchron** ausgelöst, wenn ein Benutzer eine Interak
 
 Ein **Datenverarbeitungsvertrag** (DVV, englisch: Data Processing Agreement, DPA) ist ein rechtlich bindender Vertrag, der gemäß DSGVO Artikel 28 erforderlich ist, wenn ein Verantwortlicher (Ihre Organisation) einen Auftragsverarbeiter (Sellfaster) zur Verarbeitung personenbezogener Daten einsetzt.
 
-Sellfasters DVV ist unter [sellfaster.eu/dpa](/dpa) verfügbar und im Footer der Website unter **Rechtliches** verlinkt. Wenn Ihre Organisation einen unterzeichneten DVV benötigt, laden Sie ihn von dieser Seite herunter oder wenden Sie sich an den Support.
+Sellfasters DVV ist unter [sellfaster.eu/dpa](/dpa) verfügbar und im Footer der Website unter **Rechtliches** verlinkt. Wenn Ihre Organisation einen unterzeichneten DVV benötigt, fordern Sie diesen in Ihren Team Account Einstellungen an.
 
 ## Berechtigungen
 
