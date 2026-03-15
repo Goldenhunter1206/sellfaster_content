@@ -18,29 +18,27 @@ Dieses Release bringt Kundenverwaltung, Mitarbeiterbindung und Anonymisierung, f
 
 ## Kundenverwaltung
 
-Im Teamkonto-Seitenmenü ist jetzt ein neuer Bereich **Kunden** verfügbar. Kunden repräsentieren die Unternehmen oder Personen, an die Ihr Team verkauft, und können unabhängig von Leads und Adressen verwaltet werden.
+Im Teamkonto-Seitenmenü ist jetzt ein neuer Bereich **Kunden** verfügbar. Kunden repräsentieren die Unternehmen oder Personen, an die Ihr Team verkauft — sie lassen sich getrennt von einzelnen Leads und Adressen verwalten.
 
-Jeder Kunde verfügt über eine eigene Profilseite mit Name, Kontaktdaten, Notizen, einem Status (aktiv oder archiviert) sowie optionalen kundenspezifischen benutzerdefinierten Feldern. Die Kundendetailseite fasst alle verknüpften Interaktionen und Verkäufe zusammen, inklusive Gesamtsummen und vollständigem Export.
+Jeder Kunde verfügt über eine eigene Profilseite mit Name, Kontaktdaten, Notizen, einem Status (aktiv oder archiviert) sowie optionalen kundenspezifischen benutzerdefinierten Feldern. Die Kundendetailseite zeigt alle verknüpften Interaktionen und Verkäufe an einem Ort, inklusive Gesamtsummen und vollständigem Export.
 
-Leads und Verkäufe können in der Lead-Detailansicht, der Verkaufsdetailansicht oder per Sammelauswahl aus der Leads-Liste mit einem Kundendatensatz verknüpft werden. Kundendaten stehen als Datenquelle im Dashboard-Widget-Assistenten zur Verfügung. Produkte und Aktionen können jetzt auf bestimmte Kunden beschränkt werden.
+Leads und Verkäufe können in der Lead-Detailansicht, der Verkaufsdetailansicht oder per Sammelauswahl aus der Leads-Liste mit einem Kunden verknüpft werden. Kundendaten stehen als Quelle für Dashboard-Widgets zur Verfügung. Produkte und Aktionen können jetzt auf bestimmte Kunden beschränkt werden.
 
-Der Zugriff auf Kunden folgt den Team-Rollenberechtigungen: Mitarbeiter können einsehen und verknüpfen, Manager können erstellen und bearbeiten, Eigentümer haben vollen Zugriff einschließlich Archivierung und Verwaltung benutzerdefinierter Felder.
+Der Zugriff auf Kunden folgt den Team-Rollenberechtigungen: Mitarbeiter können Kunden einsehen und verknüpfen, Manager können sie erstellen und bearbeiten, Eigentümer haben vollen Zugriff einschließlich Archivierung und Verwaltung benutzerdefinierter Felder.
 
 ## Mitarbeiterbindung & Behandlung ausgeschiedener Mitglieder
 
 Teamkonten verfügen jetzt unter Teamverwaltung → DSGVO-Einstellungen über eine konfigurierbare Einstellung **Mitgliederbindungstage** (Standard: 90 Tage). Wenn ein Mitglied das Team verlässt oder sein Konto gelöscht wird, plant Sellfaster die Anonymisierung seiner Daten nach Ablauf des konfigurierten Zeitraums.
 
-Ausgeschiedene Mitglieder werden in einer eigenen Tabelle `departed_members` erfasst. Ihre Namen erscheinen weiterhin korrekt in der Interaktionshistorie, der Verkaufshistorie und im Aktivitäts-Feed — als ausgeschieden markiert —, sodass historische Datensätze auch nach ihrem Ausscheiden lesbar bleiben.
-
-Ein neuer `HistoricalUser`-Typ standardisiert die Auflösung ausgeschiedener Mitgliederdaten in allen Loadern und UI-Komponenten. Profillinks für ausgeschiedene Mitglieder werden in der gesamten App ausgeblendet.
+Ausgeschiedene Mitglieder erscheinen weiterhin korrekt in der Interaktionshistorie, der Verkaufshistorie und im Aktivitäts-Feed — als „ausgeschieden" markiert —, sodass historische Datensätze auch nach ihrem Ausscheiden lesbar bleiben. Profillinks für ausgeschiedene Mitglieder werden in der gesamten App ausgeblendet.
 
 ## Finale DSGVO-Standards
 
-Der Standardwert für **DSGVO-Relevant** bei neuen benutzerdefinierten Feldern wurde auf `true` geändert, sodass Felder mit personenbezogenen Daten standardmäßig geschützt sind und kein manuelles Aktivieren mehr erfordern.
+Die Standardeinstellung für **DSGVO-Relevant** bei neuen benutzerdefinierten Feldern ist jetzt aktiviert, sodass Felder mit personenbezogenen Daten standardmäßig geschützt sind und kein manuelles Aktivieren mehr erfordern.
 
-Der Standard für **Maximale Aufbewahrung (Tage)** bei neuen Interaktionsstatus wurde auf 90 Tage gesetzt.
+Der Standard-Aufbewahrungszeitraum für neue Interaktionsstatus wurde auf 90 Tage gesetzt.
 
-Die Konfigurationskarte für Interaktionsstatus in Kampagnen zeigt jetzt alle DSGVO-Spalten an: `scramble_data`, `allow_editing_contact` und `max_retention_days`, konsistent mit der Seite für teamweite Status.
+Die Konfigurationskarte für Interaktionsstatus in Kampagnen zeigt jetzt alle DSGVO-relevanten Einstellungen an, konsistent mit der Seite für teamweite Status.
 
 Der Abschnitt zum Datenverarbeitungsvertrag in den Teameinstellungen wurde aktualisiert.
 
@@ -48,32 +46,26 @@ Der Abschnitt zum Datenverarbeitungsvertrag in den Teameinstellungen wurde aktua
 
 Sellfaster hat die Abonnementabrechnung von Lemon Squeezy zu Stripe migriert. Stripe hat Lemon Squeezy übernommen, und wir wechseln zur nativen Stripe-Infrastruktur.
 
-Ein neuer Stripe-Webhook-Handler verarbeitet Abonnementereignisse und Onboarding-Abläufe. Die Abrechnungskonfiguration wurde mit neuen Stripe-Positionskennnummern für die Starter- und Premium-Pläne aktualisiert. Die Content Security Policy wurde aktualisiert und ersetzt Lemon-Squeezy-Ursprünge durch Stripe-URLs.
-
 Bestehende Abonnementpläne, Preise und Abrechnungszyklen bleiben unverändert.
 
 ## Fehlerbehebungen & Verbesserungen
 
-**Zugriffskontrolle** — Der kontoweite Filter-Optionen-Cache wurde durch einen projektbezogenen Cache ersetzt. Die bisherige Implementierung erlaubte Mitarbeitern, die einem Projekt zugewiesen waren, Filterwerte (Städte, Status) aus Projekten einzusehen, auf die sie keinen Zugriff hatten. Der neue Cache setzt RLS durch: Eigentümer und Admins sehen alle Projekte, Mitarbeiter nur die ihnen zugewiesenen.
+**Zugriffskontrolle** — Behoben: Teammitglieder konnten Standortfilter (Städte, Regionen) von Projekten sehen, denen sie nicht zugewiesen waren.
 
-**RLS-Korrektur** — Die UPDATE-Richtlinie für `project_addresses` wurde korrigiert, um ausschließlich die Berechtigung `addresses:update` zu erfordern. Die fälschlicherweise hinzugefügte Berechtigung `unit:create` wurde entfernt, die nicht autorisierte Aktualisierungen ermöglichte.
+**Veraltete Daten beim Kontowechsel** — Behoben: Nach einem Kontowechsel wurden kurzzeitig Daten des vorherigen Kontos angezeigt.
 
-**Veraltete Daten beim Kontowechsel** — Im Hook `useShowInTableFields` wurde ein Fehler behoben, durch den `initialData` nun Vorrang vor zuvor gecachten Daten hat und veraltete Daten eines vorherigen Kontos nach dem Wechsel nicht mehr angezeigt werden.
+**Persistenz der Adressfilter** — Behoben: Adressfilter wurden nicht korrekt gespeichert — ein fehlgeschlagenes Speichern setzt nun zuverlässig auf die zuletzt gespeicherten Filter zurück.
 
-**Persistenz der Adressfilter** — Die Behandlung des URL-Parameters `_nr` und die optimistischen Updates im Adressfilter-Speicher-Hook wurden korrigiert, sodass ein fehlgeschlagenes Speichern korrekt auf den letzten bekannten Zustand zurückgesetzt wird.
+**CSV-Export** — Der Leads-CSV-Export zeigt jetzt eine verständliche Fehlermeldung, wenn etwas schiefläuft, statt still abzubrechen.
 
-**CSV-Export** — Der Leads-CSV-Export wurde in eine Fehlerbehandlung eingebettet, sodass Fehler eine aussagekräftige Fehlermeldung anzeigen statt still abzubrechen.
+**Live-Updates** — Behoben: Echtzeit-Benachrichtigungen wurden aufgrund eines Caching-Fehlers manchmal nicht zugestellt.
 
-**Event-Stream-Caching** — Falsche `Cache-Control`-Header an SSE-API-Routen (Server-Sent Events) wurden korrigiert, die dazu führten, dass Streaming-Antworten von Zwischenstellen gecacht wurden.
+**Import-Zuverlässigkeit** — Die Zuverlässigkeit bei Massenimporten von Adressen wurde verbessert.
 
-**Import-Leistung** — Die Batch-Größe für das Verknüpfen von Projektadressen wurde von 500 auf 200 reduziert, und direkte Upserts wurden durch einen `bulk_upsert_project_addresses`-RPC-Aufruf ersetzt, für zuverlässigere Massenimporte.
+**Benachrichtigungen bei neuen Versionen** — Sie sehen jetzt einen Hinweis zum Neuladen der Seite, wenn eine neue Version von Sellfaster verfügbar ist oder ein Ladefehler erkannt wird.
 
-**Benachrichtigungen bei veralteten Deployments** — Ein Handler für veraltete Deployments und ein Versions-Updater wurden hinzugefügt: Benutzer werden aufgefordert, die Seite neu zu laden, wenn eine neue Version verfügbar ist oder ein Chunk-Ladefehler erkannt wird.
+**Tagesbegrüßung** — Behoben: Die Tagesbegrüßung hat sich nicht immer gemerkt, wann Sie sie zuletzt gesehen haben.
 
-**Tagesbegrüßung** — Ein Fehler in der Tagesbegrüßungskomponente wurde behoben, sodass das zuletzt gesehene Datum beim Laden korrekt gespeichert wird.
+**Projektaktionen** — Die Schaltflächen zum Deaktivieren und Reaktivieren von Projekten zeigen jetzt einen Ladeindikator, um versehentliche Doppelklicks zu verhindern.
 
-**Projektaktionen** — Den Schaltflächen zum Deaktivieren und Reaktivieren von Projekten wurden Ladezustände hinzugefügt, um doppelte Übermittlungen zu verhindern.
-
-**Mobile Darstellung** — Der mobile Breiten-Breakpoint in der Adresstabelle wurde für korrekte responsive Darstellung angepasst.
-
-**Fehlerprotokollierung** — Die Fehlerprotokollierung in Projekt-, Adress- und Verkaufsstatus-Loadern wurde mit Konto- und Projektkennungen verbessert.
+**Mobile Darstellung** — Die Adresstabelle wird auf mobilen Geräten jetzt besser dargestellt.

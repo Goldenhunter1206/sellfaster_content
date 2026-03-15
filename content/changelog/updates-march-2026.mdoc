@@ -17,29 +17,27 @@ This release ships client management, member retention and anonymization, the fi
 
 ## Client Management
 
-A new **Clients** section is now available in the team account sidebar. Clients represent the companies or individuals your team sells to and can be managed independently of leads and addresses.
+A new **Clients** section is now available in the team account sidebar. Clients represent the companies or individuals your team sells to — you can track them separately from individual leads and addresses.
 
-Each client has a dedicated profile page with name, contact details, notes, a status (active or archived), and optional client-specific custom fields. The client detail page aggregates all linked interactions and sales, including totals and a full export.
+Each client has a dedicated profile page with name, contact details, notes, a status (active or archived), and optional client-specific custom fields. The client detail page shows all linked interactions and sales in one place, including totals and a full export.
 
-Leads and sales can be linked to a client record from the lead detail view, the sale detail view, or in bulk from the leads list. Client data is available as a data source in the dashboard widget wizard. Products and promotions can now be scoped to specific clients.
+Leads and sales can be linked to a client from the lead detail view, the sale detail view, or in bulk from the leads list. Client data is available as a source for dashboard widgets. Products and promotions can now be scoped to specific clients.
 
-Client access follows team role permissions: agents can view and link, managers can create and edit, owners have full access including archiving and custom field management.
+Client access follows team role permissions: agents can view and link clients, managers can create and edit them, and owners have full access including archiving and managing custom fields.
 
 ## Member Retention & Departed Member Handling
 
 Team accounts now have a configurable **Member Retention Days** setting (default: 90 days) in Team Administration → GDPR Settings. When a member leaves or their account is deleted, Sellfaster schedules their data for anonymization after the configured retention period.
 
-Departed members are tracked in a dedicated `departed_members` table. Their names continue to appear correctly in interaction history, sales history, and the activity feed — marked as departed — so historical records remain readable after they leave the team.
-
-A new `HistoricalUser` type standardizes how departed member data is resolved across all loaders and UI components. Profile links are hidden for departed members throughout the app.
+Departed members continue to appear correctly in interaction history, sales history, and the activity feed — marked as "departed" — so your historical records stay readable after they leave. Profile links for departed members are hidden throughout the app.
 
 ## Final GDPR Defaults
 
-The default value for **GDPR Relevant** on new custom fields has been changed to `true`, so personally identifiable fields are protected by default rather than requiring manual opt-in.
+The default for **GDPR Relevant** on new custom fields is now enabled, so personally identifiable fields are protected by default rather than requiring a manual opt-in.
 
-The default for **Max Retention Days** on new interaction states has been set to 90 days.
+The default retention period for new interaction states has been set to 90 days.
 
-The campaign configuration interaction state card now shows all GDPR columns: `scramble_data`, `allow_editing_contact`, and `max_retention_days`, consistent with the team-level states page.
+The interaction state configuration card in campaigns now shows all GDPR-related settings, consistent with the team-level states page.
 
 The GDPR Data Processing Agreement section in team settings has been updated.
 
@@ -47,32 +45,26 @@ The GDPR Data Processing Agreement section in team settings has been updated.
 
 Sellfaster has migrated its subscription billing from Lemon Squeezy to Stripe. Stripe acquired Lemon Squeezy, and we are moving to Stripe's native infrastructure.
 
-A new Stripe webhook handler processes subscription events and onboarding flows. Billing configuration has been updated with new Stripe line item IDs for the Starter and Premium plans. The Content Security Policy has been updated to replace Lemon Squeezy origins with Stripe URLs.
-
 Existing subscription plans, prices, and billing cycles are unchanged.
 
 ## Bug Fixes & Improvements
 
-**Access control** — Replaced the account-level filter options cache with a per-project cache. The previous implementation allowed salespeople assigned to one project to see filter values (cities, states) from projects they had no access to. The new cache enforces RLS: owners and admins see all projects; salespeople see only the projects they are assigned to.
+**Access control** — Fixed a privacy gap where team members could see location filters (cities, regions) from projects they weren't assigned to.
 
-**RLS fix** — Corrected the `project_addresses` UPDATE policy to require `addresses:update` permission only, removing `unit:create` which had been incorrectly added and allowed unauthorized updates.
+**Stale data on account switch** — Fixed an issue where switching accounts could briefly show data from your previous account.
 
-**Stale data on account switch** — Fixed the `useShowInTableFields` hook so that `initialData` takes precedence over previously cached data, preventing stale data from a prior account from appearing after switching.
+**Address filter persistence** — Fixed address filters not saving correctly — a failed save now properly reverts to your last saved filters.
 
-**Address filter persistence** — Fixed URL parameter handling for the `_nr` flag and improved optimistic updates in the address filter save hook so that a failed save correctly resets to the last known good state.
+**CSV export** — Leads CSV export now shows a clear error message if something goes wrong, instead of failing silently.
 
-**CSV export** — Wrapped the leads CSV export in error handling so that failures surface a meaningful error message instead of a silent crash.
+**Live updates** — Fixed real-time notifications that were sometimes not delivered due to incorrect caching.
 
-**Event-stream caching** — Fixed incorrect `Cache-Control` headers on SSE (Server-Sent Events) API routes that caused streaming responses to be cached by intermediaries.
+**Import reliability** — Improved reliability of bulk address imports.
 
-**Import performance** — Reduced the batch size for linking project addresses from 500 to 200 and replaced direct upserts with a `bulk_upsert_project_addresses` RPC call for more reliable bulk imports.
+**Deployment notifications** — You'll now see a prompt to refresh the page when a new version of Sellfaster is available or when a loading error is detected.
 
-**Stale deployment notifications** — Added a stale deployment handler and version updater: users are prompted to reload when a new version is available or when a chunk load error is detected.
+**Daily greeting** — Fixed the daily greeting not always remembering when you last saw it.
 
-**Daily greeting** — Fixed the daily greeting component so the last-seen date is correctly persisted on mount.
+**Project actions** — Cancel and reactivate project buttons now show a loading indicator to prevent accidental double-clicks.
 
-**Project actions** — Added loading states to project cancellation and reactivation buttons to prevent duplicate submissions.
-
-**Mobile layout** — Adjusted the mobile width breakpoint in the address table for correct responsive behavior.
-
-**Error logging** — Improved error logging with account and project identifiers across project, address, and sale state loaders.
+**Mobile layout** — Improved address table display on mobile devices.
