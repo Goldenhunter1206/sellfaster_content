@@ -1,0 +1,173 @@
+---
+title: Clients
+description: >-
+  Manage client companies, track revenue and commissions per client, link sales
+  to clients, and export a full client sales report.
+order: 7
+language: en
+categories:
+  - user-guide
+tags:
+  - team-account
+status: published
+collapsible: false
+collapsed: false
+---
+Manage client companies, track revenue and commissions per client, link sales to clients, and export a full client sales report.
+
+## Accessing Clients
+
+1. Ensure you are in your team account
+1. Click **Clients** in the sidebar
+1. The URL is `/home/[team]/clients`
+
+## Clients List
+
+The clients list shows all client companies in your account.
+
+### Table Columns
+
+{% table %}
+- Column
+- Description
+---
+- **Name**
+- Client company name
+---
+- **Description**
+- Optional description or project context
+---
+- **Status**
+- Active or Archived
+---
+- **Actions**
+- View details, edit, archive, or restore
+{% /table %}
+
+### Filtering and Sorting
+
+- **Search** — Filter by client name
+- **Archived** — Toggle to show archived clients alongside active ones
+- Clients are sorted by creation date by default
+
+## Creating a Client
+
+1. Click **Create Client**
+1. Enter the **Client Name** (required)
+1. Optionally add a **Description**
+1. Click **Create**
+
+## Editing a Client
+
+1. Open the actions menu (⋯) on a client row
+1. Click **Edit Client**
+1. Update the name or description
+1. Save
+
+## Archiving and Restoring a Client
+
+To archive a client:
+
+1. Open the actions menu (⋯) on the client row
+1. Click **Archive**
+
+Archived clients are hidden from the default view. To restore:
+
+1. Enable the **Archived** filter to show archived clients
+1. Open the actions menu (⋯) on the archived client
+1. Click **Restore**
+
+Archiving a client does not delete any linked sales or product data.
+
+## Client Detail Page
+
+Click **View Details** (or the client name) to open the client detail page.
+
+### Client KPIs
+
+The top of the detail page shows key financial metrics for the client:
+
+{% table %}
+- KPI
+- Description
+---
+- **Revenue**
+- Total gross revenue from all sales linked to this client
+---
+- **Sales Rep Commission Net**
+- Net commission earned by sales reps across all linked sales
+---
+- **Agency Commission Net**
+- Net agency commission across all linked sales
+---
+- **Client Owes Net**
+- Net amount the client still owes (revenue minus reclaimed amounts)
+---
+- **Total Reclaimed**
+- Total reclaimed amounts across all linked sales
+---
+- **Sales Rep Reclaimed**
+- Commission reclaimed from sales reps
+---
+- **Agency Reclaimed**
+- Agency commission reclaimed
+{% /table %}
+
+### Recent Sales
+
+The **Recent Sales** table lists the latest sales linked to this client:
+
+{% table %}
+- Column
+- Description
+---
+- **Product**
+- Product sold
+---
+- **Sale Date**
+- Date the sale was recorded
+---
+- **Order**
+- Linked order reference
+---
+- **Address**
+- Address where the sale took place
+{% /table %}
+
+### Product Performance
+
+The **Product Performance** section breaks down sales and revenue by product for this client.
+
+## Exporting Client Sales
+
+From the client detail page, click **Export Client Sales** to download a full report of all sales linked to the client. The export includes product, sale date, order, address, commissions, and reclaimed amounts.
+
+> The detail page shows a summary of recent sales. Use the export for the complete list.
+
+## Linking Sales to a Client
+
+Sales are linked to clients through products. A product can be assigned to a client when it is created or edited in **Inventory**. All sales of that product are then attributed to the linked client.
+
+See [Inventory](/docs/user-guide/team-account/inventory) for details on assigning products to clients.
+
+## Permissions
+
+{% table %}
+- Action
+- Required Role
+---
+- View clients list and detail
+- Agent, Manager, Owner
+---
+- Create and edit clients
+- Manager, Owner
+---
+- Archive and restore clients
+- Manager, Owner
+{% /table %}
+
+## Related Topics
+
+- [Inventory](/docs/user-guide/team-account/inventory) — Assign products to clients
+- [Team Sales](/docs/user-guide/team-account/sales) — Sales that generate client revenue
+- [Commission](/docs/user-guide/team-account/commission) — Commission calculations per sale

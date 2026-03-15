@@ -1,0 +1,103 @@
+---
+title: Member Retention & Departed Member Data
+description: >-
+  Configure how long departed member data is retained before anonymization,
+  and understand how Sellfaster handles historical records for team members
+  who have left.
+order: 9
+language: en
+categories:
+  - user-guide
+tags:
+  - team-administration
+status: published
+collapsible: false
+collapsed: false
+---
+Configure how long departed member data is retained before anonymization, and understand how Sellfaster handles historical records for team members who have left.
+
+## Overview
+
+When a team member leaves — either by being removed from the team or by deleting their personal account — Sellfaster does not immediately erase their data. Instead, it schedules anonymization after a configurable retention period. During this window, historical records (interactions, sales, activity feed entries) continue to display the departed member's name correctly, clearly marked as departed.
+
+This approach balances two needs:
+
+- **Business continuity** — managers and owners can still read historical records and understand who did what
+- **Data minimization** — personal data is automatically removed once the retention period has passed, without requiring manual intervention
+
+## Accessing the Setting
+
+The **Member data retention period** setting is part of the GDPR Settings page, which is accessible to team owners only.
+
+1. Ensure you are the team owner
+1. Click **Settings** in the sidebar
+1. Select the **GDPR Settings** tab
+1. Scroll to the **Member data retention period (days)** field
+1. The URL is `/home/[team]/settings/gdpr`
+
+## Member Data Retention Period
+
+{% table %}
+- Setting
+- Default
+- Minimum
+- Description
+---
+- **Member data retention period (days)**
+- 90
+- 1
+- Number of days after a member leaves before their personal data is anonymized
+{% /table %}
+
+Enter the number of days and click **Save**.
+
+A value of 90 days means a departed member's name and personal data remain readable in historical records for 90 days after they leave. After that period, the anonymization job runs and replaces their data with anonymized placeholders.
+
+## What Triggers Anonymization Scheduling
+
+Anonymization is scheduled automatically in two situations:
+
+- **Member removed from team** — when an owner removes a member from the team account, Sellfaster records their departure and schedules anonymization for the configured number of days later
+- **Personal account deletion** — when a user deletes their personal Sellfaster account, all team memberships are ended and departures are recorded for each team
+
+## What Gets Anonymized
+
+After the retention period expires, the following personal data is anonymized for the departed member:
+
+- Display name in historical interaction records
+- Display name in historical sale records
+- Display name in activity feed entries
+- Any other personally identifiable attributes stored for that member
+
+The interaction and sale records themselves are **not deleted** — only the attribution to the specific individual is anonymized. Historical counts, timestamps, and business data remain intact.
+
+## Departed Members in the UI
+
+While a member's data is within the retention window (i.e., not yet anonymized), their name appears in historical records marked as **departed**. Profile links for departed members are disabled throughout the app — clicking a departed member's name does not navigate to a profile page.
+
+After anonymization, their name is replaced with an anonymized placeholder in all historical records.
+
+## Relationship to GDPR Customer Requests
+
+Member retention is separate from the **GDPR Customer Requests** tools (Search, Export, Erase), which are designed for responding to data subject requests from customers (leads). If a former team member submits a formal erasure request under GDPR Article 17, use the GDPR Customer Requests → Erase flow rather than relying on automatic retention.
+
+See [GDPR Settings & Data Protection](/docs/user-guide/team-administration/gdpr-settings) for the full GDPR toolset.
+
+## Permissions
+
+{% table %}
+- Action
+- Required Role
+---
+- View Member data retention period setting
+- Owner only
+---
+- Change Member data retention period
+- Owner only
+{% /table %}
+
+## Related Topics
+
+- [GDPR Settings & Data Protection](/docs/user-guide/team-administration/gdpr-settings) — Full GDPR toolset including orphan retention, Scramble Data, and customer requests
+- [Member Management](/docs/user-guide/team-administration/member-management) — Adding and removing team members
+- [Audit Logs](/docs/user-guide/team-administration/audit-logs) — Audit trail for member activity

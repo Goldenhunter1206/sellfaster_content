@@ -1,0 +1,103 @@
+---
+title: Mitarbeiterdaten-Aufbewahrung & ausgeschiedene Mitglieder
+description: >-
+  Konfigurieren Sie, wie lange Daten ausgeschiedener Mitglieder vor der
+  Anonymisierung aufbewahrt werden, und verstehen Sie, wie Sellfaster
+  historische Datensätze für Teammitglieder verwaltet, die das Team verlassen haben.
+order: 9
+language: de
+categories:
+  - user-guide
+tags:
+  - team-administration
+status: published
+collapsible: false
+collapsed: false
+---
+Konfigurieren Sie, wie lange Daten ausgeschiedener Mitglieder vor der Anonymisierung aufbewahrt werden, und verstehen Sie, wie Sellfaster historische Datensätze für Teammitglieder verwaltet, die das Team verlassen haben.
+
+## Übersicht
+
+Wenn ein Teammitglied das Team verlässt — entweder durch Entfernen aus dem Team oder durch Löschen seines persönlichen Kontos — löscht Sellfaster seine Daten nicht sofort. Stattdessen wird die Anonymisierung nach einer konfigurierbaren Aufbewahrungsfrist geplant. In diesem Zeitraum werden historische Datensätze (Interaktionen, Verkäufe, Aktivitätsfeed-Einträge) mit dem Namen des ausgeschiedenen Mitglieds weiterhin korrekt angezeigt, klar als ausgeschieden markiert.
+
+Dieser Ansatz verbindet zwei Anforderungen:
+
+- **Betriebskontinuität** — Manager und Eigentümer können historische Datensätze weiterhin lesen und nachvollziehen, wer was getan hat
+- **Datensparsamkeit** — Personenbezogene Daten werden nach Ablauf der Aufbewahrungsfrist automatisch gelöscht, ohne manuellen Eingriff
+
+## Zugriff auf die Einstellung
+
+Die Einstellung **Mitgliederdaten-Aufbewahrungsfrist (Tage)** ist Teil der DSGVO-Einstellungsseite, die nur für Teameigentümer zugänglich ist.
+
+1. Stellen Sie sicher, dass Sie Teameigentümer sind
+1. Klicken Sie auf **Einstellungen** in der Seitenleiste
+1. Wählen Sie den Tab **DSGVO-Einstellungen**
+1. Scrollen Sie zum Feld **Mitgliederdaten-Aufbewahrungsfrist (Tage)**
+1. Die URL ist `/home/[team]/settings/gdpr`
+
+## Mitgliederdaten-Aufbewahrungsfrist
+
+{% table %}
+- Einstellung
+- Standard
+- Minimum
+- Beschreibung
+---
+- **Mitgliederdaten-Aufbewahrungsfrist (Tage)**
+- 90
+- 1
+- Anzahl der Tage nach dem Ausscheiden eines Mitglieds, bevor seine personenbezogenen Daten anonymisiert werden
+{% /table %}
+
+Geben Sie die Anzahl der Tage ein und klicken Sie auf **Speichern**.
+
+Ein Wert von 90 Tagen bedeutet, dass der Name und die personenbezogenen Daten eines ausgeschiedenen Mitglieds für 90 Tage nach dem Ausscheiden in historischen Datensätzen lesbar bleiben. Nach Ablauf dieses Zeitraums wird der Anonymisierungsjob ausgeführt und ersetzt die Daten durch anonymisierte Platzhalter.
+
+## Was die Anonymisierungsplanung auslöst
+
+Die Anonymisierung wird in zwei Situationen automatisch geplant:
+
+- **Mitglied aus Team entfernt** — wenn ein Eigentümer ein Mitglied aus dem Teamkonto entfernt, erfasst Sellfaster das Ausscheiden und plant die Anonymisierung für die konfigurierte Anzahl von Tagen später
+- **Löschung des persönlichen Kontos** — wenn ein Benutzer sein persönliches Sellfaster-Konto löscht, werden alle Teammitgliedschaften beendet und Ausscheidungen für jedes Team erfasst
+
+## Was anonymisiert wird
+
+Nach Ablauf der Aufbewahrungsfrist werden folgende personenbezogene Daten des ausgeschiedenen Mitglieds anonymisiert:
+
+- Anzeigename in historischen Interaktionsdatensätzen
+- Anzeigename in historischen Verkaufsdatensätzen
+- Anzeigename in Aktivitätsfeed-Einträgen
+- Alle anderen personenbezogenen Attribute, die für dieses Mitglied gespeichert sind
+
+Die Interaktions- und Verkaufsdatensätze selbst werden **nicht gelöscht** — nur die Zuordnung zu der spezifischen Person wird anonymisiert. Historische Zählungen, Zeitstempel und Geschäftsdaten bleiben erhalten.
+
+## Ausgeschiedene Mitglieder in der Benutzeroberfläche
+
+Solange sich die Daten eines Mitglieds innerhalb der Aufbewahrungsfrist befinden (d. h. noch nicht anonymisiert), erscheint ihr Name in historischen Datensätzen als **ausgeschieden** markiert. Profillinks für ausgeschiedene Mitglieder sind in der gesamten App deaktiviert — das Klicken auf den Namen eines ausgeschiedenen Mitglieds navigiert nicht zu einer Profilseite.
+
+Nach der Anonymisierung wird ihr Name in allen historischen Datensätzen durch einen anonymisierten Platzhalter ersetzt.
+
+## Verhältnis zu DSGVO-Kundenanfragen
+
+Die Mitgliederbindung ist von den **DSGVO-Kundenanfragen**-Werkzeugen (Suche, Export, Löschen) getrennt, die für die Bearbeitung von Betroffenenanfragen von Kunden (Leads) konzipiert sind. Wenn ein ehemaliges Teammitglied einen formellen Löschantrag gemäß DSGVO Artikel 17 stellt, verwenden Sie den DSGVO-Kundenanfragen → Löschen-Ablauf anstatt sich auf die automatische Aufbewahrung zu verlassen.
+
+Den vollständigen DSGVO-Werkzeugkasten finden Sie unter [DSGVO-Einstellungen & Datenschutz](/docs/user-guide-de/team-administration/gdpr-settings).
+
+## Berechtigungen
+
+{% table %}
+- Aktion
+- Erforderliche Rolle
+---
+- Einstellung der Mitgliederdaten-Aufbewahrungsfrist anzeigen
+- Nur Eigentümer
+---
+- Mitgliederdaten-Aufbewahrungsfrist ändern
+- Nur Eigentümer
+{% /table %}
+
+## Verwandte Themen
+
+- [DSGVO-Einstellungen & Datenschutz](/docs/user-guide-de/team-administration/gdpr-settings) — Vollständiger DSGVO-Werkzeugkasten mit verwaisten Daten, Datenanonymisierung und Kundenanfragen
+- [Mitgliederverwaltung](/docs/user-guide-de/team-administration/member-management) — Teammitglieder hinzufügen und entfernen
+- [Prüfprotokolle](/docs/user-guide-de/team-administration/audit-logs) — Prüfpfad für Mitgliederaktivitäten

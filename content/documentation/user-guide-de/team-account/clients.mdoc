@@ -1,0 +1,174 @@
+---
+title: Kunden
+description: >-
+  Kundenunternehmen verwalten, Umsatz und Provisionen pro Kunde verfolgen,
+  Verkäufe mit Kunden verknüpfen und einen vollständigen Kundenumsatzbericht
+  exportieren.
+order: 7
+language: de
+categories:
+  - user-guide
+tags:
+  - team-account
+status: published
+collapsible: false
+collapsed: false
+---
+Kundenunternehmen verwalten, Umsatz und Provisionen pro Kunde verfolgen, Verkäufe mit Kunden verknüpfen und einen vollständigen Kundenumsatzbericht exportieren.
+
+## Zugriff auf Kunden
+
+1. Stellen Sie sicher, dass Sie sich in Ihrem Teamkonto befinden
+1. Klicken Sie auf **Kunden** in der Seitenleiste
+1. Die URL ist `/home/[team]/clients`
+
+## Kundenliste
+
+Die Kundenliste zeigt alle Kundenunternehmen in Ihrem Konto.
+
+### Tabellenspalten
+
+{% table %}
+- Spalte
+- Beschreibung
+---
+- **Name**
+- Name des Kundenunternehmens
+---
+- **Beschreibung**
+- Optionale Beschreibung oder Projektkontext
+---
+- **Status**
+- Aktiv oder Archiviert
+---
+- **Aktionen**
+- Details anzeigen, bearbeiten, archivieren oder wiederherstellen
+{% /table %}
+
+### Filtern und Sortieren
+
+- **Suche** — Nach Kundennamen filtern
+- **Archiviert** — Umschalten, um archivierte Kunden neben aktiven anzuzeigen
+- Kunden werden standardmäßig nach Erstellungsdatum sortiert
+
+## Kunden erstellen
+
+1. Klicken Sie auf **Kunde erstellen**
+1. Geben Sie den **Kundennamen** ein (erforderlich)
+1. Fügen Sie optional eine **Beschreibung** hinzu
+1. Klicken Sie auf **Erstellen**
+
+## Kunden bearbeiten
+
+1. Öffnen Sie das Aktionsmenü (⋯) in einer Kundenzeile
+1. Klicken Sie auf **Kunde bearbeiten**
+1. Name oder Beschreibung aktualisieren
+1. Speichern
+
+## Kunden archivieren und wiederherstellen
+
+So archivieren Sie einen Kunden:
+
+1. Öffnen Sie das Aktionsmenü (⋯) in der Kundenzeile
+1. Klicken Sie auf **Archivieren**
+
+Archivierte Kunden sind in der Standardansicht ausgeblendet. So stellen Sie einen Kunden wieder her:
+
+1. Aktivieren Sie den Filter **Archiviert**, um archivierte Kunden anzuzeigen
+1. Öffnen Sie das Aktionsmenü (⋯) beim archivierten Kunden
+1. Klicken Sie auf **Wiederherstellen**
+
+Das Archivieren eines Kunden löscht keine verknüpften Verkäufe oder Produktdaten.
+
+## Kundendetailseite
+
+Klicken Sie auf **Details anzeigen** (oder den Kundennamen), um die Kundendetailseite zu öffnen.
+
+### Kunden-KPIs
+
+Oben auf der Detailseite werden wichtige Finanzkennzahlen für den Kunden angezeigt:
+
+{% table %}
+- KPI
+- Beschreibung
+---
+- **Umsatz**
+- Gesamtbruttoumsatz aller mit diesem Kunden verknüpften Verkäufe
+---
+- **Netto-Verkäuferprovision**
+- Nettoprovision der Verkäufer aus allen verknüpften Verkäufen
+---
+- **Netto-Agenturanteil**
+- Netto-Agenturanteil aus allen verknüpften Verkäufen
+---
+- **Offener Betrag (netto)**
+- Nettobetrag, den der Kunde noch schuldet (Umsatz abzüglich Rückforderungen)
+---
+- **Gesamtrückforderungen**
+- Gesamte Rückforderungsbeträge aus allen verknüpften Verkäufen
+---
+- **Rückforderung des Verkäufers**
+- Von Verkäufern zurückgeforderte Provision
+---
+- **Rückforderung der Agentur**
+- Zurückgeforderter Agenturanteil
+{% /table %}
+
+### Letzte Verkäufe
+
+Die Tabelle **Letzte Verkäufe** listet die neuesten mit diesem Kunden verknüpften Verkäufe auf:
+
+{% table %}
+- Spalte
+- Beschreibung
+---
+- **Produkt**
+- Verkauftes Produkt
+---
+- **Verkaufsdatum**
+- Datum der Verkaufserfassung
+---
+- **Bestellung**
+- Verknüpfte Bestellreferenz
+---
+- **Adresse**
+- Adresse, an der der Verkauf stattgefunden hat
+{% /table %}
+
+### Produktleistung
+
+Der Abschnitt **Produktleistung** schlüsselt Verkäufe und Umsatz nach Produkt für diesen Kunden auf.
+
+## Kundenumsätze exportieren
+
+Klicken Sie auf der Kundendetailseite auf **Kundenverkäufe exportieren**, um einen vollständigen Bericht aller mit dem Kunden verknüpften Verkäufe herunterzuladen. Der Export enthält Produkt, Verkaufsdatum, Bestellung, Adresse, Provisionen und Rückforderungsbeträge.
+
+> Die Detailseite zeigt eine Zusammenfassung der letzten Verkäufe. Für die vollständige Liste verwenden Sie den Export.
+
+## Verkäufe mit einem Kunden verknüpfen
+
+Verkäufe werden über Produkte mit Kunden verknüpft. Ein Produkt kann beim Erstellen oder Bearbeiten im **Inventar** einem Kunden zugewiesen werden. Alle Verkäufe dieses Produkts werden dann dem verknüpften Kunden zugerechnet.
+
+Weitere Informationen zur Zuweisung von Produkten zu Kunden finden Sie unter [Inventar](/docs/user-guide-de/team-account/inventory).
+
+## Berechtigungen
+
+{% table %}
+- Aktion
+- Erforderliche Rolle
+---
+- Kundenliste und Details anzeigen
+- Mitarbeiter, Manager, Eigentümer
+---
+- Kunden erstellen und bearbeiten
+- Manager, Eigentümer
+---
+- Kunden archivieren und wiederherstellen
+- Manager, Eigentümer
+{% /table %}
+
+## Verwandte Themen
+
+- [Inventar](/docs/user-guide-de/team-account/inventory) — Produkte Kunden zuweisen
+- [Team-Verkäufe](/docs/user-guide-de/team-account/sales) — Verkäufe, die Kundenumsatz generieren
+- [Provision](/docs/user-guide-de/team-account/commission) — Provisionsberechnungen pro Verkauf
